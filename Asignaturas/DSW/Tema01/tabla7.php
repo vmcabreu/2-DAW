@@ -13,6 +13,13 @@
                 echo "<tr><td>7</td><td>*</td><td>$i</td><td> = </td><td>",(7*$i),"</td></tr>\n";
             }
         ?>
+        <br>
+        <?php 
+            for ($i=1; $i < 10; $i++) { 
+                echo "<tr><td>8</td><td>*</td><td>$i</td><td> = </td><td>",(8*$i),"</td></tr>\n";
+            }
+        ?>
+        
     </table>
     
 </body>
