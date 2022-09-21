@@ -1,4 +1,3 @@
-
 let itinerante1;
 let itinerante2;
 console.log("Ejercicio 05:");
