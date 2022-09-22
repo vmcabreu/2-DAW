@@ -5,7 +5,7 @@ let letras=1;
 const paises=["Madrid","París","Venezuela","Londres","Viena","Berlin","Caracas","Buenos Aires","Brasilia","Mexico"]
 const respuesta= paises[parseInt(Math.random() * 11)];
 do{
-    let capital = prompt("Ejercicio 07:  \n\n Adivina la capital del país \n\n Intentos: "+intentos+" \n\n Introduce tu respuesta: ");
+    let capital = prompt("Ejercicio 07:  \n\n Adivina la capital del país \n\n Intentos: "+intentos+" \n\n Pista: "+ respuesta.substring(0,4-intentos)+"\n\n Introduce tu respuesta: ");
     if (capital==respuesta) {
         alert("¡Felicidades!\n\n¡Lo has conseguido!");
         resultado07 = "¡Felicidades!¡Lo has conseguido!"
@@ -13,9 +13,6 @@ do{
     } else {
         intentos--;
         alert("Has fallado. Sigue intentandolo\n\nIntentos:"+intentos);
-        if (intentos!=0) {
-            alert("Pista: "+ respuesta.substring(0,3-intentos));
-        }
         
     }
 
