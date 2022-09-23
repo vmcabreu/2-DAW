@@ -4,8 +4,14 @@
     border: 0;
     box-sizing: border-box;
     text-align: center;
+    
 
 }
+
+#grad {
+  background-image: linear-gradient( rgb(0, 255, 195), rgba(174, 255, 212, 1));
+}
+
 h1{
     margin: auto;
     text-align: center;
@@ -13,7 +19,9 @@ h1{
 a {
 font-size: 28px;
     border: 1px solid;
+    border-radius: 14%;
     text-align: center;
+    
     line-height: 10vh;
     padding-block: 10px;
     padding-left: 10px;
