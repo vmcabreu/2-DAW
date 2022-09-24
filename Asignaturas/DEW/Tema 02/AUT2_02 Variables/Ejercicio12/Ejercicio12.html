@@ -12,9 +12,11 @@
         <h2>ACTIVIDAD 12:</h2>
         <p>En el ejercicio anterior, añadir un argumento opcional booleano de forma que si está a `False` (valor por defecto) devuelve sólo el resultado numérico (p.ej: `24`), mientras que si se indica `True` le añade la unidad `ºC` (p.ej `24ºC`).</p>
         <h3>Resultado:</h3>
-        <label for="tick">Activar: </label>
-        <input type="checkbox" id="tick" name="tick">
-        <p id="resultado1"></p>
+        <form>
+            <button onclick="activar()">Activar</button>
+            <button onclick="desactivar()">Desactivar</button>
+        </form>
+        <p id="activar()"></p>
         <p id="resultado2"></p>
         <script src="Ejercicio12.js"></script>
     </body>

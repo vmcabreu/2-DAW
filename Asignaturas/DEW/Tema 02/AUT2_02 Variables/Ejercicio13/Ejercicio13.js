@@ -1,28 +1,21 @@
-function ejercicio8() {
-    let vector1 = Number(document.getElementById("v1").value);
-    let vector2 = Number(document.getElementById("v2").value);
-    let vector3 = Number(document.getElementById("v2").value);
-    let sumavectores = vector1 + vector2 + vector3;
 
-    if (vector1 < 0 || vector2 < 0 || vector3 < 0) {
-        alert("¡Error!\n\n Uno de los valores es menor que 0");
-    } else {
-        console.log("Prueba A: Aprobada")
+let precio = Number(Math.round(Math.random() * 2000)) + "€";
+document.getElementById("precio").innerHTML = precio;
+
+
+
+function ejercicio13() {
+    let precioCalc = Number(precio);
+    let pago = Number(document.getElementById("v1").value);
+    let cambioEuro = pago - precio;
+    let billetes = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+    let cambio = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    for (let index = 0; index < cambio.length; index++) {
+
     }
 
-    if (vector1 == 0 && vector2 == 0 && vector3 == 0) {
-        alert("¡Error!\n\n Todos los valores son 0");
-    } else {
-        console.log("Prueba B: Aprobada");
-    }
-    
-    if (sumavectores > 10 && vector1 != vector2 || vector1 != vector3 || vector2 != vector3) {
-        alert("¡Error!\n\n Las sumavectores de las 3 variables es mayor que 10 y las tres variables son diferentes");
-    } else {
-        console.log("Prueba C: Aprobada");
-    }
-
-    document.getElementById("resultado8").innerHTML = "¡Perfecto!";
+    alert("El cambio es: " + cambioEuro);
 }
 
 

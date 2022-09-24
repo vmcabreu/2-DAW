@@ -1,23 +1,30 @@
-function FarenheitToCelsius(farenheit){
-    let celsius = Math.round((farenheit - 32) * 5/9);
-    return celsius
+let interruptor = false;
+function FarenheitToCelsius(farenheit) {
+    let celsius = Math.round((farenheit - 32) * 5 / 9);
+    return celsius;
 }
 
-function check() {
-    document.getElementById("tick").checked = true;
+function activacion() {
+    interruptor = interruptor? false : true;
+    
 }
 
-function uncheck() {
-    document.getElementById("tick").checked = false;
+function desactivar() {
+    interruptor = !interruptor;
 }
 
-if (document.getElementById("tick").checked == true) {
-    document.getElementById("resultado1").innerHTML = "La conversión de 32ºF a Celsius son: "+FarenheitToCelsius(32)+"ºC";
-document.getElementById("resultado2").innerHTML = "La conversión de 75.2ºF a Celsius son: "+FarenheitToCelsius(75,2)+"ºC";
+function resultado() {
+    let resultado = "";
+    if (interruptor == true) {
+     resultado += "La conversión de 32ºF a Celsius son: " + FarenheitToCelsius(32) + "ºC <br> La conversión de 75.2ºF a Celsius son: " + FarenheitToCelsius(75, 2) + "ºC";    
+    } else {
+     resultado += "La conversión de 32ºF a Celsius son: " + FarenheitToCelsius(32) + " <br> La conversión de 75.2ºF a Celsius son: " + FarenheitToCelsius(75, 2);
+    }
 
-} else {
-    document.getElementById("resultado1").innerHTML = "La conversión de 32ºF a Celsius son: "+FarenheitToCelsius(32);
-document.getElementById("resultado2").innerHTML = "La conversión de 75.2ºF a Celsius son: "+FarenheitToCelsius(75,2);
-
+    return resultado ;
+    
 }
+
+document.getElementById("resultado").innerHTML = resultado();
+
 
