@@ -4,7 +4,7 @@ function ejercicio5() {
         let n2=Number(document.getElementById("n2").value);
         let suma = n1 + n2;
         console.log("La suma de "+n1+" + "+n2+" es: "+suma);
-        return suma
+        alert("Revisa la consola.(No cierres esta ventana)")
         
     }
     

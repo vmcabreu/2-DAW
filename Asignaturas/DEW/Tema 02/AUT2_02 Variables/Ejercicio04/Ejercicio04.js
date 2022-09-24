@@ -7,7 +7,7 @@ function ejercicio4() {
     let n2posterior = n2 + 1;
     let n3posterior = n3 + 1;
     
-    //alert("Los numeros son " + n1 + "," + n2 + "," + n3 + " y sus numeros posteriores son " + n1posterior + "," + n2posterior + "," + n3posterior);
+    alert("Los numeros son " + n1 + "," + n2 + "," + n3 + " y sus numeros posteriores son " + n1posterior + "," + n2posterior + "," + n3posterior);
 }   
 
 

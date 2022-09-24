@@ -7,7 +7,7 @@ function ejercicio8() {
     if (vector1 < 0 || vector2 < 0 || vector3 < 0) {
         alert("¡Error!\n\n Uno de los valores es menor que 0");
     } else {
-        console.log("Prueba A: Aprobada")
+        console.log("Prueba A: Aprobada");
     }
 
     if (vector1 == 0 && vector2 == 0 && vector3 == 0) {
