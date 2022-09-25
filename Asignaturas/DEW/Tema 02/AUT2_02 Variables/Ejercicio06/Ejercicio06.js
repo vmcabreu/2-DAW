@@ -1,24 +1,11 @@
 
 function ejercicio6() {
+    event.preventDefault();
     let natural = Number(document.getElementById("v06").value);
     let tope= natural+5
     let suma5=((tope - natural + 1)*(tope + natural))/2;
     console.log("La suma de "+natural+" y sus 5 números siguientes es : "+suma5); 
-    alert("Observa la consola del navegador");
-
-}
-
-function ejercicio6R() {
-    let natural = Number(document.getElementById("v06").value);
-    for (let index = 0; index < 5; index++) {
-        
-        let naturalAleatorio = parseInt(1 + Math.random() * 10);
-        let tope= naturalAleatorio+5
-        let suma5r=((tope - naturalAleatorio + 1)*(tope + naturalAleatorio))/2;
-        console.log("La suma de "+naturalAleatorio+" y sus 5 números siguientes es : "+suma5r); 
-    }
-
-    alert("¡Terminado! Observa la consola del navegador");
+    document.getElementById("resultado6").innerHTML = "¡Terminado! Observa la consola del navegador";
 
 }
 
