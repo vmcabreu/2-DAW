@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+h1 {
+    color: aliceblue;
+}
+
+
+body {
+    background-image: url(Imagenes/bg.jpg);
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+}
+
+a {
+   
+
+    
+}
+
+.button {
+    background-image: linear-gradient(rgb(0, 255, 195), rgba(174, 255, 212, 1));
+    font-size: 28px;
+    border: 1px solid;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 15vh;
+    
+    padding-block: 10px;
+    padding-left: 20px;
+    padding-right: 20px;  
+}
+
+.button:hover {
+    background-image: linear-gradient(rgb(0, 104, 80), rgb(76, 114, 94));
+    color: white;
+  }
+
+.button:active{
+    background-image: linear-gradient(rgb(87, 255, 216)rgb(87, 255, 216)4);
+    color: black;
+    opacity: 1;
+  }

@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+input[type=checkbox] + label {
+    color: aliceblue;
+}
+
+input[type=checkbox] + label:hover {
+    background-color: cornflowerblue;
+}
+
+
+
+body {
+    background-image: url(Imagenes/bg.jpg);
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(234, 234, 234));
+}
+
+h2, h3, p, label{
+    color: aliceblue;
+}
+
+
+button{
+    border: 2px solid rgb(59, 59, 59);
+    font-size: larger;
+    border-radius: 20px;
+    padding: 7px;
+}
+
+
+
+.button {
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(234, 234, 234));
+    font-size: 28px;
+    border: 1px solid;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 15vh;
+    padding-block: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;  
+}
+
+.button:hover {
+    background-image: linear-gradient(rgb(77, 77, 77), rgb(173, 173, 173));
+    color: white;
+  }
+
+.button:active{
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(234, 234, 234));
+    color: black;
+    opacity: 1;
+  }
+
+  .button2 {
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(234, 234, 234));
+    font-size: larger;
+    border: 1px solid;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.button2:hover {
+    background-image: linear-gradient(rgb(77, 77, 77), rgb(173, 173, 173));
+    color: white;
+  }
+
+.button2:active{
+    background-image: linear-gradient(rgb(131, 131, 131), rgb(234, 234, 234));
+    color: black;
+    opacity: 1;
+  }
