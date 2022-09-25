@@ -1,7 +1,5 @@
 function ejercicio14() {
-    let vector1 = Number(document.getElementById("v1").value);
-    let vector2 = Number(document.getElementById("v2").value);
-    let vector3 = Number(document.getElementById("v2").value);
+    let fecha = Date(document.getElementById("v1").value);
     let sumavectores = vector1 + vector2 + vector3;
 
     if (vector1 < 0 || vector2 < 0 || vector3 < 0) {
