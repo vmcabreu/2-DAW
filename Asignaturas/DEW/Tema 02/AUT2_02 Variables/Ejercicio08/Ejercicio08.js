@@ -1,4 +1,5 @@
 function ejercicio8() {
+    event.preventDefault();
     let vector1 = Number(document.getElementById("v1").value);
     let vector2 = Number(document.getElementById("v2").value);
     let vector3 = Number(document.getElementById("v2").value);
