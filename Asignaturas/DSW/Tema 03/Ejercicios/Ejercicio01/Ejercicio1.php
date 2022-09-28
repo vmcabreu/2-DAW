@@ -1,7 +1,6 @@
 Ejercicio 1 - Programa que reciba por "GET" número de filas (f) y número de columnas (c) y
 muestre formulario para pedir 2 matrices de fxc y que al enviar los datos muestre la suma de ambas
-(ampliar para el producto de matrices)
-
+(ampliar para el producto de matrices).
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -12,9 +11,9 @@ muestre formulario para pedir 2 matrices de fxc y que al enviar los datos muestr
     <body>
         <h1></h1>
         <?php
-        $filas=$_GET['filas'];
-        $columnas=$_GET['columnas'];
-        function ponerMatriz($nombreArray){
+        $filas=intval($_GET['f']);
+        $columnas=intval($_GET["c"]);
+        function ponerMatriz($nombreArray,$filas,$columnas){
             for ($f=0; $f < $filas ; $f++) { 
                 echo "<tr>\n";
                 for ($c=0; $c < $columnas ; $c++) { 
@@ -34,7 +33,7 @@ muestre formulario para pedir 2 matrices de fxc y que al enviar los datos muestr
                         <table border="1">
                             <caption>A</caption>
                             <?php
-                                
+                                ponerMatriz('a',$filas,$columnas);
                             ?>
                         </table>
                     </td>
@@ -42,8 +41,8 @@ muestre formulario para pedir 2 matrices de fxc y que al enviar los datos muestr
                         <table border="1">
                             <caption>B</caption>
                             <?php
-                                
-                                ?>
+                                ponerMatriz('b',$filas,$columnas);
+                            ?>
                         </table>
                     </td>
                 </tr>
