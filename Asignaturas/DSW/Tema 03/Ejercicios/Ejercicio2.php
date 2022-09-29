@@ -30,22 +30,22 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 02</h1>
     <?php
-      $primitiva = [];
-    do {
-        $rando = rand(1, 49);
-        in_array($rando, $primitiva) ? : array_push($primitiva,$rando) ;
-    } while (count($primitiva) < 6);
+    $primitiva = [];
+        do {
+            $rando = rand(1, 49);
+            in_array($rando, $primitiva) ? : array_push($primitiva,$rando) ;
+        } while (count($primitiva) < 6);
 
     sort($primitiva);
     $fechaH = date("d/m/Y:H:i:s");
     echo "<table>\n";
     echo "<tr>";
     echo "<td>Sorteo del dia: $fechaH</td>";
-    for ($i = 0; $i < 6; $i++) {
-        echo "<td>";
-        echo "Número " . ($i + 1) . ": $primitiva[$i]";
-        echo "</td>";
-    }
+        for ($i = 0; $i < 6; $i++) {
+            echo "<td>";
+            echo "Número " . ($i + 1) . ": $primitiva[$i]";
+            echo "</td>";
+        }
     echo "</tr>";
     echo "</table>\n";
     ?>
