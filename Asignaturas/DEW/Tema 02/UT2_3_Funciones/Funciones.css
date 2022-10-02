@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-image: url(Imagenes/bg.jpg);
+}
+
+h1 {
+    margin: auto;
+    background-color: rgba(150, 243, 255, 0.589);
+}
+h2 {
+    margin: auto;
+    background-color: rgba(150, 243, 255, 0.589);
+}
+td{
+    background-color: rgba(150, 243, 255, 0.589); 
+    padding: 5px;
+    margin: 2px;
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+table{
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    height: 30vh;
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+td:hover {
+    background-color: rgba(150, 243, 255, 1); 
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+  }
+a:hover {
+    background-color: rgba(150, 243, 255, 1); 
+    color: black;
+  }
+
+.button:active{
+    background-image: linear-gradient(rgb(87, 255, 216)rgb(87, 255, 216)4);
+    color: black;
+    opacity: 1;
+  }
+
+td.titulo {
+    background-image: linear-gradient(rgb(87, 255, 216)rgb(87, 255, 216)4);
+    color: black;
+}

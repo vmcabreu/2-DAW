@@ -1,9 +1,65 @@
-let numero = 15;
-let potencia= 15;
-
-for (let i = 1; i < 6; i++) {
-    potencia *= numero;
+function EJ0101(params) {
+    event.preventDefault();
+    if (2 > (3 +2)) {
+        document.getElementById("EJ0101").innerHTML = "Test";
+    }
+    console.error();
+    
     
 }
 
-document.getElementById("resultado1").innerHTML = potencia;
+function EJ0102(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0103(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0104(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0105(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0106(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0107(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0108(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
+
+function EJ0109(params) {
+    
+    
+    document.getElementById("resultado1").innerHTML = potencia;
+    
+}
