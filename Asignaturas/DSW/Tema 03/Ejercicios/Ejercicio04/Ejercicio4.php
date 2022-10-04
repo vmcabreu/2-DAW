@@ -38,26 +38,26 @@ declare(strict_types=1);
     $primitiva = [];
     do {
         $rando = rand(1, 49);
-        in_array($rando, $primitiva) ? : array_push($primitiva,$rando) ;
+        in_array($rando, $primitiva) ?: array_push($primitiva, $rando);
     } while (count($primitiva) < 6);
     sort($primitiva);
     $fechaH = date("d/m/Y:H:i:s");
     echo "<table>\n";
     echo "<tr>";
     echo "<td colspan=3 >Sorteo del dia: $fechaH</td>";
-        for ($i = 0; $i < 6; $i++) {
-            
-            echo "<td>";
-            if ($primitiva[$i]>9) {
-                echo 'Número ' . ($i + 1) . ': <div><img src="imagenes/'.substr(strval($primitiva[$i]),0,1).'.png" > <img src="imagenes/'.substr(strval($primitiva[$i]),1,1).'.png"></div>';
-            }else {
-                echo 'Número ' . ($i + 1) . ': <div><img src="imagenes/'.$primitiva[$i].'.png"></div>';
-            }
-            echo "</td>";
-            
+    for ($i = 0; $i < 6; $i++) {
+
+        echo "<td>";
+        if ($primitiva[$i] > 9) {
+            echo 'Número ' . ($i + 1) . ': <div><img src="imagenes/' . substr(strval($primitiva[$i]), 0, 1) . '.png" /> <img src="imagenes/' . substr(strval($primitiva[$i]), 1, 1) . '.png"/></div>';
+        } else {
+            echo 'Número ' . ($i + 1) . ': <div><img src="imagenes/' . $primitiva[$i] . '.png"></div>';
         }
+        echo "</td>";
+    }
     echo "</tr>";
     echo "</table>\n";
     ?>
 </body>
+
 </html>

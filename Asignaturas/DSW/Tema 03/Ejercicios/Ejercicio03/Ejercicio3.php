@@ -32,19 +32,17 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 03</h1>
     <?php
-    $numeros = [];
-    for ($i = 0; $i < 5; $i++) {
-        $numeros[$i]= '<img src="imagenes/'.random_int(1, 9).'.png">';
-
-    }
+    $numeroAleatorio = strval(random_int(10000, 99999));
     echo "<table>\n";
     echo "<tr>";
     echo "<td>Numeros:</td>";
+    echo "<td>";
+    echo "<div>";
     for ($i = 0; $i < 5; $i++) {
-        echo "<td>";
-        echo $numeros[$i];
-        echo "</td>";
+        echo '<img src="imagenes/'.$numeroAleatorio[$i].'.png"/>';
     }
+    echo "</div>";
+    echo "</td>";
     echo "</tr>";
     echo "</table>\n";
     ?>

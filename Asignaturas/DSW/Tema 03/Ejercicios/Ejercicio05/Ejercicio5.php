@@ -1,8 +1,6 @@
 <?php
-
 declare(strict_types=1);
 ## Ejercicio 5 - Realiza un programa que muestre la fecha y hora actual usando las imágenes del Ejercicio 2.
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,14 +42,15 @@ declare(strict_types=1);
     $fechaActual = [];
     $fechaH = date("d/m/Y:H:i:s");
     for ($i=0; $i < strlen($fechaH); $i++) { 
-        if (substr($fechaH,$i,1) == ":" ) {
+        if ($fechaH[$i] == ":" ) {
             $fechaActual[$i] = ":";
-        } elseif (substr($fechaH,$i,1) == "/") {
+        } elseif ($fechaH[$i] == "/") {
             $fechaActual[$i] = "/";
         } else {
-            $fechaActual[$i] = '<img src="imagenes/'.substr($fechaH,$i,1).'.png" >';
+            $fechaActual[$i] = '<img src="imagenes/'.$fechaH[$i].'.png" >';
         }
     }
+    
     echo "<table>\n";
     echo "<tr>";
     echo '<td style="font-size: 35px">Fecha</td>';
