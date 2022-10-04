@@ -1,12 +1,24 @@
-let itinerante1;
-let itinerante2;
-console.log("Ejercicio 05:");
-for ( itinerante1 = 0; itinerante1 < 10; itinerante1++) {
-    for (itinerante2 = 0; itinerante2 < 10; itinerante2++) {
-        console.log("Itinerante 1: "+itinerante1+"  Itinerante2: "+itinerante2);
-    }
+function EJ0301() {
+    event.preventDefault();
+    document.getElementById("EJ0301").innerHTML = "Devuelve 15. Ya que pasa un String a Integer";
 }
 
+function EJ0302() {
+    event.preventDefault();
+    document.getElementById("EJ0302").innerHTML = "Devuelve 15. Ya que pasa un String a Integer pero este al pasarlo a tipo Number es Float entonces al hacer parseInt() elimina el decimal";
+}
 
+function EJ0303() {
+    event.preventDefault();
+    document.getElementById("EJ0303").innerHTML = "Devuelve 15. Ya que pasa un Float a Integer";
+}
 
-document.getElementById("resultado3").innerHTML = "Los resultados estan en la consola";
+function EJ0304() {
+    event.preventDefault();
+    document.getElementById("EJ0304").innerHTML = "Devuelve NaN, ya que el valor que se le pasa es un String no numérico ";
+}
+
+function EJ0305() {
+    event.preventDefault();
+    document.getElementById("EJ0305").innerHTML = "Devuelve NaN, ya que el valor que se le pasa es un Boolean";
+}

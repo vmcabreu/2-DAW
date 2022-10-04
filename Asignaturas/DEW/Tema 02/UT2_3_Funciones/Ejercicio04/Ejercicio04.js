@@ -1,21 +1,28 @@
-
-function ejercicio4() {
+function EJ04A() {
     event.preventDefault();
-    let n1 = Number(document.getElementById("n1").value);
-    let n2 = Number(document.getElementById("n2").value);
-    let n3 = Number(document.getElementById("n3").value);
-    let n1posterior = n1 + 1;
-    let n2posterior = n2 + 1;
-    let n3posterior = n3 + 1;
-    document.getElementById("resultado4").innerHTML = "Los numeros son " + n1 + "," + n2 + "," + n3 + " y sus numeros posteriores son " + n1posterior + "," + n2posterior + "," + n3posterior;
-}   
+    /*let result = 1, arg1, arg2, res1, res2;
+    while (result > 0) {
+        arg1 = Math.random() - 0.5;
+        if (arg1 < 0) {
+            continue;
+        }
+        res1 = Math.sqrt(arg1);
+        arg2 = Math.random();
+        if (arg1+arg2 == 0) {
+            break;
+        }
+        res2 = res1 / (arg1 + arg2);
+        result = res1 + res2;
+        console.log(result);
+    }*/
+    document.getElementById("EJ04A").innerHTML = "let result = 1, arg1, arg2, res1, res2; </br> while (result > 0) { </br> arg1 = Math.random() - 0.5; </br> if (arg1 < 0) { </br> continue; </br> } </br> res1 = Math.sqrt(arg1); </br> arg2 = Math.random(); </br> if (arg1+arg2 == 0) { </br> break; </br> } </br> res2 = res1 / (arg1 + arg2); </br> result = res1 + res2; </br> console.log(result); </br> }";
+}
+function EJ04B() {
+    event.preventDefault();
+    document.getElementById("EJ04B").innerHTML = "let result = 1, arg1, arg2, res1, res2; </br> while (result > 0) { </br> arg1 = Math.random() - 0.5; </br> if (arg1 < 0) { </br> res1 = Math.sqrt(arg1); </br> arg2 = Math.random(); </br> if (arg1+arg2 == 0) { </br> res2 = res1 / (arg1 + arg2); </br> result = res1 + res2;}}</br> console.log(result);}";
+}
 
-
-
-/*
-    var n1 = Number(document.getElementById("n1"));
-    var n2 = Number(document.getElementById("n2"));
-    var n3 = Number(document.getElementById("n3"));
-var n1 = Number(prompt("Ejercicio 04:\n\n Introduce el primer número: "));
-var n2 = Number(prompt("Ejercicio 04:\n\n Introduce el segundo número: "));
-var n3 = Number(prompt("Ejercicio 04:\n\n Introduce el tercer número: "));*/
+function EJ04C() {
+    event.preventDefault();
+    document.getElementById("EJ04C").innerHTML = "Devuelve 15. Ya que pasa un Float a Integer";
+}

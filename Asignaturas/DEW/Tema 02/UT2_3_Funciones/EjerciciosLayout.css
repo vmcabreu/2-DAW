@@ -21,16 +21,42 @@ h2 {
 td{
     background-color: rgba(150, 243, 255, 0.589); 
     padding: 5px;
-    margin: 2px;
+    margin: auto;
     text-align: center;
     border: 3px solid rgb(255, 255, 255);
     border-radius: 8px;
 }
+#auxi,#auxj,#index{
+    background-color: rgba(150, 243, 255, 0.589);
+    padding: 5px;
+    margin: auto;
+    width: 150px;
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+#index {
+    margin-top: 10vh;
+    margin-left: 45vw;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+}
+#titulo_tabla  {
+    background-color: rgba(150, 243, 255, 0.589); 
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
 table{
     margin-top: 20vh;
     margin-left: auto;
     margin-right: auto;
-    width: 50vw;
+    width: 75vw;
     height: 30vh;
 }
 a{
@@ -41,9 +67,11 @@ button {
     background-color: rgba(150, 243, 255, 0);
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
-td:hover {
+#auxj:hover ,#index:hover{
     background-color: rgba(150, 243, 255, 1); 
     color: black;
     border: 2px solid rgb(0, 0, 0);
@@ -53,7 +81,7 @@ a:hover {
     color: black;
   }
 
-.button:active{
+#auxj:active{
     background-image: linear-gradient(rgb(87, 255, 216)rgb(87, 255, 216)4);
     color: black;
     opacity: 1;
@@ -63,3 +91,4 @@ td.titulo {
     background-image: linear-gradient(rgb(87, 255, 216)rgb(87, 255, 216)4);
     color: black;
 }
+

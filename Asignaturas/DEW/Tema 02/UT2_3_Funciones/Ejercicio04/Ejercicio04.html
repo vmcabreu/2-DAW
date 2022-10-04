@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
-    </head>
-    <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 4:</h2>
-        <p>En este reto deberás mostrar el número posterior a un número introducido por el usuario. Deberás solicitar al usuario que introduzca 3 números, y para cada uno de ellos imprimir el número posterior.</p>
-        <h3>Resultado:</h3> 
-        <form onsubmit="ejercicio4()">
-            <label for="n1">Número 1: </label>
-            <input type="number" id="n1" name="n1"><br>
-            <label for="n2">Número 2: </label>
-            <input type="number" id="n2" name="n2"><br>
-            <label for="n3">Número 3: </label>
-            <input type="number" id="n3" name="n3"><br>
-            <button type="submit" class="button2">Comprobar</button>
-        </form>
-        <p id="resultado4"></p>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUT2_02_Variables, condicionales, bucles</title>
+    <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
+</head>
+
+<body>
+    <h1>UT2_3_Funciones</h1>
+    <h2>Ejercicio 4:</h2>
+    <form action="">
+        <table>
+            <div>
+                <tr>
+                    <td colspan="3" id="titulo_tabla">
+                        <p>4. En el siguiente bucle while tenemos que tener cuidado porque hay operaciones que pueden
+                            dar error (no puede haber raíces cuadradas de números negativos, ni divisiones por cero).</br>
+                            let result = 1, arg1, arg2, res1, res2;</br>
+                            while (result > 0) { </br>
+                            arg1 = Math.random() - 0.5; </br>
+                            res1 = Math.sqrt(arg1); </br>
+                            arg2 = Math.random(); </br>
+                            res2 = res1/(arg1 + arg2); </br>
+                            result = res1 + res2; </br>
+                            console.log(result);} </br>
+                        </p>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        Apartado A:
+                    </td>
+                    <td id="auxj">
+                        <button onclick="EJ04A()">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ04A"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        Apartado B:
+                    </td>
+                    <td id="auxj">
+                        <button onclick="EJ04B()">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ04B"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        Apartado C:
+                    </td>
+                    <td id="auxj">
+                        <button onclick="EJ04C()">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ04C"></p>
+                    </td>
+                </tr>
+            </div>
+        </table>
+        <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio04.js"></script>
-    </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
+</body>
+
 </html>
