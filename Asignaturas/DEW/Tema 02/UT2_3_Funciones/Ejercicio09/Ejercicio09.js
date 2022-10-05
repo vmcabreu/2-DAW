@@ -1,24 +1,29 @@
-function ejercicio09() {
+function hdec2hms(decimal) {
     event.preventDefault();
-    let valor = Number(document.getElementById("valor").value);
-    var respuesta;
-
-    if (valor == 0) {
-        respuesta = "Este es muy fácil... ¡prueba otro";
-    } else if (valor%2 == 0){
-        respuesta = "El número es par";
-    }else if(valor%2 == 1){
-        respuesta = "El número es impar";
-    } else {
-        alert("¡¡Sólo sé contar de 0 a 6!!");
-        respuesta = "Vuelve a intentarlo."
-    }
-    document.getElementById("resultado9").innerHTML = respuesta;
+    decimal = decimal * 3600;
+    let horas = formatoHora(Math.floor(decimal / (3600)));
+    decimal = decimal - (horas * 3600);
+    let min = formatoHora( Math.floor(decimal / 60));
+    decimal = decimal - (min * 60);
+    let seg = formatoHora(Math.floor(decimal));
+    document.getElementById("EJ09A").innerHTML = horas + ":" + min + ":" + seg;
 }
 
+function hms2hdec(horas, minutos, segundos) {
+    event.preventDefault();
+    let seg = parseInt(segundos);
+    let min = parseInt(minutos);
+    let hora = parseInt(horas);
 
+    hora = hora + (min / 60) + (seg / 3600);
+    document.getElementById("EJ09B").innerHTML = ""+horas+":"+minutos+":"+segundos+" son: "+hora+" h.";
+}
 
-
-
-
-
+function formatoHora(valor) {
+    event.preventDefault();
+    if (valor < 10) {
+        return "0" + valor;
+    } else {
+        return valor;
+    }
+}

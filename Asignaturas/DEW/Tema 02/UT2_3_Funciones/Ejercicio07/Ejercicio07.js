@@ -1,26 +1,29 @@
-function ejercicio7() {
+function conseguirFecha(){
+    let fecha =new Date();
+    const options = {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      }
+    let fechaActual=new Intl.DateTimeFormat('en-US', options).format(fecha);
+    return fechaActual;
+}
+
+function conseguirHora(){
+    let fecha =new Date();
+    return horaActual= fecha.toLocaleTimeString();
+}
+
+function conseguirZona(){
+    let fecha = new Date();
+    let fechaSplit = fecha.toString().split(" ");
+    return fechaSplit[5];
+}
+
+function EJ07() {
     event.preventDefault();
-    let resultado07 = "Lo siento ha fallado";
-    let intentos = 3;
-    let letras = 1;
-    const paises = ["Madrid", "París", "Londres", "Viena", "Berlin", "Caracas", "Buenos Aires", "Brasilia", "Montevideo"]
-    const respuesta = paises[parseInt(Math.random() * 11)];
-    do {
-        let capital = prompt("Ejercicio 07:  \n\n Adivina la capital del país \n\n Intentos: " + intentos + " \n\n Pista: " + respuesta.substring(0, 4 - intentos) + "\n\n Introduce tu respuesta: ");
-        if (capital == respuesta) {
-            document.getElementById("resultado7").innerHTML = "¡Felicidades! Lo conseguistes";
-            break;
-        } else {
-            intentos--;
-            alert("Has fallado. Sigue intentandolo\n\nIntentos:" + intentos);
-
-        }
-
-
-    } while (intentos != 0)
-    if (intentos == 0) {
-        document.getElementById("resultado7").innerHTML = "Has fallado. La respuesta era: " + respuesta;
-    }
-
-
+    let fecha = conseguirFecha();
+    let hora = conseguirHora();
+    let zona = conseguirZona();
+    document.getElementById("EJ07").innerHTML = fecha+" "+hora+" "+zona;
 }

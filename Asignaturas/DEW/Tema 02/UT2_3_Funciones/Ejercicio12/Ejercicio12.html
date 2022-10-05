@@ -4,22 +4,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
+        <title>UT2_3_Funciones</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
     </head>
+    
     <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 12:</h2>
-        <p>En el ejercicio anterior, añadir un argumento opcional booleano de forma que si está a `False` (valor por defecto) devuelve sólo el resultado numérico (p.ej: `24`), mientras que si se indica `True` le añade la unidad `ºC` (p.ej `24ºC`).</p>
-        <h3>Resultado:</h3>
-        <form>
-            <input type="checkbox" id="activar" class="activado"><label for="activar">Activar</label></input>
-            <button onclick="resultado()">Comprobar</button>
-        </form>
-        <p id="resultado12"></p>
+        <h1>UT2_3_Funciones</h1>
+        <h2>Ejercicio 12:</h2>
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="3" id="titulo_tabla">
+                        <div>Ejercicio 12.- Programa que pide una frase y devuelve el número de cada una de las vocales que contiene. (nº de a’s, de e’s, etc.)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        <label for="frase">Introduzca una frase: </label> </label>
+                        <input type="text" id="frase" name="frase" />
+                    </td>
+                    <td id="auxj">    
+                        <button onclick="EJ12()">Respuesta</button>
+                    </td>
+                    <td id="auxi">   
+                        <p id="EJ12" class="ej12">
+    
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio12.js"></script>
     </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
 </html>

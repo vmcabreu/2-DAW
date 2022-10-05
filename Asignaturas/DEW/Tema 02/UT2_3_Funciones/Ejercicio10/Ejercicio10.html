@@ -4,26 +4,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
+        <title>UT2_3_Funciones</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
     </head>
+    
     <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 10:</h2>
-        <p>Realizar un bucle for que actualice una variable i y otra j de la siguiente forma:<br>
-
-            a) i comienza en 0, j comienza en 20<br>
-            
-            b) El bucle debe parar cuando i sea mayor que 8 ó j sea menor que 0<br>
-            
-            c) i se incrementa de 1 en 1, j se decrementa de 3 en 3<br>
-            
-            d) Dentro del bucle sólo puede estar la sentencia console.log(i, j)</p>
-        <h3>Resultado:</h3>
-        <p id="resultado10"></p>
+        <h1>UT2_3_Funciones</h1>
+        <h2>Ejercicio 10:</h2>
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="3" id="titulo_tabla">
+                        <div>Ejercicio 10.- Implementar una función que dada una fecha en texto (por ejemplo “2018-09-20”), devuelva la fecha juliana equivalente.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        <label for="fecha">Insertar fecha para convertirlo a Juliana: </label>
+                        <input type="text" id="fecha" name="fecha" placeholder="mm-dd-yyyy o yyyy-mm-dd" />
+                    </td>
+                    <td id="auxj">    
+                        <button onclick='EJ10(document.getElementById("fecha").value)'>Respuesta</button>
+                    </td>
+                    <td id="auxi">   
+                        <p id="EJ10" class="ej10">
+    
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio10.js"></script>
     </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
 </html>

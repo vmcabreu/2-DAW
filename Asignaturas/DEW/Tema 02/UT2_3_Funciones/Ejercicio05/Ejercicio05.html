@@ -4,31 +4,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
+        <title>UT2_3_Funciones</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
     </head>
     <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 5:</h2>
-        <p>En este reto deberás sumar números e imprimirlos por la consola. Para ello, deberás solicitar al usuario que introduzca 2 números e imprimir el resultado por la consola. Este proceso deberás repetirlo 5 veces.</p>
-        <h3>Resultado:</h3>
-        <form onsubmit="ejercicio5()">
-            <label for="n1">Número 1: </label>
-            <input type="number" id="n1" name="n1"><br>
-            <label for="n2">Número 2: </label>
-            <input type="number" id="n2" name="n2"><br>
-            <button type="submit" class="button2">Comprobar</button>
-        </form>
-       <h3>Resultado alternativo:</h3> 
-        <form onsubmit="ejercicio5Alt()">
-         <p>Será mediante alert().</p>  
-            <button type="submit" class="button2">Comprobar</button>
-        </form>
-        
-        <p id="resultado5"></p>
+        <h1>UT2_3_Funciones</h1>
+        <h2>Ejercicio 5:</h2>
+        <form action="">
+            <table>
+                <div>
+                <tr>
+                    <td colspan="3" id="titulo_tabla">
+                        <div>Ejercicio 5.- Implementar una función que calcule la letra a partir del número del NIF.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        <label for="dni">Introduce tu DNI:</label>
+                        <input type="text" name="dni" id="dni" maxlength="8">
+                    </td>
+                    <td id="auxj">
+                        <button onclick="EJ05()">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ05"></p>
+                    </td>
+                </tr>
+            </div>
+            </table>
+            <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio05.js"></script>
     </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
 </html>

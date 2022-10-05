@@ -24,5 +24,5 @@ function EJ04B() {
 
 function EJ04C() {
     event.preventDefault();
-    document.getElementById("EJ04C").innerHTML = "Devuelve 15. Ya que pasa un Float a Integer";
+    document.getElementById("EJ04C").innerHTML = "while (1 > 0) { </br> let arg1 = Math.random() - 0.5; </br> let res1 = Math.sqrt(arg1); </br> let arg2 = Math.random(); </br> let res2 = res1 / (arg1 + arg2); </br> let result = res1 + res2;</br> console.log(result);}";
 }

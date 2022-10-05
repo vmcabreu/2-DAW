@@ -1,36 +1,19 @@
-function ejercicio8() {
+function EJ08A() {
     event.preventDefault();
-    let vector1 = Number(document.getElementById("v1").value);
-    let vector2 = Number(document.getElementById("v2").value);
-    let vector3 = Number(document.getElementById("v2").value);
-    let sumaVectores = vector1 + vector2 + vector3;
-
-    if (vector1 < 0 || vector2 < 0 || vector3 < 0) {
-        alert("¡Error!\n\n Uno de los valores es menor que 0");
-        document.getElementById("resultado8").innerHTML = "¡Error!\n\n Uno de los valores es menor que 0";
-    } else {
-        console.log("Prueba A: Aprobada");
-    }
-
-    if (vector1 == 0 && vector2 == 0 && vector3 == 0) {
-        alert("¡Error!\n\n Todos los valores son 0");
-        document.getElementById("resultado8").innerHTML = "¡Error!\n\n Todos los valores son 0";
-    } else {
-        console.log("Prueba B: Aprobada");
-    }
-    
-    if (sumaVectores > 10 && (vector1 != vector2 || vector1 != vector3 || vector2 != vector3)) {
-        alert("¡Error!\n\n Las suma de las 3 variables es mayor que 10 y las tres variables son diferentes");
-        document.getElementById("resultado8").innerHTML = "¡Error!\n\n Las suma de las 3 variables es mayor que 10 y las tres variables son diferentes";
-    } else {
-        console.log("Prueba C: Aprobada");
-    }
-
+    let fechaA =new Date("02/04/2015");
+    console.log(fechaA);
+    document.getElementById("EJ08A").innerHTML = "Se obtiene solo la fecha de forma larga pero tanto la hora como zona con un valor por defecto";
+}
+function EJ08B() {
+    event.preventDefault();
+    let fechaB =new Date("2015-04-02");
+    console.log(fechaB);
+    document.getElementById("EJ08B").innerHTML = "Se obtiene la fecha de forma larga junto con la hora con un valor por defecto y la zona horaria en hora de verano";
 }
 
-
-
-
-
-
-
+function EJ08C() {
+    event.preventDefault();
+    let fechaC =new Date("April 02, 2015");
+    console.log(fechaC);
+    document.getElementById("EJ08C").innerHTML = "Añadiendo el texto a la creación del objeto Date(\"April 02, 2015\") lo cual luego lo mostrará como los apartados anteriores";
+}

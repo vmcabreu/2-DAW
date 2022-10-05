@@ -4,20 +4,92 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
+        <title>UT2_3_Funciones</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
     </head>
+    
     <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 11:</h2>
-        <p>Para convertir grados Farenheit (`F`) a Celsius (`C`) se usa la siguiente expresión: `C = (F − 32) * 5/9`. Implementar una función que realice esta conversión (comprueba que 32ºF son 0ºC y que 75.2ºF son 24ºC).</p>
-        <h3>Resultado:</h3>
-        <button onclick="resultado()">Comprobar</button>
-        <p id="resultado1"></p>
-        <p id="resultado2"></p>
+        <h1>UT2_3_Funciones</h1>
+        <h2>Ejercicio 11:</h2>
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="4" id="titulo_tabla">
+                        <div>Ejercicio 11.-             Cuando hablamos de ángulos, normalmente utilizamos los grados sexagesimales (se suelen representar como
+                            “deg”, una circunferencia completa son 360º deg). Sin embargo, en trigonometría es más común utilizar los
+                            radianes (“rad”, una circunferencia completa son 2π rad).<br />
+                            <br />
+                            De esta forma, 360º equivalen a 2π. Las funciones trigonométricas de javascript, como la mayoría de
+                            lenguajes, trabajan en radianes, sin embargo en muchas ocasiones nosotros vamos a querer trabajaren grados.
+                            Por ello, se pide:<br />
+                            <br />
+                            a) Implementar una función llamada deg2rad(x) que transforme de grados a radianes, y su inversa
+                            rad2deg(x)<br />
+                            <br />
+                            b) Implementar una función sinDeg(x)que devuelva el seno del ángulo x y otra función cosDeg(x) que devuelva
+                            el coseno del ángulo x (en ambos casos x está en grados).<br />
+                            <br />
+                            c) El seno y el coseno están relacionados por la siguiente ecuación: sin2x + cos2x = 1. Utilizar esta
+                            relación para implementar una función sinDegAlt(x) que obtenga el seno de un ángulo x (en grados) usando
+                            para ello la función cosDeg(x) anteriormente implementada. Implementar también la función inversa al
+                            apartado anterior: cosDegAlt(x) usando para ello sinDeg(x)<br /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  colspan="3" id="auxi">
+                            Apartado A:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="auxi">
+                            <label for="gradosA">Grados: </label>
+                            <input type="number" id="gradosA" name="gradosA">
+                            <label for="radianes">Radianes: </label>
+                            <input type="number" id="radianes" name="radianes">
+                        </td>
+                        <td id="auxj">
+                            <button onclick="EJ11A()">Respuesta</button>
+                        </td>
+                        <td colspan="2">
+                            <p id="EJ11A"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="auxi" colspan="3">
+                            Apartado B:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="auxi">
+                            <label for="gradosB">Grados: </label>
+                            <input type="number" id="gradosB" name="gradosB">
+                        </td>
+                        <td id="auxj">
+                            <button onclick="EJ11B()">Respuesta</button>
+                        </td>
+                        <td>
+                            <p id="EJ11B"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="auxi" colspan="3">
+                            Apartado B:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="auxi">
+                            <label for="gradosC">Grados: </label>
+                            <input type="number" id="gradosC" name="gradosC">
+                        </td>
+                        <td id="auxj">
+                            <button onclick="EJ11C()">Respuesta</button>
+                        </td>
+                        <td>
+                            <p id="EJ11C"></p>
+                        </td>
+                    </tr>
+                </table>
+            <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio11.js"></script>
     </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
 </html>

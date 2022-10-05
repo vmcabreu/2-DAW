@@ -22,10 +22,36 @@ td{
     background-color: rgba(150, 243, 255, 0.589); 
     padding: 5px;
     margin: auto;
+    height: 35px;
     text-align: center;
     border: 3px solid rgb(255, 255, 255);
     border-radius: 8px;
 }
+p.ej06{
+    background-color: rgba(150, 243, 255, 0.589); 
+    padding: 5px;
+    margin: auto;
+    height: 35px;
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+p.ej10{
+    background-color: rgba(150, 243, 255, 0); 
+    padding: 5px;
+    margin: auto;
+    height: 35px;
+    text-align: center;
+}
+p.ej10{
+    background-color: rgba(150, 243, 255, 0); 
+    padding: 5px;
+    margin: auto;
+    height: 65px;
+    text-align: center;
+}
+
 #auxi,#auxj,#index{
     background-color: rgba(150, 243, 255, 0.589);
     padding: 5px;

@@ -4,32 +4,57 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT2_02_Variables, condicionales, bucles</title>
-        <link rel="stylesheet" type="text/css" href="../EjerciciosP.css">
+        <title>UT2_3_Funciones</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
     </head>
+    
     <body>
-        <h1>AUT2_02_Variables, condicionales, bucles</h1>
-        <h2>ACTIVIDAD 9:</h2>
-        <p>Diseñar el código para que con un valor recibido 'x'  muestre los siguientes mensajes:<br>
-
-            a) ‘Este es muy fácil... ¡prueba otro!’, si x es 0<br>
-            
-            b) ‘El número es par’, si x es 2, 4 ó 6<br>
-            
-            c) ‘El número es impar’, si x es 1, 3 ó 5<br>
-            
-            d) ‘¡¡Sólo sé contar de 0 a 6!!’, para los demás casos</p>
-        <h3>Resultado:</h3>
-        <form onsubmit="ejercicio09()">
-            <label for="valor">Añade un valor: </label>
-            <input type="number" id="valor" name="valor"><br>
-            <button type="submit" class="button2">Comprobar</button>
-        </form>
-        <h3>Mensaje:</h3>
-        <p id="resultado9"></p>
+        <h1>UT2_3_Funciones</h1>
+        <h2>Ejercicio 9:</h2>
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="3" id="titulo_tabla">
+                        <div>Ejercicio 9.- Implementar una función hdec2hms(x) que transforme una hora en formato decimal a su equivalente en formato hh:mm:ss (en texto). Por ejemplo, 8.25 = “8:15:00” y 10.12 = “10:07:12”.Implementar también la función inversa hms2hdec(h,m,s).
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        Decimal => Hora
+                    </td>
+                    <td id="auxi">
+                        <label for="decimal">Numero decimal: </label>
+                        <input type="text" id="decimal" name="decimal" />
+                    </td>
+                    <td id="auxj">
+                        <button onclick="hdec2hms(document.getElementById('decimal').value)">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ09A"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="auxi">
+                        Hora => Decimal:
+                    </td>
+                    <td id="auxi">
+                    <label for="horas">Horas: </label>
+                    <input type="text" id="horas" name="horas" /> 
+                    <label for="min">Minutos: </label>
+                    <input type="text" id="min" name="min" /> 
+                    <label for="seg">Segundos: </label>
+                    <input type="text" id="seg" name="seg" />
+                </td>
+                    <td id="auxj">
+                        <button onclick="hms2hdec(document.getElementById('horas').value,document.getElementById('min').value,document.getElementById('seg').value)">Respuesta</button>
+                    </td>
+                    <td>
+                        <p id="EJ09B"></p>
+                    </td>
+                </tr>
+            </table>
+            <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
         <script src="Ejercicio09.js"></script>
     </body>
-    <footer>
-        <a href="../Ejercicios.html" class="button">Volver al Inicio</a>
-    </footer>
 </html>
