@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
-## Ejercicio 5 - Realiza un programa que muestre la fecha y hora actual usando las imágenes del Ejercicio 2.
-?>
+## Ejercicio 5 - Realiza un programa que muestre la fecha y hora actual usando las imágenes del Ejercicio 2. ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,8 +37,8 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 05</h1>
     <?php
-    ## '<img src="imagenes/'.random_int(1, 9).'.png">';
     $fechaActual = [];
+    date_default_timezone_set('Atlantic/Canary');
     $fechaH = date("d/m/Y:H:i:s");
     for ($i=0; $i < strlen($fechaH); $i++) { 
         if ($fechaH[$i] == ":" ) {

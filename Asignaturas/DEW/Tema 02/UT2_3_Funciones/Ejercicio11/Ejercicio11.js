@@ -19,15 +19,15 @@ function EJ11A() {
 
 //Apartado B
 function sinDeg(grados) {
-    let sinRad = Math.sin(grados);
-    let sin = rad2deg(sinRad);
-    return sin;
+    let sin = deg2rad(grados);
+    let sinRad = Math.sin(sin);
+    return sinRad;
 }
 
 function cosDeg(grados) {
-    let cosRad = Math.cos(grados);
-    let cos = rad2deg(cosRad);
-    return cos;
+    let cos = deg2rad(grados);
+    let cosRad = Math.cos(cos);
+    return cosRad;
 }
 
 function EJ11B() {
@@ -41,14 +41,20 @@ function EJ11B() {
 //Apartado C
 function sinDegAlt(grados) {
     let coseno = cosDeg(grados);
-    let sin = 1 - coseno;
+    let sin = Math.sqrt(1 - (coseno**2));
     return sin;
 }
 
 function cosDegAlt(grados) {
-    let sin = sinDeg(grados);
-    let cos = 1 - sin;
-    return cos;
+    let coseno;
+    let seno= sinDeg(grados);
+    let rad = deg2rad(grados);
+    if (rad % Math.PI == 0 && (rad/ Math.PI) % 2 != 0){
+        coseno = - Math.sqrt(1 - (seno**2));
+    } else {
+        coseno = Math.sqrt(1 - (seno**2));
+    }
+    return coseno;
 }
 
 function EJ11C() {

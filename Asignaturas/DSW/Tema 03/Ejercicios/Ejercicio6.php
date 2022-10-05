@@ -38,6 +38,20 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 06</h1>
     <?php
+    $fContador = "/var/www/php/contador.txt";
+    if (file_exists($fContador)) {
+        $descriptorContador = fopen($fContador,"r+");
+        $contador = intval(fgets($descriptorContador));
+        $contador ++;
+        fseek($descriptorContador,0);
+        fputs($descriptorContador,strval($contador));
+    } else {
+        $descriptorContador = fopen($fContador,"w");
+        fputs($descriptorContador,"1");
+        $contador=1;
+    }
+    fclose($descriptorContador);
+    echo "Eres el visitante $contador"
     ?>
 </body>
 </html>
