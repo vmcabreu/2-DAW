@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    height: 10vh;
+    background-image: url();
+}
+nav{
+    z-index: 1;
+}
+
+main {
+    background-color: rgb(168, 168, 168);
+    width: 100vw;
+    height: 85vh;
+}
+
+aside {
+    text-align: center;
+    width: 100vw;
+    height: 35vh;
+}
+div.fondo{
+    background-image: url("imgs/header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 35vh;
+}
+div.blur{
+    background: rgba(255, 255, 255, 0.2); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(8px); 
+    margin-top: 22px;
+    width: 100vw;
+    height: 37vh;
+}
+
+
+h1{
+    padding: 25px;
+}
+
+h2{
+    margin: auto;
+    background-color: linear rgba(255, 255, 255, 0);
+    color: aliceblue;
+    text-shadow: 25px;
+    float: inline-start;
+    
+    
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+li,dl{
+    font-size: 20px;
+    border: 2px solid black;
+    float: left;
+    width: 33.33vw;
+    overflow: hidden;
+    background-color: rgb(172, 115, 115);
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85vw;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: rgb(0, 225, 255);
+}
+
+th {
+    background-color: yellowgreen;
+    height: 5vh;
+}
+
+td {
+    height: 8vh;
+    background-color: coral;
+}
+
+footer  {
+    height: 10vh;
+    background-color: green;
+}
+
