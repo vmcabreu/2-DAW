@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+table {
+    width: 45%;
+    height: 50vh;
+    margin: auto;
+    empty-cells: hide;
+    border-spacing: 0px;
+    border-collapse: separate;
+    border: 1px solid black;
+}
+
+td{
+    width: 20%;
+    height: 11.5vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+tr{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+td.blanco{
+    background-color: rgba(255, 255, 255, 1);
+    color: white;
+}
+td.negro{
+    background-color: rgba(0, 0, 0, 1);
+    color: black;
+}

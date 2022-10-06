@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 ## Ejercicio 6 - Implemtar un contador de visitas
 ?>
@@ -27,7 +28,7 @@ declare(strict_types=1);
         }
 
         img {
-            
+
             width: 50px;
             height: 50px;
 
@@ -38,6 +39,7 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 06</h1>
     <?php
+    /*
     $fContador = "/var/www/php/contador.txt";
     if (file_exists($fContador)) {
         $descriptorContador = fopen($fContador,"r+");
@@ -51,7 +53,23 @@ declare(strict_types=1);
         $contador=1;
     }
     fclose($descriptorContador);
-    echo "Eres el visitante $contador"
+    echo "Eres el visitante $contador";
+*/
+    //Con c+
+    $fContador = "/var/www/php/contador.txt";
+    $fdContador = fopen($fContador, "c+");
+    $cuentaActual = fgets($Contador);
+    if ($contador == false) {
+        $contador = 1;
+    } else {
+        $contador = intval($contador) + 1;
+    }
+    fseek($fdContador, 0);
+    fputs($fdContador, strval($contador));
+    fclose($fdContador);
+    echo "Eres el visitante $contador";
+
     ?>
 </body>
+
 </html>
