@@ -11,14 +11,14 @@ muestre formulario para pedir 2 matrices de fxc y que al enviar los datos muestr
     <body>
         <h1></h1>
         <?php
-        $filas=intval($_GET['f']);
-        $columnas=intval($_GET["c"]);
+        $filas=intval($_GET['filas']);
+        $columnas=intval($_GET["columnas"]);
         function ponerMatriz($nombreArray,$filas,$columnas){
             for ($f=0; $f < $filas ; $f++) { 
                 echo "<tr>\n";
                 for ($c=0; $c < $columnas ; $c++) { 
                     echo "<td>";
-                    echo "<input type='number' name='$nombreArray[$f][]' size='5'></input>";
+                    echo "<input type='number' name='$nombreArray[$f][$c]' size='5'></input>";
                     echo "</td>\n";
                 }
                 echo "</tr>\n";

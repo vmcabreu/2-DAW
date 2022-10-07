@@ -58,7 +58,7 @@ declare(strict_types=1);
     //Con c+
     $fContador = "/var/www/php/contador.txt";
     $fdContador = fopen($fContador, "c+");
-    $cuentaActual = fgets($Contador);
+    $contador = fgets($fdContador);
     if ($contador == false) {
         $contador = 1;
     } else {

@@ -1,4 +1,9 @@
 /**
+ * Ejercicio 2.- Realiza un programa para escribir todos los números impares entre dos
+ * números A y B introducidos por teclado. Antes habrá que comprobar cuál de los dos números A y B es mayor.
+ */
+
+/**
  * Toma dos números y devuelve una matriz de todos los números impares entre ellos
  * @param {integer} numero1 - el número mínimo del rango
  * @param {integer} numero2 - el número máximo del rango

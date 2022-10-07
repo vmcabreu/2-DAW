@@ -1,8 +1,15 @@
 /**
+ * Ejercicio 1.- Queremos generar una aplicación para simular un servidor DHCP muy ‘basto’, queremos que el programa genere una IP válida de 
+ * uno de los grupos de IPs que nos solicite el usuario. El programa Pregunta al usuario que ‘clase de IP’ quiere y le devolverá una IP con 
+ * números aleatorios de la clase solicitada. Debes dividir las acciones en funciones distintas ( mínimo 2)
+ * Recordamos que podremos usar la siguiente tabla para determinarlo según el rango de la dirección IPv4
+ */
+
+/**
  * Crea una dirección IP aleatoria
- * @param min - El valor mínimo del rango.
- * @param max - El número máximo a devolver.
- * @returns Una dirección IP aleatoria.
+ * @param {Integer} min - El valor mínimo del rango.
+ * @param {Integer} max - El número máximo a devolver.
+ * @returns {string} Una dirección IP aleatoria.
  */
 function crearIP(min, max) {
     let respuesta = "";

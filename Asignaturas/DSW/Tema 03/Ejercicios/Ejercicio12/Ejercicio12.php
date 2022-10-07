@@ -24,14 +24,18 @@ declare(strict_types=1);
                 $casilla = $casilla."<tr>";
                 for ($columnas=0; $columnas < 8; $columnas++) {                
                     if(($filas+$columnas)%2 ==0){
-                        $casilla = $casilla.'<td class="blanco" id=f'.($filas+1).'c'.($columnas+1).'"></td>';
+                        $casilla = $casilla.'<td><button name="f'.($filas+1).'c'.($columnas+1).'" class="blanco" style="width: 100%; height: 100%;" onclick="alfilMovimiento();" class="blanco"></button></td>';
                     }else{
-                        $casilla = $casilla.'<td class="negro" id=f'.($filas+1).'c'.($columnas+1).'"></td>';
+                        $casilla = $casilla.'<td><button name="f'.($filas+1).'c'.($columnas+1).'" class="negro" style="width: 100%; height: 100%;" onclick="alfilMovimiento();"></button></td>';
                     }
                 }
                 $casilla = $casilla."</tr>";
             }
             return $casilla;
+        }
+        function alfilMovimiento(){
+            $casilla = $_GET('id');
+            echo $casilla;
         }
         echo crearTablero();
     ?>
