@@ -1,5 +1,4 @@
 <!-- Ejercicio 7 - Implementar un formulario múltiple que permita o bien subir un fichero o pegarlo en formato csv y que lo muestre como una tabla HTML.-->
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +22,6 @@
             font-size: 75px;
             align-content: center;
         }
-
     </style>
 </head>
 
@@ -31,8 +29,9 @@
     <h1>Ejercicio 07</h1>
     <form action="subirFichero.php" method="post" enctype="multipart/form-data">
         <label for="input">Sube el archivo: </label><br>
-        <input type="file" id="input" name="input"><br> 
+        <input type="file" id="input" name="input"><br>
         <button type="submit">Enviar</button>
     </form>
 </body>
+
 </html>

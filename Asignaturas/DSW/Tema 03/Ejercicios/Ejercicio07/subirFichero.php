@@ -6,9 +6,18 @@
             echo "El fichero ".$fichero['name']." ya existe. ";
         }else{
             move_uploaded_file($fichero['tmp_name'],$destination);
+            $archivo = fopen($destination,"r");
+            $linea = preg_split(";",fgets($archivo));
+            echo "<table>";
+            echo "<tr>";
+            while ($linea == true) {
+                echo "<td>";
+                echo "";
+                echo "</td>";
+            }
+            echo "</tr>";
+            echo "</table>";
+
         }
-
-    }else {
-
     }
 ?>
