@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AEUT2_04_Javascript_ini - Ejercicio01</title>
+        <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
+    </head>
+    <body>
+        <h1>AEUT2_04_Javascript_ini</h1>
+        <h2>Ejercicio 1:</h2>
+        <form action="">
+        <table>
+            <div>
+            <tr>
+                <td colspan="3" id="titulo_tabla">
+                    <div>Ejercicio 1.- Queremos generar una aplicación para simular un servidor DHCP muy
+                        ‘basto’, queremos que el programa genere una IP válida de uno de los grupos de IPs que nos
+                        solicite el usuario.
+                        El programa Pregunta al usuario que ‘clase de IP’ quiere y le devolverá una IP con números
+                        aleatorios de la clase solicitada. Debes dividir las acciones en funciones distintas ( mínimo 2)
+                        Recordamos que podremos usar la siguiente tabla para determinarlo según el rango de la
+                        dirección IPv4</div>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <label for="optionIP">Seleccione la clase de la IP:</label>
+                   <select id="optionIP">
+                        <option value="classA">A</option>
+                        <option value="classB">B</option>
+                        <option value="classC">C</option>
+                        <option value="classD">D</option>
+                        <option value="classE">E</option>
+                   </select>
+                </td>
+                <td id="auxj">
+                    <button onclick="EJ0401()">Respuesta</button>
+                </td>
+                <td class="ej401">
+                    <p id="EJ0401">0.0.0.0</p>
+                </td>
+            </tr>
+        </div>
+        </table>
+        <button id="index"><a href="../index.html">Volver al inicio</a></button>
+    </form>
+    <script src="Ejercicio01.js"></script>
+    </body>
+</html>
