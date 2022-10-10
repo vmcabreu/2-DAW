@@ -76,7 +76,6 @@ function calcularPuntuaje(array $puntuaje){
         $cartaAleatoria = $paloAleatorio . $numAleatorio;
         in_array($cartaAleatoria, $baraja) ?: array_push($baraja, $cartaAleatoria) && array_push($paloRand, $paloAleatorio) && array_push($puntuacion, $numAleatorio);
     } while (count($baraja) < 10);
-
     echo "<table>\n";
     echo "<tr>\n";
     echo '<td style="font-size: 35px">Juego la Brisca</td>';

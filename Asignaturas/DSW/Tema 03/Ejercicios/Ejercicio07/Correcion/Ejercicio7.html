@@ -28,14 +28,14 @@
 <body>
     <h1>Ejercicio 07</h1>
     <form action="subirFichero.php" method="post" enctype="multipart/form-data">
-        <label for="input">Sube el archivo: </label><br>
-        <input type="file" id="input" name="input"><br>
-        <button type="submit">Enviar</button>
+        <label for="ficheroCsv">Sube el archivo: </label><br>
+        <input type="file" id="ficheroCsv" name="ficheroCsv"><br>
+        <button type="submit" name="btnFicheroCsv">Enviar</button>
     </form>
     <form action="subirFichero.php" method="post" enctype="multipart/form-data">
         <label for="input">Sube el archivo: </label><br>
         <textarea name="input" rows="20" cols="80" placeholder="Pega tu texto aquí"></textarea><br>
-        <button type="submit">Enviar texto</button>
+        <button type="submit" name="btnTextoCsv">Enviar texto</button>
     </form>
 </body>
 

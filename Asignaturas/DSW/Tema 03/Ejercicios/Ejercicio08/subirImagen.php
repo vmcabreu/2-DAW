@@ -6,6 +6,6 @@
         }else{
             move_uploaded_file($fichero['tmp_name'],$destination);
             $base64= base64_encode(file_get_contents($fichero));
-            echo '<img src="data: '.mime_content_type($fichero).';base64,'.$base64.'">';
+            echo '<img src="data: '.filetype($fichero).';base64,'.$base64.'">';
         }
 ?>

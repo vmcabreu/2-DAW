@@ -6,6 +6,17 @@
 
     </style>
 <?php
+if (isset($_POST['btnFicheroCsv'])) {
+    $fd=fopen($_FILES['ficheroCsv']['tmp_name'],"r");
+    while(($linea=fgets($fd))!=""){
+        
+    }
+} else if (isset($_POST['btnFicheroCsv']))  {
+
+} else {
+    
+}
+/**
         $fichero = $_FILES['input'];
         $destination = "/var/www/phpdata/".$fichero['name'];
         if (file_exists($destination)) {
@@ -31,9 +42,9 @@
 
 
             }while ($linea == true);
+
             echo "</table>";
-            fseek($archivo, 0);
-            fclose($archivo);
 
         }
+         */
 ?>
