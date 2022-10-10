@@ -1,5 +1,11 @@
+<style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+    </style>
 <?php
-    if ($_POST) {
         $fichero = $_FILES['input'];
         $destination = "/var/www/phpdata/".$fichero['name'];
         if (file_exists($destination)) {
@@ -12,7 +18,7 @@
             
             do{
                 $linea = fgets($archivo);
-                $pointer += count($linea);
+                $pointer += strlen($linea);
                 $lineaArray = preg_split("/;/",$linea);
                 echo "<tr>";
                 for ($i=0; $i < count($lineaArray); $i++) { 
@@ -29,5 +35,4 @@
             echo "</table>";
 
         }
-    }
 ?>

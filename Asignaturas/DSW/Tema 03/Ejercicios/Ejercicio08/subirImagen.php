@@ -1,5 +1,4 @@
 <?php
-    if ($_POST) {
         $fichero = $_FILES['input'];
         $destination = "/var/www/phpdata/".$fichero['name'];
         if (file_exists($destination)) {
@@ -9,5 +8,4 @@
             $base64= base64_encode(file_get_contents($fichero));
             echo '<img src="data: '.mime_content_type($fichero).';base64,'.$base64.'">';
         }
-    }
 ?>
