@@ -14,10 +14,10 @@
         <h1>Mi página personal</h1>
         <nav>
 
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Herramientas</a></li>
-                <li><a href="">Redes</a></li>
+            <ul class="index">
+                <li class="index"><a href="">Inicio</a></li>
+                <li class="index"><a href="">Herramientas</a></li>
+                <li class="index"><a href="">Redes</a></li>
             </ul>
 
         </nav>
@@ -25,7 +25,6 @@
     </header>
 
     <aside>
-
         <div class="fondo">
             <div class="blur">
                 <h2 class="titulo">Kingdom Hearts 2 Modding Page</h2>
@@ -33,15 +32,114 @@
         </div>
     </aside>
     <main>
+        <p class="descripcion">
+            Esta pagina esta dedicada a la información sobre los diferentes programas de modding sobre el juego Kindgom
+            Hearts 2.<br>
+            Abajo encontraras las diferentes extensiones que nos podemos encontrar dentro del juego.
+        </p>
         <table>
             <tr>
                 <th>
-                    Modding Stuff
+                    Extension
+                </th>
+                <th>
+                    Información
+                </th>
+                <th>
+                    Contiene
                 </th>
             </tr>
             <tr>
                 <td>
-                    MSET Editor
+                    .mdlx
+                </td>
+                <td>
+                    Archivo de modelo
+                </td>
+                <td>
+                    <ul>
+                        <li>Modelo</li>
+                        <li>Textura</li>
+                        <li>Colision</li>
+                        <li>IA</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .mset
+                </td>
+                <td>
+                    Archivo de animaciones asociadas al modelo
+                </td>
+                <td>
+                    .anb - Animaciones
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .a.fm
+                </td>
+                <td>
+                    Archivo de efectos y voces
+                </td>
+                <td>
+                    <ul>
+                        <li>PAX - Efectos</li>
+                        <li>VSB - Voces</li>
+                        <li>WE - Efectos de Sonido</li>
+                        <li>.IMGD - En algunos, elementos de HUD</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .bar
+                </td>
+                <td>
+                    Contenedores de imagenes o texto
+                </td>
+                <td>
+                    .IMGD(Texturas de HUD) o .bin(Archivos de texto)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .map
+                </td>
+                <td>
+                    Mapas
+                </td>
+                <td>
+                    <ul>
+                        <li>.mdlx - Modelo del mapa</li>
+                        <li>.RAW - Texturas</li>
+                        <li>COL - Colision</li>
+                        <li>SKx - El cielo (Skybox), puede tener más de uno</li>
+                        <li>BOB - Elementos del mapa con animaciones y efectos</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .ard
+                </td>
+                <td>
+                    Eventos
+                </td>
+                <td>
+                    Contenedores de eventos, puntos de aparición, puertas, cofres,etc
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    .bin
+                </td>
+                <td>
+                    Archivos binarios
+                </td>
+                <td>
+                    Información de la estructura del juego.
                 </td>
             </tr>
         </table>
