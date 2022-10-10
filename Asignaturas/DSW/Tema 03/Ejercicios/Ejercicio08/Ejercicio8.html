@@ -39,7 +39,10 @@ declare(strict_types=1);
 
 <body>
     <h1>Ejercicio 08</h1>
-    <?php
-    ?>
+    <form action="subirImagen.php" method="post" enctype="multipart/form-data">
+        <label for="input">Sube el archivo: </label><br>
+        <input type="file" id="input" name="input"><br>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
