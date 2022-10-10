@@ -24,7 +24,7 @@
                 fseek($archivo, $pointer+1);
 
 
-            }while ($linea == true)
+            }while ($linea == true);
 
             echo "</table>";
 
