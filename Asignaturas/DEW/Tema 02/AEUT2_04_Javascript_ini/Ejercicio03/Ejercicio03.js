@@ -14,7 +14,8 @@ function EJ03() {
     do {
         respuesta = prompt("Introduce un numero:");
         numeros.push(respuesta);
-    } while (respuesta >= 1 && respuesta <= 50);
+    } while (respuesta > 1 && respuesta < 50);
+    numeros.pop(numeros.length-1);
     document.getElementById("EJ03").innerHTML = numeros.reverse();
 }
 
