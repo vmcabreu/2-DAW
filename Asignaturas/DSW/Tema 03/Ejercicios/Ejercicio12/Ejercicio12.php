@@ -34,7 +34,7 @@ declare(strict_types=1);
             return $casilla;
         }
         function alfilMovimiento(){
-            $casilla = $_GET('id');
+            $casilla = 0;
             echo $casilla;
         }
         echo crearTablero();

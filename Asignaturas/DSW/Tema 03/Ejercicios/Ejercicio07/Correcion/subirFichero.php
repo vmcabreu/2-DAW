@@ -1,20 +1,36 @@
 <style>
-        table,
-        td {
-            border: 1px solid black;
-        }
-
-    </style>
-<?php
-if (isset($_POST['btnFicheroCsv'])) {
-    $fd=fopen($_FILES['ficheroCsv']['tmp_name'],"r");
-    while(($linea=fgets($fd))!=""){
-        
+    table,
+    td {
+        border: 1px solid black;
     }
-} else if (isset($_POST['btnFicheroCsv']))  {
+</style>
+<?php
 
+function lineaCsvToTR(string $linea, string $tipoCelda = "td", string $separador = ";"): string
+{
+    $res = "";
+    $campos = explode($separador, $linea);
+    $res .= "<tr>\n";
+    foreach ($campos as $campo) {
+        $res .= "<$tipoCelda>$campo</$tipoCelda>";
+    }
+    $res .= "<tr>\n";
+    return $res;
+}
+
+
+
+if (isset($_POST['btnFicheroCsv'])) {
+    $fichero = $_FILES['ficheroCsv'];
+    $fdCsv = fopen($fichero['tmp_name'], "r");
+    echo "<table>\n";
+    echo lineaCsvToTR(fgets($fdCsv), "th");
+    while (($linea = fgets($fdCsv))) {
+        echo lineaCsvToTR($linea);
+    }
+    echo "</table>\n";
+} else if (isset($_POST['btnFicheroCsv'])) {
 } else {
-    
 }
 /**
         $fichero = $_FILES['input'];
@@ -46,5 +62,5 @@ if (isset($_POST['btnFicheroCsv'])) {
             echo "</table>";
 
         }
-         */
+ */
 ?>
