@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Mi página personal</title>
+</head>
+
+
+        <h1>Mi página personal</h1>
+        <nav>
+            <ul class="index">
+                <li class="index"><a href="index.html">Inicio</a></li>
+                <li class="index"><a href="herramientas.html">Herramientas</a></li>
+                <li class="index"  id="active"><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <img src="imgs/logo.png" class="logo" alt="logo">
+    <body>
+        <h2>Contacto</h2>
+        <a href="https://discord.openkh.dev/" class="discord"><img src="imgs/discord.png" alt=""> </a>
+        <form action="" class="descripcion">
+            <p >
+                Si quieres contactar con nosotros rellene el cuestionario con sus dudas<br>
+            </p><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+            <label for="correo">Correo:</label>
+            <input type="text" id="correo">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono"><br>
+            <label for="areatexto">Preguntas:</label>
+            <br>
+            <textarea name="areatexto" id="areatexto" cols="60" rows="10" placeholder="Escribe tus dudas aqui..."></textarea><br>
+            <button style="width: 50px; border: 1px solid black" >Enviar</button>
+        </form>
+</body>
+
+</html>
