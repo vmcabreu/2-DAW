@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UT2_3_Funciones</title>
-    <link rel="stylesheet" type="text/css" href="../EjerciciosLayout.css">
+    <style>
+        #tabla2 tr:nth-child(even){
+            background-color: skyblue;
+        }
+        #tabla2 tr:nth-child(odd){
+            background-color: lightyellow;
+        }
+    </style>
 </head>
+
 
 <body>
     <h1>UT2_3_Funciones</h1>
@@ -30,24 +38,24 @@
                 </tr>
                 <tr>
 
-                    <table border="1">
-                        <tbody>
+                    <table border="1" id="tabla2">
+                        <tbody id="tbody">
                             <tr>
-                                <td>UNO</td>
+                                <td><a href="#">UNO</a></td>
                             </tr>
                             <tr>
-                                <td>DOS</td>
+                                <td><a href="#">DOS</a></td>
                             </tr>
                             <tr>
-                                <td>TRES</td>
+                                <td><a href="#">TRES</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </tr>
             </div>
         </table>
-        <button id="index"><a href="../Funciones.html">Volver al inicio</a></button>
-        <script src="Ejercicio04.js"></script>
+        <input type="button" value="Añadir linea" id="boton" onclick="anadeTabla()"/>
+        <script src="ejercicio4.js"></script>
 </body>
 
 </html>
