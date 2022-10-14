@@ -28,5 +28,5 @@ function switchTd(td) {
 }
 
 function updateRows() {
-    tablaHtml.querySelectorAll("tr").forEach((row) => row.addEventListener("click",()=> switchTd(row)));
+    tablaHtml.querySelectorAll("tr").forEach((linea) => linea.addEventListener("click",()=> switchTd(linea)));
 } 
