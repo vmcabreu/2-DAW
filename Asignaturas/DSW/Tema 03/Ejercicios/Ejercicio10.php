@@ -38,6 +38,7 @@ declare(strict_types=1);
 <body>
     <h1>Ejercicio 10</h1>
     <?php
+    echo json_decode(file_get_contents('https://api.ipify.org?format=json'))->ip;
     ?>
 </body>
 </html>

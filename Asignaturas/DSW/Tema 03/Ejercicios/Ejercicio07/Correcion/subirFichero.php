@@ -19,7 +19,6 @@ function lineaCsvToTR(string $linea, string $tipoCelda = "td", string $separador
 }
 
 
-
 if (isset($_POST['btnFicheroCsv'])) {
     $fichero = $_FILES['ficheroCsv'];
     $fdCsv = fopen($fichero['tmp_name'], "r");
@@ -29,7 +28,22 @@ if (isset($_POST['btnFicheroCsv'])) {
         echo lineaCsvToTR($linea);
     }
     echo "</table>\n";
-} else if (isset($_POST['btnFicheroCsv'])) {
+} else if (isset($_POST['btnTextoCsv'])) {
+    $texto = $_POST['input'];
+    $lineas = explode("\n",$texto);
+    echo "<table>\n";
+    echo "<thead>\n";
+    lineaCsvToTR($lineas[0],"th");
+    echo "</thead>\n";
+    echo "<tbody>\n";
+    for ($i=1; $i < count($lineas); $i++) { 
+        $linea = preg_split("/;/",$linea[$i]);
+        foreach($linea as $l){
+            lineaCsvToTR($l);
+        }
+    }
+    echo "</tbody>\n";
+    echo "</table>\n";
 } else {
 }
 /**

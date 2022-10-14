@@ -12,34 +12,42 @@ declare(strict_types=1);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 09</title>
-    <style>
-        table,
-        td {
-            border: 1px solid black;
-        }
-
-        td {
-            display: grid;
-            padding: 5px;
-            margin: 5px;
-            text-align: center;
-            display: inline-block;
-            font-size: 75px;
-            align-content: center;
-        }
-
-        img {
-            
-            width: 50px;
-            height: 50px;
-
-        }
-    </style>
 </head>
 
 <body>
     <h1>Ejercicio 09</h1>
     <?php
+    function mostrarForm($listaNumeros)
+    {
+    ?>
+        <form action="" method="post" enctype="multipart/form-data">
+            <label for="n">Número: </label>
+            <input type="number" name="n" id="n" />
+            <input type="hidden" name="listaNumeros" value="<?= $listaNumeros; ?>" />
+            <button type="submit">Sumar</button>
+        </form>
+    <?php
+    }
+
+    if (isset($_POST['n'])) {
+        $n = $_POST['n'];
+        $listaNumeros = $_POST['listaNumeros'];
+        if ($n == "-1") {
+            $numeros = explode("| ", $listaNumeros);
+            $suma = 0;
+            for ($i = 1; $i < count($numeros); $i++) {
+                $suma += intval($numeros[$i]);
+            }
+            echo "Los numeros son: $listaNumeros \n";
+            echo "La suma de los números es: $suma";
+        } else {
+            $listaNumeros .= "| " . $n;
+            mostrarForm($listaNumeros);
+        }
+    } else {
+        mostrarForm($listaNumeros);
+    }
     ?>
 </body>
+
 </html>

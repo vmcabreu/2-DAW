@@ -1,11 +1,6 @@
 <?php
-        $fichero = $_FILES['input'];
-        $destination = "/var/www/phpdata/".$fichero['name'];
-        if (file_exists($destination)) {
-            echo "El fichero ".$fichero['name']." ya existe. ";
-        }else{
-            move_uploaded_file($fichero['tmp_name'],$destination);
-            $base64= base64_encode(file_get_contents($fichero));
-            echo '<img src="data: '.filetype($fichero).';base64,'.$base64.'">';
-        }
+        $fichero = $_FILES['input']['tmp_name'];
+        $base64= base64_encode(file_get_contents($fichero));
+        echo '<img src="data:',$_FILES['input']['type'],';base64,',$base64,'"/>\n';
+
 ?>
