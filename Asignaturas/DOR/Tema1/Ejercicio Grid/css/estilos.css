@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lobster", cursive;
+  color: grey;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 4vw 15vw 77vw 4vw;
+  grid-template-rows: 10vh 50vh 30vh 10vh;
+}
+
+footer{
+  grid-row: 1/2;
+  grid-column: 2/4;
+}

@@ -23,15 +23,16 @@ juego() - Primero pedimos los nombres de los jugadores, y jugamos al mejor de 3.
 function piedraPapelTijera() {
     class juego {
         constructor() {
-            this.jugador1;
+            this.jugador1 = "Jugador 1";
             this.jugador2 = "Jugador 2";
             this.opcion = ["Piedra", "Papel", "Tijera"];
             this.puntuacionJ1 = 0;
             this.puntuacionJ2 = 0;
         }
 
-        preguntarNombre(nombre) {
-            this.jugador1 = prompt("Introduzca su nombre: ");
+        preguntarNombre() {
+            let nombrejugador1 = prompt("Introduzca su nombre: ");
+            return this.jugador1 = nombrejugador1;
         }
 
         numeroRandom() {
@@ -62,27 +63,21 @@ function piedraPapelTijera() {
                 this.puntuacionJ1 += 1;
                 return "Jugador 1 gana";
             } else {
-                return "Empate"
+                return "Empate";
             }
         }
 
         imprimirResultados() {
             let tiradaJ1 = this.tiradaJugador();
             let tiradaJ2 = this.tiradaJugador();
-            document.getElementById("resultado").innerHTML = "Jugador 1: " + tiradaJ1 + " <br> Jugador:2" + tiradaJ2;
+            document.getElementById("resultado").innerHTML = "Jugador 1: " + tiradaJ1 + " <br> Jugador 2: " + tiradaJ2;
             document.getElementById("resultado").innerHTML += "<br>" + this.evaluarTirada(tiradaJ1,tiradaJ2);
             document.getElementById("resultado").innerHTML += "<br> Puntuacion: <br>Jugador 1: "+this.puntuacionJ1+"<br>Jugador 2: "+this.puntuacionJ2+"<br>";
-
         }
-
     }
 
     const partida = new juego();
-    juego.preguntarNombre();
-    let puntuacionJ1 = juego.puntuacionJ1;
-    let puntuacionJ2 = juego.puntuacionJ2;
-    while(puntuacionJ1 <= 3 || puntuacionJ2 <=3){
-        juego.imprimirResultados();
-    }
+    partida.preguntarNombre();
+    partida.imprimirResultados();
 
 }
