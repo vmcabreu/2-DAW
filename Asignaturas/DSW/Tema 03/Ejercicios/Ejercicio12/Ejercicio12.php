@@ -1,6 +1,7 @@
 <?php
+
 declare(strict_types=1);
-# Ejercicio 12 - Programa en PHP que muestre un tablero de ajedrez, de 64 casillas, columnas de la a-h y filas de la 1-8. Cuando el usuario haga "click" sobre una casilla, se le enviará información al
+# Ejercicio 12 - Programa en PHP que muestre un tablero de ajedrez, de 64 casillas, j de la a-h y i de la 1-8. Cuando el usuario haga "click" sobre una casilla, se le enviará información al
 # programa de las coordenadas de la casilla y el programa devolverá un nuevo tablero, coloreando las casillas a las cuales podría saltar un alfil, desde la casilla indicada.
 ?>
 <!DOCTYPE html>
@@ -12,33 +13,48 @@ declare(strict_types=1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="ej12.css">
     <title>Ejercicio 12</title>
+    <script>
+        function recarga(f, c) {
+            document.location = "?fila=" + f + "&col=" + c;
+        }
+    </script>
 </head>
 
 <body>
     <h1>Ejercicio 12</h1>
     <table cellspacing="0px" cellpadding="0px">
         <?php
-        function crearTablero(){
+        function crearTablero($filas = 8, $cols = 8, $celda = null)
+        {
             $casilla = "";
-            for ($filas=0; $filas < 8; $filas++) { 
-                $casilla = $casilla."<tr>";
-                for ($columnas=0; $columnas < 8; $columnas++) {                
-                    if(($filas+$columnas)%2 ==0){
-                        $casilla = $casilla.'<td><button name="f'.($filas+1).'c'.($columnas+1).'" class="blanco" style="width: 100%; height: 100%;" onclick="alfilMovimiento();" class="blanco"></button></td>';
-                    }else{
-                        $casilla = $casilla.'<td><button name="f'.($filas+1).'c'.($columnas+1).'" class="negro" style="width: 100%; height: 100%;" onclick="alfilMovimiento();"></button></td>';
+            for ($i = $filas; $i > 0; $i--) {
+                echo "<tr>";
+                echo "<th>$i</th>\n";
+                for ($j = $cols; $j > 0; $j--) {
+                    $clase = (($i + $j) % 2 == 0 ? 'white' : 'black');
+                    if ($celda!=null && abs(intval($celda[0])-$i)==abs(intval($celda[1])-$j)) {
+                    echo '<td style="background-color:red;" onclick="recarga(' . $i . ',' . $j . ');"></td>';
                     }
+                    echo '<td style="background-color:' . $clase . ';" onclick="recarga(' . $i . ',' . $j . ');"></td>';
                 }
-                $casilla = $casilla."</tr>";
+                echo "</tr>";
             }
-            return $casilla;
         }
-        function alfilMovimiento(){
+        function alfilMovimiento()
+        {
             $casilla = 0;
             echo $casilla;
         }
-        echo crearTablero();
-    ?>
+
+        if (isset($_GET['fila']) && isset($_GET['columna'])) {
+        } else {
+            echo crearTablero();
+        }
+
+
+
+        ?>
     </table>
 </body>
+
 </html>
