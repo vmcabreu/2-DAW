@@ -6,7 +6,20 @@ Reducir: modificará el tamaño de la ventana disminuyendo tanto el ancho como e
 Mover: Ubicará la pantalla en la posición indicada en los cuadros de texto. Los valores tendrán que ser enteros positivos. Antes de mover la nueva pantalla tendrá que comprobar que la nueva posición de la ventana es posible teniendo en cuenta tanto la posición como su alto y ancho y el tamaño de la pantalla.
 muestra:*/
 
+let ventanaNueva;
+
 function abrirVentana() {
-    window.resizeTo(400,400);
-    window.open("https://www.google.com/");
+    let top = (screen.width - 400) / 2;
+    let left = (screen.height - 400) / 2;
+    ventanaNueva = window.open("https://www.google.com/", "", "width=400,height=400,top=" + top + ",left=" + left);
+    
+}
+
+
+function cerrarVentana() {
+    if (ventanaNueva != null) {
+        ventanaNueva.close();
+    } else {
+        alert ("No hay ventanas que cerrar.");
+    }
 }

@@ -24,17 +24,21 @@ class juego {
     constructor(jugador1 = "Jugador 1", jugador2 = "Jugador 2") {
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
-        this.opcion = ["Piedra", "Papel", "Tijera"];
+        this.opcion = ["piedra", "papel", "tijera"];
         this.puntuacionJ1 = 0;
         this.puntuacionJ2 = 0;
+        this.ronda = 0;
     }
 
     preguntarNombre() {
-        let nombrejugador1 = prompt("Introduzca su nombre: ");
+        let nombrejugador1 = prompt("Introduzca el nombre del Jugador 1: ");
+        let nombrejugador2 = prompt("Introduzca el nombre del Jugador 2: ");
         if (nombrejugador1 == "") {
-            return this.jugador1
+            return this.jugador1, this.jugador2;
         } else {
-            return this.jugador1 = nombrejugador1;
+            document.getElementById("lj1").innerHTML = nombrejugador1 + " :";
+            document.getElementById("lj2").innerHTML = nombrejugador2 + " :";
+            return this.jugador1 = nombrejugador1, this.jugador2 = nombrejugador2;
         }
     }
 
@@ -50,54 +54,56 @@ class juego {
     evaluarTirada(tiradaJ1, tiradaJ2) {
         if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[1]) {
             this.puntuacionJ2++;
-            return "Jugador 2 gana";
+            return this.jugador2 + " gana &#127881";
             //J1: Piedra J2: Tijera
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[2]) {
             this.puntuacionJ1++;
-            return "Jugador 1 gana";
+            return this.jugador1 + " gana &#127881";
             //J1: Piedra J2: Papel
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[1]) {
             this.puntuacionJ1++;
-            return "Jugador 2 gana";
+            return this.jugador2 + " gana &#127881";
             //J1: Papel J2: Piedra
         } else if (tiradaJ1 == this.opcion[1] && tiradaJ2 == this.opcion[0]) {
             this.puntuacionJ1++;
-            return "Jugador 1 gana";
+            return this.jugador1 + " gana &#127881";
             //J1: Papel J2: Tijera
         } else if (tiradaJ1 == this.opcion[1] && tiradaJ2 == this.opcion[2]) {
             this.puntuacionJ2++;
-            return "Jugador 2 gana";
+            return this.jugador2 + " gana &#127881";
             //J1: Tijera J2: Piedra
         } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[0]) {
             this.puntuacionJ2++;
-            return "Jugador 2 gana";
+            return this.jugador2 + " gana &#127881";
             //J1: Tijera J2: Papel
         } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[1]) {
             this.puntuacionJ1++;
-            return "Jugador 1 gana";
+            return this.jugador1 + " gana &#127881";
         } else {
             return "Empate";
         }
     }
 
     imprimirResultados() {
-        let ronda = 0;
-        document.getElementById("resultado").innerHTML = "";
-        do {
-            let tiradaJ1 = this.tiradaJugador();
-            let tiradaJ2 = this.tiradaJugador();
-            document.getElementById("resultado").innerHTML += "<br> Ronda " + ronda;
+        let tiradaJ1 = document.getElementById("j1").value;
+        let tiradaJ2 = document.getElementById("j2").value;
+        if (this.opcion.includes(tiradaJ1) && this.opcion.includes(tiradaJ2)) {
+            document.getElementById("resultado").innerHTML += "<br> Ronda " + this.ronda;
             document.getElementById("resultado").innerHTML += "<br> " + this.jugador1 + ": " + tiradaJ1 + " <br> " + this.jugador2 + ": " + tiradaJ2;
             document.getElementById("resultado").innerHTML += "<br>" + this.evaluarTirada(tiradaJ1, tiradaJ2);
-            document.getElementById("resultado").innerHTML += "<br> Puntuacion: <br>Jugador 1: " + this.puntuacionJ1 + "<br>Jugador 2: " + this.puntuacionJ2 + "<br>";
-            ronda++;
-        } while (this.puntuacionJ1 != 2 && this.puntuacionJ2 != 2);
+            document.getElementById("resultado").innerHTML += "<br> Puntuacion: <br>" + this.jugador1 + ": " + this.puntuacionJ1 + "<br>" + this.jugador2 + ": " + this.puntuacionJ2 + "<br>";
+            this.ronda++;
+        } else {
+            alert("Error \n Han introducido un valor incorrecto. Vuelve a intentarlo \n Revisen sus jugadas: "+tiradaJ1+" "+tiradaJ2);
+        }
     }
 }
 
+const partida = new juego();
+partida.preguntarNombre();
+
 function piedraPapelTijera() {
-    const partida = new juego();
-    partida.preguntarNombre();
+
     partida.imprimirResultados();
     console.log(partida.j1);
     console.log(partida.puntuacionJ1);

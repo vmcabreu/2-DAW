@@ -24,7 +24,7 @@ class juego {
     constructor(jugador1 = "Jugador 1", jugador2 = "Jugador 2") {
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
-        this.opcion = ["Piedra", "Papel", "Tijera"];
+        this.opcion = ["Piedra", "Papel", "Tijera", "Lagarto", "Spock"];
         this.puntuacionJ1 = 0;
         this.puntuacionJ2 = 0;
     }
@@ -40,7 +40,7 @@ class juego {
 
 
     numeroRandom() {
-        return parseInt(Math.random() * 3);
+        return parseInt(Math.random() * 5);
     }
 
     tiradaJugador() {
@@ -55,8 +55,16 @@ class juego {
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[2]) {
             this.puntuacionJ1++;
             return "Jugador 1 gana";
+            //J1: Piedra J2: Lagarto
+        } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[3]) {
+            this.puntuacionJ1++;
+            return "Jugador 1 gana";
             //J1: Piedra J2: Papel
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[1]) {
+            this.puntuacionJ1++;
+            return "Jugador 2 gana";
+            //J1: Piedra J2: Spock
+        } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[4]) {
             this.puntuacionJ1++;
             return "Jugador 2 gana";
             //J1: Papel J2: Piedra
@@ -67,6 +75,14 @@ class juego {
         } else if (tiradaJ1 == this.opcion[1] && tiradaJ2 == this.opcion[2]) {
             this.puntuacionJ2++;
             return "Jugador 2 gana";
+            //J1: Papel J2: Lagarto
+        } else if (tiradaJ1 == this.opcion[1] && tiradaJ2 == this.opcion[3]) {
+            this.puntuacionJ2++;
+            return "Jugador 2 gana";
+            //J1: Papel J2: Spock
+        } else if (tiradaJ1 == this.opcion[1] && tiradaJ2 == this.opcion[4]) {
+            this.puntuacionJ2++;
+            return "Jugador 1 gana";
             //J1: Tijera J2: Piedra
         } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[0]) {
             this.puntuacionJ2++;
@@ -75,8 +91,49 @@ class juego {
         } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[1]) {
             this.puntuacionJ1++;
             return "Jugador 1 gana";
+            //J1: Tijera J2: Lagarto
+        } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[3]) {
+            this.puntuacionJ1++;
+            return "Jugador 1 gana";
+            //J1: Tijera J2: Spock
+        } else if (tiradaJ1 == this.opcion[2] && tiradaJ2 == this.opcion[4]) {
+            this.puntuacionJ1++;
+            return "Jugador 2 gana";
+            //J1: Lagarto J2: Spock
+        } else if (tiradaJ1 == this.opcion[3] && tiradaJ2 == this.opcion[4]) {
+            this.puntuacionJ1++;
+            return "Jugador 1 gana";
+            //J1: Lagarto J2: Papel
+        } else if (tiradaJ1 == this.opcion[3] && tiradaJ2 == this.opcion[1]) {
+            this.puntuacionJ2++;
+            return "Jugador 1 gana";
+            //J1: Lagarto J2: Tijera
+        } else if (tiradaJ1 == this.opcion[3] && tiradaJ2 == this.opcion[2]) {
+            this.puntuacionJ1++;
+            return "Jugador 2 gana";
+            //J1: Lagarto J2: Piedra
+        } else if (tiradaJ1 == this.opcion[3] && tiradaJ2 == this.opcion[0]) {
+            this.puntuacionJ2++;
+            return "Jugador 2 gana";
+            //J1: Spock J2: Tijera
+        } else if (tiradaJ1 == this.opcion[4] && tiradaJ2 == this.opcion[2]) {
+            this.puntuacionJ2++;
+            return "Jugador 1 gana";
+            //J1: Spock J2: Piedra
+        } else if (tiradaJ1 == this.opcion[4] && tiradaJ2 == this.opcion[0]) {
+            this.puntuacionJ1++;
+            return "Jugador 1 gana";
+            //J1: Spock J2: Lagarto
+        } else if (tiradaJ1 == this.opcion[4] && tiradaJ2 == this.opcion[3]) {
+            this.puntuacionJ2++;
+            return "Jugador 2 gana";
+            //J1: Spock J2: Papel
+        } else if (tiradaJ1 == this.opcion[4] && tiradaJ2 == this.opcion[1]) {
+            this.puntuacionJ1++;
+            return "Jugador 2 gana";
         } else {
             return "Empate";
+
         }
     }
 
