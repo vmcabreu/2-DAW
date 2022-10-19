@@ -9,8 +9,8 @@ muestra:*/
 let ventanaNueva;
 
 function abrirVentana() {
-    let top = (screen.width - 400) / 2;
-    let left = (screen.height - 400) / 2;
+    let top = (window.innerWidth - 400) / 2;
+    let left = (window.innerHeight + 400) / 2;
     ventanaNueva = window.open("https://www.google.com/", "", "width=400,height=400,top=" + top + ",left=" + left);
     
 }
