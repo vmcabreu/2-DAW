@@ -1,0 +1,238 @@
+gametitle=Kingdom Hearts II Final Mix [SLPM_66675] [B7398B17]
+
+
+//////////////////////////////////////
+//Worlds
+//////////////////////////////////////
+//Simulated Twilight Town
+
+//Dusk Drop
+patch=1,EE,E0032102,extended,0032BAE0
+patch=1,EE,11D0A200,extended,00000001
+patch=1,EE,11D0A202,extended,00000080
+patch=1,EE,11D0A204,extended,00000043
+patch=1,EE,11D0A206,extended,000000D0
+patch=1,EE,11D0A208,extended,00000005
+patch=1,EE,11D0A20A,extended,000000FF
+
+//Twilight Thorn Battle Mod
+patch=1,EE,E0022202,extended,0032BAE0
+patch=1,EE,01cb95b6,extended,00000031
+patch=1,EE,01cb95d6,extended,00000031
+//
+patch=1,EE,21D10FA8,extended,0062009E
+//
+patch=1,EE,21D10CB8,extended,000400A2
+
+
+//Twilight Thorn Battle Normal
+patch=1,EE,E0020502,extended,0032BAE0
+patch=1,EE,01cb95b6,extended,00000030
+patch=1,EE,01cb95d6,extended,00000030
+//
+patch=1,EE,21D11278,extended,00000043
+
+//Sandlot Dusks
+patch=1,EE,E0030502,extended,0032BAE0
+patch=1,EE,E0020056,extended,0032BAE4
+patch=1,EE,11C26D24,extended,00000136
+
+//Axel I
+patch=1,EE,E0040502,extended,0032BAE0
+patch=1,EE,E0030057,extended,0032BAE4
+patch=1,EE,E0020069,extended,01C6C4EC
+patch=1,EE,11C6C4E8,extended,00000100
+patch=1,EE,11C6C4EC,extended,00000100
+
+//Shadow Roxas
+patch=1,EE,E0040A02,extended,0032BAE0
+patch=1,EE,E0030079,extended,0032BAE4
+patch=1,EE,E0020069,extended,01C6C4EC
+patch=1,EE,11C6C4E8,extended,00000120
+patch=1,EE,11C6C4EC,extended,00000120
+
+//Axel 2
+patch=1,EE,E0041402,extended,0032BAE0
+patch=1,EE,E0030089,extended,0032BAE4
+patch=1,EE,E0020159,extended,01C6C4EC
+patch=1,EE,11C6C4E8,extended,00000290
+patch=1,EE,11C6C4EC,extended,00000290
+//////////////////////////////////////
+//Twilight Town (Sora Awaken)
+
+//The Tower Heartless
+patch=1,EE,E00A1902,extended,0032BAE0
+patch=1,EE,E0090095,extended,0032BAE4
+patch=1,EE,11C503D8,extended,0000013E
+patch=1,EE,11C50418,extended,0000013E
+patch=1,EE,11C50458,extended,0000013E
+patch=1,EE,11C50498,extended,0000013E
+patch=1,EE,11C50504,extended,0000013E
+patch=1,EE,11C50544,extended,0000013E
+patch=1,EE,11C50584,extended,0000013E
+patch=1,EE,11C505C4,extended,0000013E
+patch=1,EE,11C50604,extended,0000013E
+
+//Tower Star Chamber
+patch=1,EE,E00D1D02,extended,0032BAE0
+patch=1,EE,E00C0098,extended,0032BAE4
+patch=1,EE,11C5B140,extended,0000013D
+patch=1,EE,11C5B180,extended,0000013D
+patch=1,EE,11C5B1C0,extended,0000013D
+patch=1,EE,11C5B200,extended,0000013D
+patch=1,EE,11C5B240,extended,0000013D
+patch=1,EE,11C5B280,extended,0000013E
+patch=1,EE,11C5B2C0,extended,0000013E
+patch=1,EE,11C5B300,extended,0000013E
+patch=1,EE,11C5B340,extended,0000013E
+patch=1,EE,11C5B380,extended,0000013E
+patch=1,EE,11C5B3C0,extended,0000013E
+patch=1,EE,11C5B400,extended,0000013E
+
+//Tower Moon Chamber
+patch=1,EE,E00A1E02,extended,0032BAE0
+patch=1,EE,E0090099,extended,0032BAE4
+patch=1,EE,11C5B0E8,extended,0000013E
+patch=1,EE,11C5B128,extended,00000136
+patch=1,EE,11C5B168,extended,0000013E
+patch=1,EE,11C5B1A8,extended,0000013E
+patch=1,EE,11C5B1E8,extended,0000013E
+patch=1,EE,11C5B228,extended,00000136
+patch=1,EE,11C5B268,extended,00000136
+patch=1,EE,11C5B2A8,extended,00000136
+patch=1,EE,11C5B2E8,extended,00000136
+//////////////////////////////////////
+//Hollow Bastion Pt 1
+
+//Bailey Nobodies Fight
+patch=1,EE,E0070804,extended,0032BAE0
+patch=1,EE,E0060034,extended,0032BAE4
+patch=1,EE,11C45E30,extended,00000135
+patch=1,EE,11C45E70,extended,00000135
+patch=1,EE,11C45EB0,extended,00000135
+patch=1,EE,11C45EF0,extended,00000135
+patch=1,EE,11C45F30,extended,00000135
+patch=1,EE,11C46030,extended,00000139
+
+//////////////////////////////////////
+//Beast Castle Pt 1
+//Thresholder
+patch=1,EE,E00D0B05,extended,0032BAE0
+patch=1,EE,E00C0048,extended,0032BAE4
+patch=1,EE,01c95256,extended,00000034
+patch=1,EE,01c95276,extended,00000034
+patch=1,EE,11C55330,extended,0000012D 
+patch=1,EE,11C55370,extended,0000012D 
+patch=1,EE,11C553B0,extended,00000048
+patch=1,EE,11C553F0,extended,00000048
+patch=1,EE,11C55430,extended,00000008
+patch=1,EE,11C55470,extended,00000008
+patch=1,EE,11C554B0,extended,00000048
+patch=1,EE,11C554F0,extended,00000048
+patch=1,EE,11C55530,extended,00000008
+patch=1,EE,11C55570,extended,00000008
+
+//Bonus//
+patch=1,EE,21D10752,extended,00000000
+patch=1,EE,21D10754,extended,000A0000
+patch=1,EE,21D10758,extended,00000089
+
+
+//Beast Fight:
+patch=1,EE,E0040305,extended,0032BAE0
+patch=1,EE,E00F0045,extended,0032BAE4
+patch=1,EE,2032BAE0,extended,00002C05
+patch=1,EE,2032BAE4,extended,009D009D
+patch=1,EE,2032BAE8,extended,0000009D
+
+
+//////////////////////////////////////
+//Hollow Bastion Mid-Visit
+(Fight infront Merlin's House)
+Soldiers = Sargeants
+Shadows = NeoShadows
+11C4C3C4 00000076 - Soldier
+11C4C404 00000078 - Shadow
+11C4C444 00000076 - Soldier
+11C4C484 00000076 - Soldier
+11C4C4C4 00000078 - Shadow
+11C4C504 00000078 - Shadow
+11C4C544 00000078 - Shadow
+11C4C584 00000078 - Shadow
+11C4C5C4 00000078 - Shadow
+11C4C604 00000078 - Shadow
+
+//////////////////////////////////////
+//Land of Dragons Part 2
+//Part 1/3
+//TP
+patch=1,EE,E0040708,extended,0032BAE0
+patch=1,EE,E003004C,extended,0032BAE4
+patch=1,EE,2032BAE0,extended,00001002
+patch=1,EE,2032BAE4,extended,004F004F
+patch=1,EE,2032BAE8,extended,0000004F
+
+//Tp Part 3/3
+patch=1,EE,E0060e05,extended,0032BAE0
+patch=1,EE,E0050000,extended,0032BAE4
+patch=1,EE,E0040000,extended,0032BAE8
+patch=1,EE,E0030302,extended,01c6c4ec
+patch=1,EE,2032BAE0,extended,00000808
+patch=1,EE,2032BAE4,extended,004F004F
+patch=1,EE,2032BAE8,extended,0000004F
+//End Land of Dragons Part 2
+//////////////////////////////////////
+//Agrabah Pt 2
+
+//Sand Ruins
+patch=1,EE,E0020E07,extended,0032BAE0
+patch=1,EE,20191c70,extended,00000000
+
+patch=1,EE,E0020E07,extended,1032BAE0
+patch=1,EE,20191c70,extended,11e00002
+
+
+//////////////////////////////////////
+//Halloween Town Pt2
+//The Experiment
+patch=1,EE,E005070E,extended,0032BAE0
+patch=1,EE,E0040040,extended,0032BAE4
+patch=1,EE,11C56120,extended,000008B5
+patch=1,EE,01cb95b6,extended,00000032
+patch=1,EE,01cb95d6,extended,00000032
+patch=1,EE,01CB95AC,extended,00000003
+
+patch=1,EE,E004070E,extended,0032BAE0
+patch=1,EE,E0030040,extended,0032BAE4
+patch=1,EE,E002008a,extended,01C6C4EC
+patch=1,EE,11C6C4E8,extended,00000500
+patch=1,EE,11C6C4EC,extended,00000500
+///////////////////////////////////////
+//I/O Tower
+patch=1,EE,E0030411,extended,0032BAE0
+patch=1,EE,E0020037,extended,0032BAE4
+patch=1,EE,01cbce56,extended,00000031
+patch=1,EE,01cbce76,extended,00000032
+
+patch=1,EE,E0020511,extended,0032BAE0
+patch=1,EE,01cbce56,extended,00000030
+patch=1,EE,01cbce76,extended,00000030
+
+///////////////////////////////////////
+//Castle Oblivion
+//Hall:
+// P1
+// P2
+
+//////////////////////////////////////
+//The World That Never Was
+
+//Riku into the party (Normal and Data)
+
+
+
+
+
+
+
+
