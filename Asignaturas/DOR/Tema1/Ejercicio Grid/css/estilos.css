@@ -7,45 +7,90 @@
 .container {
   margin: 15px;
   display: grid;
-  grid-template-columns: calc(8vw - 35px) calc(15vw - 35px) calc(50vw - 35px) calc(27vw - 35px);
-  grid-template-rows: 10vh 50vh 30vh 10vh;
+  grid-template-columns: 12vw 1fr 1fr 1fr;
+  grid-template-rows: calc(10vh - 30px) calc(50vh - 30px) calc(30vh - 30px) calc(10vh - 30px);
   column-gap: 20px;
+  row-gap: 15px;
 }
 
-img{
-  width: 20px;
-  height: 20px;
+img {
   border-radius: 18px;
 }
 
-header{
-  grid-column: 2/5;
+header {
+  grid-column: 1/5;
   text-align: center;
+  border-bottom: 2px solid grey;
 }
 
-nav{
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  align-content: center;
+nav {
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  gap: 20px;
   grid-row: 2/4;
   grid-column: span 1;
 }
 
-main{
+
+
+main {
   border: 2px solid grey;
   border-radius: 18px;
   grid-column: 2/4;
-}
-
-article{
-  border: 2px solid grey;
-  border-radius: 18px;
-}
-
-footer{
-  justify-content: space-evenly;
-  grid-column: 1/5;
   text-align: center;
 }
 
+main img {
+  height: 85%;
+  width: 80%;
+}
+
+article {
+  border: 2px solid grey;
+  border-radius: 18px;
+
+}
+
+article,
+main {
+  justify-self: center;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+article img {
+  width: 95%;
+  height: 90%;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-column: 1/5;
+  border-top: 2px solid grey;
+}
+
+address {
+  grid-column: 1/2;
+}
+
+.copyright {
+  grid-column: 2/3;
+}
+
+.social {
+  grid-column: 3/4;
+}
+
+.social img {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 0;
+}
