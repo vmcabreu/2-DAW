@@ -8,45 +8,5 @@ muestra:*/
 
 let ventanaNueva;
 
-function abrirVentana() {
-    let top = (window.innerWidth - 400) / 2;
-    let left = (window.innerHeight + 400) / 2;
-    ventanaNueva = window.open("about:blank", "", "width=400,height=400,top=" + top + ",left=" + left);
 
-}
-
-
-function cerrarVentana() {
-    if (ventanaNueva != null) {
-        ventanaNueva.close();
-    } else {
-        alert("No hay ventanas que cerrar.");
-    }
-}
-
-function aumentarVentana() {
-    if (ventanaNueva.innerWidth < screen.availWidth || ventanaNueva.innerHeight < screen.availHeight) {
-        ventanaNueva.resizeBy(30, 30);
-    } else {
-        alert("No hay puedes agrandar más.");
-    }
-
-}
-
-function reducirVentana() {
-    if (ventanaNueva.innerWidth > 100 || ventanaNueva.innerHeight > 59) {
-        ventanaNueva.resizeBy(-30, -30);
-        console.log(ventanaNueva.innerHeight, ventanaNueva.innerWidth);
-
-    } else {
-        alert("No hay puedes reducir más.");
-    }
-}
-
-function moverVentana() {
-    console.log(ventanaNueva.scrollY, ventanaNueva.scrollX);
-    let x = Math.abs(Number(document.getElementById("moverX").value));
-    let y = Math.abs(Number(document.getElementById("moverY").value));
-    ventanaNueva.moveTo(x, y);
-
-}
+document.getElementById("altoD").innerHTML = ""
