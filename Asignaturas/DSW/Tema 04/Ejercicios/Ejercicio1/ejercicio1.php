@@ -32,10 +32,9 @@ declare(strict_types=1);
         <a href="login.php">Ir al Login</a>
     </form>
     <?php
-
     function verificarUsuario(string $usuariojson, array $registro)
     {
-        $usuariof = (array)json_decode($usuariojson);
+        $usuariof = json_decode($usuariojson,true);
         return ($usuariof['user'] == $registro['user']);
     }
 
@@ -59,14 +58,13 @@ declare(strict_types=1);
         $fdbaseDatos = fopen($BDatos, "c+");
         $header = fgets($fdbaseDatos);
         $usuarioJson = json_encode($usuario, JSON_UNESCAPED_UNICODE);
-
         if ($header == null) {
             fwrite($fdbaseDatos, $usuarioJson . "\n");
             echo "<script> alert('Se ha registrado con éxito.') </script>";
         } else {
             while ($linea = fgets($fdbaseDatos)) {
                 if (verificarUsuario($linea, $usuario)) {
-                    echo "<script> alert(Este usuario ya está registrado.') </script>";
+                    echo "<script> alert('Este usuario ya está registrado.') </script>";
                     exit;
                 }
             }
@@ -75,8 +73,6 @@ declare(strict_types=1);
             header('Location: login.php');
         }
     }
-
     ?>
 </body>
-
 </html>
