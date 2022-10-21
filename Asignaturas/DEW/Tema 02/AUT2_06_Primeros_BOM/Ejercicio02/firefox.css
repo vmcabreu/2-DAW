@@ -1,0 +1,23 @@
+.pantalla {
+    background-color: antiquewhite;
+    border-radius: 12px;
+    margin: auto;
+    padding: 25px;
+    width: 50%;
+}
+
+.ventana {
+    background-color: rgb(147, 255, 174);
+    border-radius: 12px;
+    margin: auto;
+    padding: 25px;
+    width: 50%;
+}
+
+.despedida {
+    background-color: rgb(123, 178, 241);
+    border-radius: 12px;
+    margin: auto;
+    padding: 25px;
+    width: 50%;
+}
