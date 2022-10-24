@@ -48,6 +48,16 @@ class juego {
     }
 
     evaluarTirada(tiradaJ1, tiradaJ2) {
+        /*
+        for (let i = 0; i < this.opcion.length; i++) {
+            for (let j = 0; j < this.opcion.length; j++) {
+                if (tiradaJ1 == this.opcion[i] && tiradaJ2 == this.opcion[j]) {
+                    this.puntuacionJ2++;
+                }                
+            }
+            
+        }
+         */
         if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[1]) {
             this.puntuacionJ2++;
             return "Jugador 2 gana";
@@ -59,10 +69,6 @@ class juego {
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[3]) {
             this.puntuacionJ1++;
             return "Jugador 1 gana";
-            //J1: Piedra J2: Papel
-        } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[1]) {
-            this.puntuacionJ1++;
-            return "Jugador 2 gana";
             //J1: Piedra J2: Spock
         } else if (tiradaJ1 == this.opcion[0] && tiradaJ2 == this.opcion[4]) {
             this.puntuacionJ1++;
