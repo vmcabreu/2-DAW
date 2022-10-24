@@ -216,4 +216,4 @@ Ya con todo listo podemos levantar los servicios para nuestra aplicación:
 
 Con el `docker compose up` en funcionamiento, abrimos una nueva terminal y con nuestro navegador abrimos el *localhost* lo cual nos abrirá el info.php de nuestra aplicación
 
-![](imgs/29.png)
+![](imgs/Dockerizada.png)
