@@ -267,7 +267,7 @@ Para observar la estructura o el código de la aplicación Calculadora, elija aq
 
 - [Dockerizada](Calculadora/dockerizada)
 
-## Codigo 
+## Código 
 
 - [Nativa](Calculadora/dockerizada/src/index.php)
 
