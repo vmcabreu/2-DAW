@@ -190,11 +190,21 @@ Luego creamos un enlace suave entre nuestro archivo info.php y la carpeta Nginx 
 
 ## Calculadora Nativa
 
-Para que nuestra aplicación Calculadora sea nativa, tenemos que crear un enlace suave entre la carpeta y la ruta de Nginx *(/usr/share/nginx/html/)* , ya que si lo hacemos al archivo PHP, Nginx no leera los otros elementos como el CSS o las imagenes.
+Para que nuestra aplicación Calculadora sea nativa, tenemos que comprobar que el servicio de Nginx esta activo y crear un enlace suave entre la carpeta y la ruta de Nginx *(/usr/share/nginx/html/)* , ya que si lo hacemos al archivo PHP, Nginx no leerá los otros elementos como el CSS o las imagenes.
 
-![](imgs/Nativo_1.png)
+- Levantar el servicio Nginx:
 
-![](imgs/Nativo 2.png)
+`sudo systemctl start nginx`
+
+- Crear el enlace:
+
+`sudo ln -s ~/dev/nativo/ /usr/share/nginx/html/`
+
+Por lo tanto tras crear el enlace, abrimos una terminal y con nuestro navegador para visualizar nuestra aplicación de calculadora:
+
+`firefox localhost/nativo/nativo.php`
+
+![](imgs/Nativo2.png)
 
 ## Calculadora: PHP + Docker
 
