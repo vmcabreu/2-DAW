@@ -188,7 +188,15 @@ Luego creamos un enlace suave entre nuestro archivo info.php y la carpeta Nginx 
 
 ![](imgs/23.png)
 
-## PHP + Docker
+## Calculadora Nativa
+
+Para que nuestra aplicación Calculadora sea nativa, tenemos que crear un enlace suave entre la carpeta y la ruta de Nginx *(/usr/share/nginx/html/)* , ya que si lo hacemos al archivo PHP, Nginx no leera los otros elementos como el CSS o las imagenes.
+
+![](imgs/Nativo_1.png)
+
+![](imgs/Nativo 2.png)
+
+## Calculadora: PHP + Docker
 
 Como primer paso crearemos la estructura de nuestra aplicación web con los siguientes archivos:
 - default.conf
@@ -202,7 +210,9 @@ Como primer paso crearemos la estructura de nuestra aplicación web con los sigu
 
 ![](imgs/25.png)
 
-### src/info.php
+### src/aplicación
+
+Dentro de src añadimos todos lo necesario para nuestra aplicación: PHP,CSS,Imágenes...
 
 ![](imgs/26.png)
 
@@ -214,6 +224,6 @@ Ya con todo listo podemos levantar los servicios para nuestra aplicación:
 
 ![](imgs/28.png)
 
-Con el `docker compose up` en funcionamiento, abrimos una nueva terminal y con nuestro navegador abrimos el *localhost* lo cual nos abrirá el info.php de nuestra aplicación
+Con el `docker compose up` en funcionamiento, abrimos una nueva terminal y con nuestro navegador abrimos el *localhost* lo cual nos abrirá nuestra aplicación calculadora dockerizada.
 
 ![](imgs/Dockerizada.png)
