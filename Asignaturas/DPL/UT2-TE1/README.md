@@ -1,4 +1,19 @@
 # UT2-TE1
+
+## Índice
+
+- [Instalación nativa NGINX](#instalación-nativa-nginx)
+- [Instalación Docker](#instalación-docker)
+- [Nginx + Docker](#nginx--docker)
+- [Instalación PHP](#instalación-php)
+- [Habilitar PHP en Nginx](#habilitar-php-en-nginx)
+- [Aplicación PHP](#aplicación-php)
+- [Calculadora Nativa](#calculadora-nativa)
+- [Calculadora Dockerizada](#calculadora-dockerizada)
+- [Aplicación Calculadora](#aplicación-calculadora)
+
+---
+
 ## Instalación nativa NGINX
 Para poder instalar Nginx vamos a descargarlo desde los repositorios oficiales de Nginx para obtener la última versión del programa.
 
@@ -192,6 +207,10 @@ Luego creamos un enlace suave entre nuestro archivo info.php y la carpeta Nginx 
 
 Para que nuestra aplicación Calculadora sea nativa, tenemos que comprobar que el servicio de Nginx esta activo y crear un enlace suave entre la carpeta y la ruta de Nginx *(/usr/share/nginx/html/)* , ya que si lo hacemos al archivo PHP, Nginx no leerá los otros elementos como el CSS o las imagenes.
 
+- Estructura de la Calculadora nativa
+
+![](imgs/treeNativo.png)
+
 - Levantar el servicio Nginx:
 
 `sudo systemctl start nginx`
@@ -206,12 +225,12 @@ Por lo tanto tras crear el enlace, abrimos una terminal y con nuestro navegador 
 
 ![](imgs/Nativo2.png)
 
-## Calculadora: PHP + Docker
+## Calculadora Dockerizada
 
 Como primer paso crearemos la estructura de nuestra aplicación web con los siguientes archivos:
 - default.conf
 - docker-compose.yml
-- src/index.php
+- src/aplicación
 
 ### docker-compose.yml
 ![](imgs/24.png)
@@ -223,12 +242,11 @@ Como primer paso crearemos la estructura de nuestra aplicación web con los sigu
 ### src/aplicación
 
 Dentro de src añadimos todos lo necesario para nuestra aplicación: PHP,CSS,Imágenes...
+Con lo cual nos quedaríamos con la siguiente estructura:
 
-![](imgs/26.png)
+![](imgs/treeDockerizada.png)
 
-Y nos quedaríamos con la siguiente estructura:
 
-![](imgs/27.png)
 
 Ya con todo listo podemos levantar los servicios para nuestra aplicación:
 
@@ -237,3 +255,20 @@ Ya con todo listo podemos levantar los servicios para nuestra aplicación:
 Con el `docker compose up` en funcionamiento, abrimos una nueva terminal y con nuestro navegador abrimos el *localhost* lo cual nos abrirá nuestra aplicación calculadora dockerizada.
 
 ![](imgs/Dockerizada.png)
+
+
+## Aplicación Calculadora
+
+Para observar la estructura o el código de la aplicación Calculadora, elija aquí:
+
+## Estructura
+
+- [Nativa](Calculadora/nativo)
+
+- [Dockerizada](Calculadora/dockerizada)
+
+## Codigo 
+
+- [Nativa](Calculadora/dockerizada/src/index.php)
+
+- [Dockerizada](Calculadora/nativo/nativo.php)
