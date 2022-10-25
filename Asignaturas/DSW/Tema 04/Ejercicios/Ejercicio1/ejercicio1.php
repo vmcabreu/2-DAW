@@ -70,6 +70,7 @@ declare(strict_types=1);
             }
             fwrite($fdbaseDatos, $usuarioJson . "\n");
             echo "<script> alert('Se ha registrado con éxito.') </script>";
+            fclose($fdbaseDatos);
             header('Location: login.php');
         }
     }

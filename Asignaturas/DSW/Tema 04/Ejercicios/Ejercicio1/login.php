@@ -17,5 +17,31 @@
         <button type="submit" value="Entrar" name="entrar">Login</button><br>
     </form>
 </body>
+<?php
+
+function verificarCuenta(string $usuariojson, string $username, string $password)
+{
+    $usuariof = json_decode($usuariojson, true);
+    if ($username == $usuariof['user']) {
+        return password_verify($password,$usuariof['pass']);
+    }
+}
+if (isset($_POST["entrar"])) {
+    $BDatos = "/var/www/phpdata/BDusuario.txt";
+    $fdbaseDatos = fopen($BDatos, "r");
+    $header = fgets($fdbaseDatos);
+    $usuario = $_POST['user'];
+    $passw = $_POST['pass'];
+    while ($linea = fgets($fdbaseDatos)) {
+        if (verificarCuenta($linea, $usuario, $passw)) {
+            echo "<script> alert('Bienvenido ", $usuario, "') </script>";
+            exit;
+        }
+    }
+    echo "<script> alert('Error. Usuario/contraseña erróneos') </script>";
+    fclose($fdbaseDatos);
+}
+
+?>
 
 </html>
