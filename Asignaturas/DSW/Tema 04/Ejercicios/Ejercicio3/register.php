@@ -1,6 +1,7 @@
 <?php
-
 declare(strict_types=1);
+session_start();
+if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +30,7 @@ declare(strict_types=1);
         <label for="passConfirm">Confirmar contraseña: </label><br>
         <input required="required" type="password" id="passConfirm" name="passConfirm" /> <br>
         <button type="submit" value="Enviar" name="enviar">Registrarse</button><br><br>
-        <a href="login.php">Ir al Login</a>
+        <a href="inicio.php">Ir al Inicio</a>
     </form>
     <?php
     function verificarUsuario(string $usuariojson, array $registro)
@@ -71,9 +72,12 @@ declare(strict_types=1);
             fwrite($fdbaseDatos, $usuarioJson . "\n");
             echo "<script> alert('Se ha registrado con éxito.') </script>";
             fclose($fdbaseDatos);
-            header('Location: login.php');
+            header('Location: index.php');
         }
     }
     ?>
 </body>
 </html>
+<?php
+}
+?>
