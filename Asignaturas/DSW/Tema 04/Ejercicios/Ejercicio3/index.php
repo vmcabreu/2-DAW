@@ -44,7 +44,7 @@ if (isset($_POST["entrar"])) {
             exit;
         }
     }
-    echo "<script> alert('Error. Usuario/contraseña erróneos') </script>";
+    echo "<script> alert('Error. Usuario/Contraseña erróneos') </script>";
     fclose($fdbaseDatos);
 }
 ?>

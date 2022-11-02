@@ -31,12 +31,7 @@ session_start();
         require_once("../../../Config/config.php");
         require_once("../../../Config/funciones.php");
     if (isset($_POST['btnMod'])) {
-        $nombre = $_POST['nombre'];
-        $apellido1 = $_POST['apellido1'];
-        $apellido2 = $_POST['apellido'];
-        $usuario = $_POST['user'];
-        $email = $_POST['mail'];
-        $modificaciones = [$nombre,$apellido1,$apellido2,$usuario,$email];
+        [$nombre,$apellido1,$apellido2,$usuario,$email] = [$_POST['nombre'],$_POST['apellido1'],$_POST['apellido2'],$_POST['user'],$_POST['mail']];
         $datosUsuario = buscarDatosUsuarioEnBD($usuario);
         for ($i=0; $i < count($modificaciones); $i++) { 
             if ($modificaciones[$i] != "") {
