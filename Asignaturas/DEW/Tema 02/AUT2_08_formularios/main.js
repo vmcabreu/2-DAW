@@ -8,3 +8,8 @@ label.setAttribute("for", "ciclo");
 label.nodeValue();
 document.getElementById("boton").style.display = "none";
 updateRows();
+
+
+function mostrarCursos(){
+    alert ("GUillermo no se entera ni por donde le da el aire");
+}

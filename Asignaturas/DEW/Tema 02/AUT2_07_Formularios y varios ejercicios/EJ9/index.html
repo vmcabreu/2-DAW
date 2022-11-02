@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <h1>Formularios: Ejercicio </h1>
+    <p>Recoger los parametros del formulario mediante lo anteriormente explicado y realizar lo siguiente:
+        <br>(Nota: No usar document.getElementById() ni editar el HTML)
+    </p>
+    <ol>
+        <li>Mostrar nombre,apellido,dni y correo dentro del campo con id="datos" de los usuarios</li>
+        <li>Cambiar los nombres de Usuario 1 y 2, el dni de Usuario 3 y 2. Muestra el resultado dentro del campo con
+            id="cambio"</li>
+        <li>Avanzado - Mostrar los movimientos bancarios en id="movimientos" y realizar dichos movimientos. También deben de estar reflejados en los campos de los usuarios estos cambios:</li>
+        <p>Ej: Se ha añadido 200€ a Usuario 4</p>
+        <ul>
+            <li>Añadir 200€ a Usuario 2</li>
+            <li>Usuario 3 hace una transferencia de 450€ a Usuario 1</li>
+            <li>Usuario 1 retiró 500€</li>
+        </ul>
+    </ol>
+    <p>Tienes toda la información sobre que funciones usar en el HTML</p><br>
+
+    <h2>Respuestas</h2>
+    <form id="respuestas">
+        <input type="button" value="Apartado 1" onclick="apartado1()"><br>
+        <textarea name="datos" id="datos" cols="80" rows="10"></textarea><br>
+        <input type="button" value="Apartado 2" onclick="apartado2()"><br>
+        <textarea name="cambio" id="cambio" cols="80" rows="10"></textarea><br>
+        <input type="button" value="Apartado 3" onclick="apartado3()"><br>
+        <textarea name="movimientos" id="movimientos" cols="80" rows="10"></textarea>
+    </form>
+
+    <h2>Operaciones:</h2>
+
+    <h3>Ingreso</h3>
+
+    <form id="ingresar">
+        <select name="ingresoUsuario" id="ingresoUsuario">
+            <option>Usuario 1</option>
+            <option>Usuario 2</option>
+            <option>Usuario 3</option>
+        </select>
+        <label for="ingreso">ingresará la cantidad de:</label>
+        <input type="number" name="ingreso" id="ingreso">
+        <input type="button" value="Ingresar" onclick="ingresar()">
+    </form>
+
+    <h3>Retirada</h3>
+    <form id="retirar">
+        <select name="ingresoUsuario" id="ingresoUsuario">
+            <option>Usuario 1</option>
+            <option>Usuario 2</option>
+            <option>Usuario 3</option>
+        </select>
+        <label for="retirada">retirará la cantidad de:</label>
+        <input type="number" name="retirada" id="retirada">
+        <input type="button" value="Retirar" onclick="retirar()">
+    </form>
+
+    <h3>Transferencia</h3>
+    <form id="transferencia">
+        <select name="benefactor" id="benefactor">
+            <option>Usuario 1</option>
+            <option>Usuario 2</option>
+            <option>Usuario 3</option>
+        </select>
+        <label for="beneficiado"> transfiere a </label>
+        <select name="beneficiado" id="beneficiado">
+            <option>Usuario 1</option>
+            <option>Usuario 2</option>
+            <option>Usuario 3</option>
+        </select>
+        <label for="transferenciaDinero">la cantidad de:</label>
+        <input type="number" name="transferenciaDinero" id="transferenciaDinero">
+        <input type="button" value="Realizar" onclick="transferencia()">
+    </form>
+
+    <h2>Usuario 1</h2>
+    <form id="usr1">
+        <input type="hidden" name="usr1Username" value="Usuario 1">
+        <label for="usr1nombre">Nombre:</label>
+        <input type="text" value="Juan" id="nombre" name="nombre" readonly><br><br>
+        <label for="usr1Apellido">Apellido:</label>
+        <input type="text" value="García" id="usr1Apellido" name="usr1Apellido" readonly><br><br>
+        <label for="usr1dni">DNI:</label>
+        <input type="text" value="98451265X" id="usr1dni" name="usr1dni" readonly><br><br>
+        <label for="usr1mail">Correo:</label>
+        <input type="text" value="juang@gmail.com" id="usr1mail" name="usr1mail" readonly><br><br>
+        <label for="usr1saldo">Saldo:</label>
+        <input type="number" name="usr1saldo" id="usr1saldo" value="100" readonly>
+    </form>
+
+    <h2>Usuario 2</h2>
+    <form id="usr2">
+        <input type="hidden" name="usr2Username" value="Usuario 2">
+        <label for="usr2nombre">Nombre:</label>
+        <input type="text" value="Alfonso" id="usr2nombre" name="usr2nombre" readonly><br><br>
+        <label for="usr2Apellido">Apellido:</label>
+        <input type="text" value="Gonzalez" id="usr2Apellido" name="usr2Apellido" readonly><br><br>
+        <label for="usr2dni">DNI:</label>
+        <input type="text" value="02341525G" id="usr2dni" name="usr2dni" readonly><br><br>
+        <label for="usr2mail">Correo:</label>
+        <input type="text" value="alfonsog@gmail.com" id="usr2mail" name="usr2mail" readonly><br><br>
+        <label for="usr2saldo">Saldo:</label>
+        <input type="number" name="usr2saldo" id="usr2saldo" value="500" readonly>
+    </form>
+
+    <h2>Usuario 3</h2>
+    <form id="usr3">
+        <input type="hidden" name="usr3Username" value="Usuario 3">
+        <label for="usr3nombre">Nombre:</label>
+        <input type="text" value="María" id="usr3nombre" name="usr3nombre" readonly><br><br>
+        <label for="usr3Apellido">Apellido:</label>
+        <input type="text" value="López" id="usr3Apellido" name="usr3Apellido" readonly><br><br>
+        <label for="usr3dni">DNI:</label>
+        <input type="text" value="12345678A" id="usr3dni" name="usr3dni" readonly><br><br>
+        <label for="usr3mail">Correo:</label>
+        <input type="text" value="mariaL@gmail.com" id="usr3mail" name="usr3mail" readonly><br><br>
+        <label for="usr3saldo">Saldo:</label>
+        <input type="number" name="usr3saldo" id="usr3saldo" value="875" readonly>
+    </form>
+
+    <script src="Solucion/Ejercicio1.js"></script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
