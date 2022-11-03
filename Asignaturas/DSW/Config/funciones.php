@@ -27,7 +27,7 @@ function verificarUsuarioJson(string $usuariojson, string $usuario):bool
 
    //Ejercicio 4-5
    function recorrerProductos(){
-    require_once("../Tema 04/Ejercicios/Ejercicio4-5/Producto.php");
+    require_once("Producto.php");
     $BDatos = "/var/www/phpdata/BDproducto.txt";
     $fdbaseDatos = fopen($BDatos, "r");
     $productos=[];

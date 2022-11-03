@@ -12,7 +12,7 @@ declare(strict_types=1);
 <body>
 <table id="tienda">
 <?php
-    require_once("../../../Config/funciones.php");
+    require_once("Producto.php");
     $tablaProductos = recorrerProductos();
     for ($i=0; $i < count($tablaProductos); $i++) { 
        echo $tablaProductos[$i];
