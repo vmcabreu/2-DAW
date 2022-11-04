@@ -66,6 +66,16 @@
             }
             return $total;
         }
+
+
+        function __toString(){
+            $resultado="";
+            foreach($this->listaProductos as $producto){
+                echo $producto;
+            }
+            return $resultado;
+        }
     }
+
 
 ?>

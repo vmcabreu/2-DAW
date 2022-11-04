@@ -1,24 +1,43 @@
 <?php
+
 declare(strict_types=1);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-<table id="tienda">
-<?php
-    require_once("Producto.php");
-    $tablaProductos = recorrerProductos();
-    for ($i=0; $i < count($tablaProductos); $i++) { 
-       echo $tablaProductos[$i];
-    }
-?>
-    </table>
-</body>
-</html>
 
+<body>
+    <h1>Tienda de Estilografía</h1>
+    <h2>Productos</h2>
+    <form action="" method="post">
+        <?php
+        require_once("Producto.php");
+        require_once("Carrito.php");
+        $tablaProductos = recorrerProductos();
+        for ($i = 0; $i < count($tablaProductos); $i++) {
+            echo $tablaProductos[$i];
+        }
+        ?>
+    </form>
+    <h2>Carrito</h2>
+    <?php
+    $carro = new Carrito();
+    if (isset($_POST['compra'])) {
+        echo $_POST['compra'];
+        foreach ($tablaProductos as $producto) {
+            if ($_POST['compra'] == $producto->id) {
+                $carro->aniadir($producto);
+            }
+        }
+    }
+    echo "".$carro;
+    echo "Total: " . $carro->getCosteTotal();
+    ?>
+</body>
+
+</html>

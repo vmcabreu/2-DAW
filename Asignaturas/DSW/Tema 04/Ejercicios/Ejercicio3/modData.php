@@ -11,6 +11,7 @@ session_start();
     <title>Modificar Datos</title>
 </head>
 <body>
+
     <h1>Modificar Datos</h1>
     <p>Seleccione que datos desea modificar:</p>
     <form action="" method="post" enctype="multipart/form-data">

@@ -30,7 +30,8 @@ class Producto
     //ToString
     function __toString()
     {
-        return "<tr><td>Producto: $this->id</td><td>Nombre: $this->nombre</td><td>Precio: $this->precio</td><td>Detalles: $this->detalles</td><td>Imagen: $this->img</td></tr>";
+        $nombre = $this->nombre;
+        return "<input type='hidden' value='$this->id'><p>$nombre</p><img src='$this->img'/><p>$this->nombre</p><p>Precio: $this->precio € </p><p>Detalles: $this->detalles</p><button id=comprar name=compra value=$this->id>Comprar</button><button id=detalles name=detalle value=$this->id>Detalles</button>";
     }
 }
 
