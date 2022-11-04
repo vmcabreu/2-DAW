@@ -144,6 +144,12 @@ font-family: 'Open Sans', sans-serif !important;
   margin-top: 20px;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
 /*-------------------- Checkout --------------------*/
 .checkout {
   margin: 20px auto 50%;

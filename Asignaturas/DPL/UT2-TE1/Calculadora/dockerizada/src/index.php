@@ -38,27 +38,26 @@ declare(strict_types=1); ?>
     switch ($operacion) {
       case 'suma':
         $resultado = $valor1 + $valor2;
-         echo "<br><p>El resultado es: ".$resultado."</p>";
+        echo "<br><p>El resultado es: " . $resultado . "</p>";
         break;
 
       case 'resta':
         if ($valor1 < $valor2) {
           $resultado = $valor2 - $valor1;
-           echo "<br><p>El resultado es: ".$resultado."</p>";
+          echo "<br><p>El resultado es: " . $resultado . "</p>";
         } else {
           $resultado = $valor1 - $valor2;
-          echo "<br><p>El resultado es: ".$resultado."</p>";
+          echo "<br><p>El resultado es: " . $resultado . "</p>";
         }
         break;
-
       case 'multiplicacion':
-        $resultado = $value1 * $value2;
-         echo "<br><p>El resultado es: ".$resultado."</p>";
+        $resultado = $valor1 * $valor2;
+        echo "<br><p>El resultado es: " . $resultado . "</p>";
         break;
 
       case 'division':
-        $resultado = $value1 / $value2;
-         echo "<br><p>El resultado es: ".$resultado."</p>";
+        $resultado = $valor1 / $valor2;
+        echo "<br><p>El resultado es: " . $resultado . "</p>";
         break;
 
       default;

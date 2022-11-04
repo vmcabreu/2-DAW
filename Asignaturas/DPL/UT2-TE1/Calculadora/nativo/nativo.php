@@ -21,7 +21,7 @@
     <select name="operacion" id="operacion"><br><br>
       <option value="suma">Suma</option>
       <option value="resta">Resta</option>
-      <option value="multiplicacion">Multiplicación</option>
+      <option value="multiplicacion">Multiplicacion</option>
       <option value="division">División</option>
     </select><br><br>
     <img src="img/calculadora.png" alt="calculadora"><br><br>
@@ -50,12 +50,12 @@
         break;
 
       case 'multiplicacion':
-        $resultado = $value1 * $value2;
+        $resultado = $valor1 * $valor2;
          echo "<br><p>El resultado es: ".$resultado."</p>";
         break;
 
       case 'division':
-        $resultado = $value1 / $value2;
+        $resultado = $valor1 / $valor2;
          echo "<br><p>El resultado es: ".$resultado."</p>";
         break;
 

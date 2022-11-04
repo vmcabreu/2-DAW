@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Solicitud Viaje en Barco</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css"/>
-    
-<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-eforma.js"></script></head>
-<body>
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css" />
+</head>
 
+<body>
     <div class="checkout">
         <div>
             <p class="title"> Travel request </p>
         </div>
-        <form class="form" autocomplete="off" novalidate>
-        <fieldset>
-            <label for="in_name">Name</label>
-            <input type="num" id="in_name" class="input-form" maxlength="10" />
-        </fieldset>
-        <fieldset class="fieldset_surename">
-            <label for="in_surname">Surname</label>
-            <input type="num" id="in_surname" class="input-form" maxlength="10" />
-        </fieldset>
-        <fieldset class="fieldset_dni">
-            <label for="in_dni">DNI/NIE</label>
-            <input type="num" id="in_name" class="input-form" maxlength="10" />
-        </fieldset>
-        <fieldset class="fieldset_postalcode">
-            <label for="in_postalcode">Postal code</label>
-            <div class="select">
-            <select id="in_postalcode">
-                <option>Otro</option>
-                <option>38400</option>
+        <form class="form">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" maxlength="10"/>
+            <label for="nombre" id="nombreError" style="color: red;"></label>
+            <label for="surname">Apellido</label>
+            <input type="text" id="surname" name="surname" maxlength="30" />
+            <label for="surname" id="apellidoError" style="color: red;"></label>
+            <label for="dni">DNI/NIE</label>
+            <input type="text" id="dni" name="dni" maxlength="9" />
+            <label for="dni" id="dniError" style="color: red;"></label>
+            <label for="cp">Código Postal</label>
+            <select id="cp">    
+                <option selected>38400</option>
                 <option>38311</option>
                 <option>38450</option>
-                
-            </select>
-            </div>
-        </fieldset>
-        <fieldset>
-            <label for="btn_submit">Others ...</label>
-            <input type="text" id="btn_submit" />
-        </fieldset>
-        <button class="btn"> submit</button>
+                <option>Otro</option>
+            </select> 
+            <label for="tlffijo">Teléfono</label>
+            <label for="tlffijo">Fijo</label>
+            <input type="text" id="tlffijo" name="tlffijo"/>
+            <label for="tlffijo" id="tlffijoError" style="color: red;"></label>
+            <label for="tlfmovil">Móvil</label>
+            <input type="text" id="tlfmovil" name="tlfmovil"/>
+            <label for="tlfmovil" id="tlfmovilError" style="color: red;"></label>
+            <input type="button" class="btn" onclick="validarForm()" value="submit" />
         </form>
     </div>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="formulario.js"></script>
 </body>
+
 </html>
