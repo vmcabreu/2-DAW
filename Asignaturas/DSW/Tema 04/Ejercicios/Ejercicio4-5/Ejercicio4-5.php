@@ -25,19 +25,30 @@ declare(strict_types=1);
         ?>
     </form>
     <h2>Carrito</h2>
+    <form action="" method="post">
     <?php
     $carro = new Carrito();
     if (isset($_POST['compra'])) {
-        echo $_POST['compra'];
         foreach ($tablaProductos as $producto) {
             if ($_POST['compra'] == $producto->id) {
                 $carro->aniadir($producto);
             }
         }
     }
-    echo "".$carro;
+
+    if (isset($_POST['detalles'])) {
+            if ($_POST['compra'] == $producto->id) {
+                ?>
+                <script>
+                    document.getElementById($_POST['compra']).style.visibility = "visible";
+
+                </script>
+                <?php
+            }
+    }
+    echo $carro;
     echo "Total: " . $carro->getCosteTotal();
     ?>
+    </form>
 </body>
-
 </html>

@@ -71,11 +71,9 @@
         function __toString(){
             $resultado="";
             foreach($this->listaProductos as $producto){
-                echo $producto;
+                $resultado =  "<img src='$producto->img'/><p>$producto->nombre</p><p>Precio: $producto->precio € </p><p>Unidades: $producto->cantidad</p><button id=aniadir name=aniadir value=$producto->id>Añadir</button><button id=quitar name=quitar value=$producto->id>Quitar</button>";
             }
             return $resultado;
         }
     }
-
-
 ?>
