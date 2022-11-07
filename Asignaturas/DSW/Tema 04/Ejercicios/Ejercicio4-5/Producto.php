@@ -31,7 +31,7 @@ class Producto
     function __toString()
     {
         $nombre = $this->nombre;
-        return "<input type='hidden' value='$this->id'><p>$nombre</p><img src='$this->img'/><p>$this->nombre</p><p>Precio: $this->precio € </p><p>Detalles: $this->detalles</p><button id=comprar name=compra value=$this->id>Comprar</button><button id=detalles name=detalle value=$this->id>Detalles</button>";
+        return "<input type='hidden' value='$this->id'><p>$nombre</p><img src='$this->img'/><p>$this->nombre</p><p>Precio: $this->precio € </p><p id='detalles$this->id' style='display:none'>$this->detalles</p><button id=comprar name=compra value=$this->id>Comprar</button><button id=detalles name=detalle onclick='mostrarDetalles($this->id)'>Detalles</button>";
     }
 }
 

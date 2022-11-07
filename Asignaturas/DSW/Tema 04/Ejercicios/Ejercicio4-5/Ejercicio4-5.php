@@ -37,11 +37,12 @@ declare(strict_types=1);
     }
 
     if (isset($_POST['detalles'])) {
-            if ($_POST['compra'] == $producto->id) {
+            if ($_POST['detalles'] == $producto->id) {
+                $descripcionid = "detalles".$producto->id;
+                $descripcion = $producto->descripcion;
                 ?>
                 <script>
-                    document.getElementById($_POST['compra']).style.visibility = "visible";
-
+                    document.getElementById($descripcionid).value = $descripcion;
                 </script>
                 <?php
             }
@@ -50,5 +51,6 @@ declare(strict_types=1);
     echo "Total: " . $carro->getCosteTotal();
     ?>
     </form>
+    <script src="script.js"></script>
 </body>
 </html>
