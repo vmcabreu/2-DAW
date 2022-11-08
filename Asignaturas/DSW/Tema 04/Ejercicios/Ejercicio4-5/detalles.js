@@ -1,4 +1,5 @@
 function mostrarDetalles(id) {
+    event.preventDefault();
     let detalles = document.getElementById("detalles_"+id);
     let btnDetalle = document.getElementById("btn_" + id);
     if (btnDetalle.textContent == 'Detalles') {
