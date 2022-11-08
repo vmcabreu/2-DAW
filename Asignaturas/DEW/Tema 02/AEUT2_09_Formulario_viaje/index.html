@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <link rel="stylesheet" type="text/css"
         href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
@@ -15,32 +17,86 @@
         <div>
             <p class="title"> Travel request </p>
         </div>
-        <form class="form">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" maxlength="10"/>
-            <label for="nombre" id="nombreError" style="color: red;"></label>
-            <label for="surname">Apellido</label>
-            <input type="text" id="surname" name="surname" maxlength="30" />
-            <label for="surname" id="apellidoError" style="color: red;"></label>
-            <label for="dni">DNI/NIE</label>
-            <input type="text" id="dni" name="dni" maxlength="9" />
-            <label for="dni" id="dniError" style="color: red;"></label>
-            <label for="cp">Código Postal</label>
-            <select id="cp">    
-                <option selected>38400</option>
-                <option>38311</option>
-                <option>38450</option>
-                <option>Otro</option>
-            </select> 
-            <label for="tlffijo">Teléfono</label>
-            <label for="tlffijo">Fijo</label>
-            <input type="text" id="tlffijo" name="tlffijo"/>
-            <label for="tlffijo" id="tlffijoError" style="color: red;"></label>
-            <label for="tlfmovil">Móvil</label>
-            <input type="text" id="tlfmovil" name="tlfmovil"/>
-            <label for="tlfmovil" id="tlfmovilError" style="color: red;"></label>
-            <input type="button" class="btn" onclick="validarForm()" value="submit" />
-        </form>
+        <div class="container">
+            <form class="form">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="10" required />
+                        <label for="nombre" id="nombreError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="surname">Apellido</label>
+                        <input type="text" id="surname" name="surname" maxlength="30" required />
+                        <label for="surname" id="apellidoError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="dni">DNI/NIE</label>
+                        <input type="text" id="dni" name="dni" maxlength="9" required />
+                        <label for="dni" id="dniError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="residente">¿Eres residente?</label>
+                        <input type="checkbox" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="fechaida">Fecha de ida:</label>
+                        <input type="text" id="fechaida" name="fechaida" required>
+                        <label for="fechaida" id="fechaidaError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="numerop">Número de personas</label>
+                        <input type="text" id="numerop" name="numerop" required>
+                        <label for="numerop" id="nPersonasError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="codigop">Código Postal</label>
+                        <select id="codigop" required>
+                            <option>38400</option>
+                            <option>38311</option>
+                            <option>38450</option>
+                            <option>Otro</option>
+                        </select>
+                        <input type="text" name="cptext" id="cptext">
+                        <label for="cptext" id="cptextError" style="color: red;"></label>
+                    </div>
+
+                    <div class="col-4 telefono">
+                        <label for="tlffijo">Teléfono</label><br>
+                        <label for="tlffijo">Fijo</label>
+                        <input type="text" id="tlffijo" name="tlffijo" required />
+                        <label for="tlffijo" id="tlffijoError" style="color: red;"></label>
+                        <label for="tlfmovil">Móvil</label>
+                        <input type="text" id="tlfmovil" name="tlfmovil" required/>
+                        <label for="tlfmovil" id="tlfmovilError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="mail">Email</label>
+                        <input type="text" id="mail" name="mail" required />
+                        <label for="mail" id="mailError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label>Redes Sociales</label>
+                        <label for="twitter">Twitter</label>
+                        <input type="text" id="twitter" name="twitter" />
+                        <label for="mail" id="twitterError" style="color: red;"></label>
+                        <label for="instagram">Instagram</label>
+                        <input type="text" id="instagram" name="instagram" />
+                        <label for="mail" id="twitterError" style="color: red;"></label>
+                    </div>
+                    <div class="col-4">
+                        <label for="opcionVehiculo">Opción de vehiculo</label>
+                        <div class="radiosize">
+                            <input type="radio" id="vehiculoTrue" name="opcionVehiculo" value="Si" />
+                            <label for="vehiculoTrue">Si</label>
+                            <input type="radio" id="vehiculoFalse" name="opcionVehiculo" value="No" />
+                            <label for="vehiculoFalse">No</label>
+                            <label for="mail" id="opcionVehiculoError" style="color: red;"></label>
+                        </div>
+                    </div>
+                    <input type="button" class="btn" onclick="validarForm()" value="submit" />
+            </form>
+        </div>
     </div>
     <script type="text/javascript" src="formulario.js"></script>
 </body>
