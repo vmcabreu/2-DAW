@@ -7,6 +7,9 @@ const fechaida= document.getElementById("fechaida");
 const numerop = document.getElementById("numerop");
 const tlffijo = document.getElementById("tlffijo");
 const tlfmovil = document.getElementById("tlfmovil");
+const email = document.getElementById("mail");
+const twitter = document.getElementById("twitter");
+const instagram = document.getElementById("instagram");
 nombre.addEventListener('input', validarNombreApellido);
 apellido.addEventListener('input', validarNombreApellido);
 dni.addEventListener('input', validarDNI);
@@ -16,12 +19,35 @@ fechaida.addEventListener('input', validarFecha);
 numerop.addEventListener('input',validarNumerop);
 tlffijo.addEventListener('input',validarTlffijo);
 tlfmovil.addEventListener('input',validarTlfmovil);
+email.addEventListener('input',validarMail);
+twitter.addEventListener('input',validarMail);
+instagram.addEventListener('input',validarMail);
 
 
 
+
+
+/** Email */
+
+function validarMail(){
+    const regExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    if (regExp.test(email.value)) {
+        document.getElementById("mailError").innerHTML = "";
+        email.style.borderColor = 'green';
+        email.style.color = 'green';
+        email.style.border = '3px solid';
+    }else{
+        document.getElementById("mailError").innerHTML = "Error. Teléfono fijo no válido";
+        email.style.borderColor = 'red';
+        email.style.color = 'red';
+    }
+}
+
+
+/** Telefono fijo y movil */
 
 function validarTlffijo() {
-    const regExp= /^(?:9\d[2-9]{2}[0-9]\d{6}|91[0-9]\d{7})/
+    const regExp= /^(?:9[2-9]{2}\d{6}|91\d{7})$/
     if (regExp.test(tlffijo.value)) {
         document.getElementById("tlffijoError").innerHTML = "";
         tlffijo.style.borderColor = 'green';
@@ -36,7 +62,7 @@ function validarTlffijo() {
 }
 
 function validarTlfmovil() {
-    const regExp= /^(?:\+346[0-9]\d{6}|91[0-9]\d{7})/
+    const regExp= /^(?:\+34\s[6-8]\d{8}|0034\s[6-8]\d{8}|[0-9]{4}\s[0-9]{9})$/
     if (regExp.test(tlfmovil.value)) {
         document.getElementById("tlfmovilError").innerHTML = "";
         tlfmovil.style.borderColor = 'green';
