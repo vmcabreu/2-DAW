@@ -20,62 +20,69 @@
         <div class="container">
             <form class="form">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" maxlength="10" required />
                         <label for="nombre" id="nombreError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="surname">Apellido</label>
                         <input type="text" id="surname" name="surname" maxlength="30" required />
                         <label for="surname" id="apellidoError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="dni">DNI/NIE</label>
                         <input type="text" id="dni" name="dni" maxlength="9" required />
                         <label for="dni" id="dniError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="residente">¿Eres residente?</label>
-                        <input type="checkbox" required>
+                        <input type="checkbox" id="residente" class="residentecheck" required>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="fechaida">Fecha de ida:</label>
                         <input type="text" id="fechaida" name="fechaida" required>
                         <label for="fechaida" id="fechaidaError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="numerop">Número de personas</label>
                         <input type="text" id="numerop" name="numerop" required>
                         <label for="numerop" id="nPersonasError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="codigop">Código Postal</label>
                         <select id="codigop" required>
-                            <option>38400</option>
+                            <option value="38400" selected>38400</option>
                             <option>38311</option>
                             <option>38450</option>
                             <option>Otro</option>
                         </select>
-                        <input type="text" name="cptext" id="cptext">
+                        <input type="text" class="oculto" name="cptext" id="cptext">
                         <label for="cptext" id="cptextError" style="color: red;"></label>
                     </div>
 
-                    <div class="col-4 telefono">
-                        <label for="tlffijo">Teléfono</label><br>
-                        <label for="tlffijo">Fijo</label>
-                        <input type="text" id="tlffijo" name="tlffijo" required />
-                        <label for="tlffijo" id="tlffijoError" style="color: red;"></label>
-                        <label for="tlfmovil">Móvil</label>
-                        <input type="text" id="tlfmovil" name="tlfmovil" required/>
-                        <label for="tlfmovil" id="tlfmovilError" style="color: red;"></label>
+                    <div class="col-3">
+                        
+                        <div class="row">
+                            <label for="tlffijo" >Teléfono</label><br>
+                            <div class="col-5">
+                                <label for="tlffijo">Fijo</label>
+                                <input type="text" id="tlffijo" name="tlffijo" required />
+                                <label for="tlffijo" id="tlffijoError" style="color: red;"></label>
+                            </div>
+                            <div class="col-6">
+                                <label for="tlfmovil">Móvil</label>
+                                <input type="text" id="tlfmovil" name="tlfmovil" required />
+                                <label for="tlfmovil" id="tlfmovilError" style="color: red;"></label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="mail">Email</label>
                         <input type="text" id="mail" name="mail" required />
                         <label for="mail" id="mailError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label>Redes Sociales</label>
                         <label for="twitter">Twitter</label>
                         <input type="text" id="twitter" name="twitter" />
@@ -84,7 +91,7 @@
                         <input type="text" id="instagram" name="instagram" />
                         <label for="mail" id="twitterError" style="color: red;"></label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <label for="opcionVehiculo">Opción de vehiculo</label>
                         <div class="radiosize">
                             <input type="radio" id="vehiculoTrue" name="opcionVehiculo" value="Si" />
@@ -94,9 +101,14 @@
                             <label for="mail" id="opcionVehiculoError" style="color: red;"></label>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
+                        <label for="suip">IP</label>
+                        <input type="text" id="suip" name="suip">
+                        <label for="suip" id="suppError" style="color: red;"></label>
+                    </div>
+                    <div class="col-3">
                         <label for="motivos">Motivos del viaje</label>
-                       <textarea name="motivos" id="motivos" cols="50" rows="6"></textarea>
+                        <input type="text" id="motivos" name="motivos">
                     </div>
                     <input type="button" class="btn" onclick="validarForm()" value="submit" />
             </form>

@@ -145,8 +145,7 @@ font-family: 'Open Sans', sans-serif !important;
 }
 
 .telefono{
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 20px;
 }
 .radiosize{
   display: flex;
@@ -155,14 +154,20 @@ font-family: 'Open Sans', sans-serif !important;
   width: 30%;
 
 }
+.residentecheck{
+  width: 5% !important;
+}
 
+.oculto{
+  display: none;
+}
 
 /*-------------------- Checkout --------------------*/
 .checkout {
   margin: 20px auto 50%;
   position: relative;
   width: 85vw;
-  height: 65vh;
+  height: 55vh;
   background: #ffffff;
   border-radius: 15px;
   padding: 20px 45px 30px;

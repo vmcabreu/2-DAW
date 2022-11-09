@@ -5,6 +5,8 @@ const seleccionCP = document.getElementById("codigop");
 const otroCP = document.getElementById("cptext");
 const fechaida= document.getElementById("fechaida");
 const numerop = document.getElementById("numerop");
+const tlffijo = document.getElementById("tlffijo");
+const tlfmovil = document.getElementById("tlfmovil");
 nombre.addEventListener('input', validarNombreApellido);
 apellido.addEventListener('input', validarNombreApellido);
 dni.addEventListener('input', validarDNI);
@@ -12,25 +14,57 @@ seleccionCP.addEventListener('input', validarSeleccionCP);
 otroCP.addEventListener('input',validarOtroCP);
 fechaida.addEventListener('input', validarFecha);
 numerop.addEventListener('input',validarNumerop);
+tlffijo.addEventListener('input',validarTlffijo);
+tlfmovil.addEventListener('input',validarTlfmovil);
 
 
 
 
-/** Código Postal */
-/** Para que al recargar la página no se muestre el campo oculto este fue la manera la cual lo enfoque */
-if (seleccionCP.value == "Otro") {
-    document.getElementById("cptext").style.display = 'block';
-}else{
-    document.getElementById("cptext").style.display = 'none';
+function validarTlffijo() {
+    const regExp= /^(?:9\d[2-9]{2}[0-9]\d{6}|91[0-9]\d{7})/
+    if (regExp.test(tlffijo.value)) {
+        document.getElementById("tlffijoError").innerHTML = "";
+        tlffijo.style.borderColor = 'green';
+        tlffijo.style.color = 'green';
+        tlffijo.style.border = '3px solid';
+    }else{
+        document.getElementById("tlffijoError").innerHTML = "Error. Teléfono fijo no válido";
+        tlffijo.style.borderColor = 'red';
+        tlffijo.style.color = 'red';
+    }
     
 }
 
+function validarTlfmovil() {
+    const regExp= /^(?:\+346[0-9]\d{6}|91[0-9]\d{7})/
+    if (regExp.test(tlfmovil.value)) {
+        document.getElementById("tlfmovilError").innerHTML = "";
+        tlfmovil.style.borderColor = 'green';
+        tlfmovil.style.color = 'green';
+        tlfmovil.style.border = '3px solid';
+    }else{
+        document.getElementById("tlfmovilError").innerHTML = "Error. Teléfono móvil no válido";
+        tlfmovil.style.borderColor = 'red';
+        tlfmovil.style.color = 'red';
+    }
+    
+}
+
+/** Código Postal */
+/** Para que al recargar la página no se muestre el campo oculto este fue la manera la cual lo enfoque */
+
+/**
+ * Elimina la clase "oculto" del elemento con id "cptext" si el valor del elemento con id "seleccionCP"
+ * es "Otro", y agrega la clase "oculto" al elemento con id "cptext" si el valor del elemento con el id
+ * "seleccionCP" no es "Otro"
+ */
 function validarSeleccionCP(){
     let otherCP = document.getElementById("cptext");
     if (seleccionCP.value == "Otro") {
-        otherCP.style.display = 'block';
+        otherCP.classList.remove("oculto");
     }else{
-        otherCP.style.display = 'none';
+        otherCP.classList.add("oculto");
+        document.getElementById("cptextError").innerHTML = "";
         
     }
 
@@ -79,7 +113,7 @@ function validarNombreApellido() {
         document.getElementById("nombreError").innerHTML = "";
         nombre.style.borderColor = 'green';
         nombre.style.color = 'green';
-        numerop.style.border = '3px solid';
+        nombre.style.border = '3px solid';
     }
 
     if (
@@ -91,7 +125,7 @@ function validarNombreApellido() {
         document.getElementById("apellidoError").innerHTML = "";
         apellido.style.borderColor = 'green';
         apellido.style.color = 'green';
-        numerop.style.border = '3px solid';
+        apellido.style.border = '3px solid';
     }
 
 
@@ -105,6 +139,7 @@ function validarDNI() {
         document.getElementById("dniError").innerHTML = "";
         dni.style.borderColor = 'green';
         dni.style.color = 'green';
+        dni.style.border = '3px solid';
     } else {
         document.getElementById("dniError").innerHTML = "Error. DNI/NIE está erróneo";
         dni.style.borderColor = 'red';
@@ -119,6 +154,7 @@ function validarFecha(){
         document.getElementById("fechaidaError").innerHTML = "";
         fechaida.style.borderColor = 'green';
         fechaida.style.color = 'green';
+        fechaida.style.border = '3px solid';
 
     } else {
         document.getElementById("fechaidaError").innerHTML = "Error. Fecha inválida. Formato: dd/mm/yyyy";
