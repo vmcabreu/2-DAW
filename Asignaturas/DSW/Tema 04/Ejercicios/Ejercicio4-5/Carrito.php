@@ -9,7 +9,7 @@
  * @param Producto p
  * @param int cantidad La cantidad del producto.
  */
-        function aniadir(Producto $p,int $cantidad=1){
+        function agregar(Producto $p,int $cantidad=1){
             if (isset($this->listaProductos[$p->id])) {
                 $producto = $this->listaProductos[$p->id];
                 $producto->cantidad+=$cantidad;
@@ -71,9 +71,16 @@
             return $this->listaProductos;
         }
 
-        function __toString(){
-            foreach($this->listaProductos as $producto){
-                $producto;
+        function mostrarCarrito(){
+            foreach ($this->listaProductos as $producto) {
+               echo "<div>
+               <p>",$producto->nombre,"</p>
+               <img src=",$producto->img,"/>
+               <p>",$producto->precio,"</p>
+               <form action='' method='post' enctype='multipart/form-data'>
+               <button type='submit' name='eliminar'>Eliminar</button>
+               </form>
+               </div>";
             }
         }
     }
