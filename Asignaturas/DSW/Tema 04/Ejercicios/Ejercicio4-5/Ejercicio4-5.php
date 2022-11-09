@@ -25,7 +25,7 @@ session_start();
     <main>
         <div id="productos">
             <h2>Productos</h2>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <?php
                 $tablaProductos = recorrerProductos();
                 for ($i = 0; $i < count($tablaProductos); $i++) {
@@ -39,22 +39,25 @@ session_start();
             <form action="" method="post">
                 <?php
                 if (isset($_SESSION['carrito'])) {
-                    $carrito = $_SESSION['carrito'];
+                    $carro = $_SESSION['carrito'];
                 } else {
                     $carro = new Carrito();
                 }
                 $productosCarrito = $carro->getListaProductos();
                 if (isset($_POST['compra'])) {
-                    foreach ($tablaProductos as $producto) {
-                        if ($_POST['compra'] == $producto->id) {
-                            $carro->aniadir($producto);
+                    $producto = null;
+                    $idProd = intval($_POST['compra']);
+                    foreach ($tablaProductos as $prod) {
+                        if ($prod->id == $idProd) {
+                            $producto = $prod;
                         }
                     }
                 }
-
-                foreach ($productosCarrito as $producto) {
-                    echo $producto;
+                if ($producto != null) {
+                    $carro->agregar($producto);
                 }
+
+                $carro->mostrarCarrito();
                 echo "Total: " . $carro->getCosteTotal();
                 ?>
             </form>
