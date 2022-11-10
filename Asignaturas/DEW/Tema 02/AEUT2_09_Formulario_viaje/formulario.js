@@ -10,9 +10,11 @@ const tlfmovil = document.getElementById("tlfmovil");
 const email = document.getElementById("mail");
 const twitter = document.getElementById("twitter");
 const instagram = document.getElementById("instagram");
-const interruptorVehiculo = document.getElementById("vehiculoTrue");
+const interruptorVehiculoT = document.getElementById("vehiculoTrue");
+const interruptorVehiculoF = document.getElementById("vehiculoFalse");
 const matricula = document.getElementById("matricula");
 const ip = document.getElementById("suip");
+const motivo = document.getElementById("motivos");
 nombre.addEventListener('input', validarNombreApellido);
 apellido.addEventListener('input', validarNombreApellido);
 dni.addEventListener('input', validarDNI);
@@ -25,13 +27,42 @@ tlfmovil.addEventListener('input', validarTlfmovil);
 email.addEventListener('input', validarMail);
 twitter.addEventListener('input', validarTw);
 instagram.addEventListener('input', validarInsta);
-interruptorVehiculo.addEventListener('input', mostrarDetalles);
+interruptorVehiculoT.addEventListener('input', mostrarDetalles);
+interruptorVehiculoF.addEventListener('input', mostrarDetalles);
 matricula.addEventListener('input', validarMatricula);
 ip.addEventListener('input', validarIP);
+motivo.addEventListener('input', validarMotivo);
+
+
+/** Motivo */
+let motivoObj;
+function validarMotivo() {
+    let motivotxt = motivo.value;
+    const regExpPrincipio = /^[A-Z]/;
+    const regExpEspacios = /^\s+\w+\s$/;
+    const regExpFecha = /(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/2(\d{3})/
+
+    if (regExpPrincipio.test(motivo.value)) {
+        document.getElementById("motivosError").innerHTML = "";
+        motivo.style.borderColor = 'green';
+        motivo.style.color = 'green';
+        motivo.style.border = '3px solid';
+
+    }
+    if (regExpEspacios.test(motivo.value)) {
+        motivotxt.trim();
+        motivotxt.replace(/\s+/, " ");
+    }
+    if (regExpFecha.test(motivo.value)) {
+        console.log(regExpFecha.exec(motivo.value))
+    }
+    motivotxt.replace(/[\s+]/g, "");
+    console.log(motivotxt);
+}
 
 /** IP */
 function validarIP() {
-    const regExp= /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;    
+    const regExp = /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;
     if (regExp.test(ip.value)) {
         document.getElementById("suipError").innerHTML = "";
         ip.style.borderColor = 'green';
@@ -46,11 +77,11 @@ function validarIP() {
 
 /** Opcion de vehiculo */
 function mostrarDetalles() {
-    if (interruptorVehiculo.checked) {
+    if (interruptorVehiculoT.checked) {
         document.getElementById("caractCoche").classList.remove("oculto");
         document.getElementById("caractCoche").classList.add("detallesCoche");
         validarMatricula();
-    } else {
+    } else if (interruptorVehiculoF.checked) {
         document.getElementById("caractCoche").classList.remove("detallesCoche");
         document.getElementById("caractCoche").classList.add("oculto");
 
@@ -253,7 +284,7 @@ function validarDNI() {
 
 /** Fecha */
 function validarFecha() {
-    const regExp = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/2(\d{4})$/
+    const regExp = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/2(\d{3})$/
     if (regExp.test(fechaida.value)) {
         document.getElementById("fechaidaError").innerHTML = "";
         fechaida.style.borderColor = 'green';
