@@ -13,10 +13,10 @@
 </head>
 
 <body>
+    <div>
+        <p class="title">Formulario Solicitud Viaje en Barco</p>
+    </div>
     <div class="checkout">
-        <div>
-            <p class="title"> Travel request </p>
-        </div>
         <div class="container">
             <form class="form">
                 <div class="row">
@@ -30,26 +30,26 @@
                         <input type="text" id="surname" name="surname" maxlength="30" required />
                         <label for="surname" id="apellidoError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="dni">DNI/NIE</label>
                         <input type="text" id="dni" name="dni" maxlength="9" required />
                         <label for="dni" id="dniError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="residente">¿Eres residente?</label>
                         <input type="checkbox" id="residente" class="residentecheck" required>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="fechaida">Fecha de ida:</label>
                         <input type="text" id="fechaida" name="fechaida" required>
                         <label for="fechaida" id="fechaidaError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-1">
                         <label for="numerop">Número de personas</label>
                         <input type="text" id="numerop" name="numerop" required>
                         <label for="numerop" id="nPersonasError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="codigop">Código Postal</label>
                         <select id="codigop" required>
                             <option value="38400" selected>38400</option>
@@ -61,10 +61,10 @@
                         <label for="cptext" id="cptextError" style="color: red;"></label>
                     </div>
 
-                    <div class="col-3">
-                        
+                    <div class="col-4">
+
                         <div class="row">
-                            <label for="tlffijo" >Teléfono</label><br>
+                            <label for="tlffijo">Teléfono</label><br>
                             <div class="col-5">
                                 <label for="tlffijo">Fijo</label>
                                 <input type="text" id="tlffijo" name="tlffijo" required />
@@ -82,7 +82,7 @@
                         <input type="text" id="mail" name="mail" required />
                         <label for="mail" id="mailError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label>Redes Sociales</label>
                         <label for="twitter">Twitter</label>
                         <input type="text" id="twitter" name="twitter" />
@@ -91,17 +91,24 @@
                         <input type="text" id="instagram" name="instagram" />
                         <label for="instagram" id="instagramError" style="color: red;"></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <label for="opcionVehiculo">Opción de vehiculo</label>
                         <div class="radiosize">
                             <input type="radio" id="vehiculoTrue" name="opcionVehiculo" value="Si" />
                             <label for="vehiculoTrue">Si</label>
                             <input type="radio" id="vehiculoFalse" name="opcionVehiculo" value="No" />
                             <label for="vehiculoFalse">No</label>
-                            <label for="mail" id="opcionVehiculoError" style="color: red;"></label>
+                            <label for="vehiculoFalse" id="opcionVehiculoError" style="color: red;"></label>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-5 detallesCoche">
+                        <label for="marcaVehiculo">Marca del Vehiculo</label>
+                        <input type="text" id="marcaVehiculo" name="marcaVehiculo" />
+                        <label for="matricula">Matricula</label>
+                        <input type="text" id="matricula" name="matricula" value="No" />
+                        <label for="matricula" id="matriculaVehiculoError" style="color: red;"></label>
+                    </div>
+                    <div class="col-2">
                         <label for="suip">IP</label>
                         <input type="text" id="suip" name="suip">
                         <label for="suip" id="suppError" style="color: red;"></label>
@@ -110,7 +117,7 @@
                         <label for="motivos">Motivos del viaje</label>
                         <input type="text" id="motivos" name="motivos">
                     </div>
-                    <input type="button" class="btn" onclick="validarForm()" value="submit" />
+                    <input type="button" class="btn" onclick="validarForm()" value="Enviar" />
             </form>
         </div>
     </div>

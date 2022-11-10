@@ -20,9 +20,43 @@ numerop.addEventListener('input',validarNumerop);
 tlffijo.addEventListener('input',validarTlffijo);
 tlfmovil.addEventListener('input',validarTlfmovil);
 email.addEventListener('input',validarMail);
-twitter.addEventListener('input',validarMail);
-instagram.addEventListener('input',validarMail);
+twitter.addEventListener('input',validarTw);
+instagram.addEventListener('input',validarInsta);
 
+/** IP */
+
+/** Opcion de vehiculo */
+
+/** Redes sociales */
+
+function validarTw(){
+ const regExp = /^@[A-Za-z0-9_-]{1,15}|\s$/;
+ if (regExp.test(twitter.value)) {
+    document.getElementById("twitterError").innerHTML = "";
+    twitter.style.borderColor = 'green';
+    twitter.style.color = 'green';
+    twitter.style.border = '3px solid';
+}else{
+    document.getElementById("twitterError").innerHTML = "Error. Carácter no válido";
+    twitter.style.borderColor = 'red';
+    twitter.style.color = 'red';
+}
+
+}
+
+function validarInsta(){
+    const regExp = /^@[A-Za-z0-9_-]{1,15}|\s$/;
+    if (regExp.test(instagram.value)) {
+       document.getElementById("instagramError").innerHTML = "";
+       instagram.style.borderColor = 'green';
+       instagram.style.color = 'green';
+       instagram.style.border = '3px solid';
+   }else{
+       document.getElementById("instagramError").innerHTML = "Error. Carácter no válido";
+       instagram.style.borderColor = 'red';
+       instagram.style.color = 'red';
+   }
+}
 
 
 
