@@ -1,0 +1,32 @@
+
+html,body{
+    height: 100vh;
+}
+
+.lverde {
+    background-color: lightgreen;
+}
+.verde{
+    background-color: chartreuse;
+}
+.rojo {
+    background-color: red;
+}
+.rosa{
+    background-color: magenta;
+}
+.naranja{
+    background-color: lightsalmon;
+}
+.azul{
+    background-color: blue;
+}
+.cyan{
+    background-color: cyan;
+}
+.azulgris{
+    background-color: cornflowerblue;
+}
+.gris{
+    background-color: lightgray;
+}

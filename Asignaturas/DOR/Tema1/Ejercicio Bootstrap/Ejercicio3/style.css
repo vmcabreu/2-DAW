@@ -1,0 +1,79 @@
+html,
+body {
+    height: 100vh;
+}
+
+.lverde {
+    background-color: lightgreen;
+}
+
+.verde {
+    background-color: chartreuse;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.rosa {
+    background-color: magenta;
+}
+
+.naranja {
+    background-color: lightsalmon;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.azulgris {
+    background-color: cornflowerblue;
+}
+
+.gris {
+    background-color: lightgray;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+
+/* Default */
+.cabecera {
+    background-color: chartreuse;
+}
+
+.item1,
+.item2,
+.item3 {
+    background-color: red;
+}
+
+/** xs */
+
+@media all and (max-width: 575px) {
+    .cabecera {
+        background-color: lightsalmon;
+    }
+
+    .item3 {
+        background-color: chartreuse;
+    }
+}
+
+/* Tablet */
+@media all and (min-width: 576) and (max-width: 767) {
+    .cabecera {
+        background-color: cyan;
+    }
+
+    .item2 {
+        background-color: cyan;
+    }
+}

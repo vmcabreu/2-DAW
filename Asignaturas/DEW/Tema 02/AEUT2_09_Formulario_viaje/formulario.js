@@ -30,7 +30,7 @@ instagram.addEventListener('input',validarInsta);
 /** Redes sociales */
 
 function validarTw(){
- const regExp = /^@[A-Za-z0-9_-]{1,15}|\s$/;
+ const regExp = /^\@[\w_-]{1,15}$/;
  if (regExp.test(twitter.value)) {
     document.getElementById("twitterError").innerHTML = "";
     twitter.style.borderColor = 'green';
@@ -45,7 +45,7 @@ function validarTw(){
 }
 
 function validarInsta(){
-    const regExp = /^@[A-Za-z0-9_-]{1,15}|\s$/;
+    const regExp = /^\@[\w_-]{1,15}$/;
     if (regExp.test(instagram.value)) {
        document.getElementById("instagramError").innerHTML = "";
        instagram.style.borderColor = 'green';
