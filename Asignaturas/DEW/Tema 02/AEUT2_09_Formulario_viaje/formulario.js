@@ -87,7 +87,6 @@ function validarMotivo() {
     if (regExpFecha.test(motivo.value)) {
         console.log(regExpFecha.exec(motivo.value))
     }
-    const regExpPalabras = /[\d\w]+/g;
     let palabras = motivotxt.match(/\S+/g).length;
     console.log("Número de palabras: "+palabras);
     motivoObj = motivotxt;
@@ -138,9 +137,9 @@ function mostrarDetalles() {
 
 
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, se elimina el mensaje de error,
+ * Si el valor de la matricula coincide con la expresión regular, se elimina el mensaje de error,
  * el color del borde cambia a verde, el color del texto cambia a verde, el borde cambia a 3px sólido y
- * el valor del campo de entrada se asigna a la variable matriculaCoche. Si el valor del campo de
+ * el valor de la matricula se asigna a la variable matriculaCoche. Si el valor del campo de
  * entrada no coincide con la expresión regular, se muestra el mensaje de error, el color del borde
  * cambia a rojo y el color del texto cambia a rojo.
  * @returns un valor booleano.
@@ -241,7 +240,7 @@ function validarMail() {
 
 /** Telefono fijo y movil */
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, la función devuelve verdadero;
+ * Si el valor del teléfono fijo coincide con la expresión regular, la función devuelve verdadero;
  * de lo contrario, devuelve falso.
  * @returns un valor booleano.
  */
@@ -264,7 +263,7 @@ function validarTlffijo() {
 
 
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, la función devuelve verdadero;
+ * Si el valor del teléfono móvil coincide con la expresión regular, la función devuelve verdadero;
  * de lo contrario, devuelve falso.
  * @returns un valor booleano.
  */
@@ -305,7 +304,7 @@ function validarSeleccionCP() {
 }
 
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, la función devuelve verdadero;
+ * Si el valor del código postal coincide con la expresión regular, la función devuelve verdadero;
  * de lo contrario, devuelve falso.
  * @returns un valor booleano.
  */
@@ -379,7 +378,7 @@ function validarNombreApellido() {
 /** DNI */
 
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, se elimina el mensaje de error,
+ * Si el valor del DNI o NIE coincide con la expresión regular, se elimina el mensaje de error,
  * el color del borde cambia a verde y la función devuelve verdadero. De lo contrario, se muestra el
  * mensaje de error, el color del borde cambia a rojo y la función devuelve falso.
  * @returns verdadero o falso.
@@ -403,7 +402,7 @@ function validarDNI() {
 
 
 /**
- * Si el valor del campo de entrada coincide con la expresión regular, la función devuelve verdadero;
+ * Si el valor de la fecha coincide con la expresión regular, la función devuelve verdadero;
  * de lo contrario, devuelve falso.
  * @returns un valor booleano.
  */
