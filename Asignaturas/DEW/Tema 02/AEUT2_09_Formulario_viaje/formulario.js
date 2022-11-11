@@ -128,7 +128,7 @@ function validarIP() {
         ip.style.border = '3px solid';
         return true;
     } else {
-        document.getElementById("suipError").innerHTML = "Error. IP inválida";
+        document.getElementById("suipError").innerHTML = "Error. IP inválida. Debe ser IPv4 o IPv6";
         ip.style.borderColor = 'red';
         ip.style.color = 'red';
         return false;
