@@ -40,8 +40,22 @@ matricula.addEventListener('input', validarMatricula);
 ip.addEventListener('input', validarIP);
 motivo.addEventListener('input', validarMotivo);
 
-/* Crea una clase llamada viajero. */
+/* Es una clase que representa a un viajero. */
 class Viajero {
+    /**
+     * La función constructora es una función especial que se utiliza para crear e inicializar un
+     * objeto creado dentro de una clase.
+     * @param nombre - Nombre de la persona que va a ser el conductor.
+     * @param apellido - Apellido
+     * @param dni - Número de DNI
+     * @param codigoPostal - código postal
+     * @param tlfFijo - número de teléfono
+     * @param tlfMovil - Número de teléfono móvil
+     * @param fechaIda - fecha de salida
+     * @param email - Dirección de correo electrónico del usuario
+     * @param matricula - La placa del auto
+     * @param motivo - El motivo de la visita.
+     */
     constructor(nombre, apellido, dni, codigoPostal, tlfFijo, tlfMovil, fechaIda, email, matricula, motivo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,6 +69,10 @@ class Viajero {
         this.motivo = motivo;
     }
 
+    /**
+     * Devuelve una cadena con la información del objeto.
+     * @returns El método toString() está devolviendo un String con la información del objeto.
+     */
     toString() {
         return "Nombre: " + this.nombre + "\n Apellido: " + this.apellido + "\n DNI: " + this.dni + "\n Código Postal: " + this.codigoPostal + "\n Teléfono Fijo: " + this.tlfFijo + "\n Teléfono Móvil: " + this.tlfMovil + "\n Fecha Ida: "+ this.fechaIda+"\n Email: "+this.email+"\n Matricula del Vehículo: "+this.matricula+"\n Motivo: "+this.motivo;
     }
@@ -459,6 +477,7 @@ function validarFecha() {
 }
 
 /**
+ * Valida el formulario y crea un nuevo objeto de la clase Viajero si el formulario es válido. 
  * Si el usuario selecciona "Otro" en el elemento de selección, entonces la función valida el
  * formulario y crea un nuevo objeto con los datos ingresados por el usuario. Si el usuario selecciona
  * cualquier otra opción, entonces la función valida el formulario y crea un nuevo objeto con los datos
