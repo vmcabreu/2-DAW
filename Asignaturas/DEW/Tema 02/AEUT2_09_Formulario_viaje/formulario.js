@@ -1,3 +1,8 @@
+/**
+ * Script que valida los campos del formulario del viaje en barco
+ * @author Víctor Manuel Cabrera Abreu 2ºDAW
+ * @version 1.0
+ */
 /* Obtener el valor de los campos de entrada. */
 const nombre = document.getElementById("nombre");
 const apellido = document.getElementById("surname");
@@ -70,6 +75,10 @@ function validarMotivo() {
         motivo.style.color = 'green';
         motivo.style.border = '3px solid';
 
+    }else{
+        document.getElementById("motivosError").innerHTML = "Motivo no empieza con mayúscula";
+        motivo.style.borderColor = 'red';
+        motivo.style.color = 'red';
     }
     if (regExpEspacios.test(motivo.value)) {
         motivotxt.trim();
@@ -106,12 +115,14 @@ function validarIP() {
 }
 
 /** Opcion de vehiculo */
-/**
- * Si la casilla está marcada, elimina la clase "oculto" y agrega la clase "detallesCoche".
- * Si la casilla de verificación no está marcada, elimina la clase "detallesCoche" y agrega la clase
- * "oculto".
- */
+
 let matriculaCoche = "";
+/**
+ * Si la casilla de verificación está marcada, elimine la clase "oculto" y agregue la clase
+ * "detallesCoche" al div con el id "caractCoche".
+ * Si la casilla de verificación no está marcada, elimine la clase "detallesCoche" y agregue la clase
+ * "oculto" al div con el id "caractCoche".
+ */
 function mostrarDetalles() {
     if (interruptorVehiculoT.checked) {
         document.getElementById("caractCoche").classList.remove("oculto");
@@ -125,12 +136,13 @@ function mostrarDetalles() {
     }
 }
 
+
 /**
  * Si el valor del campo de entrada coincide con la expresión regular, se elimina el mensaje de error,
- * el color del borde se establece en verde, el color del texto se establece en verde y el borde se
- * establece en 3px sólido. Si el valor del campo de entrada no coincide con la expresión regular, se
- * muestra el mensaje de error, el color del borde se establece en rojo y el color del texto se
- * establece en rojo.
+ * el color del borde cambia a verde, el color del texto cambia a verde, el borde cambia a 3px sólido y
+ * el valor del campo de entrada se asigna a la variable matriculaCoche. Si el valor del campo de
+ * entrada no coincide con la expresión regular, se muestra el mensaje de error, el color del borde
+ * cambia a rojo y el color del texto cambia a rojo.
  * @returns un valor booleano.
  */
 function validarMatricula() {
