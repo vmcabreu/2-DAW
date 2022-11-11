@@ -28,7 +28,7 @@
                     <div class="col-3">
                         <label for="surname">Apellido</label>
                         <input type="text" id="surname" name="surname" maxlength="30" required />
-                        <label for="surname" id="apellidoError" style="color: red;"></label>
+                        <label for="surname" id="nombreError" style="color: red;"></label>
                     </div>
                     <div class="col-2">
                         <label for="dni">DNI/NIE</label>
@@ -57,7 +57,7 @@
                             <option>38450</option>
                             <option>Otro</option>
                         </select>
-                        <input type="text" class="oculto" name="cptext" id="cptext">
+                        <input type="text" class="oculto" name="cptext" id="cptext" required>
                         <label for="cptext" id="cptextError" style="color: red;"></label>
                     </div>
 
@@ -105,7 +105,7 @@
                         <label for="marcaVehiculo">Marca del Vehiculo</label>
                         <input type="text" id="marcaVehiculo" name="marcaVehiculo" />
                         <label for="matricula">Matricula</label>
-                        <input type="text" id="matricula" name="matricula" value="No" />
+                        <input type="text" id="matricula" name="matricula" value="0000-XXX" />
                         <label for="matricula" id="matriculaVehiculoError" style="color: red;"></label>
                     </div>
                     <div class="col-2">
