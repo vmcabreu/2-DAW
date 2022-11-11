@@ -54,6 +54,10 @@ class Viajero {
         this.matricula = matricula;
         this.motivo = motivo;
     }
+
+    toString() {
+        return "Nombre: " + this.nombre + "\n Apellido: " + this.apellido + "\n DNI: " + this.dni + "\n Código Postal: " + this.codigoPostal + "\n Teléfono Fijo: " + this.tlfFijo + "\n Teléfono Móvil: " + this.tlfMovil + "\n Fecha Ida: "+ this.fechaIda+"\n Email: "+this.email+"\n Matricula del Vehículo: "+this.matricula+"\n Motivo: "+this.motivo;
+    }
 }
 
 
@@ -75,7 +79,7 @@ function validarMotivo() {
         motivo.style.color = 'green';
         motivo.style.border = '3px solid';
 
-    }else{
+    } else {
         document.getElementById("motivosError").innerHTML = "Motivo no empieza con mayúscula";
         motivo.style.borderColor = 'red';
         motivo.style.color = 'red';
@@ -88,7 +92,7 @@ function validarMotivo() {
         console.log(regExpFecha.exec(motivo.value))
     }
     let palabras = motivotxt.match(/\S+/g).length;
-    console.log("Número de palabras: "+palabras);
+    console.log("Número de palabras: " + palabras);
     motivoObj = motivotxt;
 }
 
@@ -332,9 +336,9 @@ function validarOtroCP() {
  * @returns un valor booleano.
  */
 function validarNumerop() {
-    const regularExp = /\D/;
+    const regularExp = /\D|0/;
     if (regularExp.test(numerop.value)) {
-        document.getElementById("nPersonasError").innerHTML = "Error. El nombre no puede contener dígitos";
+        document.getElementById("nPersonasError").innerHTML = "Error. El número debe ser mayor a 0";
         numerop.style.borderColor = 'red';
         numerop.style.color = 'red';
         return false;
@@ -356,7 +360,7 @@ function validarNumerop() {
  */
 function validarNombreApellido() {
     const regExp = /\d/;
-    if (regExp.test(nombre.value) || regExp.test(apellido.value) ) {
+    if (regExp.test(nombre.value) || regExp.test(apellido.value)) {
         document.getElementById("nombreError").innerHTML = "Error. El nombre/apellidos no puede contener dígitos";
         nombre.style.borderColor = 'red';
         nombre.style.color = 'red';
@@ -378,7 +382,7 @@ function validarNombreApellido() {
 /** DNI */
 
 /**
- * Si el valor del DNI o NIE coincide con la expresión regular, se elimina el mensaje de error,
+ * Comprueba si el DNI/NIE es válido. Si el valor del DNI o NIE coincide con la expresión regular, se elimina el mensaje de error,
  * el color del borde cambia a verde y la función devuelve verdadero. De lo contrario, se muestra el
  * mensaje de error, el color del borde cambia a rojo y la función devuelve falso.
  * @returns verdadero o falso.
@@ -386,7 +390,7 @@ function validarNombreApellido() {
 function validarDNI() {
     const regExpDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i
     const regExpNIE = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]$/i
-    if (regExpDNI.test(dni.value) || regExpNIE.test(dni.value)) {
+    if (validarNumeroDNINIE("dni") || validarNumeroDNINIE("nie")) {
         document.getElementById("dniError").innerHTML = "";
         dni.style.borderColor = 'green';
         dni.style.color = 'green';
@@ -397,6 +401,37 @@ function validarDNI() {
         dni.style.borderColor = 'red';
         dni.style.color = 'red';
         return false;
+    }
+}
+
+/**
+ * Valida el DNI y NIE y los números.
+ * @param campo - El campo a validar.
+ * @returns Un valor booleano.
+ */
+function validarNumeroDNINIE(campo) {
+    const regExpLetra = "TRWAGMYFPDXBNJZSQVHLCKET";
+    const regExpDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i;
+    const regExpNIE = /^[XYZ][0-9]{7}[A-Z]$/i;
+    if (campo == "dni" || campo == "DNI") {
+        if (regExpDNI.test(dni.value)) {
+            let letra = dni.value.substr(-1);
+            let numero = Number(dni.value.substr(0, 8));
+            let charInd = numero % 23;
+            let calcularLetra = regExpLetra.charAt(charInd);
+            return (letra== calcularLetra);
+        }
+    } else if (campo == "nie" || campo == "NIE") {
+        /*NIE de prueba Y8275444N*/
+        if (regExpNIE.test(dni.value)) {
+            let nie = dni.value.substr(0, 8);
+            let letra = dni.value.substr(-1);
+            nie = nie.replace("X", 0).replace("Y", 1).replace("Z", 2);
+            let numero = Number(nie);
+            let charInd = numero % 23;
+            let calcularLetra = regExpLetra.charAt(charInd);
+            return (letra == calcularLetra);
+        }
     }
 }
 
@@ -434,31 +469,15 @@ function validarForm() {
     if (seleccionCP.value == "Otro") {
         if (validarNombreApellido() && validarDNI() && validarFecha() && validarOtroCP() && validarTlffijo() && validarTlfmovil() && validarMail() && validarMatricula()) {
             const pasajero = new Viajero(nombre.value, apellido.value, dni.value, cpValido, tlffijo.value, tlfmovil.value, fechaida.value, email.value, matriculaCoche, motivoObj);
-            console.log(pasajero.nombre);
-            console.log(pasajero.apellido);
-            console.log(pasajero.dni);
-            console.log(pasajero.codigoPostal);
-            console.log(pasajero.tlfFijo);
-            console.log(pasajero.tlfMovil);
-            console.log(pasajero.fechaIda);
-            console.log(pasajero.email);
-            console.log(pasajero.matricula);
-            console.log(pasajero.motivo);
-            
+            console.log(pasajero);
+            console.log(pasajero.toString());
+
         }
     } else {
         if (validarNombreApellido() && validarDNI() && validarFecha() && validarTlffijo() && validarTlfmovil() && validarMail() && validarMatricula()) {
-            const pasajero = new Viajero(nombre.value, apellido.value, dni.value, cpValido, tlffijo.value, tlfmovil.value, fechaida.value, email.value,matriculaCoche, motivoObj);
-            console.log(pasajero.nombre);
-            console.log(pasajero.apellido);
-            console.log(pasajero.dni);
-            console.log(pasajero.codigoPostal);
-            console.log(pasajero.tlfFijo);
-            console.log(pasajero.tlfMovil);
-            console.log(pasajero.fechaIda);
-            console.log(pasajero.email);
-            console.log(pasajero.matricula);
-            console.log(pasajero.motivo);
+            const pasajero = new Viajero(nombre.value, apellido.value, dni.value, cpValido, tlffijo.value, tlfmovil.value, fechaida.value, email.value, matriculaCoche, motivoObj);
+            console.log(pasajero);
+            console.log(pasajero.toString());
         }
     }
 }
