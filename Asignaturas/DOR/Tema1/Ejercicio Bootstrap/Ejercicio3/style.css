@@ -55,25 +55,25 @@ body {
     background-color: red;
 }
 
-/** xs */
+/* xs */
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 576px) {
     .cabecera {
         background-color: lightsalmon;
     }
 
-    .item3 {
-        background-color: chartreuse;
+    .item2 {
+        background-color: cyan;
     }
 }
 
-/* Tablet */
-@media all and (min-width: 576) and (max-width: 767) {
+/* sm */
+@media all and (min-width: 576px) and (max-width: 767px) {
     .cabecera {
         background-color: cyan;
     }
 
-    .item2 {
-        background-color: cyan;
+    .item3 {
+        background-color: chartreuse;
     }
 }
