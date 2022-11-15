@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Ahorcado</h1>
+    <div class="container text-center">
+      <p class="palabra" id="palabra"></p>
+      <div id="teclado" class="row teclado ocultar">
+        <div class="col-8 centro ">
+          <button class="btnLetra" id="A" value="A" onclick="comprobarLetra('A')">A</button>
+          <button class="btnLetra" id="B" value="B" onclick="comprobarLetra('B')">B</button>
+          <button class="btnLetra" id="C" value="C" onclick="comprobarLetra('C')">C</button>
+          <button class="btnLetra" id="D" value="D" onclick="comprobarLetra('D')">D</button>
+          <button class="btnLetra" id="E" value="E" onclick="comprobarLetra('E')">E</button>
+          <button class="btnLetra" id="F" value="F" onclick="comprobarLetra('F')">F</button>
+          <button class="btnLetra" id="G" value="G" onclick="comprobarLetra('G')">G</button>
+          <button class="btnLetra" id="H" value="H" onclick="comprobarLetra('H')">H</button>
+          <button class="btnLetra" id="I" value="I" onclick="comprobarLetra('I')">I</button>
+          <button class="btnLetra" id="J" value="J" onclick="comprobarLetra('J')">J</button>
+          <button class="btnLetra" id="K" value="K" onclick="comprobarLetra('K')">K</button>
+          <button class="btnLetra" id="L" value="L" onclick="comprobarLetra('L')">L</button>
+          <button class="btnLetra" id="M" value="M" onclick="comprobarLetra('M')">M</button>
+          <button class="btnLetra" id="N" value="N" onclick="comprobarLetra('N')">N</button>
+          <button class="btnLetra" id="O" value="O" onclick="comprobarLetra('O')">O</button>
+          <button class="btnLetra" id="P" value="P" onclick="comprobarLetra('P')">P</button>
+          <button class="btnLetra" id="Q" value="Q" onclick="comprobarLetra('Q')">Q</button>
+          <button class="btnLetra" id="R" value="R" onclick="comprobarLetra('R')">R</button>
+          <button class="btnLetra" id="S" value="S" onclick="comprobarLetra('S')">S</button>
+          <button class="btnLetra" id="T" value="T" onclick="comprobarLetra('T')">T</button>
+          <button class="btnLetra" id="U" value="U" onclick="comprobarLetra('U')">U</button>
+          <button class="btnLetra" id="V" value="V" onclick="comprobarLetra('V')">V</button>
+          <button class="btnLetra" id="W" value="W" onclick="comprobarLetra('W')">W</button>
+          <button class="btnLetra" id="X" value="X" onclick="comprobarLetra('X')">X</button>
+          <button class="btnLetra" id="Y" value="Y" onclick="comprobarLetra('Y')">Y</button>
+          <button class="btnLetra" id="Z" value="Z" onclick="comprobarLetra('Z')">Z</button>
+          <button class="btnLetra" id="Ñ" value="Ñ" onclick="comprobarLetra('Ñ')">Ñ</button><br>
+        </div>
+    </div>
+    <button class="btnLetra w-100" id="empezar" onclick="desglosePalabra()">Empezar</button>
+    <p id="victoria"></p>
+  </body>
+</html>

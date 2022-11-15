@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.btnLetra{
+    margin-top: 10px !important;
+    height: 50px;
+    width: 50px;
+}
+
+.centro {
+    margin-left:   auto;
+    margin-right: auto;
+}
+
+.palabra{
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.ocultar{
+    display: none;
+}
+
+.transparente{
+    background-color: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+}
