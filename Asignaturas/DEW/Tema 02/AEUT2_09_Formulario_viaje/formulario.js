@@ -3,6 +3,7 @@
  * @author Víctor Manuel Cabrera Abreu 2ºDAW
  * @version 1.0
  */
+
 /* Obtener el valor de los campos de entrada. */
 const nombre = document.getElementById("nombre");
 const apellido = document.getElementById("surname");
