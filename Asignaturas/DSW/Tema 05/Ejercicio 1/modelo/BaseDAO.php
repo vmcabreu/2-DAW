@@ -1,6 +1,11 @@
 <?php
 class BaseDAO
 {
+/**
+ * Se conecta a la base de datos.
+ * 
+ * @return La conexión a la base de datos.
+ */
     public static function getConexion()
     {
         $conexion = new MySQLi("localhost", "productos", "productos2022", "producto");
@@ -11,7 +16,14 @@ class BaseDAO
         return $conexion;
     }
 
-    public static function consulta(string $sql)
+/**
+ * Se conecta a la base de datos y ejecuta la consulta.
+ * 
+ * @param string sql La consulta SQL a ejecutar.
+ * 
+ * @return bool|mysqli_result El resultado de la consulta.
+ */
+    public static function consulta(string $sql):bool|MySQLi_result
     {
         $conexion = self::getConexion();
         $resultado = $conexion->query($sql);

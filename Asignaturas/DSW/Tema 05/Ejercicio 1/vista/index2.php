@@ -9,9 +9,11 @@
 <body>
     <form>
     <label for=""></label>
-    <button name="btnAgregar">Añadir</button>
-    <button name="btnBorrar">Borrar</button>
-    <button name="btnEditar">Editar</button>
+    <input type="text" name="id">
+    <input type="text" name="nombre">
+    <input type="text" name="descripcion">
+    <input type="text" name="precio">
+    <input type="text" name="imagen">
     </form>
     <?php
     

@@ -24,6 +24,16 @@
        return $this->atributos[$name];
     }
 
+    static function arrayProducto(Array $producto){
+        $id = intval($producto['id']);
+        $descripcion=$producto['descripcion'];
+        $nombre=$producto['nombre'];
+        $precio=floatval($producto['precio']);
+        $imagen=$producto['imagen'];
+        return new Producto($id,$descripcion,$nombre,$precio,$imagen);
+    }
+
+
     function __toString()
     {
         return "<input type='number' name='producto$this->id' readonly>$this->id</input>\n
@@ -33,6 +43,7 @@
         <label><img src='img/$this->imagen'</label><button name='btnBorrar'>Borrar</button>
         <button name='btnEditar'>Editar</button>";
     }
+
 
     }
 ?>
