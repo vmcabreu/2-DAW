@@ -1,15 +1,58 @@
+@font-face {
+    font-family: 'Blackboard'; /*a name to be used later*/
+    src: url("imgs/font/Blackboard.ttf"); /*URL to font*/
+}
+
 *{
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: "Blackboard";
+    font-size: 21px;
+    color: azure;
+}
+
+
+body{
+    background-image: url(imgs/bg.jpg);
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
 }
 
 .btnLetra{
     margin-top: 10px !important;
     height: 50px;
     width: 50px;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid azure;
 }
+
+.fadeOut {
+    opacity: 1;
+    animation: fadeOut 0.3s linear;
+    opacity: 0;
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.3s linear;
+    opacity: 1;
+}
+
+
+@keyframes fadeOut {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
 
 .centro {
     margin-left:   auto;
