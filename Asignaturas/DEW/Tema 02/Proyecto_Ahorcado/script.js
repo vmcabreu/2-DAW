@@ -82,7 +82,7 @@ function mostrarLetra() {
 
   });
   document.getElementById("palabra").classList.add("fadeIn");
-  comprobarVictoria();
+  comprobarVictoria(pista);
 }
 
 /**
@@ -123,8 +123,8 @@ function comprobarLetra(letra,id) {
  * Comprueba si la palabra adivinada por el usuario es la misma que la palabra a adivinar. Si es así,
  * muestra un mensaje que dice que el usuario ha ganado y muestra el botón para reiniciar el juego.
  */
-function comprobarVictoria() {
-  if (pista == palabra) {
+function comprobarVictoria(resultado) {
+  if (resultado == palabra) {
     document.getElementById("victoria").innerHTML = "Has ganado";
     document.getElementById("reiniciar").classList.remove("ocultar");
   }
