@@ -7,6 +7,7 @@ let pista = palabra.replaceAll(/\w\d/g, "_");
 let imgAhorcado = ["imgs/ahorcado1.png","imgs/ahorcado2.png","imgs/ahorcado3.png","imgs/ahorcado4.png","imgs/ahorcado5.png","imgs/ahorcado6.png"]
 const pistas = document.getElementById("palabra");
 pistas.addEventListener("input", mostrarLetra);
+pistas.addEventListener("input", comprobarVictoria);
 
 
 
@@ -15,7 +16,7 @@ pistas.addEventListener("input", mostrarLetra);
  * Si el botón de radio con la identificación de 2J está marcado, haga lo siguiente:
  * 
  * 1. Crea la incógnita
- * 2. Mostrar la carta
+ * 2. Mostrar la palabra
  * 4. Agrega la clase de ocultar al elemento con la identificación de los jugadores
  * 3. Agrega la clase de ocultar al elemento con la identificación de empezar
  * 5. Elimina la clase de ocultar del elemento con el id de cartelJ1
@@ -40,7 +41,8 @@ function empezarPartida() {
     document.getElementById("teclado1").classList.remove("centro");
     document.getElementById("teclado1").classList.remove("col-8");
     document.getElementById("teclado1").classList.add("col-6");
-    document.getElementById("vidas").classList.remove("ocultar");
+    document.getElementById("vidasJ1").classList.remove("ocultar");
+    document.getElementById("vidasJ2").classList.remove("ocultar");
     document.getElementById("ahorcado").classList.remove("ocultar");
   }else{
     crearIncognita();
@@ -49,7 +51,7 @@ function empezarPartida() {
     document.getElementById("jugadores").classList.add("ocultar");
     document.getElementById("teclado1").classList.remove("ocultar");
     document.getElementById("teclado1").classList.add("centro");
-    document.getElementById("vidas").classList.remove("ocultar");
+
     document.getElementById("ahorcado").classList.remove("ocultar");
   }
 }
@@ -123,8 +125,9 @@ function comprobarLetra(letra,id) {
  * Comprueba si la palabra adivinada por el usuario es la misma que la palabra a adivinar. Si es así,
  * muestra un mensaje que dice que el usuario ha ganado y muestra el botón para reiniciar el juego.
  */
-function comprobarVictoria(resultado) {
-  if (resultado == palabra) {
+function comprobarVictoria() {
+  let adivinanza = document.getElementById("palabra").value
+  if (adivinanza == palabra) {
     document.getElementById("victoria").innerHTML = "Has ganado";
     document.getElementById("reiniciar").classList.remove("ocultar");
   }
