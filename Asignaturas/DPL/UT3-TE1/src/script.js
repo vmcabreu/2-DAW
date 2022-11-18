@@ -1,5 +1,7 @@
 const color = document.getElementById("borderColor");
 const contenedorImgs = document.getElementById("imagenes");
+const form = document.getElementById('form');
+form.addEventListener('submit', (e) => e.preventDefault());
 
 for (let i = 1; i <= 20; i++) {
     let img = document.createElement('img');
@@ -31,9 +33,6 @@ function validarHex() {
 }
 
 function generarImagen() {
-    e.preventDefault();
-    if (validarHex()) {
-        contenedorImgs.innerHTML = ' ';
-    }
-
+    contenedorImgs.innerHTML = ' ';
 }
+
