@@ -1,0 +1,13 @@
+.detallesImgs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ctnImagenes{
+    margin-top: 30px;
+}
+
+h1{
+    text-align: center;
+}
