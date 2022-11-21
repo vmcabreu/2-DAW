@@ -85,6 +85,10 @@ Tras terminar la instalación, configurados el linkeado dinámico (*dynamic link
 
 ## Creación del virtual host
 
+
+images.alu6618.arkania
+`scp -r -P2222 dev/ victor@alu6618.arkania.es:/home/victor/`
+
 ## Implementación de la aplicación
  
 ## Certificado de seguridad
