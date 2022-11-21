@@ -1,13 +1,9 @@
 let palabra = "Parque Jurasico";
-let palabras = palabra.toUpperCase().split(" ");
 let incognita = [];
 let letras = [];
 let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
-let pista = palabra.replaceAll(/\w\d/g, "_");
+let pista = palabra.replaceAll(/\w/g, "_");
 let imgAhorcado = ["imgs/ahorcado1.png","imgs/ahorcado2.png","imgs/ahorcado3.png","imgs/ahorcado4.png","imgs/ahorcado5.png","imgs/ahorcado6.png"]
-const pistas = document.getElementById("palabra");
-pistas.addEventListener("input", mostrarLetra);
-pistas.addEventListener("input", comprobarVictoria);
 
 
 
@@ -38,9 +34,6 @@ function empezarPartida() {
     document.getElementById("cartelJ2").classList.remove("ocultar");
     document.getElementById("teclado1").classList.remove("ocultar");
     document.getElementById("teclado2").classList.remove("ocultar");
-    document.getElementById("teclado1").classList.remove("centro");
-    document.getElementById("teclado1").classList.remove("col-8");
-    document.getElementById("teclado1").classList.add("col-6");
     document.getElementById("vidasJ1").classList.remove("ocultar");
     document.getElementById("vidasJ2").classList.remove("ocultar");
     document.getElementById("ahorcado").classList.remove("ocultar");
@@ -61,30 +54,21 @@ function empezarPartida() {
  * las palabras de palabras.
  */
 function crearIncognita(){
-  for (let i = 0; i < palabras.length; i++) {
-    for (let j = 0; j < palabras[i].length; j++) {
-      letras.push(palabras[i].charAt(j));
-      incognita.push("_");
-    }
-    incognita.push(" ");
-    letras.push(" ");
-  }
+  incognita=pista.split("");
+  letras = palabra.toUpperCase().split("");
 }
-
 
 /**
  * Toma la matriz de letras y las coloca en una cadena, luego coloca esa cadena en el elemento HTML con
  * el id "palabra".
  */
 function mostrarLetra() {
-  pista = "";
-  incognita.forEach((element) => {
-    pista += element;
-    document.getElementById("palabra").innerHTML = pista;
 
-  });
+  let incogResulta= incognita.join("");
+  pista = incogResulta;
+  document.getElementById("palabra").innerHTML = incogResulta;
   document.getElementById("palabra").classList.add("fadeIn");
-  comprobarVictoria(pista);
+  comprobarVictoria();
 }
 
 /**
@@ -102,6 +86,7 @@ function comprobarLetra(letra,id) {
           mostrarLetra();
           document.getElementById(id).classList.add("fadeOut");
           document.getElementById(id).disabled = true;
+          comprobarVictoria();
         } else {
           incognita[i] = letra.toLowerCase();
           mostrarLetra();
@@ -118,7 +103,7 @@ function comprobarLetra(letra,id) {
     document.getElementById("vidas").innerHTML = "Vidas: " + numVidas;
     comprobarDerrota();
   }
-  comprobarVictoria();
+  
 }
 
 /**
@@ -126,10 +111,14 @@ function comprobarLetra(letra,id) {
  * muestra un mensaje que dice que el usuario ha ganado y muestra el botón para reiniciar el juego.
  */
 function comprobarVictoria() {
-  let adivinanza = document.getElementById("palabra").value
-  if (adivinanza == palabra) {
+  console.log(pista);
+  console.log(incognita);
+  
+  if (pista == palabra) {
     document.getElementById("victoria").innerHTML = "Has ganado";
     document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("reiniciar").classList.add("fadeIn");
+    document.getElementById("teclado1").classList.add("fadeOut");
   }
 }
 
@@ -152,3 +141,4 @@ function comprobarDerrota() {
 function reiniciarPartida() {
   window.location.reload();
 }
+

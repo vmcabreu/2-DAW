@@ -13,7 +13,25 @@
 
 <body>
   <h1>Ahorcado</h1>
-  <div class="container text-center">
+  <div class="container" id="registroLogin">
+  <div id="login">
+  <form action="">
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" name="usuario" class="form-control">
+    <label for="passwd">Contraseña</label>
+    <input type="text" id="passwd" name="passwd" class="form-control">
+    <button class="btn btn-outline-success bg-dark">Entrar</button>
+  </form>
+  </div>
+  <div id="register" class="ocultar">
+    <form action="">
+      <input type="text" id="usuario" class="form-control">
+      <input type="text" id="password" class="form-control">
+      <button id="registrarse" >Registrarse</button>
+    </form>
+  </div>
+</div>
+  <div class="container text-center ocultar">
     <div class="row">
       <img src="imgs/ahorcado0.png" id="ahorcado" class="ocultar col-3" alt="pantalla">
       <p class="palabra col-9 align-middle" id="palabra"></p>
@@ -23,6 +41,9 @@
       <div class="row">
         <div id="teclado1" class="teclado ocultar col-8">
           <p class="ocultar" id="cartelJ1">Jugador 1</p><h2 id="vidasJ1" value="6" class="ocultar">Vidas: 6</h2>
+          <div id="teclado2" class="teclado ocultar col-6">
+            <p class="ocultar" id="cartelJ2">Jugador 2</p><h2 id="vidasJ2" value="6" class="ocultar">Vidas: 6</h2>
+          </div>
           <button class="btnLetra" id="J1A" value="A" onclick="comprobarLetra(this.value,this.id)">A</button>
           <button class="btnLetra" id="J1B" value="B" onclick="comprobarLetra(this.value,this.id)">B</button>
           <button class="btnLetra" id="J1C" value="C" onclick="comprobarLetra(this.value,this.id)">C</button>
@@ -37,6 +58,7 @@
           <button class="btnLetra" id="J1L" value="L" onclick="comprobarLetra(this.value,this.id)">L</button>
           <button class="btnLetra" id="J1M" value="M" onclick="comprobarLetra(this.value,this.id)">M</button>
           <button class="btnLetra" id="J1N" value="N" onclick="comprobarLetra(this.value,this.id)">N</button>
+          <button class="btnLetra" id="J1Ñ" value="Ñ" onclick="comprobarLetra(this.value,this.id)">Ñ</button>
           <button class="btnLetra" id="J1O" value="O" onclick="comprobarLetra(this.value,this.id)">O</button>
           <button class="btnLetra" id="J1P" value="P" onclick="comprobarLetra(this.value,this.id)">P</button>
           <button class="btnLetra" id="J1Q" value="Q" onclick="comprobarLetra(this.value,this.id)">Q</button>
@@ -49,38 +71,8 @@
           <button class="btnLetra" id="J1X" value="X" onclick="comprobarLetra(this.value,this.id)">X</button>
           <button class="btnLetra" id="J1Y" value="Y" onclick="comprobarLetra(this.value,this.id)">Y</button>
           <button class="btnLetra" id="J1Z" value="Z" onclick="comprobarLetra(this.value,this.id)">Z</button>
-          <button class="btnLetra" id="J1Ñ" value="Ñ" onclick="comprobarLetra(this.value,this.id)">Ñ</button><br>
         </div>
-        <div id="teclado2" class="teclado ocultar col-6">
-          <p class="ocultar" id="cartelJ2">Jugador 2</p><h2 id="vidasJ2" value="6" class="ocultar">Vidas: 6</h2>
-          <button class="btnLetra" id="J2A" value="A" onclick="comprobarLetra(this.value,this.id)">A</button>
-          <button class="btnLetra" id="J2B" value="B" onclick="comprobarLetra(this.value,this.id)">B</button>
-          <button class="btnLetra" id="J2C" value="C" onclick="comprobarLetra(this.value,this.id)">C</button>
-          <button class="btnLetra" id="J2D" value="D" onclick="comprobarLetra(this.value,this.id)">D</button>
-          <button class="btnLetra" id="J2E" value="E" onclick="comprobarLetra(this.value,this.id)">E</button>
-          <button class="btnLetra" id="J2F" value="F" onclick="comprobarLetra(this.value,this.id)">F</button>
-          <button class="btnLetra" id="J2G" value="G" onclick="comprobarLetra(this.value,this.id)">G</button>
-          <button class="btnLetra" id="J2H" value="H" onclick="comprobarLetra(this.value,this.id)">H</button>
-          <button class="btnLetra" id="J2I" value="I" onclick="comprobarLetra(this.value,this.id)">I</button>
-          <button class="btnLetra" id="J2J" value="J" onclick="comprobarLetra(this.value,this.id)">J</button>
-          <button class="btnLetra" id="J2K" value="K" onclick="comprobarLetra(this.value,this.id)">K</button>
-          <button class="btnLetra" id="J2L" value="L" onclick="comprobarLetra(this.value,this.id)">L</button>
-          <button class="btnLetra" id="J2M" value="M" onclick="comprobarLetra(this.value,this.id)">M</button>
-          <button class="btnLetra" id="J2N" value="N" onclick="comprobarLetra(this.value,this.id)">N</button>
-          <button class="btnLetra" id="J2O" value="O" onclick="comprobarLetra(this.value,this.id)">O</button>
-          <button class="btnLetra" id="J2P" value="P" onclick="comprobarLetra(this.value,this.id)">P</button>
-          <button class="btnLetra" id="J2Q" value="Q" onclick="comprobarLetra(this.value,this.id)">Q</button>
-          <button class="btnLetra" id="J2R" value="R" onclick="comprobarLetra(this.value,this.id)">R</button>
-          <button class="btnLetra" id="J2S" value="S" onclick="comprobarLetra(this.value,this.id)">S</button>
-          <button class="btnLetra" id="J2T" value="T" onclick="comprobarLetra(this.value,this.id)">T</button>
-          <button class="btnLetra" id="J2U" value="U" onclick="comprobarLetra(this.value,this.id)">U</button>
-          <button class="btnLetra" id="J2V" value="V" onclick="comprobarLetra(this.value,this.id)">V</button>
-          <button class="btnLetra" id="J2W" value="W" onclick="comprobarLetra(this.value,this.id)">W</button>
-          <button class="btnLetra" id="J2X" value="X" onclick="comprobarLetra(this.value,this.id)">X</button>
-          <button class="btnLetra" id="J2Y" value="Y" onclick="comprobarLetra(this.value,this.id)">Y</button>
-          <button class="btnLetra" id="J2Z" value="Z" onclick="comprobarLetra(this.value,this.id)">Z</button>
-          <button class="btnLetra" id="J2Ñ" value="Ñ" onclick="comprobarLetra(this.value,this.id)">Ñ</button><br>
-        </div>
+
       </div>
     </div>
     <div id="jugadores" class="container text-center">
