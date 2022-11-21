@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Diseño 4</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark grisclaro">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Diseño 4</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ideas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos<span class="badge bg-secondary">4</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Privado</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Qué quieres buscar..."
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#modalSearch">Buscar</button>
+                </form>
+                <!-- Modal -->
+                <div class="modal" tabindex="-1" id="modalSearch">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Modal body text goes here.</p>
+                          <textarea name="modalText" id="modalText" cols="45" rows="5"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+            </div>
+        </div>
+    </nav>
+    <!-- Carousel -->
+    <div class="container-fluid">
+        <div class="row">
+    <div id="carouselExampleIndicators" class="carousel slide p-0" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner col-12 w-100">
+            <div class="carousel-item active">
+                <img src="https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=2000"
+                    class="d-block  w-100 img-fluid" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Fondo bonito</h2>
+                    <p class="grisclaro">Se ha insertado un fondo bonito.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000"
+                    class="d-block w-100 col-12 img-fluid" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Fondo muy bonito</h2>
+                    <p class="grisclaro ">Se ha insertado un fondo muy bonito.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://striv.tv/wp-content/uploads/2020/09/simple-background-backgrounds-passion-simple-1-5c9b95d2b9dfb.png"
+                    class="d-block w-100 col-12 img-fluid" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Fondo Precioso</h2>
+                    <p class="grisclaro">Se ha insertado un fondo precioso.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+</div>
+    <!-- Acordeon -->
+    <div class="container">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Alicates
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Vacío
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    Coches
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse show" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body d-flex flex-wrap gap-4">
+                            <div class="card  shadow-lg" style="width: 18rem;">
+                                <img src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2022/04/02/16488802684311.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Coche Mediano</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg" style="width: 18rem;">
+                                <img src="https://s1.eestatic.com/2022/08/21/motor/697190325_226578419_1024x576.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Coche Pequeño</h5>
+                                    <p class="card-text">Este es un coche minúsculo</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg" style="width: 18rem;">
+                                <img src="https://s03.s3c.es/imag/_v0/770x420/5/3/0/490x_Rolls-Royce-Sweptails-apertura.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Coche Mediano</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg" style="width: 18rem;">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaT3zpqpmBTmkVDDjR0cAGkuI99r7TeSCA5w&usqp=CAU" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Seat</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg" style="width: 18rem;">
+                                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSExEVFRUXGRgYGBgVGBcYIBcWGBcXGBgYGBgYHSggGBolHhcYITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGzclICYuLS0tLS0tLS8tNS81LS0tLS0tLTUtLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcDBAUCAQj/xABJEAABAwIDBQUFAwgHBwUAAAABAAIDBBESITEFBhNBUSJhcYGRBzJCUqEUM8EjU2JygpKx8BWDo8PR0uEXJENjorLTNERUk8L/xAAbAQEAAgMBAQAAAAAAAAAAAAAABAUBAwYCB//EADQRAAIBAgMECQMEAgMAAAAAAAABAgMRBCExBRJBURNhcYGRscHR8BSh4SIjMkIGcjOC8f/aAAwDAQACEQMRAD8ApFERZMhERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREARF193dhyVcmBhwtAu95zDRy8SeQ7ivM5xhFyk7JHqEJTkoxV2zkLt7vbq1labU8Jc0Gxeeyxvi45X7hcqzd3PZrRPeA8PkDc3FzyL91m2sFalLTMjY2ONjWMaLNa0AADoANFRYvbkYLdoq75vTwvdkiphZUpbs34FH1XsjkhgM09ZGwge6yN7wXHRuIlpv5LiUu7EQHbLnHxsPK2aunf6sibT8N4u9+bB0I+I9wv53VZrxhMZiKtPenJ69S8kjntp4mcKvR05WVle2tzTpNi07b2ia6/zdv0xXWnU7qwuJLXOZfkLWB8+Xcu3GOf881lX0bY2HjVwEOmSeba45XevX5ZIj0a1VRvvZ9pW+1tmugfhdmDm13Uf49y0VZ9RC14wuaHDoRfmq4rY2tle1vuhzgL9ASFS4yjGlUajpd2R0k6LhThJu+8r5dlzXREUU1BERAEREAREQBERAEREAREQBERAEREAREQGaniDntaXBoc4AuOjQTa57grr2HsuGniDIQLc3al7upP82VMbOcwSsMguy/a55csvFW3uzNk6O3u3PkbCyqNq7ziknlr1fF6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" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">El mejor</h5>
+                                    <p class="card-text">dlasjolagj ldasfjao</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg" style="width: 18rem;">
+                                <img src="https://cdn-images.motor.es/image/m/720w440h/fotos-guias/2020/11/los-mejores-suv-baratos_mid5faeb43aba880.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cochazo</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Sofas
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Vacío
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Footer -->
+    <footer class="navbar navbar-expand-lg navbar-dark grisclaro">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">2022-2023@DOR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">I.E.S Puerto de la Cruz - Telesforo Bravo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item dropup">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Profesores<span class="badge bg-secondary">3</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Daniel Zurita Piñero</a></li>
+                            <li><a class="dropdown-item" href="#">Daniel Zurita Piñero</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Daniel Zurita Piñero</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
