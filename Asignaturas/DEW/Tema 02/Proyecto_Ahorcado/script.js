@@ -10,8 +10,7 @@ const xhttp = new XMLHttpRequest();
 
 xhttp.onload = function(){
     let x = JSON.parse(this.responseText);
-    console.log(x.listaPeliculas[Math.random() * x.listaPeliculas.length]);
-    document.getElementById("demo").innerHTML = x.listaPeliculas[5].Titulo;
+    document.getElementById("lecturaJSON").innerHTML = x.listaPeliculas[5].Titulo;
 }
 xhttp.open('GET', './peliculas.json',true);
 xhttp.send();
