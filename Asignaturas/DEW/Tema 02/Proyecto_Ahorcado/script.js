@@ -4,9 +4,116 @@ let letras = [];
 let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
 let pista = palabra.replaceAll(/\w/g, "_");
 let imgAhorcado = ["imgs/ahorcado1.png","imgs/ahorcado2.png","imgs/ahorcado3.png","imgs/ahorcado4.png","imgs/ahorcado5.png","imgs/ahorcado6.png"]
+let peliculas;
+console.log(peliculas);
+const xhttp = new XMLHttpRequest();
+
+xhttp.onload = function(){
+    let x = JSON.parse(this.responseText);
+    console.log(x.listaPeliculas[Math.random() * x.listaPeliculas.length]);
+    document.getElementById("demo").innerHTML = x.listaPeliculas[5].Titulo;
+}
+xhttp.open('GET', './peliculas.json',true);
+xhttp.send();
+
+/* La función constructora es una función especial que se llama cuando se crea un nuevo objeto. */
+class Usuario{
+  /**
+   * La función constructora es una función especial que se llama cuando se crea un nuevo objeto.
+   * @param usuario - El nombre de usuario del usuario.
+   * @param nombre - El nombre del usuario.
+   * @param email - La dirección de correo electrónico del usuario.
+   * @param passwd - La contraseña para el usuario.
+   */
+  constructor(usuario,nombre,email,passwd){
+    this.usuario=usuario;
+    this.nombre=nombre;
+    this.email=email;
+    this.passwd=passwd;
+  }
+}
+
+/* Una clase es un modelo para crear objetos con propiedades y métodos predefinidos. */
+class Pelicula{
+
+  constructor(titulo,lanzamiento,duracion,genero,director,sinopsis,poster){
+    this.titulo=titulo;
+    this.lanzamiento=lanzamiento;
+    this.duracion=duracion;
+    this.genero=genero;
+    this.director=director;
+    this.sinopsis=sinopsis;
+    this.poster=poster;
+  }
+
+}
 
 
 
+
+
+
+/**
+ * Elimina la clase fadeIn del div de inicio de sesión, le agrega la clase fadeOut, elimina la clase
+ * ocultar del div de registro, elimina la clase fadeOut y le agrega la clase fadeIn
+ */
+function menuRegistrarse(){
+  document.getElementById("login").classList.add("ocultar");
+  document.getElementById("login").classList.remove("fadeIn");
+  document.getElementById("login").classList.add("fadeOut");
+  document.getElementById("register").classList.remove("ocultar");
+  document.getElementById("register").classList.remove("fadeOut");
+  document.getElementById("register").classList.add("fadeIn");
+}   
+
+
+/**
+ * Elimina la clase "ocultar" del elemento con id "login", elimina la clase "fadeOut" del elemento con
+ * id "login", agrega la clase "fadeIn" al elemento con id "login", agrega la clase "ocultar" al
+ * elemento con id "registrar", quita la clase "fadeIn" del elemento con id "registrar", y añade la
+ * clase "fadeOut" al elemento con id "registrar"
+ */
+function menuLogin(){
+  document.getElementById("login").classList.remove("ocultar");
+  document.getElementById("login").classList.remove("fadeOut")
+  document.getElementById("login").classList.add("fadeIn");
+  document.getElementById("register").classList.add("ocultar");
+  document.getElementById("register").classList.remove("fadeIn");
+  document.getElementById("register").classList.add("fadeOut");
+}
+
+function registro(){
+    let usuario = document.getElementById("usuario").value;
+    let nombre = document.getElementById("nombre").value;
+    let mail = document.getElementById("email").value;
+    let passwd = document.getElementById("password").value;
+    let repPass = document.getElementById("repeatPass").value;
+    if (passwd == repPass) {
+        let nuevouser=new Usuario(usuario,nombre,mail,passwd);
+        localStorage.setItem(""+usuario, JSON.stringify(nuevouser));
+        alert("Registro realizado con éxito");
+        menuLogin();
+    }else{
+      alert("Los campos no coinciden");
+    }
+}
+
+function login(){
+  let usuario = document.getElementById("logUser").value;
+  let passwd = document.getElementById("logPasswd").value;
+  if(localStorage.getItem(usuario) != null){
+    let datosUsuarios = JSON.parse(localStorage.getItem(usuario));
+    if (datosUsuarios.passwd == passwd) {
+      alert("Bienvenido, "+usuario);
+      document.getElementById("ahoracadoMenu").classList.remove("ocultar");
+      //document.getElementById("registroLogin").classList.add("fadeOut");
+      document.getElementById("registroLogin").classList.add("ocultar");
+    }else{
+      alert("Los Usuario/Contraseña Incorrecto");
+    }
+
+  }
+}
 
 /**
  * Si el botón de radio con la identificación de 2J está marcado, haga lo siguiente:
@@ -111,9 +218,6 @@ function comprobarLetra(letra,id) {
  * muestra un mensaje que dice que el usuario ha ganado y muestra el botón para reiniciar el juego.
  */
 function comprobarVictoria() {
-  console.log(pista);
-  console.log(incognita);
-  
   if (pista == palabra) {
     document.getElementById("victoria").innerHTML = "Has ganado";
     document.getElementById("reiniciar").classList.remove("ocultar");
