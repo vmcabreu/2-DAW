@@ -14,7 +14,7 @@
   crossorigin="anonymous" defer></script>
 </head>
 
-<body>
+<body onload="checkCookies()">
   <div id="lecturaJSON"></div>
   <h1>Ahorcado</h1>
   <div class="container" id="registroLogin">
@@ -25,7 +25,7 @@
     <label for="passwd">Contraseña</label>
     <input type="password" id="logPasswd" name="passwd" class="form-control">
     <div class="d-flex flex-column m-3 justify-content-center gap-4">
-    <input type="button" class="btn btn-outline-light  bg-dark" onclick="login()" value="Login">
+    <input type="button" class="btn btn-outline-light  bg-dark" onclick="login(document.getElementById('logUser').value,document.getElementById('logPasswd').value)" id="loginbtn"  value="Login">
     <input type="button" value="Registrarse" onclick="menuRegistrarse()" class="btn btn-outline-light bg-dark">
     </div>
   </form>
@@ -102,10 +102,32 @@
       <input type="radio" name="jugadores" id="2J" value="2 Jugadores">
       <label for="2J">2 Jugadores</label>
     </div>
+    <div id="puntuaciones" class="ocultar">
+      <table id="tablaPuntuaciones" class="table">
+        <tr>
+          <th>Jugador</th>
+          <th>Puntuacion</th>
+        </tr>
+      </table>
+      <button class="btnLetra w-100" id="hidePoints" onclick="cerrarPuntuaciones()">Cerrar Puntuaciones</button>
+    </div>
     <button class="btnLetra w-100" id="empezar" onclick="empezarPartida()">Empezar</button>
+    <button class="btnLetra w-100" id="showPoints" onclick="mostrarPuntuaciones()">Puntuaciones</button>
     <p id="victoria"></p>
-    <button class="btnLetra w-50 ocultar" id="reiniciar" onclick="reiniciarPartida()">Volver a Jugar</button>
+    <div id="pantallaVictoria" class="container">
+      <div id="victoriaContainer" class="row">
+        <table id="detallesPelicula" class="table col-6 tablaAncho">
+
+        </table>
+      </div>
+    </div>
+    <button class="btnLetra w-100 ocultar" id="reiniciar" onclick="reiniciarPartida()">Volver a Jugar</button>
   </div>
 </body>
-
+<footer id="docFooter" class="container ocultar">
+  <div id="usuarioSesion" class="d-flex gap-4 align-items-end ocultar">
+    <h5 id="cookieUsuario"></h5>
+    <button class="btn btn-outline-light bg-dark" onclick="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</footer>
 </html>
