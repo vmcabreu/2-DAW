@@ -32,14 +32,14 @@ function editarImagen(){
     for (let i = 1; i <= 20; i++) {
         let img = document.createElement('img');
         if (i < 10) {
-            img.src = "../imgs/image0" + i + ".jpg?dw="+tamanio+"&dh="+tamanio+"&bw="+anchoBorde+"&bc="+color+"&blur=";
+            img.src = "../imgs/image0" + i + ".jpg?dw="+tamanio+"&dh="+tamanio+"&bw="+anchoBorde+"&bc="+color+"&sharpen="+enfoqueRadio+","+enfoqueSigma+"&blur="+desenfoqueRadio+","+desenfoqueSigma;
             img.classList.add("col-3");
             contenedorImgs.appendChild(img);
     
         } else {
-            img.src = "../imgs/image" + i + ".jpg";
+            img.src = "../imgs/image" + i + ".jpg?dw="+tamanio+"&dh="+tamanio+"&bw="+anchoBorde+"&bc="+color+"&sharpen="+enfoqueRadio+","+enfoqueSigma+"&blur="+desenfoqueRadio+","+desenfoqueSigma;
             img.classList.add("col-3");
-            contenedorImgs.appendChild(img);
+            contenedorImgs.replaceChild(img);
         }
 }
 
