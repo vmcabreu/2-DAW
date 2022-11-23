@@ -78,5 +78,9 @@ h1{
 }
 
 .tablaAncho{
-    width: 40vw !important;
+    width: 35vw !important;
+}
+.imagenPelicula{
+    width: 500px;
+    height: 600px;
 }

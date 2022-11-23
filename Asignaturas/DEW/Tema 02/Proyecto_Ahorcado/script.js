@@ -20,7 +20,7 @@ class Usuario {
 }
 
 /* Una clase es un modelo para crear objetos con propiedades y métodos predefinidos. */
-class Pelicula {
+class Producto {
   /**
    * La función constructora es una función que se llama cuando se crea un objeto a partir de una
    * clase.
@@ -57,7 +57,7 @@ xhttp.onload = function () {
   let x = JSON.parse(this.responseText);
   let listaPeliculas = [];
   for (let i = 0; i < x.listaPeliculas.length; i++) {
-    let pelicula = new Pelicula(
+    let pelicula = new Producto(
       x.listaPeliculas[i].titulo,
       x.listaPeliculas[i].lanzamiento,
       x.listaPeliculas[i].duracion,
@@ -73,7 +73,6 @@ xhttp.onload = function () {
 xhttp.open("GET", "./peliculas.json", true);
 xhttp.send();
 
-
 /**
  * Variables usadas
  */
@@ -84,15 +83,13 @@ let palabra = peliculas[numAleatorio].titulo;
 let incognita = [];
 let letras = [];
 let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
+let vidasJ1 = Number(document.getElementById("vidasJ1").textContent.charAt(7));
+let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
 let pista = palabra.replaceAll(/\w/g, "_");
-let imgAhorcado = [
-  "imgs/ahorcado1.png",
-  "imgs/ahorcado2.png",
-  "imgs/ahorcado3.png",
-  "imgs/ahorcado4.png",
-  "imgs/ahorcado5.png",
-  "imgs/ahorcado6.png",
-];
+//Flags
+let jugadores2 = false;
+let turno = false;
+let victoria = false;
 const loginBtn = document.getElementById("loginbtn");
 console.log(palabra);
 
@@ -260,7 +257,7 @@ function buscarUsuario(usuario) {
  * el almacenamiento local con el nuevo objeto de usuario y luego guarda el almacenamiento local.
  * @param Usuario - es un objeto de la clase Usuario
  */
-function reemplazarUsuario(Usuario) {
+function actualizarUsuarios(Usuario) {
   const datosUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"));
   const index = datosUsuarios.findIndex(
     (obj) => obj.usuario === getCookie("username")
@@ -287,8 +284,10 @@ function reemplazarUsuario(Usuario) {
  */
 function empezarPartida() {
   if (document.getElementById("2J").checked) {
+    jugadores2 = true;
     crearIncognita();
     mostrarLetra();
+    dibujarBase();
     document.getElementById("empezar").classList.add("ocultar");
     document.getElementById("jugadores").classList.add("ocultar");
     document.getElementById("cartelJ1").classList.remove("ocultar");
@@ -297,18 +296,20 @@ function empezarPartida() {
     document.getElementById("teclado2").classList.remove("ocultar");
     document.getElementById("vidasJ1").classList.remove("ocultar");
     document.getElementById("vidasJ2").classList.remove("ocultar");
-    document.getElementById("ahorcado").classList.remove("ocultar");
+    document.getElementById("ahorcadoj1").classList.remove("ocultar");
+    document.getElementById("ahorcadoj2").classList.remove("ocultar");
     document.getElementById("puntuaciones").classList.add("ocultar");
     document.getElementById("showPoints").classList.add("ocultar");
   } else {
     crearIncognita();
     mostrarLetra();
+    dibujarBase();
     document.getElementById("empezar").classList.add("ocultar");
     document.getElementById("jugadores").classList.add("ocultar");
     document.getElementById("teclado1").classList.remove("ocultar");
     document.getElementById("teclado1").classList.add("centro");
     document.getElementById("showPoints").classList.add("ocultar");
-    document.getElementById("ahorcado").classList.remove("ocultar");
+    document.getElementById("ahorcadoj1").classList.remove("ocultar");
   }
 }
 
@@ -358,13 +359,45 @@ function comprobarLetra(letra, id) {
       }
     }
   } else {
-    document.getElementById("ahorcado").src =
-      imgAhorcado[imgAhorcado.length - numVidas];
-    numVidas--;
-    document.getElementById(id).classList.add("fadeOut");
-    document.getElementById(id).disabled = true;
-    document.getElementById("vidas").innerHTML = "Vidas: " + numVidas;
-    comprobarDerrota();
+    if (!jugadores2) {
+      numVidas--;
+      dibujarMachango();
+      document.getElementById(id).classList.add("fadeOut");
+      document.getElementById(id).disabled = true;
+      document.getElementById("vidas").innerHTML = "Vidas: " + numVidas;
+      comprobarDerrota();
+    } else {
+      if (turno) {
+        vidasJ2--;
+        document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
+        dibujarMachango();
+        turno = false;
+      } else {
+        vidasJ1--;
+        document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
+        dibujarMachango();
+        turno = true;
+      }
+      document.getElementById(id).classList.add("fadeOut");
+      document.getElementById(id).disabled = true;
+      comprobarDerrota();
+    }
+  }
+}
+
+//turno= false -> Jugador1 turno= true -> Jugador2
+
+function multijugador(letra, id) {
+  if (!jugadores2) {
+    comprobarLetra(letra, id);
+  } else {
+    if (turno = false) {
+      comprobarLetra(letra, id);
+      turno = true;
+    } else {
+      comprobarLetra(letra, id);
+      turno = false;
+    }
   }
 }
 
@@ -373,16 +406,31 @@ function comprobarLetra(letra, id) {
  * muestra un mensaje que dice que el usuario ha ganado y muestra el botón para reiniciar el juego.
  */
 function comprobarVictoria() {
-  let usuario = buscarUsuario(getCookie("username"));
-  if (pista.toUpperCase() == palabra.toUpperCase()) {
-    document.getElementById("victoria").innerHTML = "Has ganado";
-    document.getElementById("reiniciar").classList.remove("ocultar");
-    document.getElementById("reiniciar").classList.add("fadeIn");
-    document.getElementById("teclado1").classList.add("fadeOut");
-    document.getElementById("teclado1").classList.add("ocultar");
-    usuario.ganadas++;
-    reemplazarUsuario(usuario);
-    mostrarDetallesPelicula();
+  if (!jugadores2) {
+    let usuario = buscarUsuario(getCookie("username"));
+    if (pista.toUpperCase() == palabra.toUpperCase()) {
+      document.getElementById("victoria").innerHTML = "Has ganado";
+      document.getElementById("reiniciar").classList.remove("ocultar");
+      document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("teclado1").classList.add("fadeOut");
+      document.getElementById("teclado1").classList.add("ocultar");
+      usuario.ganadas++;
+      actualizarUsuarios(usuario);
+      mostrarDetallesPelicula();
+      victoria = true;
+    }
+  }else{
+    if (pista.toUpperCase() == palabra.toUpperCase()) {
+      victoria = true;
+      document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
+      document.getElementById("reiniciar").classList.remove("ocultar");
+      document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("teclado1").classList.add("fadeOut");
+      document.getElementById("teclado1").classList.add("ocultar");
+      mostrarDetallesPelicula();
+
+    }
+
   }
 }
 
@@ -392,14 +440,39 @@ function comprobarVictoria() {
  */
 function comprobarDerrota() {
   let usuario = buscarUsuario(getCookie("username"));
-  if (numVidas == 0) {
+  if (!jugadores2) {
+    if (numVidas == 0) {
+      document.getElementById("teclado1").classList.add("ocultar");
+      document.getElementById("reiniciar").classList.remove("ocultar");
+      document.getElementById("victoria").innerHTML =
+        "Has perdido. La palabra era: " + palabra;
+      usuario.perdidas++;
+      actualizarUsuarios(usuario);
+    }
+  } else {
+    document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
+  }
+}
+
+function comprobacionesMultijugador(){
+  let resultado;
+  if (vidasJ1 == 0 && victoria == true) {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
-    document.getElementById("victoria").innerHTML =
-      "Has perdido. La palabra era: " + palabra;
-    usuario.perdidas++;
-    reemplazarUsuario(usuario);
+    document.getElementById("victoria").classList.remove("ocultar");
+    resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
+  } else if (vidasJ2 == 0 && victoria == true) {
+    document.getElementById("teclado1").classList.add("ocultar");
+    document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("victoria").classList.remove("ocultar");
+    resultado = "El Jugador 2 ha perdido. Gana el Jugador 1.";
+  }else if(vidasJ2 == 0 && vidasJ1 == 0 &&  victoria == false){
+    document.getElementById("teclado1").classList.add("ocultar");
+    document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("victoria").classList.remove("ocultar");
+    resultado = "Empate. La palabra era "+palabra;
   }
+  return resultado;
 }
 
 /**
@@ -447,6 +520,7 @@ function mostrarDetallesPelicula() {
       const img = document.createElement("img");
       img.src = peliDatos[index];
       img.classList.add("col-6");
+      img.classList.add("imagenPelicula");
       div.appendChild(img);
     } else {
       let tr = document.createElement("tr");
@@ -515,6 +589,16 @@ function cerrarPuntuaciones() {
   document.getElementById("showPoints").classList.add("fadeIn");
 }
 
+function borrarPuntuaciones() {
+  let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"));
+  listaUsuarios.forEach((element) => {
+    element.ganadas = 0;
+    element.perdidas = 0;
+  });
+  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
+  mostrarPuntuaciones();
+}
+
 /**
  * Cuando se hace clic en el botón, vuelve a cargar la página.
  */
@@ -530,3 +614,333 @@ function cerrarSesion() {
   document.cookie = "passwd=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   window.location.reload();
 }
+
+/**
+ * Dibuja al verdugo en función del número de vidas que le quedan al jugador.
+ */
+function dibujarMachango() {
+  if (jugadores2 == false) {
+    const canvas = document.querySelector("#ahorcadoj1");
+    const ctx = canvas.getContext("2d");
+    switch (numVidas) {
+      case 5:
+        ctx.beginPath(); // cabeza
+        ctx.arc(200, 117, 20, Math.PI * 2, false);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      case 4:
+        ctx.beginPath(); // cuerpo
+        ctx.lineWidth = 4;
+        ctx.moveTo(200, 135);
+        ctx.lineTo(200, 230);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      case 3:
+        ctx.beginPath(); // brazo izq
+        ctx.moveTo(200, 155);
+        ctx.lineTo(150, 185);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      case 2:
+        ctx.beginPath(); // brazo der
+        ctx.moveTo(200, 155);
+        ctx.lineTo(250, 185);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      case 1:
+        ctx.beginPath(); // pierna izq
+        ctx.lineWidth = 4;
+        ctx.moveTo(200, 230);
+        ctx.lineTo(230, 295);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+      case 0:
+        ctx.beginPath(); // pierna der
+        ctx.lineWidth = 4;
+        ctx.moveTo(200, 230);
+        ctx.lineTo(170, 295);
+        ctx.stroke();
+        ctx.closePath();
+        break;
+    }
+  } else {
+    const canvasJ1 = document.querySelector("#ahorcadoj1");
+    const ctxJ1 = canvasJ1.getContext("2d");
+    const canvasJ2 = document.querySelector("#ahorcadoj2");
+    const ctxJ2 = canvasJ2.getContext("2d");
+    if (!turno) {
+      switch (vidasJ1) {
+        case 5:
+          ctxJ1.beginPath(); // cabeza
+          ctxJ1.arc(200, 117, 20, Math.PI * 2, false);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+        case 4:
+          ctxJ1.beginPath(); // cuerpo
+          ctxJ1.lineWidth = 4;
+          ctxJ1.moveTo(200, 135);
+          ctxJ1.lineTo(200, 230);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+        case 3:
+          ctxJ1.beginPath(); // brazo izq
+          ctxJ1.moveTo(200, 155);
+          ctxJ1.lineTo(150, 185);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+        case 2:
+          ctxJ1.beginPath(); // brazo der
+          ctxJ1.moveTo(200, 155);
+          ctxJ1.lineTo(250, 185);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+        case 1:
+          ctxJ1.beginPath(); // pierna izq
+          ctxJ1.lineWidth = 4;
+          ctxJ1.moveTo(200, 230);
+          ctxJ1.lineTo(230, 295);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+        case 0:
+          ctxJ1.beginPath(); // pierna der
+          ctxJ1.lineWidth = 4;
+          ctxJ1.moveTo(200, 230);
+          ctxJ1.lineTo(170, 295);
+          ctxJ1.stroke();
+          ctxJ1.closePath();
+          break;
+      }
+    }else{
+      switch (vidasJ2) {
+        case 5:
+          ctxJ2.beginPath(); // cabeza
+          ctxJ2.arc(200, 117, 20, Math.PI * 2, false);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+        case 4:
+          ctxJ2.beginPath(); // cuerpo
+          ctxJ2.lineWidth = 4;
+          ctxJ2.moveTo(200, 135);
+          ctxJ2.lineTo(200, 230);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+        case 3:
+          ctxJ2.beginPath(); // brazo izq
+          ctxJ2.moveTo(200, 155);
+          ctxJ2.lineTo(150, 185);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+        case 2:
+          ctxJ2.beginPath(); // brazo der
+          ctxJ2.moveTo(200, 155);
+          ctxJ2.lineTo(250, 185);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+        case 1:
+          ctxJ2.beginPath(); // pierna izq
+          ctxJ2.lineWidth = 4;
+          ctxJ2.moveTo(200, 230);
+          ctxJ2.lineTo(230, 295);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+        case 0:
+          ctxJ2.beginPath(); // pierna der
+          ctxJ2.lineWidth = 4;
+          ctxJ2.moveTo(200, 230);
+          ctxJ2.lineTo(170, 295);
+          ctxJ2.stroke();
+          ctxJ2.closePath();
+          break;
+      }
+    }
+    
+    
+  }
+}
+
+function dibujarBase() {
+  if (jugadores2 == false) {
+    const canvasJ1 = document.querySelector("#ahorcadoj1");
+    const ctxJ1 = canvasJ1.getContext("2d");
+
+    canvasJ1.height = 400;
+    canvasJ1.width = 400;
+
+    ctxJ1.strokeStyle = "#E9E9E9";
+    ctxJ1.lineWidth = 4;
+
+    ctxJ1.beginPath(); // base
+    ctxJ1.moveTo(7, 375);
+    ctxJ1.lineTo(393, 375);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // palo vertical parte de fuera
+    ctxJ1.moveTo(55, 55);
+    ctxJ1.lineTo(55, 375);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // palo vertical parte de dentro
+    ctxJ1.moveTo(65, 65);
+    ctxJ1.lineTo(65, 375);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // palo horizontal parte de fuera
+    ctxJ1.moveTo(53, 55);
+    ctxJ1.lineTo(220, 55);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // palo horizontal parte de dentro y union
+    ctxJ1.moveTo(63, 65);
+    ctxJ1.lineTo(220, 65);
+    ctxJ1.stroke();
+    ctxJ1.moveTo(218, 55);
+    ctxJ1.lineTo(218, 65);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // diagonales
+    ctxJ1.moveTo(65, 115);
+    ctxJ1.lineTo(115, 65);
+    ctxJ1.stroke();
+    ctxJ1.moveTo(65, 119);
+    ctxJ1.lineTo(119, 65);
+    ctxJ1.stroke();
+    ctxJ1.moveTo(15, 375);
+    ctxJ1.lineTo(55, 325);
+    ctxJ1.stroke();
+    ctxJ1.moveTo(19, 375);
+    ctxJ1.lineTo(55, 329);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+    ctxJ1.beginPath(); // cuerda
+    ctxJ1.moveTo(200, 65);
+    ctxJ1.lineTo(200, 95);
+    ctxJ1.stroke();
+    ctxJ1.closePath();
+  } else {
+    const canvasJ1 = document.querySelector("#ahorcadoj1");
+    const ctxJ1 = canvasJ1.getContext("2d");
+    const canvasJ2 = document.querySelector("#ahorcadoj2");
+    const ctxJ2 = canvasJ2.getContext("2d");
+
+    canvasJ1.height = 400;
+    canvasJ1.width = 400;
+    canvasJ2.height = 400;
+    canvasJ2.width = 400;
+
+    ctxJ1.strokeStyle = "#E9E9E9";
+    ctxJ1.lineWidth = 4;
+    ctxJ2.strokeStyle = "#E9E9E9";
+    ctxJ2.lineWidth = 4;
+      ctxJ1.beginPath(); // base
+      ctxJ1.moveTo(7, 375);
+      ctxJ1.lineTo(393, 375);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // palo vertical parte de fuera
+      ctxJ1.moveTo(55, 55);
+      ctxJ1.lineTo(55, 375);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // palo vertical parte de dentro
+      ctxJ1.moveTo(65, 65);
+      ctxJ1.lineTo(65, 375);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // palo horizontal parte de fuera
+      ctxJ1.moveTo(53, 55);
+      ctxJ1.lineTo(220, 55);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // palo horizontal parte de dentro y union
+      ctxJ1.moveTo(63, 65);
+      ctxJ1.lineTo(220, 65);
+      ctxJ1.stroke();
+      ctxJ1.moveTo(218, 55);
+      ctxJ1.lineTo(218, 65);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // diagonales
+      ctxJ1.moveTo(65, 115);
+      ctxJ1.lineTo(115, 65);
+      ctxJ1.stroke();
+      ctxJ1.moveTo(65, 119);
+      ctxJ1.lineTo(119, 65);
+      ctxJ1.stroke();
+      ctxJ1.moveTo(15, 375);
+      ctxJ1.lineTo(55, 325);
+      ctxJ1.stroke();
+      ctxJ1.moveTo(19, 375);
+      ctxJ1.lineTo(55, 329);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+      ctxJ1.beginPath(); // cuerda
+      ctxJ1.moveTo(200, 65);
+      ctxJ1.lineTo(200, 95);
+      ctxJ1.stroke();
+      ctxJ1.closePath();
+
+      ctxJ2.beginPath(); // base
+      ctxJ2.moveTo(7, 375);
+      ctxJ2.lineTo(393, 375);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // palo vertical parte de fuera
+      ctxJ2.moveTo(55, 55);
+      ctxJ2.lineTo(55, 375);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // palo vertical parte de dentro
+      ctxJ2.moveTo(65, 65);
+      ctxJ2.lineTo(65, 375);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // palo horizontal parte de fuera
+      ctxJ2.moveTo(53, 55);
+      ctxJ2.lineTo(220, 55);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // palo horizontal parte de dentro y union
+      ctxJ2.moveTo(63, 65);
+      ctxJ2.lineTo(220, 65);
+      ctxJ2.stroke();
+      ctxJ2.moveTo(218, 55);
+      ctxJ2.lineTo(218, 65);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // diagonales
+      ctxJ2.moveTo(65, 115);
+      ctxJ2.lineTo(115, 65);
+      ctxJ2.stroke();
+      ctxJ2.moveTo(65, 119);
+      ctxJ2.lineTo(119, 65);
+      ctxJ2.stroke();
+      ctxJ2.moveTo(15, 375);
+      ctxJ2.lineTo(55, 325);
+      ctxJ2.stroke();
+      ctxJ2.moveTo(19, 375);
+      ctxJ2.lineTo(55, 329);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+      ctxJ2.beginPath(); // cuerda
+      ctxJ2.moveTo(200, 65);
+      ctxJ2.lineTo(200, 95);
+      ctxJ2.stroke();
+      ctxJ2.closePath();
+    }
+  }
+
