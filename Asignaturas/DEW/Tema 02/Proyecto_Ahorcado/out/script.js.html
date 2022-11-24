@@ -113,6 +113,7 @@ let letras = [];
 let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
 let vidasJ1 = Number(document.getElementById("vidasJ1").textContent.charAt(7));
 let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
+
 const turnoText = document.getElementById("turnoActual");
 turnoText.addEventListener('input',indicadorTurno);
 let pista = palabra.replaceAll(/\w/g, "_");
@@ -224,6 +225,8 @@ function login(usuario, passwd) {
         document.getElementById("registroLogin").classList.add("ocultar");
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
+        document.cookie = "retry=false;";
+        localStorage.setItem(load, "false");
         flag = true;
       }
     });
@@ -231,6 +234,7 @@ function login(usuario, passwd) {
       alert("Los Usuario/Contraseña Incorrecto");
     }
   }
+  return flag;
 }
 
 /**
@@ -261,9 +265,19 @@ function getCookie(loginCookie) {
 function checkCookies() {
   let cookieUser = getCookie("username");
   let cookiePass = getCookie("passwd");
-  if (cookieUser != "" &amp;&amp; cookiePass != "") {
-    login(cookieUser, cookiePass);
+  let cookieRetry = getCookie("retry");
+  let loadFlag = localStorage.getItem("load");
+  if (loadFlag=="false") {
+    localStorage.setItem(load, "true");
+    window.location.reload();
   }
+  if (cookieUser != "" &amp;&amp; cookiePass != "" &amp;&amp; cookieRetry=="false") {
+    login(cookieUser, cookiePass);
+  }else if(cookieUser != "" &amp;&amp; cookiePass != "" &amp;&amp; cookieRetry=="true"){
+    login(cookieUser, cookiePass);
+    empezarPartida();
+  }
+
 }
 
 /**
@@ -355,14 +369,16 @@ function mostrarLetra() {
   comprobarVictoria();
 }
 
+/**
+ * Si turn es verdadero, entonces turnText.innerHTML se establece en "Turno del jugador 2", de lo
+ * contrario, turnText.innerHTML se establece en "Turno del jugador 1"
+ */
 function indicadorTurno(){
-  if (turno == false) {
-    
+  if (turno==true) {
+    turnoText.innerHTML = "Turno de Jugador 2"
   }else{
-    turnoText.innerHTML = "Turno de Jugador 1";
+    turnoText.innerHTML = "Turno de Jugador 1"
   }
-
-  
 }
 
 /**
@@ -388,6 +404,13 @@ function comprobarLetra(letra, id) {
           document.getElementById(id).classList.add("fadeOut");
           document.getElementById(id).disabled = true;
         }
+        if (turno) {
+          turno = false;
+          indicadorTurno();
+        }else{
+          turno = true;
+          indicadorTurno();
+        }
       }
     }
   } else {
@@ -400,17 +423,27 @@ function comprobarLetra(letra, id) {
       comprobarDerrota();
     } else {
       if (turno) {
-        vidasJ2--;
-        document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
-        dibujarMachango();
-        turno = false;
-        turnoText.innerHTML = "Turno de Jugador 1";
+        if (vidasJ2>0) {
+          vidasJ2--;
+          document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
+          dibujarMachango();
+          turno = false;
+          indicadorTurno();
+        }else{
+          turno = true;
+          indicadorTurno();
+        }
       } else {
-        vidasJ1--;
-        document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
-        dibujarMachango();
-        turno = true;
-        turnoText.innerHTML = "Turno de Jugador 2";
+        if (vidasJ1>0) {
+          vidasJ1--;
+          document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
+          dibujarMachango();
+          turno = true;
+          indicadorTurno();
+        }else{
+          turno = false;
+          indicadorTurno();
+        }
       }
       document.getElementById(id).classList.add("fadeOut");
       document.getElementById(id).disabled = true;
@@ -430,6 +463,8 @@ function comprobarVictoria() {
       document.getElementById("victoria").innerHTML = "Has ganado";
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("volverMenu").classList.remove("ocultar");
+      document.getElementById("volverMenu").classList.add("fadeIn");
       document.getElementById("teclado1").classList.add("fadeOut");
       document.getElementById("teclado1").classList.add("ocultar");
       usuario.ganadas++;
@@ -440,12 +475,19 @@ function comprobarVictoria() {
   }else{
     if (pista.toUpperCase() == palabra.toUpperCase()) {
       victoria = true;
-      document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
+      if (turno) {
+        turno = false
+      }else{
+        turno = true
+      }
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("volverMenu").classList.remove("ocultar");
+      document.getElementById("volverMenu").classList.add("fadeIn");
       document.getElementById("teclado1").classList.add("fadeOut");
       document.getElementById("teclado1").classList.add("ocultar");
       mostrarDetallesPelicula();
+      document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
     }
   }
 }
@@ -484,17 +526,17 @@ function comprobarDerrota() {
  */
 function comprobacionesMultijugador(){
   let resultado;
-  if (vidasJ1 == 0 &amp;&amp; victoria == true) {
+  if (vidasJ1 == 0 &amp;&amp; turno==true &amp;&amp; victoria == true)  {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
-  } else if (vidasJ2 == 0 &amp;&amp; victoria == true) {
+  } else if (vidasJ2 == 0 &amp;&amp; turno==false &amp;&amp; victoria == true) {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 2 ha perdido. Gana el Jugador 1.";
-  }else if(vidasJ2 == 0 &amp;&amp; vidasJ1 == 0 &amp;&amp;  victoria == false || vidasJ2 == 6 &amp;&amp; vidasJ1 == 6 &amp;&amp;  victoria == true){
+  }else if(vidasJ2 &lt;= 0 &amp;&amp; vidasJ1 &lt;= 0 &amp;&amp;  victoria == false || vidasJ2 == 6 &amp;&amp; vidasJ1 == 6 &amp;&amp;  victoria == true){
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
@@ -637,12 +679,23 @@ function borrarPuntuaciones() {
   mostrarPuntuaciones();
 }
 
+
+/**
+ * Establece una cookie llamada "reintentar" en el valor "verdadero" y luego vuelve a cargar la página
+ */
+function reiniciarPartida() {
+  document.cookie = "retry=true";
+  window.location.reload();
+}
+
+
 /**
  * Cuando se hace clic en el botón, vuelve a cargar la página.
  */
-function reiniciarPartida() {
+function volverMenu(){
   window.location.reload();
 }
+
 
 /**
  * Borra las cookies y recarga la página.
@@ -650,9 +703,11 @@ function reiniciarPartida() {
 function cerrarSesion() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   document.cookie = "passwd=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  document.cookie = "retry=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  localStorage.setItem(load, "false");
   window.location.reload();
 }
-
+console.log(turno);
 /**
  * Si hay dos jugadores, dibuja el verdugo en el lienzo del jugador al que le toca.
  */
@@ -711,7 +766,7 @@ function dibujarMachango() {
     const ctxJ1 = canvasJ1.getContext("2d");
     const canvasJ2 = document.querySelector("#ahorcadoj2");
     const ctxJ2 = canvasJ2.getContext("2d");
-    if (!turno) {
+    if (turno==false) {
       switch (vidasJ1) {
         case 5:
           ctxJ1.beginPath(); // cabeza
@@ -991,13 +1046,13 @@ function dibujarBase() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Producto.html">Producto</a></li><li><a href="Usuario.html">Usuario</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actualizarUsuarios">actualizarUsuarios</a></li><li><a href="global.html#borrarPuntuaciones">borrarPuntuaciones</a></li><li><a href="global.html#buscarPelicula">buscarPelicula</a></li><li><a href="global.html#buscarUsuario">buscarUsuario</a></li><li><a href="global.html#cerrarPuntuaciones">cerrarPuntuaciones</a></li><li><a href="global.html#cerrarSesion">cerrarSesion</a></li><li><a href="global.html#checkCookies">checkCookies</a></li><li><a href="global.html#comprobacionesMultijugador">comprobacionesMultijugador</a></li><li><a href="global.html#comprobarDerrota">comprobarDerrota</a></li><li><a href="global.html#comprobarLetra">comprobarLetra</a></li><li><a href="global.html#comprobarVictoria">comprobarVictoria</a></li><li><a href="global.html#crearIncognita">crearIncognita</a></li><li><a href="global.html#dibujarBase">dibujarBase</a></li><li><a href="global.html#dibujarMachango">dibujarMachango</a></li><li><a href="global.html#empezarPartida">empezarPartida</a></li><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#menuLogin">menuLogin</a></li><li><a href="global.html#menuRegistrarse">menuRegistrarse</a></li><li><a href="global.html#mostrarDetallesPelicula">mostrarDetallesPelicula</a></li><li><a href="global.html#mostrarLetra">mostrarLetra</a></li><li><a href="global.html#mostrarPuntuaciones">mostrarPuntuaciones</a></li><li><a href="global.html#peliculas">peliculas</a></li><li><a href="global.html#registro">registro</a></li><li><a href="global.html#reiniciarPartida">reiniciarPartida</a></li><li><a href="global.html#validarRegistro">validarRegistro</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Producto.html">Producto</a></li><li><a href="Usuario.html">Usuario</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actualizarUsuarios">actualizarUsuarios</a></li><li><a href="global.html#borrarPuntuaciones">borrarPuntuaciones</a></li><li><a href="global.html#buscarPelicula">buscarPelicula</a></li><li><a href="global.html#buscarUsuario">buscarUsuario</a></li><li><a href="global.html#cerrarPuntuaciones">cerrarPuntuaciones</a></li><li><a href="global.html#cerrarSesion">cerrarSesion</a></li><li><a href="global.html#checkCookies">checkCookies</a></li><li><a href="global.html#comprobacionesMultijugador">comprobacionesMultijugador</a></li><li><a href="global.html#comprobarDerrota">comprobarDerrota</a></li><li><a href="global.html#comprobarLetra">comprobarLetra</a></li><li><a href="global.html#comprobarVictoria">comprobarVictoria</a></li><li><a href="global.html#crearIncognita">crearIncognita</a></li><li><a href="global.html#dibujarBase">dibujarBase</a></li><li><a href="global.html#dibujarMachango">dibujarMachango</a></li><li><a href="global.html#empezarPartida">empezarPartida</a></li><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#indicadorTurno">indicadorTurno</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#menuLogin">menuLogin</a></li><li><a href="global.html#menuRegistrarse">menuRegistrarse</a></li><li><a href="global.html#mostrarDetallesPelicula">mostrarDetallesPelicula</a></li><li><a href="global.html#mostrarLetra">mostrarLetra</a></li><li><a href="global.html#mostrarPuntuaciones">mostrarPuntuaciones</a></li><li><a href="global.html#peliculas">peliculas</a></li><li><a href="global.html#registro">registro</a></li><li><a href="global.html#reiniciarPartida">reiniciarPartida</a></li><li><a href="global.html#validarRegistro">validarRegistro</a></li><li><a href="global.html#volverMenu">volverMenu</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 24 2022 05:07:40 GMT+0000 (hora estándar de Europa occidental)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Thu Nov 24 2022 22:43:38 GMT+0000 (hora estándar de Europa occidental)
 </footer>
 
 <script> prettyPrint(); </script>

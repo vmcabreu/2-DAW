@@ -94,7 +94,6 @@ let jugadores2 = false;
 //turno= false -> Jugador1 | turno= true -> Jugador2
 let turno = false;
 let victoria = false;
-let load = false;
 const loginBtn = document.getElementById("loginbtn");
 console.log(palabra);
 
@@ -342,8 +341,16 @@ function mostrarLetra() {
   comprobarVictoria();
 }
 
+/**
+ * Si turn es verdadero, entonces turnText.innerHTML se establece en "Turno del jugador 2", de lo
+ * contrario, turnText.innerHTML se establece en "Turno del jugador 1"
+ */
 function indicadorTurno(){
-  turno = turno ? turnoText.innerHTML = "Turno de Jugador 1" : turnoText.innerHTML = "Turno de Jugador 2";
+  if (turno==true) {
+    turnoText.innerHTML = "Turno de Jugador 2"
+  }else{
+    turnoText.innerHTML = "Turno de Jugador 1"
+  }
 }
 
 /**
@@ -390,19 +397,25 @@ function comprobarLetra(letra, id) {
       if (turno) {
         if (vidasJ2>0) {
           vidasJ2--;
-        }else
-        document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
-        dibujarMachango();
-        turno = false;
-        indicadorTurno();
+          document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
+          dibujarMachango();
+          turno = false;
+          indicadorTurno();
+        }else{
+          turno = true;
+          indicadorTurno();
+        }
       } else {
         if (vidasJ1>0) {
           vidasJ1--;
+          document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
+          dibujarMachango();
+          turno = true;
+          indicadorTurno();
+        }else{
+          turno = false;
+          indicadorTurno();
         }
-        document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
-        dibujarMachango();
-        turno = true;
-        indicadorTurno();
       }
       document.getElementById(id).classList.add("fadeOut");
       document.getElementById(id).disabled = true;
@@ -434,7 +447,11 @@ function comprobarVictoria() {
   }else{
     if (pista.toUpperCase() == palabra.toUpperCase()) {
       victoria = true;
-      turno = turno ? false : true;
+      if (turno) {
+        turno = false
+      }else{
+        turno = true
+      }
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.add("fadeIn");
       document.getElementById("volverMenu").classList.remove("ocultar");
@@ -481,12 +498,12 @@ function comprobarDerrota() {
  */
 function comprobacionesMultijugador(){
   let resultado;
-  if (vidasJ1 <= 0 && turno==true && victoria == true)  {
+  if (vidasJ1 == 0 && turno==true && victoria == true)  {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
-  } else if (vidasJ2 <= 0 && turno==false && victoria == true) {
+  } else if (vidasJ2 == 0 && turno==false && victoria == true) {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
@@ -662,7 +679,7 @@ function cerrarSesion() {
   localStorage.setItem(load, "false");
   window.location.reload();
 }
-
+console.log(turno);
 /**
  * Si hay dos jugadores, dibuja el verdugo en el lienzo del jugador al que le toca.
  */
@@ -721,7 +738,7 @@ function dibujarMachango() {
     const ctxJ1 = canvasJ1.getContext("2d");
     const canvasJ2 = document.querySelector("#ahorcadoj2");
     const ctxJ2 = canvasJ2.getContext("2d");
-    if (!turno) {
+    if (turno==false) {
       switch (vidasJ1) {
         case 5:
           ctxJ1.beginPath(); // cabeza
