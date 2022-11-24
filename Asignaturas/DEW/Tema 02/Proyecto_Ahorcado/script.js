@@ -199,6 +199,7 @@ function login(usuario, passwd) {
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
         document.cookie = "retry=false;";
+        localStorage.setItem(load, "false");
         flag = true;
       }
     });
@@ -238,12 +239,18 @@ function checkCookies() {
   let cookieUser = getCookie("username");
   let cookiePass = getCookie("passwd");
   let cookieRetry = getCookie("retry");
+  let loadFlag = localStorage.getItem("load");
+  if (loadFlag=="false") {
+    localStorage.setItem(load, "true");
+    window.location.reload();
+  }
   if (cookieUser != "" && cookiePass != "" && cookieRetry=="false") {
     login(cookieUser, cookiePass);
   }else if(cookieUser != "" && cookiePass != "" && cookieRetry=="true"){
     login(cookieUser, cookiePass);
     empezarPartida();
   }
+
 }
 
 /**
@@ -624,14 +631,19 @@ function borrarPuntuaciones() {
   mostrarPuntuaciones();
 }
 
+
 /**
- * Cuando se hace clic en el botón, vuelve a cargar la página.
+ * Establece una cookie llamada "reintentar" en el valor "verdadero" y luego vuelve a cargar la página
  */
 function reiniciarPartida() {
   document.cookie = "retry=true";
   window.location.reload();
 }
 
+
+/**
+ * Cuando se hace clic en el botón, vuelve a cargar la página.
+ */
 function volverMenu(){
   window.location.reload();
 }
@@ -644,6 +656,7 @@ function cerrarSesion() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   document.cookie = "passwd=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   document.cookie = "retry=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  localStorage.setItem(load, "false");
   window.location.reload();
 }
 
