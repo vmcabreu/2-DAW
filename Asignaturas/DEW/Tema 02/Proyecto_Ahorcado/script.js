@@ -483,7 +483,6 @@ function comprobacionesMultijugador(){
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
   } else if (vidasJ2 == 0 && victoria == true ||  turno==false && victoria == true) {
-    console.log('TEst');
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
