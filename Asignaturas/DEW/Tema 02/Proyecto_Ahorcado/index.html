@@ -74,7 +74,7 @@
               <h3 id="vidasJ1" value="6" class="ocultar">Vidas: 6</h3>
             </div>
             <div>
-              <h3 class="ocultar" id="turnoActual">Turno de Jugador 1</h3>
+              <h3 class="ocultar border border-3 border-light p-3" id="turnoActual" >Turno de Jugador 1</h3>
             </div>
             <div>
               <h3 class="ocultar" id="cartelJ2">Jugador 2</h3>
@@ -191,14 +191,17 @@
     <button class="btnLetra w-100" id="showPoints" onclick="mostrarPuntuaciones()">
       Puntuaciones
     </button>
-    <p id="victoria" class="ocultar"></p>
     <div id="pantallaVictoria" class="container">
       <div id="victoriaContainer" class="row">
+        <p id="victoria"></p>
         <table id="detallesPelicula" class="table col-6 tablaAncho"></table>
       </div>
     </div>
-    <button class="btnLetra w-100 ocultar" id="reiniciar" onclick="reiniciarPartida()">
+    <button class="btnLetra w-50 ocultar" id="reiniciar" onclick="reiniciarPartida()">
       Volver a Jugar
+    </button>
+    <button class="btnLetra w-50 ocultar" id="volverMenu" onclick="volverMenu()">
+      Volver al Menu
     </button>
   </div>
 </body>

@@ -85,6 +85,7 @@ let letras = [];
 let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
 let vidasJ1 = Number(document.getElementById("vidasJ1").textContent.charAt(7));
 let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
+
 const turnoText = document.getElementById("turnoActual");
 turnoText.addEventListener('input',indicadorTurno);
 let pista = palabra.replaceAll(/\w/g, "_");
@@ -93,6 +94,7 @@ let jugadores2 = false;
 //turno= false -> Jugador1 | turno= true -> Jugador2
 let turno = false;
 let victoria = false;
+let load = false;
 const loginBtn = document.getElementById("loginbtn");
 console.log(palabra);
 
@@ -196,6 +198,7 @@ function login(usuario, passwd) {
         document.getElementById("registroLogin").classList.add("ocultar");
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
+        document.cookie = "retry=false;";
         flag = true;
       }
     });
@@ -203,6 +206,7 @@ function login(usuario, passwd) {
       alert("Los Usuario/Contraseña Incorrecto");
     }
   }
+  return flag;
 }
 
 /**
@@ -233,8 +237,12 @@ function getCookie(loginCookie) {
 function checkCookies() {
   let cookieUser = getCookie("username");
   let cookiePass = getCookie("passwd");
-  if (cookieUser != "" && cookiePass != "") {
+  let cookieRetry = getCookie("retry");
+  if (cookieUser != "" && cookiePass != "" && cookieRetry=="false") {
     login(cookieUser, cookiePass);
+  }else if(cookieUser != "" && cookiePass != "" && cookieRetry=="true"){
+    login(cookieUser, cookiePass);
+    empezarPartida();
   }
 }
 
@@ -328,13 +336,7 @@ function mostrarLetra() {
 }
 
 function indicadorTurno(){
-  if (turno == false) {
-    
-  }else{
-    turnoText.innerHTML = "Turno de Jugador 1";
-  }
-
-  
+  turno = turno ? turnoText.innerHTML = "Turno de Jugador 1" : turnoText.innerHTML = "Turno de Jugador 2";
 }
 
 /**
@@ -360,6 +362,13 @@ function comprobarLetra(letra, id) {
           document.getElementById(id).classList.add("fadeOut");
           document.getElementById(id).disabled = true;
         }
+        if (turno) {
+          turno = false;
+          indicadorTurno();
+        }else{
+          turno = true;
+          indicadorTurno();
+        }
       }
     }
   } else {
@@ -376,13 +385,13 @@ function comprobarLetra(letra, id) {
         document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
         dibujarMachango();
         turno = false;
-        turnoText.innerHTML = "Turno de Jugador 1";
+        indicadorTurno();
       } else {
         vidasJ1--;
         document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
         dibujarMachango();
         turno = true;
-        turnoText.innerHTML = "Turno de Jugador 2";
+        indicadorTurno();
       }
       document.getElementById(id).classList.add("fadeOut");
       document.getElementById(id).disabled = true;
@@ -402,6 +411,8 @@ function comprobarVictoria() {
       document.getElementById("victoria").innerHTML = "Has ganado";
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("volverMenu").classList.remove("ocultar");
+      document.getElementById("volverMenu").classList.add("fadeIn");
       document.getElementById("teclado1").classList.add("fadeOut");
       document.getElementById("teclado1").classList.add("ocultar");
       usuario.ganadas++;
@@ -412,12 +423,15 @@ function comprobarVictoria() {
   }else{
     if (pista.toUpperCase() == palabra.toUpperCase()) {
       victoria = true;
-      document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
+      turno = turno ? false : true;
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.add("fadeIn");
+      document.getElementById("volverMenu").classList.remove("ocultar");
+      document.getElementById("volverMenu").classList.add("fadeIn");
       document.getElementById("teclado1").classList.add("fadeOut");
       document.getElementById("teclado1").classList.add("ocultar");
       mostrarDetallesPelicula();
+      document.getElementById("victoria").innerHTML = comprobacionesMultijugador();
     }
   }
 }
@@ -456,12 +470,13 @@ function comprobarDerrota() {
  */
 function comprobacionesMultijugador(){
   let resultado;
-  if (vidasJ1 == 0 && victoria == true) {
+  if (vidasJ1 == 0 && victoria == true || turno==true && victoria == true)  {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
-  } else if (vidasJ2 == 0 && victoria == true) {
+  } else if (vidasJ2 == 0 && victoria == true ||  turno==false && victoria == true) {
+    console.log('TEst');
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
@@ -613,8 +628,14 @@ function borrarPuntuaciones() {
  * Cuando se hace clic en el botón, vuelve a cargar la página.
  */
 function reiniciarPartida() {
+  document.cookie = "retry=true";
   window.location.reload();
 }
+
+function volverMenu(){
+  window.location.reload();
+}
+
 
 /**
  * Borra las cookies y recarga la página.
@@ -622,6 +643,7 @@ function reiniciarPartida() {
 function cerrarSesion() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   document.cookie = "passwd=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  document.cookie = "retry=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   window.location.reload();
 }
 
