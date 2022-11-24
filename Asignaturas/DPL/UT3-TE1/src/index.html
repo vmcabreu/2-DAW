@@ -20,20 +20,20 @@
   <div class="d-flex justify-content-center w-100">
     <form id="form" class="form">
       <label class="form-label" for="size">Tamaño:</label>
-      <input type="text" name="size" id="size" class="form-control">
-      <label class="form-label" for="borderWidth">Ancho del borde:</label>
+      <input type="text" name="size" id="size" placeholder="Pixeles..." class="form-control">
+      <label class="form-label" placeholder="Pixeles..." for="borderWidth">Ancho del borde:</label>
       <input type="text" name="borderWidth" id="borderWidth" class="form-control">
       <label class="form-label" for="borderColor">Color del borde:</label>
       <input type="color" name="borderColor" id="borderColor" class="form-control">
       <label class="form-label" for="enfoque">Enfoque:</label>
       <div class="d-flex gap-4">
-        <input type="text" name="enfoque" id="enfoqueSigma" class="form-control w-100">
-        <input type="text" name="enfoque" id="enfoqueRadio" class="form-control w-100">
+        <input type="text" name="enfoque" id="enfoqueSigma" placeholder="Sigma" class="form-control w-100">
+        <input type="text" name="enfoque" id="enfoqueRadio" placeholder="Radio" class="form-control w-100">
       </div>
       <label class="form-label" for="desenfoque">Desenfoque:</label>
       <div class="d-flex gap-4">
-        <input type="text" name="desenfoque" id="desenfoqueSigma" class="form-control w-100">
-        <input type="text" name="desenfoque" id="desenfoqueRadio" class="form-control w-100">
+        <input type="text" name="desenfoque" id="desenfoqueSigma" placeholder="Sigma" class="form-control w-100">
+        <input type="text" name="desenfoque" id="desenfoqueRadio" placeholder="Radio" class="form-control w-100">
       </div>
       <button id="generar" name="generar" class="btn btn-primary m-1 w-100" onclick="generarImagen()">Generar</button>
   </div>
