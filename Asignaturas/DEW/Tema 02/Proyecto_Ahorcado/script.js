@@ -477,12 +477,12 @@ function comprobarDerrota() {
  */
 function comprobacionesMultijugador(){
   let resultado;
-  if (vidasJ1 == 0 && victoria == true || turno==true && victoria == true)  {
+  if (vidasJ1 == 0 && turno==true && victoria == true || turno==true && victoria == true)  {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
-  } else if (vidasJ2 == 0 && victoria == true ||  turno==false && victoria == true) {
+  } else if (vidasJ2 == 0 && turno==false && victoria == true ||  turno==false && victoria == true) {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
