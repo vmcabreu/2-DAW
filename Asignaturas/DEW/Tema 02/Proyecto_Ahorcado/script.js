@@ -390,7 +390,7 @@ function comprobarLetra(letra, id) {
       if (turno) {
         if (vidasJ2>0) {
           vidasJ2--;
-        }
+        }else
         document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
         dibujarMachango();
         turno = false;

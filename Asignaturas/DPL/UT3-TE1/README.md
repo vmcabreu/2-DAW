@@ -83,7 +83,35 @@ Tras terminar la instalación, configurados el linkeado dinámico (*dynamic link
 
 ![](screenshots/9.png)
 
+Tenemos un problema al crear el módulo debido a que lo instalamos mediante una fuente source, por lo tanto, los siguientes pasos para desinstalar y luego instalar mediante repositorio, asi nuestro problema quedará resuelto.
+
+El primer paso fue desinstalarlo con `sudo make uninstall` en la carpeta donde clone el repositorio para poder desinstralarlo y luego hicimos un `apt remove --purge` para quitar cualquier rastro de imagemagick en nuestro sistema junto con su configuración. Para finalizar instalamos el imagemagick y libmagickwand-dev para completar nuestra instalación.
+
+![](screenshots/historialParaBorrardeSource.png)
+
+Luego nos movemos a la carpeta del módulo anteriormente clonado en la carpeta */tmp* para generar la configuración. Luego nos vamos a la carpeta de nuestra versión de Nginx que descargamos antes también y configuramos el modulo para Nginx
+
+![](screenshots/10.png)
+
+![](screenshots/creandomodulo.png)
+
+![](screenshots/Configuracionimagemgaick.png)
+
+![](screenshots/copiaDelModuloaNginx.png)
+
+
+
+
+
+![](screenshots/loadModulesNginxconf.png)
+
+![](screenshots/modulocreado.png)
+
+![](screenshots/Reinstalaciondelimagemagick.png)
+
 ## Creación del virtual host
+
+![](screenshots/11.png)
 
 
 images.alu6618.arkania
