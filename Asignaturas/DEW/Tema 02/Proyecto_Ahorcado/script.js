@@ -502,16 +502,19 @@ function comprobacionesMultijugador(){
   if (vidasJ1 == 0 && turno==true && victoria == true)  {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("volverMenu").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 1 ha perdido. Gana el Jugador 2.";
   } else if (vidasJ2 == 0 && turno==false && victoria == true) {
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("volverMenu").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "El Jugador 2 ha perdido. Gana el Jugador 1.";
   }else if(vidasJ2 <= 0 && vidasJ1 <= 0 &&  victoria == false || vidasJ2 == 6 && vidasJ1 == 6 &&  victoria == true){
     document.getElementById("teclado1").classList.add("ocultar");
     document.getElementById("reiniciar").classList.remove("ocultar");
+    document.getElementById("volverMenu").classList.remove("ocultar");
     document.getElementById("victoria").classList.remove("ocultar");
     resultado = "Empate. La palabra era "+palabra;
   }
