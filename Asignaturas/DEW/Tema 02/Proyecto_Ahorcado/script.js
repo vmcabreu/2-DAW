@@ -388,13 +388,17 @@ function comprobarLetra(letra, id) {
       comprobarDerrota();
     } else {
       if (turno) {
-        vidasJ2--;
+        if (vidasJ2>0) {
+          vidasJ2--;
+        }
         document.getElementById("vidasJ2").innerHTML = "Vidas: " + vidasJ2;
         dibujarMachango();
         turno = false;
         indicadorTurno();
       } else {
-        vidasJ1--;
+        if (vidasJ1>0) {
+          vidasJ1--;
+        }
         document.getElementById("vidasJ1").innerHTML = "Vidas: " + vidasJ1;
         dibujarMachango();
         turno = true;
