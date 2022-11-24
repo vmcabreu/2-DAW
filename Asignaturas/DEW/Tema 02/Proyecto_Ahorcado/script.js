@@ -473,6 +473,7 @@ function comprobarDerrota() {
   if (!jugadores2) {
     if (numVidas == 0) {
       document.getElementById("teclado1").classList.add("ocultar");
+      document.getElementById("volverMenu").classList.remove("ocultar");
       document.getElementById("reiniciar").classList.remove("ocultar");
       document.getElementById("victoria").innerHTML =
         "Has perdido. La palabra era: " + palabra;
