@@ -86,6 +86,8 @@ let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
 let vidasJ1 = Number(document.getElementById("vidasJ1").textContent.charAt(7));
 let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
 
+letras.length
+
 const turnoText = document.getElementById("turnoActual");
 turnoText.addEventListener('input',indicadorTurno);
 let pista = palabra.replaceAll(/\w/g, "_");
