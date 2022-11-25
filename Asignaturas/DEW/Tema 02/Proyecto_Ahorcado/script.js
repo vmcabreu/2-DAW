@@ -88,6 +88,10 @@ let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
 
 const turnoText = document.getElementById("turnoActual");
 turnoText.addEventListener('input',indicadorTurno);
+
+let load;
+
+
 let pista = palabra.replaceAll(/\w/g, "_");
 //Flags
 let jugadores2 = false;
@@ -198,7 +202,7 @@ function login(usuario, passwd) {
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
         localStorage.setItem(retry, "false");
-        localStorage.setItem(load, "false");
+        load=localStorage.setItem(load, "false");
         flag = true;
       }
     });
