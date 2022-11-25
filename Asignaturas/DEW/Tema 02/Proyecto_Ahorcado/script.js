@@ -86,8 +86,6 @@ let numVidas = Number(document.getElementById("vidas").textContent.charAt(7));
 let vidasJ1 = Number(document.getElementById("vidasJ1").textContent.charAt(7));
 let vidasJ2 = Number(document.getElementById("vidasJ2").textContent.charAt(7));
 
-letras.length
-
 const turnoText = document.getElementById("turnoActual");
 turnoText.addEventListener('input',indicadorTurno);
 let pista = palabra.replaceAll(/\w/g, "_");
@@ -199,7 +197,7 @@ function login(usuario, passwd) {
         document.getElementById("registroLogin").classList.add("ocultar");
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
-        document.cookie = "retry=false;";
+        localStorage.setItem(retry, "false");
         localStorage.setItem(load, "false");
         flag = true;
       }
@@ -239,17 +237,18 @@ function getCookie(loginCookie) {
 function checkCookies() {
   let cookieUser = getCookie("username");
   let cookiePass = getCookie("passwd");
-  let cookieRetry = getCookie("retry");
+  let retryFlag = localStorage.getItem("retry");
   let loadFlag = localStorage.getItem("load");
   if (loadFlag=="false") {
     localStorage.setItem(load, "true");
     window.location.reload();
   }
-  if (cookieUser != "" && cookiePass != "" && cookieRetry=="false") {
+  if (cookieUser != "" && cookiePass != "" && retryFlag=="false") {
     login(cookieUser, cookiePass);
-  }else if(cookieUser != "" && cookiePass != "" && cookieRetry=="true"){
+  }else if(cookieUser != "" && cookiePass != "" && retryFlag=="true"){
     login(cookieUser, cookiePass);
     empezarPartida();
+    
   }
 
 }
@@ -662,7 +661,7 @@ function borrarPuntuaciones() {
  * Establece una cookie llamada "reintentar" en el valor "verdadero" y luego vuelve a cargar la página
  */
 function reiniciarPartida() {
-  document.cookie = "retry=true";
+  localStorage.setItem(retry, "true");
   window.location.reload();
 }
 
@@ -681,7 +680,7 @@ function volverMenu(){
 function cerrarSesion() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   document.cookie = "passwd=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-  document.cookie = "retry=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  localStorage.setItem(retry, "false");
   localStorage.setItem(load, "false");
   window.location.reload();
 }
