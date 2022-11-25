@@ -201,7 +201,7 @@ function login(usuario, passwd) {
         document.getElementById("registroLogin").classList.add("ocultar");
         document.cookie = "username=" + usuario + ";";
         document.cookie = "passwd=" + passwd + ";";
-        localStorage.setItem(retry, "false");
+        retry=localStorage.setItem(retry, "false");
         load=localStorage.setItem(load, "false");
         flag = true;
       }
