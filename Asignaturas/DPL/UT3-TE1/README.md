@@ -190,7 +190,7 @@ Como podemos observar, tenemos el certificado emitido por *Let's Encrypt* a nues
 
 ## Redirección www
 
-Tenemos que redireccionar a los usuarios que entren en nuestra aplicación web mediante *www.* a nuestra aplicación con certificado de seguridad realizado por [cerbot](#certificado-de-seguridad). Primero tenemos que crear un *virtual host* aparte, insertando que escuche en el puerto 80  (*http*), que el nombre del servidor sea la url de nuestro servidor pero con a adición de *www.* y por ultima la redirección la cual retornaremos el código 301 para que nos redireccione a nuestra aplicación web con certificado de seguridad.
+Tenemos que redireccionar a los usuarios que entren en nuestra aplicación web mediante *www* a nuestra aplicación con certificado de seguridad realizado por [cerbot](#certificado-de-seguridad). Primero tenemos que crear un *virtual host* aparte, insertando que escuche en el puerto 80  (*http*), que el nombre del servidor sea la url de nuestro servidor pero con a adición de *www* y por ultima la redirección la cual retornaremos el código 301 para que nos redireccione a nuestra aplicación web con certificado de seguridad.
 
 ![](screenshots/redireccion/2.png)
 
