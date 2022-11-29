@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href=" ">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
+        defer></script>
+        <style>
+            .imagenesOffset{
+                width: 10em;
+                height: 10em;
+            }
+        </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <div class="col-xl-4 col-12 d-flex d-xl-block justify-content-between align-content-center">
+                <img src="img/laliga.png" alt="" width="30" height="30" class="d-inline-block align-text-center">
+                <a class="navbar-brand align-text-top" href="#" >La Liga</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse col-lg-4 col-6" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Historia</a>
+                    </li>
+                    <li class="nav-item dropend">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Equipos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Primera</a></li>
+                            <li><a class="dropdown-item" href="#">Segunda</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Aficionados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Cesta<i class="bi bi-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Notificaciones <span
+                                class="badge bg-secondary">4</span></a>
+                    </li>
+                </ul>
+                <form class="d-flex gap-3 col-4 ">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Login
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form">
+                                        <div class="mb-3">
+                                            <label for="usuario" class="form-laber">Usuario</label>
+                                            <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                                          </div>
+                                          <div class="mb-3">
+                                            <label for="passwd" class="form-laber">Password</label>
+                                            <input type="password" class="form-control" id="passwd" placeholder="Password">
+                                          </div>
+                    
+                                        <div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-between m-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Historia</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Equipos</li>
+        </ol>
+    </nav>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">Offcanvas a la derecha</button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Offcanvas a la derecha</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            Este es nuestro Offcanvas, espero que les guste
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid m-3">
+    <div class="row">
+    <div class="col-md-6 col-12">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
+          </div>
+        </div>
+    </div>
+      </div>
+      <div class="col-md-6 col-12 g-0">
+        <div class="container-fluid">
+        <div class="row">
+        <div class="col-xl-3 col-md-6 col-6">
+        <div class="card">
+            <img src="img/barcelona.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">FC Barcelona</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6">
+          <div class="card">
+            <img src="img/realmadrid.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Real Madrid</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6">
+          <div class="card">
+            <img src="img/tenerife.jpg" class="card-img-top w-100" alt="...">
+            <div class="card-body">
+              <p class="card-text">CD Tenerife</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 col-6">
+          <div class="card">
+            <img src="img/laspalmas.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Las Palmas</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-4 col-md-6 col-12">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="img/barcelona.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Primera División</h5>
+                      <p>FC Barcelona</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/realmadrid.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Primera División</h5>
+                      <p>Real Madrid</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/tenerife.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Primera División</h5>
+                      <p>CD Tenerife</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/laspalmas.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Segunda División</h5>
+                      <p>Las Palmas</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <form action="">
+                <div>
+                <label for="mail">Email</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2" name="mail" id="mail">
+                    <span class="input-group-text" id="basic-addon2">@laliga.es</span>
+                  </div>
+                </div>
+                <div>
+                  <label for="equipo">Elije tu Equipo - Select</label>
+                  <select class="form-select" aria-label="Default select example" id="equipo" name="equipo">
+                    <option selected></option>
+                    <option value="1">FC Barcelona</option>
+                    <option value="2">Real Madrid</option>
+                    <option value="3">CD Tenerife</option>
+                    <option value="4">Las Palmas</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="exampleDataList" class="form-label">Elije tu Equipo - Datalist</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Equipo...">
+                  <datalist id="datalistOptions">
+                    <option value="FC Barcelona">
+                    <option value="Real Madrid">
+                    <option value="CD Tenerife">
+                    <option value="Las Palmas">
+                  </datalist>
+                </div>
+                  <div class="d-flex gap-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Hombre
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Mujer
+                    </label>
+                  </div>
+                </div>
+                <div>
+                    <div class="form-check form-switch m-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Peninsular</label>
+                      </div>
+                      <div class="form-check form-switch m-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Canario</label>
+                      </div>
+                </div>
+                <div>
+                    <label for="observaciones">Observaciones</label>
+                    <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="col-xl-4 col-md-12">
+            <div class="container-fluid g-0">
+                <div class="row">
+                    <img src="img/barcelona.jpg" class="col-md-6 col-6 offset-xl-3 d-none d-md-block rounded-circle imagenesOffset " alt="" >
+                    <img src="img/barcelona.jpg" class="col-md-3 rounded-circle d-none d-md-block imagenesOffset" alt="">
+                </div>
+                    <div class="row">
+                    <img src="img/barcelona.jpg" class="col-md-3 rounded-circle d-block d-md-none imagenesOffset" alt="">
+                    <img src="img/realmadrid.jpg" class="col-md-6 col-6 rounded-circle imagenesOffset" alt="" >
+                    <img src="img/realmadrid.jpg" class="col-md-6 offset-xl-5  d-none d-md-block rounded-circle imagenesOffset" alt="" >
+                </div>
+                    <div class="row">
+                    <img src="img/tenerife.jpg" class="col-md-3 col-6 rounded-circle imagenesOffset">
+                    <img src="img/tenerife.jpg" class="col-md-3 rounded-circle d-none d-md-block imagenesOffset">
+                    <img src="img/laspalmas.jpg" class="col-md-3 col-6 rounded-circle imagenesOffset">
+                    <img src="img/laspalmas.jpg" class="col-md-3 rounded-circle d-none d-md-block imagenesOffset">
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<footer class="d-flex justify-content-between bg-secondary">
+    <p class="fw-bold m-2 order-md-2">Examen Boostrap</p>
+    <p class="text-decoration-underline m-2 order-md-1">Víctor Manuel Cabrera Abreu</p>
+    <p class="fst-italic m-2 order-md-0">2ºDAW - DOR</p>
+</footer>
+</html>

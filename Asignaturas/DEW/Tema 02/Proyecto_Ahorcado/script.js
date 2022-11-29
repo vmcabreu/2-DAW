@@ -19,6 +19,15 @@ class Usuario {
   }
 }
 
+/** 
+ * fetch
+ * async function getText(file) {
+ * let myObject = await fetch(file);
+ * let myText = await myObject.text();
+ * myDisplay(myText);
+ * }
+ */
+
 /* Una clase es un modelo para crear objetos con propiedades y métodos predefinidos. */
 class Producto {
   /**
