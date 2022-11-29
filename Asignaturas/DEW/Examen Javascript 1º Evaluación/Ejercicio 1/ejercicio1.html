@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>29/11/22 - Examen: Ejercicio 1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-eforma.js"></script></head>
+
+<body>
+    <h1>Ejercicio 1</h1>
+    <div>
+        <h2>Artículos</h2>
+        <div>
+            <div >
+                <input id="ps5" name="ps5" type="checkbox" />
+                <span id="nombrePS5">Playstation 5</span> -
+                <span id="precioPS5">779.90</span>€
+            </div>
+            <div>
+                <input id="tv" name="tv" type="checkbox" />
+                <span id="nombreTV">TV Xiaomi 43"</span> -
+                <span id="precioTV">399.00</span>€
+            </div>
+            <div>
+                <input id="nevera" name="nevera" type="checkbox" />
+                <span id="nombreNevera">Nevera Samsung</span> -
+                <span id="precioNevera">1099.95</span>€
+            </div>
+            <div>
+                <input id="lavadora" name="lavadora" type="checkbox" />
+                <span id="nombreLavadora">Lavadora/Secadora Balay</span> -
+                <span id="precioLavadora">1074.95</span>€
+            </div>
+            <div>
+                <input id="xbox" name="xbox" type="checkbox" />
+                <span id="nombreXBOX">Xbox Series S</span> -
+                <span id="precioXBOX">299.95</span>€
+            </div>
+        </div>
+        <div>
+            <button onclick="agregarCesta()">Agregar al Carrito</button>
+        </div>
+    </div>
+    <div>
+        <h2>Cesta de la compra</h2>
+        <div id="cesta">
+            <div id="importes">
+                <p><strong>IGIC (7%): </strong><span id="igic"></span>€</p>
+                <p><strong>Importe Total: </strong><span id="total"></span>€</p>
+            </div>
+        </div>
+
+        <script src="assets/js/ejercicio1.js"></script>
+</body>
+
+</html>
