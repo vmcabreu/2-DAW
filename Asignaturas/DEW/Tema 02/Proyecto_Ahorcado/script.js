@@ -22,8 +22,11 @@ class Usuario {
 /** 
  * fetch
  * async function getText(file) {
+ * //Consigue el fichero
  * let myObject = await fetch(file);
+ * //Consigue el texto del fichero
  * let myText = await myObject.text();
+ * //Muestra el texto
  * myDisplay(myText);
  * }
  */
