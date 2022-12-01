@@ -47,12 +47,7 @@
             if ($temperaturaMax > $tempMaxAnio) {
                 $tempMaxAnio = $temperaturaMax;
             }
-            if ($temperaturaMin < $tempMinAnio) {
-                $tempMinAnio = $temperaturaMin;
-            }
-            if ($temperaturaMax > $tempMaxAnio) {
-                $tempMaxAnio = $temperaturaMax;
-            }
+
 
             echo "<tr>", "<td>", $m['mes'], "</td>",
             "<td>", $temperaturaMin, "</td>",
