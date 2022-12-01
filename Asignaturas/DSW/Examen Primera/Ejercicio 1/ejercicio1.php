@@ -30,6 +30,8 @@
         foreach ($meses as $m) {
             $temperaturaMin = $m['datos'][0];
             $temperaturaMax = $m['datos'][0];
+            $tempMinAnio =  $tempMaxAnio = $meses[0]['datos'][0]; 
+            $tempMediaAnio = 0;
             $temperaturaMedia = 0;
             for ($i = 0; $i < count($m['datos']); $i++) {
                 if ($temperaturaMin > $m['datos'][$i]) {
@@ -39,6 +41,7 @@
                     $temperaturaMax = $m['datos'][$i];
                 }
                 $temperaturaMedia += $m['datos'][$i];
+                $tempMediaAnio += $temperaturaMedia;
             }
 
             echo "<tr>", "<td>", $m['mes'], "</td>",
@@ -47,6 +50,11 @@
             "<td>", round(($temperaturaMedia / count($m['datos'])), 2), "</td>",
             "</tr>";
         }
+        echo "<tr>", "<td>Año completo</td>",
+        "<td>", $tempMinAnio, "</td>",
+        "<td>", $tempMaxAnio, "</td>",
+        "<td>", round(($tempMediaAnio / count($m['datos'])), 2), "</td>",
+        "</tr>";
         ?>
     </table>
 
