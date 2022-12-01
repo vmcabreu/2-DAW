@@ -7,7 +7,6 @@
     <title>Ejercicio 1</title>
 </head>
 <style>
-    
     .tablaTemperatura tr:nth-child(even) {
         background-color: skyblue;
     }
@@ -27,15 +26,26 @@
         </tr>
         <?php
         $meses = json_decode(file_get_contents('temperaturas.json'), true);
+        $tempMinAnio =  $tempMaxAnio = $meses[0]['datos'][0];
+        $tempMediaAnio = 0;
         foreach ($meses as $m) {
             $temperaturaMin = min($m['datos']);
             $temperaturaMax = max($m['datos']);
             $tempMinAnio =  $tempMaxAnio = $meses[0]['datos'][0]; 
             $tempMediaAnio = 0;
             $temperaturaMedia = 0;
+            $numDias = 0;
+            $numDias += count($m['datos']);
             for ($i = 0; $i < count($m['datos']); $i++) {
                 $temperaturaMedia += $m['datos'][$i];
-                $tempMediaAnio += $temperaturaMedia;
+            }
+            $tempMediaAnio += ($temperaturaMedia / count($m['datos']));
+
+            if ($temperaturaMin < $tempMinAnio) {
+                $tempMinAnio = $temperaturaMin;
+            }
+            if ($temperaturaMax > $tempMaxAnio) {
+                $tempMaxAnio = $temperaturaMax;
             }
             if ($temperaturaMin < $tempMinAnio) {
                 $tempMinAnio = $temperaturaMin;
@@ -53,7 +63,7 @@
         echo "<tr>", "<td>Año completo</td>",
         "<td>", $tempMinAnio, "</td>",
         "<td>", $tempMaxAnio, "</td>",
-        "<td>", round(($tempMediaAnio / count($m['datos'])), 2), "</td>",
+        "<td>", round(($tempMediaAnio / 12), 2), "</td>",
         "</tr>";
         ?>
     </table>

@@ -9,7 +9,7 @@ class BaseDAO
      */
     public static function getConexion()
     {
-        $conexion = new MySQLi('localhost', 'root', '123456', 'liga');
+        $conexion = new MySQLi('localhost', 'liga', 'liga2022', 'liga');
         if ($conexion->errno != null) {
             throw new Exception("Error conectando a la base de datos de productos: ", $conexion->error);
         }
