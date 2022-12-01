@@ -28,20 +28,20 @@
         <?php
         $meses = json_decode(file_get_contents('temperaturas.json'), true);
         foreach ($meses as $m) {
-            $temperaturaMin = $m['datos'][0];
-            $temperaturaMax = $m['datos'][0];
+            $temperaturaMin = min($m['datos']);
+            $temperaturaMax = max($m['datos']);
             $tempMinAnio =  $tempMaxAnio = $meses[0]['datos'][0]; 
             $tempMediaAnio = 0;
             $temperaturaMedia = 0;
             for ($i = 0; $i < count($m['datos']); $i++) {
-                if ($temperaturaMin > $m['datos'][$i]) {
-                    $temperaturaMin = $m['datos'][$i];
-                }
-                if ($temperaturaMax < $m['datos'][$i]) {
-                    $temperaturaMax = $m['datos'][$i];
-                }
                 $temperaturaMedia += $m['datos'][$i];
                 $tempMediaAnio += $temperaturaMedia;
+            }
+            if ($temperaturaMin < $tempMinAnio) {
+                $tempMinAnio = $temperaturaMin;
+            }
+            if ($temperaturaMax > $tempMaxAnio) {
+                $tempMaxAnio = $temperaturaMax;
             }
 
             echo "<tr>", "<td>", $m['mes'], "</td>",
