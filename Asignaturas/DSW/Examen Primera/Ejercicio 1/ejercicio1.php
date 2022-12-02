@@ -31,11 +31,12 @@
         foreach ($meses as $m) {
             $temperaturaMin = min($m['datos']);
             $temperaturaMax = max($m['datos']);
-            $tempMinAnio =  $tempMaxAnio = $meses[0]['datos'][0]; 
-            $tempMediaAnio = 0;
             $temperaturaMedia = 0;
             $numDias = 0;
-            $temperaturaMedia += array_sum($m['datos']);
+            $numDias += count($m['datos']);
+            for ($i = 0; $i < count($m['datos']); $i++) {
+                $temperaturaMedia += $m['datos'][$i];
+            }
             $tempMediaAnio += ($temperaturaMedia / count($m['datos']));
 
             if ($temperaturaMin < $tempMinAnio) {
@@ -44,7 +45,6 @@
             if ($temperaturaMax > $tempMaxAnio) {
                 $tempMaxAnio = $temperaturaMax;
             }
-
 
             echo "<tr>", "<td>", $m['mes'], "</td>",
             "<td>", $temperaturaMin, "</td>",
