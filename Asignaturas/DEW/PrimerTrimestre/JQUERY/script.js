@@ -2,7 +2,6 @@ let productos = $.getJSON("productos.json", function () {
 
   $("#loading").fadeIn(400).delay(3500).fadeOut(500).delay(500);
   $("#articulos").css("display", "none").delay(4000).fadeIn(400);
-  console.log("success");
 })
   .done(function (datos) {
     console.log("second success");
@@ -35,3 +34,8 @@ let productos = $.getJSON("productos.json", function () {
   .always(function () {
     console.log("complete");
   });
+
+  function agregarCesta(){
+   console.log($("input:checked"));
+    
+  }
