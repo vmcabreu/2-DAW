@@ -1,22 +1,27 @@
 
     [
         {
+            "abrev": "ps5",
             "nombre": "Playstation 5",
             "precio": 500.00
         },
         {
+            "abrev": "tvXiaomi",
             "nombre": "TV Xiaomi 43\"",
             "precio": 325.00
         },
         {
+            "abrev": "nevera",
             "nombre": "Nevera Samsung",
             "precio": 1100.00
         },
         {
+            "abrev": "lavadora",
             "nombre": "Lavadora Balay",
             "precio": 1000.00
         },
         {
+            "abrev": "xboxs",
             "nombre": "Xbox Series S",
             "precio": 300.00
         }

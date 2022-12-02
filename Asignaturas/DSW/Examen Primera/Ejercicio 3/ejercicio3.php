@@ -57,7 +57,7 @@ require_once("./DAOEquipos.php")
         $resultado = explode("-",$partido->resultado);
         $equiposLiga =  sumarPuntaje($resultado,$local,$visitante,$equiposLiga);
     }
-    sort($equiposLiga);
+    asort($equiposLiga);
     for ($i=0; $i < count($equiposLiga); $i++) { 
         echo "<tr>",
         "<td>",$i+1,"</td>",

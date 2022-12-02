@@ -19,6 +19,7 @@ class BaseDAO
         return $conexion;
     }
     
+
     /**
      * Se conecta a la base de datos y ejecuta la consulta.
      * 

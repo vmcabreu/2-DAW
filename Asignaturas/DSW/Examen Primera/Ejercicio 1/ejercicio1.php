@@ -35,10 +35,7 @@
             $tempMediaAnio = 0;
             $temperaturaMedia = 0;
             $numDias = 0;
-            $numDias += count($m['datos']);
-            for ($i = 0; $i < count($m['datos']); $i++) {
-                $temperaturaMedia += $m['datos'][$i];
-            }
+            $temperaturaMedia += array_sum($m['datos']);
             $tempMediaAnio += ($temperaturaMedia / count($m['datos']));
 
             if ($temperaturaMin < $tempMinAnio) {
