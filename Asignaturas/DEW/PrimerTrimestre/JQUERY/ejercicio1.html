@@ -27,31 +27,45 @@
                 </li>
             </ul>
         </nav>
-        <div><div id="loading" class="lds-ring"><h2>Cargando</h2><div></div><div></div><div></div><div></div></div></div></div>
-        <div id="articulos">
-            <div class="d-flex justify-content-around">
-                <div class="grisclaro p-3 rounded-3">
-                    <h2>Artículos</h2>
-                    <div id="listaArticulos" class="d-flex flex-column gap-3">
+        <div>
+            <div id="loading" class="lds-ring">
+                <h2>Cargando</h2>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div id="articulos" >
+        <div class="d-flex justify-content-around " >
+            <div class="grisclaro p-3 rounded-3">
+                <h2>Artículos</h2>
+                <div id="listaArticulos" class="d-flex flex-column gap-3">
 
-                    </div><br>
+                </div><br>
+                <div>
                     <div>
-                        <div>
-                            <button onclick="agregarCesta()" class="btn btn-primary">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="grisclaro p-3 rounded-3">
-                    <h2>Cesta de la compra</h2>
-                    <div id="cesta">
-                        <div id="importes">
-                            <p><strong>IGIC (7%): </strong><span id="igic"></span>€</p>
-                            <p><strong>Importe Total: </strong><span id="total"></span>€</p>
-                        </div>
+                        <button id="agregarCarrito" class="btn btn-primary">Agregar al Carrito</button>
                     </div>
                 </div>
             </div>
+            <div class="grisclaro p-3 rounded-3">
+                <h2>Cesta de la compra</h2>
+                <div class="container-fluid overflow-auto">
+                    <div  class="row overflow-auto">
+                <div id="cesta" class="col-12 overflow-auto bg-light p-3 rounded-3" style="max-height: 160px;">
+                </div>
+            </div>
+                </div>
+                <div id="importes" class="p-3">
+                    <p><strong>IGIC (7%): </strong><span id="igic"></span> €</p>
+                    <p><strong>Importe Total: </strong><span id="total"></span> €</p>
+                </div>
+                <button id="refrescarLista" class="btn btn-primary">Actualizar Lista de Productos</button>
+            </div>
         </div>
+    </div>
     </div>
 
 
