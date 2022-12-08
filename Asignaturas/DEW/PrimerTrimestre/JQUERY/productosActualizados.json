@@ -26,8 +26,13 @@
             "precio": 300.00
         },
         {
-            "abrev": "xboxs",
-            "nombre": "Guillermo articulado",
-            "precio": 20.00
+            "abrev": "switch",
+            "nombre": "Nintendo Switch OLED",
+            "precio": 330.00
+        },
+        {
+            "abrev": "ps4",
+            "nombre": "Playstation 4",
+            "precio": 260.00
         }
     ]

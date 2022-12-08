@@ -24,7 +24,7 @@
     border: 8px solid rgb(255, 206, 161);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-    border-color: rgb(253, 152, 0) transparent transparent transparent;
+    border-color: rgb(0, 139, 253) transparent transparent transparent;
     
   }
   .lds-ring div:nth-child(1) {

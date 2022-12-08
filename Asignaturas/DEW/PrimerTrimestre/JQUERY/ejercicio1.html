@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>29/11/22 - Examen: Ejercicio 1</title>
+    <title>JQUERY: Ejercicio 1</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,16 +18,41 @@
 </head>
 
 <body>
-    <h1>Ejercicio 1</h1>
     <div>
-        <nav class="nav">
-            <ul>
-                <li>
-                    Artículos
-                </li>
-            </ul>
-        </nav>
-        <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png" alt="Logo" width="50" height="24" class="d-inline-block align-text-top">Ejercicio 1</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">JQUERY</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Articulos
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item disabled" href="#" >Tienda</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item active" href="#" aria-current="true">Electrónica</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <nav aria-label="breadcrumb" class="p-1">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">JQUERY</a></li>
+              <li class="breadcrumb-item"><a href="#">Articulos</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Electrónica</li>
+            </ol>
+          </nav>
+        <div class="m-3">
             <div id="loading" class="lds-ring">
                 <h2>Cargando</h2>
                 <div></div>
@@ -37,24 +62,26 @@
             </div>
         </div>
     </div>
-    <div id="articulos" >
+    <h2 class="text-center" id="titulo"> Comprar Artículos</h2>
+    <div id="articulos" class="m-3" >
         <div class="d-flex justify-content-around " >
-            <div class="grisclaro p-3 rounded-3">
-                <h2>Artículos</h2>
-                <div id="listaArticulos" class="d-flex flex-column gap-3">
-
+            <div class="grisclaro card">
+                <h2 class="card-header bg-primary">Artículos</h2>
+                <div class=" card-body ">
+                <div id="listaArticulos" class="card-text d-flex flex-column gap-3">
                 </div><br>
-                <div>
-                    <div>
-                        <button id="agregarCarrito" class="btn btn-primary">Agregar al Carrito</button>
-                    </div>
-                </div>
+                <button id="agregarCarrito" class="btn btn-primary">Agregar al Carrito <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                  </svg></button>
+                 </div>
             </div>
-            <div class="grisclaro p-3 rounded-3">
-                <h2>Cesta de la compra</h2>
-                <div class="container-fluid overflow-auto">
+            <div class="grisclaro card">
+                <h2 class="card-header bg-primary">Cesta de la compra</h2>
+                <div class="card-body">
+                <div class="container-fluid overflow-auto card-text">
                     <div  class="row overflow-auto">
-                <div id="cesta" class="col-12 overflow-auto bg-light p-3 rounded-3" style="max-height: 160px;">
+                <div id="cesta" class="col-12 overflow-auto bg-light p-3 rounded-3" style="height: 300px; max-height: 100px;">
                 </div>
             </div>
                 </div>
@@ -62,7 +89,11 @@
                     <p><strong>IGIC (7%): </strong><span id="igic"></span> €</p>
                     <p><strong>Importe Total: </strong><span id="total"></span> €</p>
                 </div>
-                <button id="refrescarLista" class="btn btn-primary">Actualizar Lista de Productos</button>
+                <button id="refrescarLista" class="btn btn-primary">Actualizar Lista de Productos <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                  </svg></button>
+            </div>
             </div>
         </div>
     </div>
