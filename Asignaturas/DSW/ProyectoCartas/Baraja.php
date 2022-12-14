@@ -14,7 +14,7 @@ class Baraja
 
     public function crearBaraja(int $numParejas)
     {
-        if ($numParejas % 2 == 0) {
+        if ($numParejas <= 48) {
             for ($i = 0; $i < $numParejas; $i++) {
                 $paloCarta = $this->palos[random_int(0, 3)];
                 $numCarta = $this->numeros[random_int(0, 11)];
@@ -26,8 +26,9 @@ class Baraja
                     $i--;
                 }
             }
+            shuffle($this->baraja);
         } else {
-            echo "El número de parejas debe ser par";
+            echo "El número de parejas debe ser menor a 48";
         }
     }
 
@@ -37,11 +38,8 @@ class Baraja
         if (count($this->baraja) > 0) {
             foreach ($this->baraja as $carta) {
                 $name = $carta->palo . $carta->numero;
-                array_push($mesa, "<div><img src='$carta->bocabajo' name='$name'></div>");
-            }
-            shuffle($mesa);
-            for ($i = 0; $i < count($mesa); $i++) {
-                echo $mesa[$i];
+                array_push($mesa, "<div><button><img src='$carta->bocabajo' name='$name'></button></div>");
+                echo "<div><button><img src='$carta->bocabajo' name='$name'></button></div>";
             }
         }
     }
