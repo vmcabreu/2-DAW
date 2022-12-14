@@ -98,7 +98,11 @@ Para finalizar creamos un host virtual en Nginx para que nos sirva como aplicaci
 
 ![](screenshots/19.png)
 
-Recargamos la configuración de Nginx, levantamos el servicio *pgadmin4* y vamos a la URL especificada.
+Recargamos la configuración de Nginx y vamos a la URL especificada. Lo primero que encontraremos será una página de login la cual las credendenciales son la que anteriormente al lanzar pgadmin4, hemos insertado.
+
+Email/Username: *victormanueltoa@gmail.com*
+
+Password: dpldaw
 
 ![](screenshots/20.png)
 
