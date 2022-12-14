@@ -136,19 +136,81 @@ Una vez instalado, empezamos a realizar nuestra aplicación la cual puede ver el
 ![](screenshots/14.png)
 
 
-Ya una vez la aplicación completa, lo subiremos a nuestro repositorio de git para pasarlo a producción. Por lo tanto realizaremos los siguientes comandos:
+Ya una vez la aplicación completa, lo subiremos a nuestro repositorio de git para pasarlo a producción, excepto nuestro *config.php* eso lo mantendremos fuera de nuestro repositorio. Entonces realizaremos los siguientes comandos:
 
+```
+git add .
+git commit -m "T4-A1 Aplicación finalizada"
+```
+Y para subirlo al repositorio simplemente hacemos un *git push*:
 
+![](screenshots/desarrollo/1.png)
+
+Ya subidos a nuestro repositorio usaremos el host virtual que hemos creado anteriormente llamado *php.travelroad.local*
+
+![](screenshots/13.png)
+
+Y como hemos comprobado con anterioridad funciona perfectamente.
+
+![](screenshots/14.png)
 
 
 ---
 
 ## Aplicación PHP en producción
 
+Para poder traer nuestra aplicación a producción necesitaremos tener instalado *git*, asi que tras comprobar que lo tenemos instalado hacemos lo siguiente:
+
+![](screenshots/produccion/2.png)
+
+Tras terminar la clonación ya tenemos disponible nuestro repositorio con nuestra aplicación en ella.
+
+![](screenshots/produccion/3.png)
+
+Realizamos nuestro fichero *config.php* y lo mantendremos en nuestro home de nuestra máquina remota.
+
+![](screenshots/produccion/1.png)
+
+Con todo listo solo falta realizar el host virtual para nuestra aplicación asi que añadiremos lo siguiente a nuestro host virtual:
+
+![](screenshots/12.png)
+
+Una vez ya creado entramos a la URL indicada en el host virtual vemos que nos carga todo a la perfección.
+
+![](screenshots/produccion/4.png)
+
+Lo único que falta para terminar nuestra aplicación PHP en producción es la redirección *www* y el certificado.
+
+Empezaremos por la redirección, lo que haremos será crear un virtual host aparte:
+
+![](screenshots/produccion/5.png)
+
+Este host virtual hará la redirección a nuestra página sin *www*. 
+
+Pero para que pueda redireccionar a nuestra página con protocolo *https* tenemos que añadirle el certificado tanto a nuestro host virtual como a la redirección *www*.
+
+![](screenshots/produccion/6.png)
+![](screenshots/produccion/7.png)
+
+Ya nuestro host virtual y su redirección han obtenido su certificado por lo tanto ambas funcionan ya, con protocolo *https*.
+
+![](screenshots/produccion/8.png)
 
 
 ---
 
 ## Despliegue
+
+Crearemos un script para actualizar el entorno de producción en el cual nos conectaremos por *ssh* al host virtual y nos moveremos a la carpeta donde tengamos guardado nuestra aplicación PHP y hacemos un *git pull*
+
+`ssh arkania 'cd /home/victor/git/dpl22-23/; git pull;' `
+
+Para poder ejecutar el script le daremos permisos de ejecución:
+
+`sudo chmod u+x deploy.sh`
+
+Con nuestro script hecho, añadimos que nuestro programa imprima *"El script funciona"* mediante un *echo*. Ejecutamos nuestro script:
+
+![](screenshots/script.png)
 
 ---

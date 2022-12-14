@@ -47,5 +47,4 @@ require_once("Baraja.php");
         })
     </script>
 </body>
-
 </html>

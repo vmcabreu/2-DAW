@@ -14,7 +14,7 @@ class Baraja
 
     public function crearBaraja(int $numParejas)
     {
-        if ($numParejas % 2 == 0) {
+        if ($numParejas  <= 48) {
             for ($i = 0; $i < $numParejas; $i++) {
                 $paloCarta = $this->palos[random_int(0, 3)];
                 $numCarta = $this->numeros[random_int(0, 11)];
