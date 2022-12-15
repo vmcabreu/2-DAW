@@ -213,4 +213,8 @@ Con nuestro script hecho, añadimos que nuestro programa imprima *"El script fun
 
 ![](screenshots/script.png)
 
+Ahora vamos a la página para comprobar que se ha hecho el pull correctamente y podemos ver que se ha actualizado bien nuestra aplicación
+
+![](screenshots/script2.png)
+
 ---
