@@ -5,4 +5,3 @@ if (!defined('__CONFIG__')){
     define('PROJECT_PATH','/var/www/html/DSW');
     define("DATA_PATH","/var/www/phpdata");
 }
-?>

@@ -104,6 +104,12 @@ Email/Username: *victormanueltoa@gmail.com*
 
 Password: dpldaw
 
+En local:
+
+Email/Username: *victormanueldpl@gmail.com*
+
+Password: dawdpl
+
 ![](screenshots/20.png)
 
 Registramos el servidor con el nombre de nuestra base de datos.
