@@ -146,7 +146,7 @@ Y para subirlo al repositorio simplemente hacemos un *git push*:
 
 ![](screenshots/desarrollo/1.png)
 
-Ya subidos a nuestro repositorio usaremos el host virtual que hemos creado anteriormente llamado *php.travelroad.local*
+Ya subidos a nuestro repositorio usaremos el host virtual que hemos creado anteriormente llamado *php.travelroad.local*.
 
 ![](screenshots/13.png)
 
@@ -201,7 +201,7 @@ Ya nuestro host virtual y su redirección han obtenido su certificado por lo tan
 
 ## Despliegue
 
-Crearemos un script para actualizar el entorno de producción en el cual nos conectaremos por *ssh* al host virtual y nos moveremos a la carpeta donde tengamos guardado nuestra aplicación PHP y hacemos un *git pull*
+Crearemos un script para actualizar el entorno de producción en el cual nos conectaremos por *ssh* al host virtual y nos moveremos a la carpeta donde tengamos guardado nuestra aplicación PHP y hacemos un *git pull*.
 
 `ssh arkania 'cd /home/victor/git/dpl22-23/; git pull;' `
 
@@ -213,7 +213,7 @@ Con nuestro script hecho, añadimos que nuestro programa imprima *"El script fun
 
 ![](screenshots/script.png)
 
-Ahora vamos a la página para comprobar que se ha hecho el pull correctamente y podemos ver que se ha actualizado bien nuestra aplicación
+Ahora vamos a la página para comprobar que se ha hecho el pull correctamente y podemos ver que se ha actualizado bien nuestra aplicación.
 
 ![](screenshots/script2.png)
 
