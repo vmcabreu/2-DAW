@@ -34,16 +34,26 @@ require_once("Baraja.php");
         $baraja = new Baraja();
         $baraja->crearBaraja($nParejas);
         $baraja->crearMesa();
+        
+    }
+    if (isset($_POST[$_COOKIE['carta1']])) {
+        echo $_COOKIE['carta1'];
     }
     ?>
     </div>
     <script>
-        document.addEventListener("click", function(div){ 
+        document.addEventListener("click", function(div){
+
+            document.cookie = "carta1="+div.target.name
+            console.log(div.target)
+            
+            /*'
             div.target.src = `http://localhost/DSW/ProyectoCartas/imagenesBaraja/${div.target.name.replace(/\d+/,"")}/${div.target.name}.png`;
             const mesa = document.getElementById("mesa");
             for (const child of mesa.children) {
                 console.log(child.childNodes[0]);
             }
+            */
         })
     </script>
 </body>
