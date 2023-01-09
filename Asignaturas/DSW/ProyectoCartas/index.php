@@ -25,10 +25,11 @@ require_once("Baraja.php");
     <form method="post" action="#" enctype="multipart/form-data">
         <label for="nParejas">Introduce el número de parejas:</label><br>
         <input type="text" name="numParejas" id="nParejas" />
-        <button type="submit">Crear Mesa</button>
+        <button type="submit" name="crearMesa">Crear Mesa</button>
     </form>
     <div id="mesa" style="display: block !important;">
     <?php
+    if (isset($_POST["crearMesa"])) {
     if (isset($_POST["numParejas"])) {
         $nParejas = intval($_POST["numParejas"]);
         $baraja = new Baraja();
@@ -39,6 +40,7 @@ require_once("Baraja.php");
     if (isset($_POST[$_COOKIE['carta1']])) {
         echo $_COOKIE['carta1'];
     }
+}
     ?>
     </div>
     <script>

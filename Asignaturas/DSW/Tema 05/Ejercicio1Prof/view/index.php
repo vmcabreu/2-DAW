@@ -1,6 +1,6 @@
 <?php
+
 declare(strict_types=1);
-require_once("../model/DAOProducto.php")
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -97,6 +97,12 @@ require_once("../model/DAOProducto.php")
 
 <body>
     <h1>Catálogo de Productos - Imprenta S.A.</h1>
+    <div id="controlPag">
+        <label for="pag">Pág:</label>
+        <select name="pag" id="pag" selected="<?=$pag; ?>">
+            
+        </select>
+    </div>
     <table>
         <tr>
             <th>ID</th>
@@ -106,7 +112,6 @@ require_once("../model/DAOProducto.php")
             <th>Imagen</th>
         </tr>
         <?php
-        $paginaProductos = DAOProducto::getPaginaProducto(1);
         foreach ($paginaProductos as $producto) {
             echo "<tr id='producto_$producto->id'>
                     <td><input type='text' value='$producto->id' maxlength='6' size='6' readonly='readonly'/></td>
