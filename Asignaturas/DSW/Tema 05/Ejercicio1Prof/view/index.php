@@ -100,7 +100,27 @@ declare(strict_types=1);
     <div id="controlPag">
         <label for="pag">Pág:</label>
         <select name="pag" id="pag" selected="<?=$pag; ?>">
-            
+            <?php
+            for ($i=1; $i < $paginaProductos; $i++) { 
+                if ($i==$pag) {
+                    echo "<option selected>$i</option>";
+                    }else{
+                    echo "<option>$i</option>";
+                }
+            }
+            ?>
+        </select>
+        <label for="tamPag"> Tamaño de página: </label>
+        <select name="tamPag" id="tamPag" selected="<?=$tamPag; ?>">
+            <?php
+            for ($i=1; $i < $numPaginas; $i++) { 
+                if ($i==$tamPag) {
+                echo "<option selected>$i</option>";
+                }else{
+                echo "<option>$i</option>";
+            }
+            }
+            ?>
         </select>
     </div>
     <table>

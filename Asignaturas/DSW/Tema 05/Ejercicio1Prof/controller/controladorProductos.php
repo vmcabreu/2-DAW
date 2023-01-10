@@ -9,6 +9,10 @@
     if (isset($_GET["tamPag"])) {
         $tamPag = intval($_GET["tamPag"]);
     }
+    $numPaginas=DAOProducto::numPags($tamPag);
+    if ($pag>$numPaginas) {
+        $pag=$numPaginas;
+    }
     $paginaProductos = DAOProducto::getPaginaProducto($pag,$tamPag);
     require_once("../view/index.php");
 

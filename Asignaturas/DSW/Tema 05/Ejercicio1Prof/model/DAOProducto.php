@@ -56,7 +56,7 @@ class DAOProducto
         if ($resultado->num_rows == 0) {
             return null;
         }
-        return Producto::getProducto($resultado->fetch_assoc);
+        return Producto::getProducto($resultado->fetch_assoc());
     }
 
     /**

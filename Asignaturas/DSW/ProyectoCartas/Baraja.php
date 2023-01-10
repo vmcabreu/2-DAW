@@ -38,9 +38,10 @@ class Baraja
         if (count($this->baraja) > 0) {
             foreach ($this->baraja as $carta) {
                 $name = $carta->palo . $carta->numero;
-                array_push($mesa, "<div><button><img src='$carta->bocabajo' name='$name'></button></div>");
-                echo "<div><button><img src='$carta->bocabajo' name='$name'></button></div>";
+                array_push($mesa, "<div><img src='$carta->bocabajo' name='$name'>/div>");
+                echo "<div><img src='$carta->bocabajo' name='$name'></div>";
             }
         }
+        return $mesa;
     }
 }
