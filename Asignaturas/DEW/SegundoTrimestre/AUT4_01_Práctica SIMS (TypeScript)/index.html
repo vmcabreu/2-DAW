@@ -12,26 +12,45 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
         defer></script>
 </head>
+<style>
+    .selectLayer {
+        height: 20vh;
+        width: 10vw;
+        text-align: center;
+        overflow: auto;
+    }
+
+    .buttonFields{
+        height: 20vh;
+        width: 15vw;
+    }
+
+    .logField{
+        height: 20vh;
+        background-color: lightgray;
+        border: 2px solid black;
+        border-radius: 12px;
+        text-align: center;
+        overflow: auto;
+    }
+</style>
 
 <body>
 
     <div class="container">
         <div class="row">
             <div class="col-3 p-3">
-                <select name="convivientes" id="convivientes" multiple
-                    style="height:20vh; width: 10vw; text-align: center; overflow: hidden;">
+                <select name="convivientes" id="convivientes" multiple class="form-select selectLayer">
 
                 </select>
             </div>
-            <div class="col-3" style="width: 15vw; height: 20vh;">
-                <div id="habitaciones" class="d-flex flex-column p-3">
+            <div class="col-3">
+                <div id="habitaciones" class="d-flex flex-column p-2 gap-1 buttonFields">
 
                 </div>
             </div>
-            <div class="col-3" id="acciones">
-
+            <div id="accioneslog" class="col-5 m-3 logField align-middle">
             </div>
-            <div id="log" class="col-3"></div>
         </div>
     </div>
 </body>
