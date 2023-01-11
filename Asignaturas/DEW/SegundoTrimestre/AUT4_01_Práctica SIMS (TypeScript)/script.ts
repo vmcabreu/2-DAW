@@ -65,12 +65,34 @@ function mostrarDatos() {
     }
 }
 
-mostrarDatos();
+
 
 function mostrarAcciones(boton: string | null): void {
+    const paletaAcciones = document.getElementById("acciones");
     switch (boton) {
         case "Salón":
+            for (let i = 0; i < casa.habitaciones[0].acciones.length; i++) {
+                const boton = document.createElement("button");
+                const accion = document.createTextNode(casa.habitaciones[0].acciones[i]);
+                boton.appendChild(accion);
+                boton.onclick = function () {
+                    mostrarAcciones(boton.textContent);
+                }
+                boton.style.height = "5vh";
+                paletaAcciones?.appendChild(boton);
+                
+            }
+            break;
 
+        default:
+            break;
+    }
+}
+
+function crearTablaAcciones(habitacion: string): void{
+    switch (habitacion) {
+        case "Salón":
+                
             break;
 
         default:
@@ -82,3 +104,4 @@ function mostrarAcciones(boton: string | null): void {
 
 
 
+mostrarDatos();
