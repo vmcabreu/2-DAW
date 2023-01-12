@@ -1,22 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const conversion = (moneda1,moneda2,cantidad) => {
+
+  }
+
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Conversor Moneda</h1>
+        <div>
+        <label>Convierte de </label>
+        <select>
+          <option selected>Euro</option>
+          <option>Dólar</option>
+          <option>Yen</option>
+        </select>
+        <label> a </label>
+        <select>
+          <option>Euro</option>
+          <option selected>Dólar</option>
+          <option>Yen</option>
+        </select>
+        </div>
+        <label>Cantidad: </label>
+        <input type="number" value="0"></input>
+        <button onClick={() => conversion("Goal!")}>Convertir</button>
       </header>
     </div>
   );
