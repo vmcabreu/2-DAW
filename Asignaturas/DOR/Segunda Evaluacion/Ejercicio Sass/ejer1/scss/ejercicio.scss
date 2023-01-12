@@ -1,0 +1,23 @@
+
+$section-background-color: blue;
+$article-color-background: lightblue;
+$article-hover-color: yellow;
+
+
+section{
+    background-color: $section-background-color;
+    padding: 10px;
+    
+    article{
+        background-color: $article-color-background;
+        margin: 5px;
+        padding: 5px;
+    
+        &:hover{
+            background-color: $article-hover-color;
+        }
+    }
+
+}
+
+

@@ -1,0 +1,19 @@
+$section-background-color: blue;
+$article-color-background: lighten($section-background-color, 30%);
+$article-hover-color: complement($section-background-color);
+
+section {
+  background-color: $section-background-color;
+  padding: 10px;
+
+  article {
+    background-color: $article-color-background;
+    margin: 5px;
+    padding: 5px;
+
+    &:hover {
+      background-color: $article-hover-color;
+    }
+  }
+
+}
