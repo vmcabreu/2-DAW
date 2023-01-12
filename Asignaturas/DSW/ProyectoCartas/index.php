@@ -31,11 +31,11 @@ require_once("Baraja.php");
         <button type="submit" name="crearMesa">Crear Mesa</button>
     </form>
     <?php
-        $movimientos = 0;
-        $parejas = 0;
+    $movimientos = 0;
+    $parejas = 0;
     ?>
-    <p>Movimientos: <?=$movimientos?></p>
-    <p>Parejas Encontradas: <?=$parejas?></p>
+    <p>Movimientos: <?= $movimientos ?></p>
+    <p>Parejas Encontradas: <?= $parejas ?></p>
     <div id="mesa" style="display: block !important;">
         <?php
         if (isset($_POST["crearMesa"])) {
@@ -57,23 +57,24 @@ require_once("Baraja.php");
                             str_replace("bocabajo.png",substr($_COOKIE['carta1'],0,(strlen($_COOKIE['carta1'])-1)),$carta);
                         }
                     }
+                    $_COOKIE['pair']="true";
                     $_COOKIE['carta1']="";
                     $_COOKIE['carta2']="";
-                    $_COOKIE['pair']="true";
                 
                 }else{
                     $movimientos++;
+                    $_COOKIE['pair']="false";
                     $_COOKIE['carta1']="";
                     $_COOKIE['carta2']="";
-                    $_COOKIE['pair']="false";
                 }
+
             }
         }
         ?>
     </div>
     <script>
-        function getCookie(cookie) {
-            let name = cookie + "=";
+        function getCookie(loginCookie) {
+            let name = loginCookie + "=";
             let decodedCookie = decodeURIComponent(document.cookie);
             let ca = decodedCookie.split(";");
             for (let i = 0; i < ca.length; i++) {
@@ -90,21 +91,24 @@ require_once("Baraja.php");
 
 
         document.addEventListener("click", (div) => {
-            let carta1 = getCookie("carta1");
-            let carta2 = getCookie("carta2");
-            if (carta1 == "" || carta1 == "numParejas") {
-                document.cookie = "carta1=" + div.target.name
+            if (div.target.tagName == "IMG") {
+                let carta1 = getCookie("carta1");
+                let carta2 = getCookie("carta2");
+                if (carta1 == "") {
+                    document.cookie = "carta1=" + div.target.name + ";";
+                }else if (carta2 == "") {
+                    document.cookie = "carta2=" + div.target.name + ";";
+                }
+                console.log(getCookie("carta1"));
+                console.log(div.target)
+                console.log(div.target.src)
+                let ruta = div.target.src.replace("bocaabajo.png", `${div.target.name.replace(/\d+/,"")}/${div.target.name}.png`)
+                //div.target.src = `http://localhost/DSW/ProyectoCartas/imagenesBaraja/${div.target.name.replace(/\d+/,"")}/${div.target.name}.png`;
+                div.target.src = ruta
+                console.log(div.target.src)
+                const mesa = document.getElementById("mesa");
             }
-            if (carta2 == "" || carta2 == "numParejas") {
-                document.cookie = "carta2=" + div.target.name
-            }      
-            console.log(div.target)
-            console.log(div.target.src)
-            let ruta = div.target.src.replace("bocaabajo.png",`${div.target.name.replace(/\d+/,"")}/${div.target.name}.png`)
-            //div.target.src = `http://localhost/DSW/ProyectoCartas/imagenesBaraja/${div.target.name.replace(/\d+/,"")}/${div.target.name}.png`;
-            div.target.src = ruta
-            console.log(div.target.src)
-            const mesa = document.getElementById("mesa");
+
 
         })
     </script>
