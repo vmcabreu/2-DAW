@@ -6,9 +6,6 @@ class Juego
     private static $palos =  ["bastos", "copas", "espadas", "oros"];
     private static $numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     private static $baraja;
-    private static $mesaBarajada;
-    private static $carta1;
-    private static $carta2;
 
     public function __construct(array $baraja = [])
     {
@@ -39,11 +36,11 @@ class Juego
     }
 
     public static function crearMesa()
-    {
+    {   
         $mesa = [];
         $index = 0;
 
-        if (count(self::$baraja) > 0) {
+        if (count($_SESSION['baraja']) > 0 && count($_SESSION['baraja']) <= 48) {
             
             foreach (self::$baraja as $carta) {
                 $name = $carta->palo . $carta->numero;
@@ -51,9 +48,10 @@ class Juego
                 echo "<div class='col-1'><a href='cartasave.php?name=$name&id=pos$index'><img src='$carta->bocabajo' id=carta$index></a></div>";
                 $index++;
             }
+            $_SESSION['mesa'] = $mesa;
+            
         }
-        $_SESSION['mesa'] = $mesa;
-        self::$mesaBarajada = $mesa;
+
     }
 
 

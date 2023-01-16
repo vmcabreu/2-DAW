@@ -103,7 +103,7 @@ if ($_GET) {
                 $_SESSION['mesa'] = $_SESSION['mesaActual'];
                 $_SESSION['cartasGiradas'] = 0;
                 $_SESSION['movimientos'] = $movimientos;
-                echo "<script>window.location.reload();</script>";
+                
             }
         }
     }

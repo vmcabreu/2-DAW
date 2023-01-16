@@ -10,6 +10,16 @@ function rehacerMesa(array $mesa)
     }
 }
 
+if (isset($_SESSION['movimientos']) &&  isset($_SESSION['parejas'])) {
+    $movimientos = intval($_SESSION['movimientos']);
+    $parejas = intval($_SESSION['parejas']);
+} else {
+    $_SESSION['movimientos'] = 0;
+    $_SESSION['parejas'] = 0;
+    $movimientos = intval($_SESSION['movimientos']);
+    $parejas = intval($_SESSION['parejas']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
