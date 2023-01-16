@@ -1,0 +1,10 @@
+$numTexto : 5;
+$tam-base : 1rem;
+
+@for $i from 0 to 6 {
+  .texto#{$i} {
+    font-size: $tam-base;
+  }
+
+  $tam-base: $tam-base+0.2rem;
+}

@@ -1,0 +1,12 @@
+section {
+  background-color: blue;
+  padding: 10px;
+}
+section article {
+  background-color: lightblue;
+  margin: 5px;
+  padding: 5px;
+}
+section article:hover {
+  background-color: yellow;
+}/*# sourceMappingURL=ejercicio1.css.map */

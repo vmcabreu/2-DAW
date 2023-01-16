@@ -1,0 +1,33 @@
+@each $nombre,
+$background-color,
+$text-color,
+$border-size,
+$shadow-type,
+$centrado in (normal, white, black, 1px, suave, false),
+(aviso, orange, black, 2px, fuerte, false),
+(correcto, lightgreen, #660066, 3px, normal, true) {
+  .#{$nombre} {
+    margin: 10px;
+    padding: 10px;
+    color: $text-color;
+    background-color: $background-color;
+    border: $border-size solid $text-color;
+
+    @if $shadow-type ==suave {
+      box-shadow: 1px 1px 3px black;
+    }
+
+    @else if $shadow-type ==fuerte {
+      box-shadow: 6px 6px 12px black;
+    }
+
+    @else {
+      box-shadow: 3px 3px 6px black;
+    }
+
+    @if $centrado {
+      text-align: center;
+    }
+
+  }
+}

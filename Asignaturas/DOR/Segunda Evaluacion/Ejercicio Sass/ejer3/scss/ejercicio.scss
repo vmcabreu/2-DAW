@@ -1,0 +1,17 @@
+$opciones: (blue:100 ,red:200 ,yellow:150);
+
+@each $color,
+$width in $opciones {
+  .flexible-#{$width}-#{$color} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &>div {
+      width: #{$width}px;
+      background-color: $color;
+      margin: 5px;
+      text-align: center;
+    }
+  }
+}
