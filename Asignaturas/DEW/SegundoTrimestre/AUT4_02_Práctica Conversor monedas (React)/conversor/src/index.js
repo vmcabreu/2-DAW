@@ -1,126 +1,51 @@
-import "./App.css";
-import logo from "./logo.svg";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import { useState } from "react";
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import Conversor from "./Conversor";
+import reportWebVitals from "./reportWebVitals";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
+function index() {
+  let eleccion1 = "";
+  let eleccion2 = "";
+  let cantidad = 0;
 
+  const conseguirCantidad = (e) => {
+    cantidad = e.target.value;
+  };
 
-function App() {
-  const [Euro, setEuro] = useState(false);
-const [Dolar, setDolar] = useState(false);
-const [Yen, setYen] = useState(false);
-const [eleccion1,setEleccion1] = useState("");
-const [eleccion2,setEleccion2] = useState("");
-const [cantidad, setCantidad] = useState(0);
-const [conversionFinal, setConversion] = useState("");
-
-const conseguirCantidad = (e) => {
-  setCantidad(e.target.value);
-};
-
-function setEleccion(nombre,valor) {
-  if (nombre == "moneda1") {
-    setEleccion1(valor);
-  } else {
-    setEleccion2(valor);
-  }
-}
-
-function seleccionarMoneda(e) {
-  const selectedValue = e.target.value;
-  if (selectedValue === "Euro") {
-    setEuro(true);
-    setEleccion(e.target.name,selectedValue);
-  } else if (selectedValue === "Dolar") {
-    setDolar(true);
-    setEleccion(e.target.name,selectedValue);
-  } else if (selectedValue === "Yen") {
-    setYen(true);
-    setEleccion(e.target.name,selectedValue);
+  function setEleccion(nombre, valor) {
+    if (nombre == "moneda1") {
+      eleccion1 = valor;
+    } else {
+      eleccion2 = valor;
+    }
   }
 
-}
+  function seleccionarMoneda(e) {
+    const selectedValue = e.target.value;
+    if (selectedValue === "Euro") {
+      setEleccion(e.target.name, selectedValue);
+    } else if (selectedValue === "Dolar") {
+      setEleccion(e.target.name, selectedValue);
+    } else if (selectedValue === "Yen") {
+      setEleccion(e.target.name, selectedValue);
+    }
+  }
 
-function conversionMoneda() {
-  let conversion = 0;
-  if (eleccion1 == "Euro" && eleccion2 == "Dolar") {
-    conversion = (cantidad * 0.9) / 1;
-    return ( conversionFinal =
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
-    );
-  } else if (eleccion1 == "Euro" && eleccion2 == "Yen") {
-    conversion = (cantidad * 138) / 1;
-    return (conversionFinal =
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
-    );
-  } else if (eleccion1 == "Dolar" && eleccion2 == "Euro") {
-    conversion = cantidad / 0.9;
-    return (conversionFinal=
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
-    );
-  } else if (eleccion1 == "Dolar" && eleccion2 == "Yen") {
-    conversion = (cantidad * 138) / 0.9;
-    return (conversionFinal=
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
-    );
-  } else if (eleccion1 == "Yen" && eleccion2 == "Dolar") {
-    conversion = (cantidad * 0.9) / 138;
-    return (conversionFinal=
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
-    );
-  } else if (eleccion1 == "Yen" && eleccion2 == "Euro") {
-    conversion = cantidad / 138;
-    return (conversionFinal=
-      "La conversión de " +
-      cantidad +
-      " " +
-      eleccion1 +
-      " a " +
-      eleccion2 +
-      " son: " +
-      conversion
+  function conversionMoneda() {
+    const conversion = ReactDOM.createRoot(document.getElementById("root"));
+    conversion.render(
+      <React.Fragment>
+        <Conversor
+          moneda1={eleccion1}
+          moneda2={eleccion2}
+          cantidad={cantidad}
+        />
+      </React.Fragment>
     );
   }
-}
-console.log(eleccion1);
 
   return (
     <div>
@@ -141,27 +66,18 @@ console.log(eleccion1);
           </select>
         </div>
         <label>Cantidad: </label>
-        <input
-          type="number"
-          onChange={conseguirCantidad}
-          value={cantidad}
-        ></input>
-        <button onClick={(e) => conversionMoneda()}>Convertir</button>
-        <div>
-          <p>{conversionFinal}</p>
-        </div>
+        <input type="number" onChange={conseguirCantidad}></input>
+        <button onClick={() => conversionMoneda()}>Convertir</button>
+        {}
       </header>
     </div>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <App />
-);
+const esqueleto = index();
+root.render(esqueleto);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
