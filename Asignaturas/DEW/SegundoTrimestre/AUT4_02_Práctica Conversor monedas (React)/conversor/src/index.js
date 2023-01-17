@@ -6,17 +6,18 @@ import Conversor from "./Conversor";
 import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-function index() {
+function Esqueleto() {
   let eleccion1 = "";
   let eleccion2 = "";
   let cantidad = 0;
+
 
   const conseguirCantidad = (e) => {
     cantidad = e.target.value;
   };
 
-  function setEleccion(nombre, valor) {
-    if (nombre == "moneda1") {
+  function setEleccion(valor) {
+    if (eleccion1 == "") {
       eleccion1 = valor;
     } else {
       eleccion2 = valor;
@@ -35,7 +36,7 @@ function index() {
   }
 
   function conversionMoneda() {
-    const conversion = ReactDOM.createRoot(document.getElementById("root"));
+    const conversion = ReactDOM.createRoot(document.getElementById("conversion"));
     conversion.render(
       <React.Fragment>
         <Conversor
@@ -66,15 +67,18 @@ function index() {
           </select>
         </div>
         <label>Cantidad: </label>
-        <input type="number" onChange={conseguirCantidad}></input>
+        <input type="number" onChange={(e)=>conseguirCantidad(e)}/>
         <button onClick={() => conversionMoneda()}>Convertir</button>
-        {}
       </header>
+      <div id="conversion">
+
+      </div>
     </div>
+    
   );
 }
 
-const esqueleto = index();
+const esqueleto = Esqueleto();
 root.render(esqueleto);
 
 // If you want to start measuring performance in your app, pass a function
