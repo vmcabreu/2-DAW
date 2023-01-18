@@ -19,7 +19,7 @@ function conversionMoneda(moneda1, moneda2, cantidad) {
   } else {
     monedaConvertir = Number(cantidad);
   }
-  return monedaConvertir;
+  return monedaConvertir.toFixed(2);
 }
 
 class Conversor extends React.Component {
@@ -36,7 +36,6 @@ class Conversor extends React.Component {
     return (
       <div>
         <p>
-          {this.conversionMoneda}
           La conversión de {this.state.cantidad} {this.state.moneda1} son{" "}
           {conversionMoneda(
             this.state.moneda1,

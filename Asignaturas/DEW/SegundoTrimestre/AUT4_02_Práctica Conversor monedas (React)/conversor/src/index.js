@@ -16,16 +16,18 @@ function Esqueleto() {
     cantidad = e.target.value;
   };
 
-  function setEleccion(valor) {
-    if (eleccion1 == "") {
+  function setEleccion(nombre,valor) {
+    if (nombre == "moneda1") {
       eleccion1 = valor;
     } else {
       eleccion2 = valor;
     }
+    console.log(eleccion1+" "+eleccion2);
   }
 
   function seleccionarMoneda(e) {
     const selectedValue = e.target.value;
+    console.log(selectedValue+" "+e.target.name);
     if (selectedValue === "Euro") {
       setEleccion(e.target.name, selectedValue);
     } else if (selectedValue === "Dolar") {
@@ -33,6 +35,7 @@ function Esqueleto() {
     } else if (selectedValue === "Yen") {
       setEleccion(e.target.name, selectedValue);
     }
+    
   }
 
   function conversionMoneda() {
@@ -54,16 +57,16 @@ function Esqueleto() {
         <h1>Conversor Moneda</h1>
         <div>
           <label>Convierte de </label>
-          <select onChange={seleccionarMoneda}>
-            <option name="moneda1">Euro</option>
-            <option name="moneda1">Dolar</option>
-            <option name="moneda1">Yen</option>
+          <select name="moneda1" onChange={(e)=>seleccionarMoneda(e)} defaultValue={eleccion1="Euro"}>
+            <option name="moneda1" value={"Euro"} >Euro</option>
+            <option name="moneda1" value={"Dolar"}>Dolar</option>
+            <option name="moneda1" value={"Yen"}>Yen</option>
           </select>
           <label> a </label>
-          <select onChange={seleccionarMoneda}>
-            <option name="moneda2">Euro</option>
-            <option name="moneda2">Dolar</option>
-            <option name="moneda2">Yen</option>
+          <select name="moneda2" onChange={(e)=>seleccionarMoneda(e)} defaultValue={eleccion2="Dolar"}>
+            <option name="moneda2" value={"Euro"}>Euro</option>
+            <option name="moneda2" value={"Dolar"} >Dolar</option>
+            <option name="moneda2" value={"Yen"}>Yen</option>
           </select>
         </div>
         <label>Cantidad: </label>
