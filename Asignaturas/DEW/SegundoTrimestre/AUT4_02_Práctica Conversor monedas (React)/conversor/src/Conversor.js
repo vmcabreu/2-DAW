@@ -2,6 +2,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 
+/**
+ * Toma tres parámetros, dos cadenas y un número, y devuelve un número
+ * @param moneda1 - La moneda desde la que desea convertir.
+ * @param moneda2 - La moneda a la que desea convertir.
+ * @param cantidad - La cantidad de dinero a convertir.
+ * @returns el valor de la variable monedaConvertir.
+ */
 function conversionMoneda(moneda1, moneda2, cantidad) {
   let monedaConvertir = 0;
   if (moneda1 == "Euro" && moneda2 == "Dolar") {
@@ -22,6 +29,8 @@ function conversionMoneda(moneda1, moneda2, cantidad) {
   return monedaConvertir.toFixed(2);
 }
 
+/* La clase Conversor es un componente de React que genera un párrafo con la conversión de la cantidad
+de dinero de una moneda a otra. */
 class Conversor extends React.Component {
   constructor(props) {
     super(props);
