@@ -1,1 +1,1 @@
-{"version":3,"sources":["ejercicio1.scss","ejercicio1.css"],"names":[],"mappings":"AAMA;EACI,sBANuB;EAOvB,aAAA;ACLJ;ADOI;EACI,2BATmB;EAUnB,WAAA;EACA,YAAA;ACLR;ADOQ;EACI,wBAbU;ACQtB","file":"ejercicio1.css"}
+{"version":3,"sourceRoot":"","sources":["ejercicio1.scss"],"names":[],"mappings":"AAMA;EACI,kBANuB;EAOvB;;AAEA;EACI,kBATmB;EAUnB;EACA;;AAEA;EACI,kBAbU","file":"ejercicio1.css"}

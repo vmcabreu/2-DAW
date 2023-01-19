@@ -1,0 +1,17 @@
+@mixin encabezados($nombre, $color, $tamanio, $reduccion) {
+    $tamaño : $tamanio;
+    $darker : 5%;
+
+    @for $i from 1 through 6 {
+        .#{$nombre} h#{$i} {
+            color: darken($color, $darker);
+            font-size: $tamaño;
+        }
+
+        $tamaño : ($tamaño * 80) / 100;
+        $darker : $darker+5;
+
+    }
+}
+
+@include encabezados("miclase", #cc3366, 5rem, 80)
