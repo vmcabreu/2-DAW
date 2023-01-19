@@ -41,6 +41,13 @@ Para nuestra configuración de Nginx,primero debemos fijar los permisos adecuado
 
 Luego haremos la configuración del virtual host para nuestra aplicación.
 
+![Alt text](screenshots/laravel/6.png)
+
+Ya creada, comprobamos la sintaxis del archivo y si todo va bien, recargamos el servicio de Nginx y entramos a la URL de nuestra [aplicación](http://laravel.travelroad.alu6618.arkania.es/).
+
+![Alt text](screenshots/laravel/7.png)
+![Alt text](screenshots/laravel/8.png)
+
 
 
 ## Laravel: Lógica de Negocio
