@@ -1,4 +1,4 @@
-<% @page contentType="text/html" pagEncoding="UTF-8" %>
+<%@page contentType="text/html" pagEncoding="UTF-8" %>
     <html>
 
     <body>

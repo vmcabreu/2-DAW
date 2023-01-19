@@ -56,7 +56,7 @@ if (isset($_SESSION['movimientos']) &&  isset($_SESSION['parejas'])) {
     <div class="container">
         <div class="row h-50 ">
             <div class="col-8 w-75">
-                <form method="post" action=" #" enctype="multipart/form-data">
+                <form method="post" action="#" enctype="multipart/form-data">
                     <div class=" p-3 d-flex gap-4 ">
                         <label for="nParejas" class="form-label">Introduce el número de parejas:</label>
                         <input type="text" class="form-control w-25" name="numParejas" id="nParejas" />
