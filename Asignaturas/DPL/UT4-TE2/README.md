@@ -52,7 +52,30 @@ Ya creada, comprobamos la sintaxis del archivo y si todo va bien, recargamos el 
 
 ## Laravel: Lógica de Negocio
 
+Nos quedaría cambiar el comportamiento de la aplicación para que cargue los datos y los muestre en una plantilla. En este caso tendremos que realizar una serie de pasos para que se nos muestre tal y como se pide.
+
+Primero, dentro de nuestra aplicación, nos moveremos a la carpeta *routes* y modificaremos el archivo **web.php** para que nos cargue los datos según en que página estemos.
+
+![Alt text](screenshots/laravel/10.png)
+
+Luego tenemos que realizar las plantillas que renderiza los datos. Nos moveremos a la carpeta `resources/views/travelroad.blade.php` y crearemos las plantillas, en este caso crearemos 3: El inicio (*travelroad*), lo que hemos visitado (*visited*) y lo que queremos visitar (*wished*).
+
+Por lo tanto la estructura de carpetas nos quedaría como hemos editado en el archivo `routes/web.php`:
+
+![Alt text](screenshots/laravel/11.png)
+
+Si quieren echar un ojo al código lo pueden encontrar [aquí]()
+
+Una vez terminado entraremos en el enlace de nuestra [aplicación](http://laravel.travelroad.alu6618.arkania.es/) para comprobar que todo esta bien.
+
+![Alt text](screenshots/laravel/12.png)
+![Alt text](screenshots/laravel/13.png)
+![Alt text](screenshots/laravel/14.png)
+
+
 ## Laravel: Depliegue
+
+grep vendor .gitignore
 
 # Express
 
