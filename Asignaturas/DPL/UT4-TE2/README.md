@@ -21,61 +21,68 @@ El primer framework web con el que interactuaremos sera Laravel, que esta orient
 
 El primer paso sera instalar el gestor de dependencias para PHP llamado **Composer**. Tras instalarlo comprobamos su version y luego, como necesitamos que ciertos módulos de PHP este habilitados en el sistema, instalamos algunos paquetes de soporte.
 
-![Alt text](screenshots/laravel/0.png)
+![](screenshots/laravel/0.png)
 
 Ya con todo lo necesario podemos crear la estructura de la aplicación indicando que paquete queremos usar en este caso _laravel/laravel_. Una vez terminado podemos ver el _scaffolding_ o andamio para ya poder empezar a trabajar.
 
-![Alt text](screenshots/laravel/1.png)
-![Alt text](screenshots/laravel/2.png)
+![](screenshots/laravel/1.png)
+![](screenshots/laravel/2.png)
 
-Comprobamos dentro de nuestra carpeta de trabajo si se ha instalado **Artisan**, la interfaz de línea de comandos de Laravel. Tras comprobarlo, durante el andamiaje de nuestra aplicación se ha creado un fichero de configuración _.env_ el cual abriremos y modificaremos ciertos valores para especificar las credenciales de acceso a la base de datos de PostgreSQL.
+Comprobamos dentro de nuestra carpeta de trabajo si se ha instalado **Artisan**, la interfaz de línea de comandos de Laravel. Tras comprobarlo, durante el andamiaje de nuestra aplicación se ha creado un fichero de configuración _.env_ el cual abriremos y modificaremos ciertos valores para especificar las credenciales de acceso a la base de datos de PostgreSQL. En este caso haremos uno en desarrollo y otro en produccion.
 
-![Alt text](screenshots/laravel/3.png)
-![Alt text](screenshots/laravel/4.png)
+![](screenshots/laravel/3.png)
+
+### Config.env Desarrollo
+
+![](screenshots/laravel/4.png)
+
+### Config.env Produccion
+
+![](screenshots/laravel/4%20produccion.png)
 
 ## Laravel: Configuración Nginx
 
 Para nuestra configuración de Nginx,primero debemos fijar los permisos adecuados a los ficheros del proyecto para que los servicios tanto de Nginx como PHP-FPM puedan trabajar sin ningún tipo de problema.
 
-![Alt text](screenshots/laravel/5.png)
+![](screenshots/laravel/5.png)
 
-Luego haremos la configuración del virtual host para nuestra aplicación.
+Luego haremos la configuración del virtual host para nuestra aplicación en producción y local.
 
-![Alt text](screenshots/laravel/6.png)
+![](screenshots/laravel/6.png)
+![](screenshots/laravel/6%20produccion.png)
 
 Ya creada, comprobamos la sintaxis del archivo y si todo va bien, recargamos el servicio de Nginx y entramos a la URL de nuestra [aplicación](http://laravel.travelroad.alu6618.arkania.es/).
 
-![Alt text](screenshots/laravel/7.png)
-![Alt text](screenshots/laravel/8.png)
-
-
+![](screenshots/laravel/7.png)
+![](screenshots/laravel/8.png)
 
 ## Laravel: Lógica de Negocio
 
 Nos quedaría cambiar el comportamiento de la aplicación para que cargue los datos y los muestre en una plantilla. En este caso tendremos que realizar una serie de pasos para que se nos muestre tal y como se pide.
 
-Primero, dentro de nuestra aplicación, nos moveremos a la carpeta *routes* y modificaremos el archivo **web.php** para que nos cargue los datos según en que página estemos.
+Primero, dentro de nuestra aplicación, nos moveremos a la carpeta _routes_ y modificaremos el archivo **web.php** para que nos cargue los datos según en que página estemos.
 
-![Alt text](screenshots/laravel/10.png)
+![](screenshots/laravel/10.png)
 
-Luego tenemos que realizar las plantillas que renderiza los datos. Nos moveremos a la carpeta `resources/views/travelroad.blade.php` y crearemos las plantillas, en este caso crearemos 3: El inicio (*travelroad*), lo que hemos visitado (*visited*) y lo que queremos visitar (*wished*).
+Luego tenemos que realizar las plantillas que renderiza los datos. Nos moveremos a la carpeta `resources/views/travelroad.blade.php` y crearemos las plantillas, en este caso crearemos 3: El inicio (_travelroad_), lo que hemos visitado (_visited_) y lo que queremos visitar (_wished_).
 
 Por lo tanto la estructura de carpetas nos quedaría como hemos editado en el archivo `routes/web.php`:
 
-![Alt text](screenshots/laravel/11.png)
+![](screenshots/laravel/11.png)
 
 Si quieren echar un ojo al código lo pueden encontrar [aquí]()
 
 Una vez terminado entraremos en el enlace de nuestra [aplicación](http://laravel.travelroad.alu6618.arkania.es/) para comprobar que todo esta bien.
 
-![Alt text](screenshots/laravel/12.png)
-![Alt text](screenshots/laravel/13.png)
-![Alt text](screenshots/laravel/14.png)
-
+![](screenshots/laravel/12.png)
+![](screenshots/laravel/13.png)
+![](screenshots/laravel/14.png)
 
 ## Laravel: Depliegue
 
-grep vendor .gitignore
+![](screenshots/laravel/15.png)
+![](screenshots/laravel/16.png)
+![](screenshots/laravel/17.png)
 
 # Express
 
