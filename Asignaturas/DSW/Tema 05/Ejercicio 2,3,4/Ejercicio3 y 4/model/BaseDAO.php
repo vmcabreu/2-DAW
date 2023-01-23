@@ -10,15 +10,11 @@ class BaseDAO
      */
     public static function getConexion()
     {
-        $conexion = new MySQLi('localhost', 'productos', 'productos2021', 'productos');
-        
-        if ($conexion->errno != null) {
-            throw new Exception("Error conectando a la base de datos de productos: ", $conexion->error);
-        }
-    
+        [$host, $usuario, $passwd, $bd] = ['localhost', 'gestisimal', 'gestisimal2021', 'gestisimal'];
+        $conexion = new PDO("mysql:host=$host;dbname=$bd;charset=utf8", $usuario, $passwd);
         return $conexion;
     }
-    
+
 
     /**
      * Se conecta a la base de datos y ejecuta la consulta.
@@ -27,22 +23,25 @@ class BaseDAO
      * 
      * @return bool | mysqli_result El resultado de la consulta.
      */
-    public static function consulta(string $sql):bool | mysqli_result
+    public static function consulta(string $sql): bool | PDOStatement
     {
         $conexion = self::getConexion();
         $resultado = $conexion->query($sql);
-        self::$lastAffectedRows = $conexion->affected_rows;
-        $conexion->close();
+        unset($conexion);
         return $resultado;
     }
 
-    /**
-     * Devuelve el número de filas afectadas por la última consulta
-     * 
-     * @return int El número de filas afectadas por la última instrucción SQL.
-     */
-    public static function getLastAffectedRows()
+    public static function modificacion(string $sql)
     {
-        return self::$lastAffectedRows;
+        $conexion = self::getConexion();
+        $conexion->beginTransaction();
+        $resultado = $conexion->exec($sql);
+        if ($resultado !=0) {
+            $conexion->commit();
+        }else{
+            $conexion->rollback();
+        }
+        $conexion->close();
     }
+
 }

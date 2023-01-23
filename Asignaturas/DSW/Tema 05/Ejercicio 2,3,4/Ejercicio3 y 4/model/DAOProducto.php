@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__."/BaseDAO.php");
-require_once(__DIR__."/Producto.php");
+require_once("BaseDAO.php");
+require_once("Producto.php");
 
 class DAOProducto
 {
@@ -11,10 +11,10 @@ class DAOProducto
      * 
      * @return bool El retorno es un valor booleano.
      */
-    public static function borrarProducto(int $id): bool
+    public static function borrarProducto(int $id)
     {
-        $sql = "DELETE FROM producto WHERE id = '$id'";
-        return BaseDAO::consulta($sql);
+        $sql = "DELETE FROM producto WHERE codigo = '$id'";
+        return BaseDAO::modificacion($sql);
     }
 
     /**
@@ -24,11 +24,11 @@ class DAOProducto
      * 
      * @return bool La consulta está siendo devuelta.
      */
-    public static function modificarProducto(Producto $producto): bool
+    public static function modificarProducto(Producto $producto)
     {
-        $sql = "UPDATE producto SET descripcion = '$producto->descripcion',nombre = '$producto->nombre',
-        precio = $producto->precio,imagen = '$producto->imagen' WHERE id = $producto->id";
-        return BaseDAO::consulta($sql);
+        $sql = "UPDATE producto SET descripcion = '$producto->descripcion',pcompra = '$producto->pcompra',
+        pventa = $producto->pventa,stock = '$producto->stock' WHERE codigo = $producto->codigo";
+        return BaseDAO::modificacion($sql);
     }
 
     /**
@@ -38,21 +38,21 @@ class DAOProducto
      * 
      * @return bool El resultado de la consulta.
      */
-    public static function insertarProducto(Producto $producto): bool
+    public static function insertarProducto(Producto $producto)
     {
         if ($producto->id == 0) {
-            $id = "null";
+            $codigo = "null";
         } else {
-            $id = $producto->id;
+            $codigo = $producto->codigo;
         }
-        $sql = "INSERT INTO producto VALUES ('$id','$producto->descripcion','$producto->nombre',
-        $producto->precio,$producto->imagen)";
-        return BaseDAO::consulta($sql);
+        $sql = "INSERT INTO producto VALUES ('$codigo','$producto->descripcion','$producto->pventa',
+        $producto->pcompra,$producto->stock)";
+        BaseDAO::modificacion($sql);
     }
 
-    public static function buscarProducto(int $id): ?Producto
+    public static function buscarProducto(int $codigo): ?Producto
     {
-        $resultado = BaseDAO::consulta("SELECT * FROM producto WHERE id='$id'");
+        $resultado = BaseDAO::consulta("SELECT * FROM producto WHERE codigo='$codigo'");
         if ($resultado->num_rows == 0) {
             return null;
         }
@@ -75,7 +75,7 @@ class DAOProducto
 
 
         while (($producto = $resultado->fetch_assoc()) != null) {
-            $listaProductos[$producto['id']] = Producto::getProducto($producto);
+            $listaProductos[$listaProductos['id']] = Producto::getProducto($producto);
         }
 
         return  $listaProductos;
@@ -95,5 +95,30 @@ class DAOProducto
     public static function numPags(int $tamPag): int
     {
         return ceil(DAOProducto::numProductos() / $tamPag);
+    }
+
+
+    public static function generarListaProducto()
+    {
+        $listaProductos = [];
+        $sql = "SELECT * FROM producto";
+        //$resultado = BaseDAO::consulta($sql);
+        $conexion = BaseDAO::getConexion();
+        $consulta = $conexion->prepare($sql);
+        $consulta->execute();
+        while (($producto = $consulta->fetch(PDO::FETCH_ASSOC)) != null) {
+            $nuevoproducto = Producto::createProducto($producto);
+            array_push($listaProductos, $nuevoproducto);
+        }
+        return $listaProductos;
+    }
+
+    public static function imprimirLista()
+    {
+        $listaProductos = self::generarListaProducto();
+        for ($i = 0; $i < count($listaProductos); $i++) {
+            $producto = $listaProductos[$i];
+            echo "<tr><td>", $producto['codigo'], "</td><td>", $producto['descripcion'], "</td><td>", $producto['pcompra'], "</td><td>", $producto['pventa'], "</td><td>", $producto['stock'], "</td></tr>";
+        }
     }
 }

@@ -55,13 +55,13 @@ class Producto
      * 
      * @return Producto Una nueva instancia de la clase Producto.
      */
-    public static function getProducto($datosProducto)
+    public static function createProducto($datosProducto)
     {
         $codigo = $datosProducto['codigo'];
         $descripcion = $datosProducto['descripcion'];
         $pcompra = floatval($datosProducto['pcompra']);
         $pventa = floatval($datosProducto['pventa']);
-        $stock = $datosProducto['stock'];
+        $stock = intval($datosProducto['stock']);
         return new Producto($codigo, $descripcion, $pcompra, $pventa, $stock);
     }
 
