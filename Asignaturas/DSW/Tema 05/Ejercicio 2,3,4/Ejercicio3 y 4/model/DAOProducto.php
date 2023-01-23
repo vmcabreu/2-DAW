@@ -97,28 +97,19 @@ class DAOProducto
         return ceil(DAOProducto::numProductos() / $tamPag);
     }
 
+    public static function imprimirProducto(Producto $producto)
+    {
+        echo "<tr><td>", $producto['codigo'], "</td><td>", $producto['descripcion'], "</td><td>", $producto['pcompra'], "</td><td>", $producto['pventa'], "</td><td>", $producto['stock'], "</td></tr>";
+    }
 
     public static function generarListaProducto()
     {
-        $listaProductos = [];
         $sql = "SELECT * FROM producto";
-        //$resultado = BaseDAO::consulta($sql);
         $conexion = BaseDAO::getConexion();
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
         while (($producto = $consulta->fetch(PDO::FETCH_ASSOC)) != null) {
-            $nuevoproducto = Producto::createProducto($producto);
-            array_push($listaProductos, $nuevoproducto);
-        }
-        return $listaProductos;
-    }
-
-    public static function imprimirLista()
-    {
-        $listaProductos = self::generarListaProducto();
-        for ($i = 0; $i < count($listaProductos); $i++) {
-            $producto = $listaProductos[$i];
-            echo "<tr><td>", $producto['codigo'], "</td><td>", $producto['descripcion'], "</td><td>", $producto['pcompra'], "</td><td>", $producto['pventa'], "</td><td>", $producto['stock'], "</td></tr>";
+            self::imprimirProducto(Producto::createProducto($producto));
         }
     }
 }
