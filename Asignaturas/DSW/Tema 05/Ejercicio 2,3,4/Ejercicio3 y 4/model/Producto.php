@@ -43,7 +43,7 @@ class Producto
      * 
      * @return mixed El valor del atributo.
      */
-    public function __get(string $atributo)
+    public function &__get(string $atributo)
     {
         return $this->atributos[$atributo];
     }

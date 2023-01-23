@@ -11,10 +11,10 @@ class DAOProducto
      * 
      * @return bool El retorno es un valor booleano.
      */
-    public static function borrarProducto(int $id)
+    public static function borrarProducto(string $id)
     {
         $sql = "DELETE FROM producto WHERE codigo = '$id'";
-        return BaseDAO::modificacion($sql);
+        BaseDAO::modificacion($sql);
     }
 
     /**
@@ -28,7 +28,7 @@ class DAOProducto
     {
         $sql = "UPDATE producto SET descripcion = '$producto->descripcion',pcompra = '$producto->pcompra',
         pventa = $producto->pventa,stock = '$producto->stock' WHERE codigo = $producto->codigo";
-        return BaseDAO::modificacion($sql);
+        return BaseDAO::modificacion($sql,false);
     }
 
     /**
@@ -40,12 +40,7 @@ class DAOProducto
      */
     public static function insertarProducto(Producto $producto)
     {
-        if ($producto->id == 0) {
-            $codigo = "null";
-        } else {
-            $codigo = $producto->codigo;
-        }
-        $sql = "INSERT INTO producto VALUES ('$codigo','$producto->descripcion','$producto->pventa',
+        $sql = "INSERT INTO producto VALUES ('$producto->codigo','$producto->descripcion','$producto->pventa',
         $producto->pcompra,$producto->stock)";
         BaseDAO::modificacion($sql);
     }
@@ -97,10 +92,6 @@ class DAOProducto
         return ceil(DAOProducto::numProductos() / $tamPag);
     }
 
-    public static function imprimirProducto(Producto $producto)
-    {
-        echo "<tr><td>", $producto['codigo'], "</td><td>", $producto['descripcion'], "</td><td>", $producto['pcompra'], "</td><td>", $producto['pventa'], "</td><td>", $producto['stock'], "</td></tr>";
-    }
 
     public static function generarListaProducto()
     {
@@ -109,7 +100,20 @@ class DAOProducto
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
         while (($producto = $consulta->fetch(PDO::FETCH_ASSOC)) != null) {
-            self::imprimirProducto(Producto::createProducto($producto));
+            self::imprimirLista(Producto::createProducto($producto));
         }
+    }
+
+    public static function imprimirLista(Producto $producto)
+    {
+        echo "<tr id='producto_$producto->codigo'>
+            <td><input type='text' value='$producto->codigo' maxlength='6' size='6' readonly='readonly'/></td>
+            <td><input type='text' value='$producto->descripcion' maxlength='512' size='50' readonly='readonly'/></td>
+            <td><input type='number' value='$producto->pcompra' maxlength='40' size='30' readonly='readonly'/></td>
+            <td><input type='number' value='$producto->pventa' maxlength='11' size='10' readonly='readonly'/></td>
+            <td><input type='number' value='$producto->stock' maxlength='40' size='20' readonly='readonly'/></td>
+            <td><button onclick='eliminarProducto(\"$producto->codigo\")'>Eliminar</button></td>
+            <td><button onclick='modificarGuardarProducto(\"$producto->codigo\")'>Modificar</button></td>
+        </tr>";
     }
 }

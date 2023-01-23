@@ -31,17 +31,32 @@ class BaseDAO
         return $resultado;
     }
 
-    public static function modificacion(string $sql)
+    public static function modificacion(string $sql,bool $emulacion=true)
     {
         $conexion = self::getConexion();
-        $conexion->beginTransaction();
-        $resultado = $conexion->exec($sql);
-        if ($resultado !=0) {
-            $conexion->commit();
+        if ($emulacion) {
+            $conexion->beginTransaction();
+            $resultado = $conexion->exec($sql);
+            if ($resultado != 0) {
+                $conexion->commit();
+            } else {
+                $conexion->rollback();
+            }
+            unset($conexion);
         }else{
-            $conexion->rollback();
-        }
-        $conexion->close();
-    }
+            $conexion->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+            $conexion->beginTransaction();
+            $resultado = $conexion->exec($sql);
+            if ($resultado != 0) {
+                $conexion->commit();
+            } else {
+                $conexion->rollback();
+            }
+            unset($conexion);
 
+        }
+        
+
+        return $resultado;
+    }
 }

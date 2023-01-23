@@ -11,6 +11,41 @@ require_once("../model/DAOProducto.php")
     <link rel="stylesheet" type="text/css" href=" ">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+    <script defer>
+        function modificarGuardarProducto(idProducto) {
+            let tr = document.getElementById("producto_" + idProducto);
+            let btn = tr.cells[tr.cells.length - 1].firstChild;
+
+            if (btn.textContent == "Modificar") {
+                for (let i = 1; i < tr.cells.length - 2; i++) {
+                    tr.cells[i].firstChild.readOnly = false;
+                    tr.cells[i].firstChild.style.backgroundColor = "lightblue";
+                    console.log(tr.cells[i].firstChild.value);
+                }
+                btn.textContent = "Guardar";
+            } else {
+                const valorCampos = [];
+                for (let i = 1; i < tr.cells.length - 2; i++) {
+                    valorCampos.push(tr.cells[i].firstChild.value);
+                    
+                }
+                btn.textContent = "Modificar";
+                window.location.href = "../controller/modificacion.php?codigo=" + valorCampos[0] + "&descripcion=" + valorCampos[1] + "&pcompra=" + valorCampos[2] + "&pventa=" + valorCampos[3] + "&stock=" + valorCampos[4];
+
+
+
+            }
+
+        }
+
+        function eliminarProducto(id) {
+            let confirmar = confirm("¿Estás seguro de que quieres eliminar el producto: " + id + "?")
+            if (confirmar) {
+                window.location.href = "../controller/eliminar.php?codigo=" + id;
+            }
+            window.location.reload();
+        }
+    </script>
 </head>
 
 <body>
@@ -24,8 +59,27 @@ require_once("../model/DAOProducto.php")
             <th>Stock</th>
         </tr>
         <?php
-        DAOProducto::imprimirLista();
+        DAOProducto::generarListaProducto();
         ?>
+    </table>
+    <table>
+        <form name="productoAlta" action="../controller/crearProducto.php" method="post" enctype="multipart/form-data">
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio Compra</th>
+                <th>Precio Venta</th>
+                <th>Stock</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="newCodigo" /></td>
+                <td><input type="text" name="newDescripcion" /></td>
+                <td><input type="number" name="newPcompra" /></td>
+                <td><input type="number" name="newPventa" /></td>
+                <td><input type="number" name="newStock" /></td>
+                <td><button type="submit">Crear Producto</button></td>
+            </tr>
+        </form>
     </table>
 </body>
 
