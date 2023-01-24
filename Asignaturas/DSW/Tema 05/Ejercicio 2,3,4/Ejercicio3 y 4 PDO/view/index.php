@@ -14,10 +14,10 @@ require_once("../model/DAOProducto.php")
     <script defer>
         function modificarGuardarProducto(idProducto) {
             let tr = document.getElementById("producto_" + idProducto);
-            let btn = tr.cells[tr.cells.length - 1].firstChild;
+            let btn = tr.cells[tr.cells.length - 3].firstChild;
 
             if (btn.textContent == "Modificar") {
-                for (let i = 1; i < tr.cells.length - 2; i++) {
+                for (let i = 1; i < tr.cells.length - 4; i++) {
                     tr.cells[i].firstChild.readOnly = false;
                     tr.cells[i].firstChild.style.backgroundColor = "lightblue";
                     console.log(tr.cells[i].firstChild.value);
@@ -25,9 +25,9 @@ require_once("../model/DAOProducto.php")
                 btn.textContent = "Guardar";
             } else {
                 const valorCampos = [];
-                for (let i = 1; i < tr.cells.length - 2; i++) {
+                for (let i = 1; i < tr.cells.length - 4; i++) {
                     valorCampos.push(tr.cells[i].firstChild.value);
-                    
+
                 }
                 btn.textContent = "Modificar";
                 window.location.href = "../controller/modificacion.php?codigo=" + valorCampos[0] + "&descripcion=" + valorCampos[1] + "&pcompra=" + valorCampos[2] + "&pventa=" + valorCampos[3] + "&stock=" + valorCampos[4];
@@ -45,11 +45,48 @@ require_once("../model/DAOProducto.php")
             }
             window.location.reload();
         }
+
+        function movimientoProducto(idProducto, flag) {
+            let cantidad;
+            if (flag) {
+                cantidad = prompt("¿Cuánto stock va a añadir?")
+            } else {
+                cantidad = prompt("¿Cuánto stock va a retirar?")
+            }
+            window.location.href = "../controller/modificarStock.php?codigo=" + idProducto + "&flag=" + flag + "&cantidad=" + cantidad;
+
+        }
     </script>
 </head>
 
 <body>
     <h1>Gestisimal</h1>
+    <div id="controlPag">
+        <label for="pag">Pág:</label>
+        <select name="pag" id="pag" selected="<?=$pag; ?>">
+            <?php
+            for ($i=1; $i < $paginaProductos; $i++) { 
+                if ($i==$pag) {
+                    echo "<option selected>$i</option>";
+                    }else{
+                    echo "<option>$i</option>";
+                }
+            }
+            ?>
+        </select>
+        <label for="tamPag"> Tamaño de página: </label>
+        <select name="tamPag" id="tamPag" selected="<?=$tamPag; ?>">
+            <?php
+            for ($i=1; $i < $numPaginas; $i++) { 
+                if ($i==$tamPag) {
+                echo "<option selected>$i</option>";
+                }else{
+                echo "<option>$i</option>";
+            }
+            }
+            ?>
+        </select>
+    </div>
     <table>
         <tr>
             <th>Código</th>

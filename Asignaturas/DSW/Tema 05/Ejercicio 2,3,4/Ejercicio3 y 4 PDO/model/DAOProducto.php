@@ -28,7 +28,7 @@ class DAOProducto
     {
         $sql = "UPDATE producto SET descripcion = '$producto->descripcion',pcompra = '$producto->pcompra',
         pventa = $producto->pventa,stock = '$producto->stock' WHERE codigo = $producto->codigo";
-        return BaseDAO::modificacion($sql,false);
+        return BaseDAO::modificacion($sql, false);
     }
 
     /**
@@ -42,17 +42,40 @@ class DAOProducto
     {
         $sql = "INSERT INTO producto VALUES ('$producto->codigo','$producto->descripcion','$producto->pventa',
         $producto->pcompra,$producto->stock)";
-        BaseDAO::modificacion($sql);
+        if ((self::buscarProducto($producto->codigo)) == null) {
+            echo "Ese producto ya existe";
+            
+        }else{
+            BaseDAO::modificacion($sql);
+            
+        }
+        
     }
 
-    public static function buscarProducto(int $codigo): ?Producto
+    public static function buscarProducto(string $codigo)
     {
-        $resultado = BaseDAO::consulta("SELECT * FROM producto WHERE codigo='$codigo'");
-        if ($resultado->num_rows == 0) {
+        
+        try {
+            $resultado = BaseDAO::consulta("SELECT * FROM producto WHERE codigo='$codigo'");
+            return $resultado;
+        } catch (PDOException $ex) {
+            exit(
+                "Same name"
+            );
             return null;
         }
-        return Producto::getProducto($resultado->fetch_assoc());
     }
+
+    public static function aumentarStock(string $codigo, int $stock)
+    {
+        BaseDAO::modificacion("UPDATE producto SET stock = stock+$stock WHERE codigo='$codigo'");
+    }
+    public static function reducirStock(string $codigo, int $stock)
+    {
+        BaseDAO::modificacion("UPDATE producto SET stock = stock - $stock WHERE codigo='$codigo'");
+    }
+
+
 
     /**
      * Devuelve una matriz de objetos Producto, cada uno de los cuales se crea a partir de una fila en
@@ -70,7 +93,7 @@ class DAOProducto
 
 
         while (($producto = $resultado->fetch_assoc()) != null) {
-            $listaProductos[$listaProductos['id']] = Producto::getProducto($producto);
+            $listaProductos[$listaProductos['codigo']] = Producto::getProducto($producto);
         }
 
         return  $listaProductos;
@@ -84,7 +107,7 @@ class DAOProducto
     public static function numProductos(): int
     {
         $resultado = BaseDAO::consulta("SELECT COUNT(*) AS numProductos FROM producto");
-        return intval($resultado->fetch_assoc()['numProductos']);
+        return intval($resultado);
     }
 
     public static function numPags(int $tamPag): int
@@ -114,6 +137,8 @@ class DAOProducto
             <td><input type='number' value='$producto->stock' maxlength='40' size='20' readonly='readonly'/></td>
             <td><button onclick='eliminarProducto(\"$producto->codigo\")'>Eliminar</button></td>
             <td><button onclick='modificarGuardarProducto(\"$producto->codigo\")'>Modificar</button></td>
+            <td><button onclick='movimientoProducto(\"$producto->codigo\",true)'>Entrada</button></td>
+            <td><button onclick='movimientoProducto(\"$producto->codigo\",false)'>Salida</button></td>
         </tr>";
     }
 }

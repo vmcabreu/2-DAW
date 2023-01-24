@@ -10,11 +10,8 @@ class BaseDAO
      */
     public static function getConexion()
     {
-        $conexion = new MySQLi('localhost', 'productos', 'productos2021', 'productos');
+        $conexion = new PDO("sqlite:/var/www/phpdata/productos.sqlite");
         
-        if ($conexion->errno != null) {
-            throw new Exception("Error conectando a la base de datos de productos: ", $conexion->error);
-        }
     
         return $conexion;
     }
@@ -26,17 +23,13 @@ class BaseDAO
      * 
      * @return bool | mysqli_result El resultado de la consulta.
      */
-    public static function consulta(string $sql):bool | mysqli_result
+    public static function consulta(string $sql):bool | PDOStatement
     {
-        try {
+    
             $conexion = self::getConexion();
             $resultado = $conexion->query($sql);
-            //self::$lastAffectedRows = $conexion->affected_rows;
-            $conexion->close();
+            unset($conexion);
             return $resultado;
-        } catch (Exception $ex) {
-            exit("Error en consulta");
-        }
     }
 
     /**

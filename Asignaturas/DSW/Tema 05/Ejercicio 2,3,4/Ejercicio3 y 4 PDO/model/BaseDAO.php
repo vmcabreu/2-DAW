@@ -31,10 +31,9 @@ class BaseDAO
         return $resultado;
     }
 
-    public static function modificacion(string $sql,bool $emulacion=true)
+    public static function modificacion(string $sql)
     {
         $conexion = self::getConexion();
-        if ($emulacion) {
             $conexion->beginTransaction();
             $resultado = $conexion->exec($sql);
             if ($resultado != 0) {
@@ -43,18 +42,8 @@ class BaseDAO
                 $conexion->rollback();
             }
             unset($conexion);
-        }else{
-            $conexion->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
-            $conexion->beginTransaction();
-            $resultado = $conexion->exec($sql);
-            if ($resultado != 0) {
-                $conexion->commit();
-            } else {
-                $conexion->rollback();
-            }
-            unset($conexion);
-
-        }
+        
+        
         
 
         return $resultado;
