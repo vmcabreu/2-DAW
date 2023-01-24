@@ -1,45 +1,9 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<link rel="stylesheet" href="app.component.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-<script>
-  var app = angular.module("image", []);
-</script>
-
-<!-- Toolbar -->
-
-
-
-<div class="content" role="main" ng-app="image" data-ng-init="images=['../assets/img/logo.png','../assets/img/coconut.png','../assets/img/banana.png','../assets/img/cherry.png']">
-  <div class="toolbar" role="banner" >
-    <img width="40" data-ng-src="{{images[0]}}" />
+<div >
+<header></header>
+<div>
+  <div class="alturapantalla">
+    <app-bodyfrutas></app-bodyfrutas>
   </div>
-  <div>
-    <img width="200" ng-src="{{images[1]}}">
-    <img width="200" ng-src="{{images[1]}}">
-    <img width="200" ng-src="{{images[1]}}">
-  </div>
-
-
-  <!-- Footer -->
-  <footer>
-    <div data-ng-init="copyright='Angular @ 2022'">
-    <p>Fruterias Puerto de la Cruz</p>
-    <p>{{copyright}}</p>
-  </div>
-  </footer>
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+</div>
+<app-footerfrutas class="foooterh"></app-footerfrutas>
