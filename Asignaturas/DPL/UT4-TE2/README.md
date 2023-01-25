@@ -80,11 +80,25 @@ Una vez terminado entraremos en el enlace de nuestra [aplicación](http://larave
 
 ## Laravel: Depliegue
 
+Por último nos encargaremos del despligue, el cual lo subiremos a nuestro repositorio los cambios en la aplicación para luego desplegarla en producción. Lo primero, tendremos que confirmar que la carpeta _vendor_ esta incluida en el _.gitignore_ ya que este contiene todas las dependencias del proyecto.
+
 ![](screenshots/laravel/15.png)
+
+Una vez comprobado, lo subimos a nuestro repositorio y descargamos nuestra aplicación en producción.
+
 ![](screenshots/laravel/16.png)
+
+Para instalar de nuevo todas las dependencias debemos realizar el comando _composer install_ para que instale todas las dependencias.
+
 ![](screenshots/laravel/17.png)
 
+Pero para automatizar esta tarea crearemos un script en local, el cual actualizará nuestra aplicación conectandose a producción, realizando un _pull_ desde nuestro repositorio e instala las dependencias.
+
+`ssh arkania "cd $(dirname $0); git pull; composer install;"`
+
 # Express
+
+
 
 # Spring
 
