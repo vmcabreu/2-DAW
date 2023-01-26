@@ -5,6 +5,7 @@
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300&family=Pacifico&family=Unbounded:wght@300&display=swap");
 .grid {
   display: grid;
   grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
@@ -1572,6 +1573,25 @@
   background-size: 0.5rem 100%;
 }
 
+.swatch-light-gray {
+  color: #000;
+  background-color: #cacaca;
+}
+.swatch-light-gray::after {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  white-space: pre;
+  content: "12.8" "\a" "1.63" "\a" "12.8";
+  background-color: #cacaca;
+  background-image: linear-gradient(to bottom, transparent 0.25rem, #000 0.25rem 0.75rem, transparent 0.75rem 1.25rem, #fff 1.25rem 1.75rem, transparent 1.75rem 2.25rem, #000 2.25rem 2.75rem, transparent 2.75rem);
+  background-repeat: no-repeat;
+  background-size: 0.5rem 100%;
+}
+
 .swatch-gray-500 {
   color: #000;
   background-color: #adb5bd;
@@ -2509,7 +2529,7 @@
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.875rem;
-  background-color: #fff;
+  background-color: #fd7e14;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
 }
