@@ -22,7 +22,7 @@ session_start();
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuario:</label>
                 <input type="text" class="form-control" id="usuario" aria-describedby="usuarioHelp">
-                <div id="usuarioHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div id="usuarioHelp"></div>
             </div>
             <div class="mb-3">
                 <label for="passwd" class="form-label">Contraseña:</label>

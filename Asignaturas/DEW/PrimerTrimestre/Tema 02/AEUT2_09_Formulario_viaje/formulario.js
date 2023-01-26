@@ -75,7 +75,7 @@ class Viajero {
      * @returns El método toString() está devolviendo un String con la información del objeto.
      */
     toString() {
-        return "Nombre: " + this.nombre + "\n Apellido: " + this.apellido + "\n DNI: " + this.dni + "\n Código Postal: " + this.codigoPostal + "\n Teléfono Fijo: " + this.tlfFijo + "\n Teléfono Móvil: " + this.tlfMovil + "\n Fecha Ida: "+ this.fechaIda+"\n Email: "+this.email+"\n Matricula del Vehículo: "+this.matricula+"\n Motivo: "+this.motivo;
+        return "Nombre: " + this.nombre + "\n Apellido: " + this.apellido + "\n DNI: " + this.dni + "\n Código Postal: " + this.codigoPostal + "\n Teléfono Fijo: " + this.tlfFijo + "\n Teléfono Móvil: " + this.tlfMovil + "\n Fecha Ida: " + this.fechaIda + "\n Email: " + this.email + "\n Matricula del Vehículo: " + this.matricula + "\n Motivo: " + this.motivo;
     }
 }
 
@@ -438,7 +438,7 @@ function validarNumeroDNINIE(campo) {
             let numero = Number(dni.value.substr(0, 8));
             let charInd = numero % 23;
             let calcularLetra = regExpLetra.charAt(charInd);
-            return (letra== calcularLetra);
+            return (letra == calcularLetra);
         }
     } else if (campo == "nie" || campo == "NIE") {
         /*NIE de prueba Y8275444N*/
