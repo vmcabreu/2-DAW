@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Modelo } from './modelo/modelo.mode';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'marvel_films';
+  modelo= new Modelo();
+  bd = this.modelo.ngOnInit();
+  peliculas = this.modelo.peliculas[0];
+  titulos = this.modelo.getTitulos();
+  posters = [];
+
+
+
+
 }
