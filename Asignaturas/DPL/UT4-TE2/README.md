@@ -14,6 +14,7 @@
 - [Configuración Nginx](#laravel-configuración-nginx)
 - [Lógica de Negocio](#laravel-lógica-de-negocio)
 - [Depliegue](#laravel-depliegue)
+- [Aplicación Desplegada](#laravel-link-a-la-aplicación)
 
 ## Laravel: Instalación
 
@@ -72,11 +73,19 @@ Por lo tanto la estructura de carpetas nos quedaría como hemos editado en el ar
 
 Si quieren echar un ojo al código lo pueden encontrar [aquí]()
 
-Una vez terminado entraremos en el enlace de nuestra [aplicación](http://laravel.travelroad.alu6618.arkania.es/) para comprobar que todo esta bien.
+Una vez terminado entraremos en el enlace de nuestra aplicación para comprobar que todo esta bien.
 
 ![](screenshots/laravel/12.png)
 ![](screenshots/laravel/13.png)
 ![](screenshots/laravel/14.png)
+
+Lo último que faltaría es, validar nuestra página mediante **Certbot**:
+
+![](screenshots/laravel/certbot.png)
+
+Y ya tendremos nuestra página certificada
+
+![](screenshots/laravel/final.png)
 
 ## Laravel: Depliegue
 
@@ -94,13 +103,28 @@ Para instalar de nuevo todas las dependencias debemos realizar el comando _compo
 
 Pero para automatizar esta tarea crearemos un script en local, el cual actualizará nuestra aplicación conectandose a producción, realizando un _pull_ desde nuestro repositorio e instala las dependencias.
 
-`ssh arkania "cd ~/git/dpl22-23; git pull; cd /UT4/A2/src/laravel/travelroad; composer install;"`
+`ssh arkania "cd $(dirname $0)/git/dpl22-23; git pull; cd /UT4/A2/src/laravel/travelroad; composer install;"`
+
+## Laravel: Aplicación
+
+[Travel Road - Laravel](https://laravel.travelroad.alu6618.arkania.es/)
 
 # Express
 
+## Express - Indice
+
+[Instalación](#express---instalación)
+[Conexión a Base de Datos](#express---conexión-base-de-datos)
+[Rutas](#express---rutas)
+[Vistas](#express---vistas)
+[Despliegue](#express---despliegue)
+[Aplicación](#express---link-a-la-aplicación)
+
+## Express - Instalación
+
 El siguiente framework web a instalar será **Express**.
 
-Nuestro primer paso será instalar **Node.js**, un entorno de ejecución de JavaScript, en nuestro equipo. Esta vez utilizaremos un instalador que nos facilita el añadir los repositorios oficiales de Node.js. 
+Nuestro primer paso será instalar **Node.js**, un entorno de ejecución de JavaScript, en nuestro equipo. Esta vez utilizaremos un instalador que nos facilita el añadir los repositorios oficiales de Node.js.
 
 ![](screenshots/express/0.png)
 
@@ -109,19 +133,19 @@ Una vez añadidos los repositorios instalamos Node y cuando termine comprobamos 
 ![](screenshots/express/1.png)
 ![](screenshots/express/2.png)
 
-Comenzaremos con andamiaje de nuestro proyecto lo cual usaremos una herramienta llamada *express-generator* que nos creará la estructura de nuestro poryecto.
+Comenzaremos con andamiaje de nuestro proyecto lo cual usaremos una herramienta llamada _express-generator_ que nos creará la estructura de nuestro poryecto.
 
 ![](screenshots/express/3.png)
 
-Una vez instalado, creamos el andamio de nuestra aplicación con el motor de plantillas *Pug*
+Una vez instalado, creamos el andamio de nuestra aplicación con el motor de plantillas _Pug_
 
 ![](screenshots/express/4.png)
 
-Como podemos ver, la estructura de nuestro proyecto ha sido creada en la carpeta *travelroad/* tal y como hemos indicado antes.
+Como podemos ver, la estructura de nuestro proyecto ha sido creada en la carpeta _travelroad/_ tal y como hemos indicado antes.
 
 ![](screenshots/express/5.png)
 
-Antes de empezar debemos instalar las dependencias que estan guardadas en el *package.json* mediante el siguiente comando:
+Antes de empezar debemos instalar las dependencias que estan guardadas en el _package.json_ mediante el siguiente comando:
 
 ![](screenshots/express/6.png)
 
@@ -130,31 +154,31 @@ Esto nos permite probar nuestra aplicación tal y como nos indica en **localhost
 
 ![](screenshots/express/7.png)
 
-Ahora necesitamos configurar la conexión a la base de datos de PostgreSQL por lo tanto añadimos una dependecia llamada *node-postgres*.
+Ahora necesitamos configurar la conexión a la base de datos de PostgreSQL por lo tanto añadimos una dependecia llamada _node-postgres_.
 
 ![](screenshots/express/8.png)
 
-Luego para las credenciales de la base de datos necesitamos guardalas dentro de un archivo, por lo tanto instalaremos el paquete **dotenv** para poder leer los ficheros *.env*.
+Luego para las credenciales de la base de datos necesitamos guardalas dentro de un archivo, por lo tanto instalaremos el paquete **dotenv** para poder leer los ficheros _.env_.
 
 ![](screenshots/express/9.png)
 
-Ahora añadimos las credenciales de la base de datos a un archivo *.env* para realizar la conexión con PostgreSQL.
+Ahora añadimos las credenciales de la base de datos a un archivo _.env_ para realizar la conexión con PostgreSQL.
 
 ![](screenshots/express/10.png)
 
-## Conexión base de datos
+## Express - Conexión base de datos
 
-Ahora modificaremos la aplicación para que pueda cargar los datos y que los muestre en pantalla, por lo tanto primero creamos una carpeta *config* y dentro de este nuevo directorio, creamos el fichero *database.js* que nos conectará con la base de datos. 
+Ahora modificaremos la aplicación para que pueda cargar los datos y que los muestre en pantalla, por lo tanto primero creamos una carpeta _config_ y dentro de este nuevo directorio, creamos el fichero _database.js_ que nos conectará con la base de datos.
 
 ![](screenshots/express/11.png)
 
-## Rutas
+## Express - Rutas
 
-Luego creamos un archivo en la carpeta *routes* llamado *index.js* en el cual requiere el archivo creado previamente para conectarse a la base de datos y realizar la consulta dependiendo en la ruta que estemos.
+Luego creamos un archivo en la carpeta _routes_ llamado _index.js_ en el cual requiere el archivo creado previamente para conectarse a la base de datos y realizar la consulta dependiendo en la ruta que estemos.
 
 ![](screenshots/express/12.png)
 
-## Vistas
+## Express - Vistas
 
 Tras esto creamos las vistas correspondientes en nuestro proyecto.
 
@@ -173,15 +197,59 @@ Para gestionar los procesos de nuestra aplicación, haremos uso de **pm2** un ge
 ![](screenshots/express/19.png)
 ![](screenshots/express/20.png)
 
-Luego creamos nuestro host virtual en Nginx. En este caso los nombraremos *express.local* para nuestra máquina de **desarrollo** y *express.travelroad.alu6618.arkania.es* en **producción**
+Luego creamos nuestro host virtual en Nginx. En este caso los nombraremos _express.local_ para nuestra máquina de **desarrollo** y _express.travelroad.alu6618.arkania.es_ en **producción**
 
 ![](screenshots/express/21.png)
 ![](screenshots/express/22.png)
 
-## Despliegue
+Con todo configurado pasaremos nuestra aplicación por **Certbot** para que valide nuestra página:
 
+![](screenshots/express/certbot.png)
+
+Y tras esto nuestra aplicación web ya tiene certificado:
+
+![](screenshots/express/final.png)
+
+## Express - Despliegue
+
+Como en el framework anterior crearemos un script de despliegue en local para que se actualice nuestra aplicación en producción, este lo que hará será actualizar, si no tiene las dependencias instalarlas con _npm install_ y reiniciar el gestor de procesos **pm2**.
+
+`ssh arkania "cd $(dirname $0)/git/dpl22-23; git pull; cd /UT4/A2/src/express/travelroad; npm install; pm2 restart travelroad --update-env;"`
+
+## Express - Aplicación:
+
+[Travel Road - Express](https://express.travelroad.alu6618.arkania.es/)
 
 # Spring
+
+## Spring - Indice
+/home/victor/git/dpl22-23/UT4/A2/src/spring
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>TravelRoad</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Places I'd Like to Visit</h1>
+    <ul th:each="place : ${wished}">
+      <li th:text="${place.name}"></li>
+    </ul>
+    <a href="/">← Back home</a>
+</body>
+</html>
+
+    <h1>My Travel Bucket List</h1>
+    <h2>Places I'd Like to Visit</h2>
+    <ul th:each="place : ${wished}">
+      <li th:text="${place.name}"></li>
+    </ul>
+
+    <h2>Places I've Already Been To</h2>
+    <ul th:each="place : ${visited}">
+      <li th:text="${place.name}"></li>
+    </ul>
 
 # Ruby on Rails
 
