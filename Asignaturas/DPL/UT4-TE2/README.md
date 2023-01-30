@@ -14,7 +14,7 @@
 - [Configuración Nginx](#laravel-configuración-nginx)
 - [Lógica de Negocio](#laravel-lógica-de-negocio)
 - [Depliegue](#laravel-depliegue)
-- [Aplicación Desplegada](#laravel-link-a-la-aplicación)
+- [Aplicación Desplegada](#laravel-aplicación)
 
 ## Laravel: Instalación
 
@@ -113,12 +113,12 @@ Pero para automatizar esta tarea crearemos un script en local, el cual actualiza
 
 ## Express - Indice
 
-[Instalación](#express---instalación)
-[Conexión a Base de Datos](#express---conexión-base-de-datos)
-[Rutas](#express---rutas)
-[Vistas](#express---vistas)
-[Despliegue](#express---despliegue)
-[Aplicación](#express---link-a-la-aplicación)
+- [Instalación](#express---instalación)
+- [Conexión a Base de Datos](#express---conexión-base-de-datos)
+- [Rutas](#express---rutas)
+- [Vistas](#express---vistas)
+- [Despliegue](#express---despliegue)
+- [Aplicación](#express---aplicación)
 
 ## Express - Instalación
 
@@ -223,33 +223,151 @@ Como en el framework anterior crearemos un script de despliegue en local para qu
 # Spring
 
 ## Spring - Indice
-/home/victor/git/dpl22-23/UT4/A2/src/spring
 
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>TravelRoad</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <h1>Places I'd Like to Visit</h1>
-    <ul th:each="place : ${wished}">
-      <li th:text="${place.name}"></li>
-    </ul>
-    <a href="/">← Back home</a>
-</body>
-</html>
+- [Instalación](#spring---instalación)
+- [Creación del Proyecto](#spring---creación-proyecto)
+- [Compilación](#spring---compilación)
+- [Despliegue](#spring---despliegue)
+- [Aplicación](#spring---aplicación)
 
-    <h1>My Travel Bucket List</h1>
-    <h2>Places I'd Like to Visit</h2>
-    <ul th:each="place : ${wished}">
-      <li th:text="${place.name}"></li>
-    </ul>
+## Spring - Instalación
 
-    <h2>Places I've Already Been To</h2>
-    <ul th:each="place : ${visited}">
-      <li th:text="${place.name}"></li>
-    </ul>
+El siguiente framework a trabajar será **Spring** orientado a aplicaciones y webs basadas en **Java**.
+
+Necesitaremos el **JDK** _(Java Development Kit)_ o en su defecto la versión _open source_ llamada **OpenJDK**. Lo descargaremos desde la página oficial de OpenJDK y lo enviamos a la carpeta temporal.
+
+![](screenshots/spring/0.png)
+
+Una vez descargado lo descomprimimos en la carpeta _/usr/lib/jvm_
+
+![](screenshots/spring/1.png)
+
+Comprobamos que todo ha sido descomprimido correctamente.
+
+![](screenshots/spring/2.png)
+
+Para que el OpenJDK funcione correctamente debemos realizar dos pasos, primero, establecer variables de entorno en _/etc/profile.d/jdk_home.sh_ indicando donde se encuentran los ejecutables de Java y segundo, actualizar las alternativas de los ejecutables los cuales son _java_, la herramienta para ejecutar los programas hechos en Java y _javac_, el compilador de Java.
+
+![](screenshots/spring/3.png)
+![](screenshots/spring/4.png)
+
+Una vez hecho, comprobamos las versiones de Java y Javac que tenemos instaladas. Si todo fue bien, cerraremos y abriremos de nuevo la sesión de usuario para que los cambios se apliquen.
+
+![](screenshots/spring/5.png)
+
+### SDKMAN
+
+Nuestro siguiente paso será instalar **SDKMAN**, una herramienta que permite gestionar versiones de kits de desarrollo de software en los cuales está incluido Java. Para ello primero instalaremos **.zip**
+
+![](screenshots/spring/6.png)
+
+Luego ejecutamos el siguiente script, para realizar la instalación de SDKMAN
+
+![](screenshots/spring/7.png)
+![](screenshots/spring/8.png)
+
+Activamos el punto de entrada para la herramienta y si no ha dado ningún problema, comprobamos la versión para afirmar que se ha instalado correctamente.
+
+![](screenshots/spring/9.png)
+
+Ahora con **SDKMAN** instalaremos dos herramientas importantes para nuestro proyecto. **SpringBoot** una herramienta que facilita la preparación de aplicaciones Spring para producción y **Maven** el cual sería el constructor de proyectos y el que permite la gestión de las dependencias.
+
+### SpringBoot
+
+![](screenshots/spring/10.png)
+![](screenshots/spring/11.png)
+
+### Maven
+
+![](screenshots/spring/12.png)
+![](screenshots/spring/13.png)
+
+---
+
+## Spring - Creación Proyecto
+
+Con todo instalado, empezamos a crear el proyecto como los anteriores frameworks, primero la estructura la cual la realizaremos con **SpringBoot** y usará **Maven** para las dependencias y construir la aplicación.
+
+![](screenshots/spring/14.png)
+![](screenshots/spring/15.png)
+
+Ahora dentro de la carpeta _src/main_ organizaremos los distintos módulos los cuales son el **Modelo,Controlador y las Plantillas**. Por lo tanto creamos las carpetas y los archivos correspondientes para luego configurarlos
+
+![](screenshots/spring/16.png)
+![](screenshots/spring/17.png)
+
+Primero empezaremos por el **Controlador** el cual se alojará en el archivo _HomeController.java_. Será el encargado en solicitar los datos que necesitaremos de la base de datos a nuestra aplicación.
+
+![](screenshots/spring/18.png)
+
+Lo siguiente será el **Modelo**, la cual realizaremos la clase _Place_ donde se guardará el nombre del sitio y un booleano el cual nos indicará si ha sido visitado o no y los métodos que nos ayudarán a modificar o conseguir estos datos.
+
+![](screenshots/spring/19.png)
+
+Luego en la carpeta _/repositories_, el archivo _PlaceRepository.java_ realizará la consulta de seleccionar todo aquellos lugares los cuales se han o no visitado y devolverá una lista con objetos de la clase _Place_.
+
+![](screenshots/spring/20.png)
+
+Lo que quedaría sería realizar las plantillas, el cual utilizaremos un motor moderno de plantillas llamado _Thyleaf_. Por lo tanto crearemos 3 plantillas: home,visited,wished.
+
+### Home
+
+![](screenshots/spring/21.png)
+
+### Visited
+
+![](screenshots/spring/22.png)
+
+### Wished
+
+![](screenshots/spring/23.png)
+
+Por último, creamos las credenciales para que nuestra aplicación pueda conectarse a nuestra base de datos.
+
+### Desarrollo
+
+![](screenshots/spring/24.png)
+
+### Producción
+
+![](screenshots/spring/24produccion.png)
+
+## Spring - Compilación
+
+Para poner en funcionamiento nuestra aplicación, en nuestra carpeta de proyecto lanzamos el comando `./mvnw package` y el resultado será un _.jar_
+
+![](screenshots/spring/25.png)
+
+Para lanzar la aplicación lanzaremos el _.jar_ generado `java -jar target/travelroad-0.0.1-SNAPSHOT.jar` en el cual podremos acceder en la dirección _localhost:8080_ y probar la aplicación, pero crearemos un script para que realice los pasos del proceso de construcción.
+
+![](screenshots/spring/26.png)
+
+Le asignamos permisos de ejecución al script y creamos un fichero de servicio:
+
+![](screenshots/spring/27.png)
+
+Recargamos todos los servicios, activamos nuestro nuevo servicio y lo habilitamos para que cuando reiniciemos el equipo, el servicio se active automáticamente.
+
+![](screenshots/spring/28.png)
+
+Cuando tengamos todo listo realizamos el host virtual en Nginx tanto en desarrollo como en producción.
+
+### Desarrollo
+
+![](screenshots/spring/29.png)
+
+### Producción
+
+![](screenshots/spring/29%20produccion.png)
+
+Y la tras comprobar la sintaxis y recargar el servicio Nginx probamos nuestra aplicación.
+
+![Alt text](screenshots/spring/30local.png)
+![Alt text](screenshots/spring/30produccion.png)
+
+## Spring - Despliegue
+
+## Spring - Aplicación
 
 # Ruby on Rails
 
