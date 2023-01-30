@@ -1,0 +1,20 @@
+@mixin claro($nombre, $color, $font-size, $reduccion) {
+    $color-lighten: $color;
+    $font-reduce: $font-size;
+
+    @for $i from 1 through 6 {
+        $color-lighten: desaturate($color-lighten, 10%);
+
+        .#{$nombre} h#{$i} {
+            color: $color-lighten;
+            font-size: $font-reduce;
+        }
+
+        $font-reduce: (
+            $reduccion * $font-reduce)/100
+    }
+
+}
+
+@include claro("miclase", #919b09, 5rem, 70
+);

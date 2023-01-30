@@ -1,0 +1,32 @@
+@mixin patrones($nombre, $color, $opacidad, $fuente: "Comic Sans MS") {
+    .#{$nombre} {
+        background-image:
+            url("../patrones/#{$nombre}.png");
+        padding: 5px;
+
+        & article{
+            padding: 10px;
+            margin: 10px;
+            color: $color;
+            font-family: $fuente;
+            @if $opacidad >= 0 {
+                background-color: rgba(255, 255, 255, abs($opacidad/100));
+            }@else{
+                background-color: rgba(0, 0, 0, abs($opacidad/100));
+            }
+            @if lightness($color) > 50% {
+                text-shadow: 2px 2px 2px black;
+            }@else{
+                text-shadow: 2px 2px 2px white;
+            }
+            
+
+        }
+    }
+}
+
+@include patrones('relax', #93a8b7, 60, Verdana);
+@include patrones('contrast', #cccccc, -65);
+@include patrones('love', #f8afb2, 30, Gabriola);
+@include patrones('psico', #1b4d48, 30, "Arial Black");
+@include patrones('moderm', #fec87c, -20, Impact);

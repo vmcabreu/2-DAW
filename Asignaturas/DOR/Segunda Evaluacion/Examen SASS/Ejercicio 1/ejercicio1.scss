@@ -1,0 +1,24 @@
+$cartas: (
+    intrepida: (font-size:11pt,
+        color:red,
+        background-color:lightgray),
+    clasica: (font-size:12pt,
+        color:black,
+        background-color:white),
+    inversa: (font-size:9pt,
+        color:orange,
+        background-color:silver)
+);
+
+@each $nombre,
+$valor in $cartas {
+
+    .card-#{$nombre} {
+
+        @each $tag,
+        $value in $valor {
+
+            #{$tag}: $value
+        }
+    }
+}
