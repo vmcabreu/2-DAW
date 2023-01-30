@@ -16,6 +16,12 @@ class DAOUsuario
         return BaseDAO::consulta("SELECT * FROM usuarios WHERE usuario='$nombre' OR email='$email'");
     }
 
+
+    public static function validLogUsuario(string $nombre, string $passwd): bool
+    {
+        return BaseDAO::consulta("SELECT * FROM usuarios WHERE usuario='$nombre' OR passwd='$passwd'");
+    }
+
     /**
      * Agrega un usuario a la base de datos.
      * @param {Usuario} usuario - El nombre de usuario
@@ -70,7 +76,13 @@ class DAOUsuario
         return BaseDAO::consulta($sql);
     }
 
-    public static function loginUsuario(string $nombre,string $passwd){
+    public static function loginUsuario(string $nombre, string $passwd)
+    {
+        if (self::validLogUsuario($nombre, $passwd)) {
+        $_SESSION['logged'] = [$nombre,$passwd,true];
         
+        }else{
+            $_SESSION['logged'] = [$nombre,$passwd,false];
+        }
     }
 }

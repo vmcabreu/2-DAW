@@ -13,7 +13,7 @@ class Usuario
      * @param {string} passwd - La contraseña del usuario.
      * @param {string} email - La dirección de correo electrónico del usuario.
      */
-    public function __construct(int $id, string $usuario, string $passwd, string $email)
+    public function __construct(int $id=null, string $usuario="", string $passwd="", string $email="")
     {
         $this->id = $id;
         $this->usuario = $usuario;
@@ -30,9 +30,6 @@ class Usuario
      */
     public function __set(string $atributo, mixed $valor)
     {
-        if ($atributo == "id" && $valor < 0) {
-            throw new InvalidArgumentException("Error valor no válido para el id");
-        }
         $this->atributos[$atributo] = $valor;
     }
 
@@ -49,17 +46,18 @@ class Usuario
 
     /**
      * Toma una matriz de datos y devuelve un nuevo objeto Usuario.
-     * @param {array} datosProducto - una matriz con las siguientes claves:
+     * @param {array} datosUsuario - una matriz con las siguientes claves:
      * @returns Una nueva instancia de la clase Usuario.
      */
 
-    public static function crearUsuario(array $datosProducto): Usuario
+    public static function crearUsuario(array $datosUsuario): Usuario
     {
-        $id = intval($datosProducto['id']);
-        $usuario = $datosProducto['usuario'];
-        $passwd = $datosProducto['passwd'];
-        $email = $datosProducto['email'];
-        return new Usuario($id, $usuario, $passwd, $email);
+
+        $usuario = new Usuario();
+        foreach ($datosUsuario as $atributo => $valor) {
+            $usuario->$atributo = $valor;
+        }
+        return $usuario;
     }
 
     /**
