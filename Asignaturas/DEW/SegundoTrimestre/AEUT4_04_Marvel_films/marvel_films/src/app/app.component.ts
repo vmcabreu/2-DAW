@@ -11,7 +11,6 @@ export class AppComponent {
   title = 'marvel_films';
   modelo= new Modelo();
   bd = this.modelo.ngOnInit();
-  peliculas = this.modelo.peliculas[0];
   titulos = this.modelo.getTitulos();
   posters = [];
 
