@@ -342,7 +342,7 @@ Para lanzar la aplicación lanzaremos el _.jar_ generado `java -jar target/trave
 
 ![](screenshots/spring/26.png)
 
-Le asignamos permisos de ejecución al script y creamos un fichero de servicio:
+Le asignamos permisos de ejecución al script y creamos un fichero de servicio pero para usuario asi podremos desplegarlo más adelante:
 
 ![](screenshots/spring/27.png)
 
@@ -362,14 +362,39 @@ Cuando tengamos todo listo realizamos el host virtual en Nginx tanto en desarrol
 
 Y la tras comprobar la sintaxis y recargar el servicio Nginx probamos nuestra aplicación.
 
-![Alt text](screenshots/spring/30local.png)
-![Alt text](screenshots/spring/30produccion.png)
+![](screenshots/spring/30local.png)
+![](screenshots/spring/30produccion.png)
+
+Ahora como último paso utilizamos Certbot para que nuestra aplicación este certificada.
+
+![Alt text](screenshots/spring/31certbot.png)
+![Alt text](screenshots/spring/32.png)
 
 ## Spring - Despliegue
 
+Para desplegar nuestra aplicación usaremos un _script_ llamado **deploySpring.sh** al cual le pasaremos los siguientes comandos:
+
+```
+#!/bin/bash
+
+ssh arkania "
+  cd $(dirname $0)/git/dpl22-23
+  git pull
+  systemctl --user restart travelroad.service
+"
+```
+
+Le damos permisos de ejecución y lo probamos
+
 ## Spring - Aplicación
 
+[Travel Road - Spring](https://spring.travelroad.alu6618.arkania.es/)
+
 # Ruby on Rails
+
+![Alt text](screenshots/rubyrails/0.png)
+![Alt text](screenshots/rubyrails/1.png)
+
 
 # Django
 

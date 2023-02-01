@@ -1,5 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Pelicula } from 'pelicula.model';
+
+// ESTE CODIGO ES UNA MIERDA VITIII
+
 @Component({
   template: ''
 })
@@ -29,15 +33,9 @@ export class Modelo implements OnInit{
       const url = 'https://www.qando.es/docs/films.php';
       // obtengo datos utilizando fetch
       fetch(url).then(response => response.json()).then(data => {
-
-        this.guardarPeliculas(data); // <-- asigno los valores a la propiedad del componente
-
-
+        this.guardarPeliculas(data.name); // <-- asigno los valores a la propiedad del componente
       });
       this.peliculas.pop();
       console.log(this.peliculas);
-
     }
-
-
 }
