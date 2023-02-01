@@ -10,25 +10,37 @@ import { Mock } from '../mock/mock.mock';
 })
 export class ApipeliculaService {
   public pelicula: Pelicula[] = [];
+  public tamanio: number = 0;
   constructor(private http: HttpClient) {
   }
 
 
+
+  /**
+   * Obtiene la duración de la matriz de películas de la API, luego recorre la matriz e inserta cada
+   * película en la matriz de películas en el servicio.
+   * @returns una serie de objetos de Pelicula.
+   */
   getPeliculas(): Pelicula[] {
-    let tamanio: number = this.http.get<Pelicula[]>('https://www.qando.es/docs/films.php').subscribe.length;
-    for (let i = 1; i <= tamanio; i++) {
+    this.pelicula = []
+    for (let i = 1; i <= 9; i++) {
       this.http.get<Pelicula>('https://www.qando.es/docs/films.php?id=' + i).subscribe(
-        (peliculas: Pelicula) => this.pelicula.push(peliculas)
-
+        (peliculaAPI: Pelicula) => this.validarPelicula(peliculaAPI,this.pelicula)
       )
-
     }
+
     return this.pelicula;
 
   }
 
-  mockPelicula(pelicula: Pelicula): void {
-    this.mockPelicula
-   }
-
+  validarPelicula(pelicula : Pelicula,listadoPeliculas: Pelicula[]){
+    if (listadoPeliculas) {
+      listadoPeliculas.push(pelicula);
+    }
+  }
+  /*
+    mockPelicula(pelicula: Pelicula): void {
+      this.mockPelicula
+    }
+  */
 }

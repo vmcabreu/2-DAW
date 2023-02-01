@@ -1,8 +1,7 @@
-<li *ngFor="let pelicula of peliculas">
-  <div>
+<li *ngFor="let pelicula of peliculas" class="d-flex flex-row">
+  <div class="filmposter">
     <img src="{{pelicula.poster}}">
-    <p>{{pelicula.name}}</p>
-    <p>{{pelicula.releaseDate}}</p>
-    <p>{{pelicula.description}}</p>
+    <p>{{pelicula.name | coreccionTitulo}}</p>
+    <a href="">Leer más</a>
   </div>
 </li>

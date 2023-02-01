@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreccionTituloPipe } from './pipes/coreccion-titulo.pipe';
 import { FaseMarvelPipe } from './pipes/fase-marvel.pipe';
 import { DetallesPelisComponent } from './components/detalles-pelis/detalles-pelis.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { DetallesPelisComponent } from './components/detalles-pelis/detalles-pel
     ListaPelisComponent,
     CoreccionTituloPipe,
     FaseMarvelPipe,
-    DetallesPelisComponent
+    DetallesPelisComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
