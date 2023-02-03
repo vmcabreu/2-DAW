@@ -1,7 +1,8 @@
 <li *ngFor="let pelicula of peliculas" class="d-flex flex-row">
-  <div class="filmposter">
-    <img src="{{pelicula.poster}}">
-    <p>{{pelicula.name | coreccionTitulo}}</p>
-    <a href="">Leer más</a>
-  </div>
+  <a routerLink="/{{pelicula.id}}">
+    <div class="filmposter">
+      <img src="{{pelicula.poster}}">
+      <p>{{pelicula.name | coreccionTitulo}}</p>
+    </div>
+  </a>
 </li>

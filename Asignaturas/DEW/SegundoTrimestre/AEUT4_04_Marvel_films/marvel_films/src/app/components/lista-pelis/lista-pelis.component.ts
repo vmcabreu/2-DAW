@@ -21,12 +21,12 @@ export class ListaPelisComponent implements OnInit {
    * La función ngOnInit() es un enlace de ciclo de vida que se llama después de que Angular haya
    * inicializado todas las propiedades vinculadas a datos de una directiva
    */
+/**
+ * La función ngOnInit() es un enlace de ciclo de vida que se llama después de que Angular haya
+ * inicializado todas las propiedades vinculadas a datos de una directiva
+ */
   ngOnInit() {
-
-    this.peliculas = this.peliculasService.getPeliculas();
-    this.peliculas.sort((pelicula) => pelicula.id);
-    console.log(this.peliculas);
-
+    this.peliculasService.getPeliculas().subscribe((peliculasAPI : Pelicula[])=> this.peliculas=peliculasAPI);
   }
 
 

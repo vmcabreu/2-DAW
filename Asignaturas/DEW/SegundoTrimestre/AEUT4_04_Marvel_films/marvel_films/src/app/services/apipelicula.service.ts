@@ -21,26 +21,28 @@ export class ApipeliculaService {
    * película en la matriz de películas en el servicio.
    * @returns una serie de objetos de Pelicula.
    */
-  getPeliculas(): Pelicula[] {
-    this.pelicula = []
-    for (let i = 1; i <= 9; i++) {
-      this.http.get<Pelicula>('https://www.qando.es/docs/films.php?id=' + i).subscribe(
-        (peliculaAPI: Pelicula) => this.validarPelicula(peliculaAPI,this.pelicula)
-      )
-    }
+  getPeliculas(): Observable<Pelicula[]> {
 
-    return this.pelicula;
-
+    return this.http.get<Pelicula[]>('https://www.qando.es/docs/films.php')
   }
 
-  validarPelicula(pelicula : Pelicula,listadoPeliculas: Pelicula[]){
-    if (listadoPeliculas) {
-      listadoPeliculas.push(pelicula);
-    }
+  getDetalles(id : number): Observable<Pelicula[]>{
+    return this.http.get<Pelicula[]>('https://www.qando.es/docs/films.php?id='+id)
   }
-  /*
-    mockPelicula(pelicula: Pelicula): void {
-      this.mockPelicula
-    }
-  */
+
+
 }
+
+/*
+validarPelicula(pelicula : Pelicula, listadoPeliculas: Pelicula[]){
+  if (listadoPeliculas) {
+    listadoPeliculas.push(pelicula);
+  }
+}
+*/
+/*
+  mockPelicula(pelicula: Pelicula): void {
+    this.mockPelicula
+  }
+*/
+
