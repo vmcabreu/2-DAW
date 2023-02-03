@@ -394,6 +394,17 @@ Le damos permisos de ejecución y lo probamos
 
 ![Alt text](screenshots/rubyrails/0.png)
 ![Alt text](screenshots/rubyrails/1.png)
+![Alt text](screenshots/rubyrails/2.png)
+![Alt text](screenshots/rubyrails/3.png)
+![Alt text](screenshots/rubyrails/4.png)
+![Alt text](screenshots/rubyrails/5.png)
+![Alt text](screenshots/rubyrails/6.png)
+
+
+
+
+/home/victor/.rvm/gems/ruby-3.0.0/gems/passenger-6.0.17
+
 
 
 # Django
