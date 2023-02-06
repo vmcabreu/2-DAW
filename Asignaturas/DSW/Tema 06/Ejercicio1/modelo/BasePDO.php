@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require_once("Smarty.class.php");
 class BasePDO
 {
     private static $lastAffectedRows;

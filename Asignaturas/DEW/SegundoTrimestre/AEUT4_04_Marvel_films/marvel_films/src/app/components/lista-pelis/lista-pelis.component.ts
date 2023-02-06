@@ -19,27 +19,27 @@ export class ListaPelisComponent implements OnInit {
   }
 
 
-/**
- * Verificamos si hay datos en localStorage, si no los hay, obtenemos los datos de la API y los
- * almacenamos en localStorage, luego recargamos la página
- */
+  /**
+   * Verificamos si hay datos en localStorage, si no los hay, obtenemos los datos de la API y los
+   * almacenamos en localStorage, luego recargamos la página
+   */
   ngOnInit() {
     let data = localStorage.getItem('peliculas')
     if (data == null) {
       this.peliculasService.getPeliculas().subscribe((peliculasAPI: Pelicula[]) => localStorage.setItem('peliculas', JSON.stringify(peliculasAPI)));
       window.location.reload()
-    }else{
+    } else {
       this.peliculas = JSON.parse(data);
     }
 
   }
 
-/**
- * Creamos una nueva matriz, iteramos a través de la matriz anterior, y si la identificación del
- * elemento no es igual a la identificación del elemento que queremos eliminar, lo insertamos en la
- * nueva matriz
- * @param {Pelicula} pelicula - Película
- */
+  /**
+   * Creamos una nueva matriz, iteramos a través de la matriz anterior, y si la identificación del
+   * elemento no es igual a la identificación del elemento que queremos eliminar, lo insertamos en la
+   * nueva matriz
+   * @param {Pelicula} pelicula - Película
+   */
   eliminarPelicula(pelicula: Pelicula) {
     let peliculasNew: Pelicula[] = [];
     this.peliculas.forEach(element => {
@@ -49,6 +49,15 @@ export class ListaPelisComponent implements OnInit {
     });
     localStorage.setItem('peliculas', JSON.stringify(peliculasNew))
     this.peliculas = peliculasNew;
+  }
+
+  seleccionarCartel(id: number) {
+    if (id<=4) {
+      return "cartel"+id;
+    }else{
+      return "cartel"+(id-4);
+    }
+
   }
 
 }

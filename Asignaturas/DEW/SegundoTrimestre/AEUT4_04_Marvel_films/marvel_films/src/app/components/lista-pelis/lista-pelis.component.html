@@ -1,9 +1,11 @@
-<li *ngFor="let pelicula of peliculas" class="d-flex flex-row">
-  <a routerLink="/{{pelicula.id}}">
-    <div class="filmposter">
-      <img src="{{pelicula.poster}}">
-      <p>{{pelicula.name | coreccionTitulo}}</p>
-    </div>
-  </a>
-  <button (click)="eliminarPelicula(pelicula)">Eliminar</button>
-</li>
+<div *ngFor="let pelicula of peliculas" class="contenedor">
+  <div class="cartel">
+    <a routerLink="/{{pelicula.id}}">
+      <div class="filmposter">
+        <img src="{{pelicula.poster}}">
+        <p>{{pelicula.name | coreccionTitulo}}</p>
+      </div>
+    </a>
+    <button (click)="eliminarPelicula(pelicula)">Eliminar</button>
+  </div>
+</div>
