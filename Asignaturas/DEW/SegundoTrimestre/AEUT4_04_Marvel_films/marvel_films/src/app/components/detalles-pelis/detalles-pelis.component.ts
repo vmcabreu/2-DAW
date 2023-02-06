@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
-import { ApipeliculaService } from 'src/app/services/apipelicula.service';
+import { DetallesPeliService } from 'src/app/services/detalles-peli.service';
 import { CoreccionTituloPipe } from 'src/app/pipes/coreccion-titulo.pipe';
+import { FaseMarvelPipe } from 'src/app/pipes/fase-marvel.pipe';
 import { Mock } from 'src/app/mock/mock.mock';
 import { Route, Router } from '@angular/router';
 @Component({
@@ -10,15 +11,16 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./detalles-pelis.component.css']
 })
 export class DetallesPelisComponent implements OnInit {
-  detallesPeli: Pelicula[] = [];
-  private peliculaService: ApipeliculaService;
-  constructor(private peliculasService: ApipeliculaService, private router: Router) {
+  detallesPeli: any = null;
+  private peliculaService: DetallesPeliService;
+  constructor(private peliculasService: DetallesPeliService, private router: Router) {
     this.peliculaService = peliculasService;
   }
   ngOnInit() {
-    this.peliculasService.getDetalles(Number(this.router.url.split('/')[1])).subscribe((peliculasAPI: Pelicula[]) => this.detallesPeli = peliculasAPI);
-    console.log(this.detallesPeli);
+    console.log(this.router.url.replace("/",""));
 
+    this.peliculasService.getDetalles(this.router.url.replace("/","")).subscribe((peliculasAPI: Pelicula) => this.detallesPeli = peliculasAPI);
+    console.log(this.detallesPeli);
   }
 }
 
