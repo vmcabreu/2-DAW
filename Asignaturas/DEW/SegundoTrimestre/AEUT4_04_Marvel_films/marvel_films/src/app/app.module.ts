@@ -10,6 +10,9 @@ import { FaseMarvelPipe } from './pipes/fase-marvel.pipe';
 import { DetallesPelisComponent } from './components/detalles-pelis/detalles-pelis.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AddPeliculasComponent } from './components/add-peliculas/add-peliculas.component';
+import { ModifyPeliculasComponent } from './components/modify-peliculas/modify-peliculas.component';
+import { SinopsisPipe } from './pipes/sinopsis.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { FooterComponent } from './components/footer/footer.component';
     FaseMarvelPipe,
     DetallesPelisComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AddPeliculasComponent,
+    ModifyPeliculasComponent,
+    SinopsisPipe
   ],
   imports: [
     BrowserModule,

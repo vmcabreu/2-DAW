@@ -1,4 +1,7 @@
 footer{
-  background-color: black;
   color: whitesmoke;
+}
+p{
+  margin: 0;
+  padding: 0;
 }

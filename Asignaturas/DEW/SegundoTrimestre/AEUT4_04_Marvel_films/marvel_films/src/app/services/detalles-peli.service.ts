@@ -12,9 +12,19 @@ export class DetallesPeliService {
   constructor(private http: HttpClient) {
   }
 
-
-
-  getDetalles(id: string): Observable<Pelicula> {
+  getDetalles(id: number): Observable<Pelicula> {
     return this.http.get<Pelicula>('https://www.qando.es/docs/films.php?id=' + id)
   }
+
+  getTodoDetalles(length: number): Pelicula[] {
+    let peliculasDetalles: Pelicula[] = [];
+    for (let i = 1; i <= length; i++) {
+      this.http.get<Pelicula>('https://www.qando.es/docs/films.php?id=' + i).subscribe((detallesAPI: Pelicula) => peliculasDetalles.push(detallesAPI))
+
+    }
+    return peliculasDetalles;
+  }
+
+
+
 }

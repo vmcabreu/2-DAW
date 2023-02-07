@@ -1,11 +1,12 @@
-<div *ngFor="let pelicula of peliculas" class="contenedor">
-  <div class="cartel">
+<div class="contenedor">
+  <div *ngFor="let pelicula of peliculas" class="cartel filmposter">
     <a routerLink="/{{pelicula.id}}">
-      <div class="filmposter">
-        <img src="{{pelicula.poster}}">
-        <p>{{pelicula.name | coreccionTitulo}}</p>
-      </div>
+      <img src="{{pelicula.poster}}">
+      <p>{{pelicula.name | coreccionTitulo}}</p>
     </a>
+    <div class="botonescont">
+    <button routerLink="modify/{{pelicula.id}}">Modificar</button>
     <button (click)="eliminarPelicula(pelicula)">Eliminar</button>
+  </div>
   </div>
 </div>

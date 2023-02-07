@@ -1,4 +1,11 @@
 <nav>
-  <img src="{{headerImg}}">
-  <h1>Marvel Films</h1>
+  <div>
+    <img src="{{headerImg}}">
+  </div>
+  <div class="headerButton">
+    <button routerLink="/add">Añadir Pelicula
+    </button>
+    <button (click)="reiniciarStorage()">Reiniciar
+    </button>
+  </div>
 </nav>

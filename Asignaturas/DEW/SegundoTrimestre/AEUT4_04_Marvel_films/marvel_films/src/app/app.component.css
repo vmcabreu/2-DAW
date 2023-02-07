@@ -1,0 +1,25 @@
+:host{
+  display: grid;
+  grid-template-rows: 80px 1fr 30px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+app-header{
+  background-color: #f0131f;
+  grid-row: 1/2;
+}
+
+.routercontenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 20px;
+  margin-inline: 10%;
+  grid-row: 2/3;
+}
+app-footer{
+  background-color: black;
+  grid-row: 3/4;
+}

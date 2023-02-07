@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
 import { ApipeliculaService } from 'src/app/services/apipelicula.service';
+import { DetallesPeliService } from 'src/app/services/detalles-peli.service';
 import { CoreccionTituloPipe } from 'src/app/pipes/coreccion-titulo.pipe';
 import { Mock } from 'src/app/mock/mock.mock';
 @Component({
@@ -12,10 +13,11 @@ import { Mock } from 'src/app/mock/mock.mock';
 export class ListaPelisComponent implements OnInit {
   peliculas: Pelicula[] = [];
   aux: Pelicula[] = this.peliculas;
-
+  private detalleService: DetallesPeliService;
   private peliculaService: ApipeliculaService;
-  constructor(private peliculasService: ApipeliculaService) {
+  constructor(private peliculasService: ApipeliculaService, private detallesService: DetallesPeliService) {
     this.peliculaService = peliculasService;
+    this.detalleService = detallesService;
   }
 
 
@@ -25,13 +27,22 @@ export class ListaPelisComponent implements OnInit {
    */
   ngOnInit() {
     let data = localStorage.getItem('peliculas')
-    if (data == null) {
-      this.peliculasService.getPeliculas().subscribe((peliculasAPI: Pelicula[]) => localStorage.setItem('peliculas', JSON.stringify(peliculasAPI)));
-      window.location.reload()
+    if (data == null || data == "null") {
+      this.peliculasService.getPeliculas().subscribe((peliculasAPI: Pelicula[]) => this.inicializarPelis(peliculasAPI));
+      //window.location.reload()
     } else {
       this.peliculas = JSON.parse(data);
     }
+  }
 
+  /**
+   * Toma una matriz de objetos de Pelicula, la convierte en una cadena JSON y la almacena en
+   * localStorage
+   * @param {Pelicula[]} peliculas - Película[]
+   */
+  inicializarPelis(peliculas: Pelicula[]) {
+    localStorage.setItem('peliculas', JSON.stringify(peliculas))
+    this.peliculas = peliculas
   }
 
   /**
@@ -41,23 +52,20 @@ export class ListaPelisComponent implements OnInit {
    * @param {Pelicula} pelicula - Película
    */
   eliminarPelicula(pelicula: Pelicula) {
-    let peliculasNew: Pelicula[] = [];
-    this.peliculas.forEach(element => {
-      if (element.id != pelicula.id) {
-        peliculasNew.push(element)
-      }
-    });
-    localStorage.setItem('peliculas', JSON.stringify(peliculasNew))
-    this.peliculas = peliculasNew;
-  }
-
-  seleccionarCartel(id: number) {
-    if (id<=4) {
-      return "cartel"+id;
-    }else{
-      return "cartel"+(id-4);
+    if (this.peliculas.length != 0) {
+      let peliculasNew: Pelicula[] = [];
+      this.peliculas.forEach(element => {
+        if (element.id != pelicula.id) {
+          peliculasNew.push(element)
+        }
+      });
+      localStorage.setItem('peliculas', JSON.stringify(peliculasNew))
+      this.peliculas = peliculasNew;
+    } else {
+      alert("Se ha borrado todas las peliculas, se reiniciará la lista a su estado inicial")
+      localStorage.clear();
     }
-
   }
-
 }
+
+
