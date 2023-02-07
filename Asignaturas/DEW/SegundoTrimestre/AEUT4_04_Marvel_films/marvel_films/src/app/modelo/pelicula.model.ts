@@ -3,13 +3,13 @@ export class Pelicula {
   public name: string;
   public poster: string;
   public releaseDate: string;
-  public sinopsis: string;
+  public description: string;
 
-  constructor(id: number, nombre: string, poster: string, releaseDate: string = "", sinopsis: string = "") {
+  constructor(id: number, nombre: string, poster: string, releaseDate: string = "", description: string = "") {
     this.id = id;
     this.name = nombre;
     this.poster = poster;
     this.releaseDate = releaseDate;
-    this.sinopsis = sinopsis;
+    this.description = description;
   }
 }

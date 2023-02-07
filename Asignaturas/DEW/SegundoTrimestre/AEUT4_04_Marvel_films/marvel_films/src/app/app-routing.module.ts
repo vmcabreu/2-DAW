@@ -7,7 +7,7 @@ import { ModifyPeliculasComponent } from './components/modify-peliculas/modify-p
 
 const routes: Routes = [
   { path: "", component: ListaPelisComponent },
-  { path: "add", component: AddPeliculasComponent },
+  { path: "add", component: AddPeliculasComponent},
   { path: "modify/:id", component: ModifyPeliculasComponent },
   { path: ":id", component: DetallesPelisComponent }
 ];

@@ -4,9 +4,6 @@
       <img src="{{pelicula.poster}}">
       <p>{{pelicula.name | coreccionTitulo}}</p>
     </a>
-    <div class="botonescont">
-    <button routerLink="modify/{{pelicula.id}}">Modificar</button>
     <button (click)="eliminarPelicula(pelicula)">Eliminar</button>
-  </div>
   </div>
 </div>
