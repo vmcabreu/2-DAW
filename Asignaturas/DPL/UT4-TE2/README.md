@@ -392,13 +392,13 @@ Le damos permisos de ejecución y lo probamos
 
 # Ruby on Rails
 
-![Alt text](screenshots/rubyrails/0.png)
-![Alt text](screenshots/rubyrails/1.png)
-![Alt text](screenshots/rubyrails/2.png)
-![Alt text](screenshots/rubyrails/3.png)
-![Alt text](screenshots/rubyrails/4.png)
-![Alt text](screenshots/rubyrails/5.png)
-![Alt text](screenshots/rubyrails/6.png)
+![](screenshots/rubyrails/0.png)
+![](screenshots/rubyrails/1.png)
+![](screenshots/rubyrails/2.png)
+![](screenshots/rubyrails/3.png)
+![](screenshots/rubyrails/4.png)
+![](screenshots/rubyrails/5.png)
+![](screenshots/rubyrails/6.png)
 
 
 
@@ -408,6 +408,8 @@ Le damos permisos de ejecución y lo probamos
 
 
 # Django
+
+
 
 
 

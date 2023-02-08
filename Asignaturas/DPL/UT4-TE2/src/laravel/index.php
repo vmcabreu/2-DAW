@@ -13,6 +13,8 @@
 </body>
 </html>
 
+<a href="">← Back home</a>
+
 block content
   h1= "Places I've Already Been To"
   ul
