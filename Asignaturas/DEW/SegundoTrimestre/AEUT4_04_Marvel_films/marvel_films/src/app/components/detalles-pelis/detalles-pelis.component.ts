@@ -18,50 +18,70 @@ export class DetallesPelisComponent implements OnInit {
   constructor(private peliculasService: DetallesPeliService, private router: Router) {
     this.peliculaService = peliculasService;
   }
-/**
- * Usamos el enrutador para obtener la identificación de la película que queremos mostrar, luego usamos
- * la identificación para obtener la película de la API y luego usamos la película para mostrar la
- * película.
- */
+
+  /**
+   * Si el almacenamiento local no está vacío, verificamos si la película tiene una fecha de
+   * lanzamiento y una descripción. Si no es así, llamamos a la API para obtener los detalles. Si es
+   * así, solo obtenemos los detalles del almacenamiento local.
+   */
   ngOnInit() {
     const storageLocal = localStorage.getItem('peliculas')
     if (storageLocal != null) {
-      let pelicula = JSON.parse(storageLocal);
-      if (pelicula[this.id-1].releaseDate == "" || pelicula[this.id - 1].description == "") {
+      let peliculas = JSON.parse(storageLocal);
+      let pelicula = peliculas[this.buscarID(peliculas,this.id)]
+      if (pelicula.releaseDate == undefined || pelicula.description == undefined) {
         this.peliculasService.getDetalles(this.id).subscribe((peliculaAPI: Pelicula) => this.expandirDetalles(peliculaAPI, this.id));
       }else{
-        this.detallesPeli = pelicula[this.id-1];
+        this.detallesPeli = pelicula
       }
-
     }
-
   }
 
-/**
- * Toma una película y una identificación como parámetros, y luego establece la fecha de lanzamiento y
- * la descripción de la película en el almacenamiento local a la fecha de lanzamiento y la descripción
- * de la película que se pasó como parámetro.
- * @param {Pelicula} pelicula - Pelicula, id: numero
- * @param {number} id - número: la identificación de la película que se está expandiendo.
- */
+  /**
+   * Toma una película y una identificación como parámetros, y luego establece la fecha de lanzamiento y
+   * la descripción de la película en el almacenamiento local a la fecha de lanzamiento y la descripción
+   * de la película que se pasó como parámetro.
+   * @param {Pelicula} pelicula - Pelicula, id: numero
+   * @param {number} id - número: la identificación de la película que se está expandiendo.
+   */
   expandirDetalles(pelicula: Pelicula, id: number) {
     const storageLocal = localStorage.getItem('peliculas')
     if (storageLocal != null) {
       let peliculas: Pelicula[] = JSON.parse(storageLocal);
-      peliculas[id - 1].releaseDate = pelicula.releaseDate;
-      peliculas[id - 1].description = ""+pelicula.description;
+      let posicion: number = this.buscarID(peliculas,this.id);
+      peliculas[posicion].releaseDate = pelicula.releaseDate;
+      peliculas[posicion].description = "" + pelicula.description;
       localStorage.setItem('peliculas', JSON.stringify(peliculas));
+      this.detallesPeli = peliculas[posicion];
     }
-    this.detallesPeli = pelicula;
+
   }
 
-/**
- * Obtiene el elemento con el id "descripción" y cambia su texto interno a la descripción de la
- * película.
- */
+  /**
+   * Obtiene el elemento con el id "descripción" y cambia su texto interno a la descripción de la
+   * película.
+   */
   expandirSinopsis() {
     const descripcion = <HTMLElement>document.getElementById("description");
     descripcion.innerText = this.detallesPeli.description;
+  }
+
+
+/**
+ * Toma una lista de películas y un número de ID, y devuelve la posición de la película con ese número
+ * de ID en la lista
+ * @param {Pelicula[]} listaPeliculas - Pelicula[] - La lista de películas
+ * @param {number} id - número: la identificación de la película que desea encontrar.
+ * @returns La posición del elemento en la matriz.
+ */
+  buscarID(listaPeliculas: Pelicula[], id: number): number {
+    let posicion: number = 0;
+    listaPeliculas.forEach(element => {
+      if (id == element.id) {
+        posicion = listaPeliculas.indexOf(element);
+      }
+    });
+    return posicion;
   }
 }
 

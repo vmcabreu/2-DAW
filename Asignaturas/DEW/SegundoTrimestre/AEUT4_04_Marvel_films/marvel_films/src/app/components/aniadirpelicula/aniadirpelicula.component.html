@@ -1,0 +1,17 @@
+<h1>¡Inserta tu película de Marvel!</h1>
+<div class="formulario">
+  <form (submit)=addPelicula()>
+    <label for="titulo">Título:</label>
+    <input type="text" class="form-control m-2" name="titulo" id="titulo" placeholder="Nombre de la película" required>
+    <label for="poster">Poster:</label>
+    <input type="text" name="poster" class="form-control m-2" id="poster" placeholder="Enlace de la imagen" required>
+    <label for="estreno">Fecha de Estreno:</label>
+    <input type="text" name="estreno" class="form-control m-2" id="estreno" placeholder="Fecha de Lanzamiento" required>
+    <label for="sinopsis">Sinopsis:</label>
+    <textarea name="sinopsis" id="sinopsis" class="form-control m-2" cols="30" rows="10"
+      placeholder="Sinopsis de la película" required></textarea>
+    <div class=" d-flex justify-content-center">
+      <button type="submit" class="btn btn-danger m-2 boton_boots">Añadir</button>
+    </div>
+  </form>
+</div>
