@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
+import { Mock } from 'src/app/mock/mock.mock';
 
 @Component({
   selector: 'app-modificarpelicula',
@@ -13,6 +14,34 @@ export class ModificarpeliculaComponent {
   public pelicula: Pelicula = this.conseguirDatos(this.id)
   constructor(private router: Router) {
   }
+  //MOCK
+    conseguirDatos(id: number) {
+        let listaPeliculas: Pelicula[] = Mock;
+        let posicion = this.buscarID(listaPeliculas, this.id);
+        this.pelicula = listaPeliculas[posicion];
+        return this.pelicula;
+      }
+
+      modifyPelicula(id: number) {
+        let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
+        let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
+        let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
+        let sinopsis: string = (<HTMLInputElement>document.getElementById("sinopsis")).value;
+        let posicion = this.buscarID(Mock, id);
+          Mock[posicion] = this.modificarPelicula(this.pelicula, titulo, poster, estreno, sinopsis);
+          this.router.navigate(['/' + id]);
+      }
+  //
+
+
+  // API
+
+  /**
+   * Obtiene los datos del almacenamiento local y luego busca la identificación de la película y luego
+   * devuelve la película
+   * @param {number} id - número: la identificación de la película que desea obtener.
+   * @returns La película está siendo devuelta.
+
   conseguirDatos(id: number) {
     let storageLocal = localStorage.getItem('peliculas');
     if (storageLocal != null) {
@@ -21,14 +50,46 @@ export class ModificarpeliculaComponent {
       this.pelicula = listaPeliculas[posicion];
     }
     return this.pelicula;
-
   }
 
-  modificarPelicula(pelicula: Pelicula, nombre: string, poster: string, releaseDate: string, description: string):Pelicula{
+
+  /**
+   * Toma el id de la película a modificar, obtiene los valores de las entradas, obtiene la lista de
+   * películas de localStorage, busca la película a modificar, la modifica y guarda la lista de
+   * películas en localStorage
+   * @param {number} id - número: la identificación de la película que se va a modificar.
+
+  modifyPelicula(id: number) {
+    let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
+    let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
+    let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
+    let sinopsis: string = (<HTMLInputElement>document.getElementById("sinopsis")).value;
+    let storageLocal = localStorage.getItem('peliculas');
+    if (storageLocal != null) {
+      let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
+      let posicion = this.buscarID(listaPeliculas, id);
+      listaPeliculas[posicion] = this.modificarPelicula(listaPeliculas[posicion], titulo, poster, estreno, sinopsis)
+      localStorage.setItem('peliculas', JSON.stringify(listaPeliculas));
+      this.router.navigate(['/' + id]);
+    }
+  }
+  */
+  //
+
+  /**
+   * Toma un objeto Pelicula y cuatro cadenas y devuelve un objeto Pelicula
+   * @param {Pelicula} pelicula - Pelicula - El objeto de Pelicula que queremos modificar.
+   * @param {string} nombre - cadena, póster: cadena, fecha de publicación: cadena, descripción: cadena
+   * @param {string} poster - cadena, fecha de publicación: cadena, descripción: cadena
+   * @param {string} releaseDate - cadena
+   * @param {string} description - cadena
+   * @returns La película modificada.
+   */
+  modificarPelicula(pelicula: Pelicula, nombre: string, poster: string, releaseDate: string, description: string): Pelicula {
     pelicula.name = nombre;
     pelicula.poster = poster;
     pelicula.releaseDate = releaseDate;
-    pelicula.description =description;
+    pelicula.description = description;
     return pelicula;
   }
 
@@ -49,21 +110,9 @@ export class ModificarpeliculaComponent {
     return posicion;
   }
 
-  modifyPelicula(id: number) {
-    let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
-    let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
-    let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
-    let sinopsis: string = (<HTMLInputElement>document.getElementById("sinopsis")).value;
-    let storageLocal = localStorage.getItem('peliculas');
-    if (storageLocal != null) {
-      let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
-      let posicion = this.buscarID(listaPeliculas, id);
-      listaPeliculas[posicion] = this.modificarPelicula(listaPeliculas[posicion],titulo,poster,estreno,sinopsis)
-      localStorage.setItem('peliculas', JSON.stringify(listaPeliculas));
-      this.router.navigate(['/'+id]);
-    }
-  }
 
 }
+
+
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
 import { Router } from '@angular/router';
+import { Mock } from 'src/app/mock/mock.mock';
 
 @Component({
   selector: 'app-aniadirpelicula',
@@ -11,55 +12,102 @@ export class AniadirpeliculaComponent {
   constructor(private router: Router) {
 
   }
-    /**
-   * Comprueba si hay elementos en el almacenamiento local, si los hay, los recorre y verifica si la
-   * identificación de cada elemento es igual al índice del bucle, si no lo es, devuelve el índice del
-   * bucle como la nueva identificación
-   * @returns la identificación de la nueva película.
+
+  /**
+ * Crea un nuevo objeto Pelicula con los parámetros dados y lo devuelve
+ * @param {string} nombre - cadena
+ * @param {string} poster - cadena, fecha de publicación: cadena, descripción: cadena
+ * @param {string} releaseDate - cadena
+ * @param {string} description - cadena,
+ * @returns Un nuevo objeto de Pelicula con los parámetros pasados.
+ */
+  crearPelicula(nombre: string, poster: string, releaseDate: string, description: string) {
+    return new Pelicula(this.crearID(), nombre, poster, releaseDate, description)
+  }
+
+
+  //MOCK
+
+  /**
+   * Crea una nueva ID para una nueva película.
+   * @returns la variable newId.
    */
-    crearID(): number {
-      const storageLocal = localStorage.getItem('pelicula');
-      let newId = 0;
-      if (storageLocal != null) {
-        let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
-        newId = listaPeliculas.length + 1
-        for (let i = 1; i <= listaPeliculas.length; i++) {
-          if (listaPeliculas[i].id != i) {
-            newId = i;
-            break;
+  /**
+      crearID(): number {
+        let newId = 0;
+          let listaPeliculas: Pelicula[] = Mock;
+          newId = listaPeliculas.length + 1
+          for (let i = 1; i <= listaPeliculas.length; i++) {
+            if (listaPeliculas[i].id != i) {
+              newId = i;
+              break;
+            }
           }
-        }
+        return newId
       }
-      return newId
-    }
+       */
 
-    /**
-     * Crea un nuevo objeto Pelicula con los parámetros dados y lo devuelve
-     * @param {string} nombre - cadena
-     * @param {string} poster - cadena, fecha de publicación: cadena, descripción: cadena
-     * @param {string} releaseDate - cadena
-     * @param {string} description - cadena,
-     * @returns Un nuevo objeto de Pelicula con los parámetros pasados.
-     */
-    crearPelicula(nombre: string, poster: string, releaseDate: string, description: string) {
-      return new Pelicula(this.crearID(), nombre, poster, releaseDate, description)
-    }
 
+  /**
+   * Toma los valores del formulario y crea un nuevo objeto de película, luego lo empuja a la matriz
+   * simulada y navega a la página de inicio
+   */
+  /**
     addPelicula() {
       let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
       let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
       let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
       let sinopsis: string = (<HTMLInputElement>document.getElementById("sinopsis")).value;
-      let storageLocal = localStorage.getItem('peliculas');
-      console.log(storageLocal);
-      if (storageLocal != null) {
-        let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
-        let newPelicula: Pelicula = this.crearPelicula(titulo, poster,estreno,sinopsis)
-        listaPeliculas.push(newPelicula);
-        localStorage.setItem('peliculas', JSON.stringify(listaPeliculas));
-        console.log("Mamerto");
+        let newPelicula: Pelicula = this.crearPelicula(titulo, poster, estreno, sinopsis)
+        Mock.push(newPelicula);
         this.router.navigate(['']);
+    }
+   */
+  //
+
+  //API
+
+
+  /**
+ * Comprueba si hay elementos en el almacenamiento local, si los hay, los recorre y verifica si la
+ * identificación de cada elemento es igual al índice del bucle, si no lo es, devuelve el índice del
+ * bucle como la nueva identificación
+ * @returns la identificación de la nueva película.
+ */
+  crearID(): number {
+    const storageLocal = localStorage.getItem('pelicula');
+    let newId = 0;
+    if (storageLocal != null) {
+      let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
+      newId = listaPeliculas.length + 1
+      for (let i = 1; i <= listaPeliculas.length; i++) {
+        if (listaPeliculas[i].id != i) {
+          newId = i;
+          break;
+        }
       }
     }
+    return newId
+  }
+
+  /**
+   * Agrega una nueva película al almacenamiento local.
+   */
+  addPelicula() {
+    let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
+    let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
+    let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
+    let sinopsis: string = (<HTMLInputElement>document.getElementById("sinopsis")).value;
+    let storageLocal = localStorage.getItem('peliculas');
+    console.log(storageLocal);
+    if (storageLocal != null) {
+      let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
+      let newPelicula: Pelicula = this.crearPelicula(titulo, poster, estreno, sinopsis)
+      listaPeliculas.push(newPelicula);
+      localStorage.setItem('peliculas', JSON.stringify(listaPeliculas));
+      this.router.navigate(['']);
+    }
+  }
+  //
 
 }

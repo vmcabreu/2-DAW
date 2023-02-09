@@ -28,16 +28,5 @@ export class ApipeliculaService {
 
 }
 
-/*
-validarPelicula(pelicula : Pelicula, listadoPeliculas: Pelicula[]){
-  if (listadoPeliculas) {
-    listadoPeliculas.push(pelicula);
-  }
-}
-*/
-/*
-  mockPelicula(pelicula: Pelicula): void {
-    this.mockPelicula
-  }
-*/
+
 

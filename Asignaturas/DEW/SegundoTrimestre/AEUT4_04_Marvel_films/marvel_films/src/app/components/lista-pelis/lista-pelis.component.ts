@@ -19,12 +19,38 @@ export class ListaPelisComponent implements OnInit {
     this.peliculaService = peliculasService;
     this.detalleService = detallesService;
   }
+  /** MOCK */
+  ngOnInit() {
+    this.peliculas = Mock;
+    console.log(this.peliculas);
+  }
 
+  eliminarPelicula(pelicula: Pelicula) {
+    if (this.peliculas.length != 0) {
+      let peliculasNew: Pelicula[] = [];
+      this.peliculas.forEach(element => {
+        if (element.id != pelicula.id) {
+          peliculasNew.push(element)
+        }
+      });
+      this.peliculas = peliculasNew;
+      this.reescribirMock(peliculasNew)
+      }
+  }
+
+  reescribirMock(peliculas: Pelicula[]){
+    Mock.splice(0,Mock.length);
+    for (let i = 0; i < peliculas.length; i++) {
+      Mock.push(peliculas[i])
+    }
+  }
+
+  /** API */
 
   /**
    * Verificamos si hay datos en localStorage, si no los hay, obtenemos los datos de la API y los
    * almacenamos en localStorage, luego recargamos la página
-   */
+
   ngOnInit() {
     let data = localStorage.getItem('peliculas')
     if (data == null || data == "null") {
@@ -35,22 +61,22 @@ export class ListaPelisComponent implements OnInit {
     }
   }
 
-  /**
+
    * Toma una matriz de objetos de Pelicula, la convierte en una cadena JSON y la almacena en
    * localStorage
    * @param {Pelicula[]} peliculas - Película[]
-   */
+
   inicializarPelis(peliculas: Pelicula[]) {
     localStorage.setItem('peliculas', JSON.stringify(peliculas))
     this.peliculas = peliculas
   }
 
-  /**
+
    * Creamos una nueva matriz, iteramos a través de la matriz anterior, y si la identificación del
    * elemento no es igual a la identificación del elemento que queremos eliminar, lo insertamos en la
    * nueva matriz
    * @param {Pelicula} pelicula - Película
-   */
+
   eliminarPelicula(pelicula: Pelicula) {
     if (this.peliculas.length != 0) {
       let peliculasNew: Pelicula[] = [];
@@ -66,6 +92,9 @@ export class ListaPelisComponent implements OnInit {
       localStorage.clear();
     }
   }
+*/
+
+
 }
 
 

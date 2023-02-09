@@ -22,12 +22,25 @@ export class DetallesPelisComponent implements OnInit {
     this.peliculaService = peliculasService;
   }
 
+  // Mock
+  ngOnInit() {
+    let peliculas = Mock;
+    let pelicula = peliculas[this.buscarID(peliculas, this.id)]
+    if (pelicula.releaseDate == undefined || pelicula.description == undefined) {
+      this.peliculasService.getDetalles(this.id).subscribe((peliculaAPI: Pelicula) => this.expandirDetalles(peliculaAPI, this.id));
+    } else {
+      this.detallesPeli = pelicula
+    }
+    this.leerMasFlag(this.detallesPeli.description)
+  }
+
+  // API
 
   /**
    * Si el almacenamiento local no está vacío, verificamos si la película tiene una fecha de
    * lanzamiento y una descripción. Si no es así, llamamos a la API para obtener los detalles. Si es
    * así, solo obtenemos los detalles del almacenamiento local.
-   */
+
   ngOnInit() {
     const storageLocal = localStorage.getItem('peliculas')
     if (storageLocal != null) {
@@ -37,19 +50,20 @@ export class DetallesPelisComponent implements OnInit {
         this.peliculasService.getDetalles(this.id).subscribe((peliculaAPI: Pelicula) => this.expandirDetalles(peliculaAPI, this.id));
       } else {
         this.detallesPeli = pelicula
-        
+
       }
     }
     this.leerMasFlag(this.detallesPeli.description)
   }
-
+*/
+  // API
   /**
    * Toma una película y una identificación como parámetros, y luego establece la fecha de lanzamiento y
    * la descripción de la película en el almacenamiento local a la fecha de lanzamiento y la descripción
    * de la película que se pasó como parámetro.
    * @param {Pelicula} pelicula - Pelicula, id: numero
    * @param {number} id - número: la identificación de la película que se está expandiendo.
-   */
+  */
   expandirDetalles(pelicula: Pelicula, id: number) {
     const storageLocal = localStorage.getItem('peliculas')
     if (storageLocal != null) {
@@ -64,25 +78,25 @@ export class DetallesPelisComponent implements OnInit {
 
   }
 
-/**
- * Comprueba si la longitud de la sinopsis es mayor a 300 caracteres, si lo es, elimina la clase
- * "invisible" del elemento con id "leermas", si no lo es, agrega la clase "invisible" al elemento con
- * el id "leermas"
- * @param {string} sinopsis - cadena
- */
-  leerMasFlag(sinopsis : string){
+  /**
+   * Comprueba si la longitud de la sinopsis es mayor a 300 caracteres, si lo es, elimina la clase
+   * "invisible" del elemento con id "leermas", si no lo es, agrega la clase "invisible" al elemento con
+   * el id "leermas"
+   * @param {string} sinopsis - cadena
+  */
+  leerMasFlag(sinopsis: string) {
     let leermas: HTMLElement = <HTMLElement>document.getElementById("leermas");
     if (sinopsis.length > 300) {
-      leermas.classList.remove("invisible") 
-    }else{
-      leermas.classList.add("invisible") 
+      leermas.classList.remove("invisible")
+    } else {
+      leermas.classList.add("invisible")
     }
   }
 
   /**
    * Obtiene el elemento con el id "descripción" y cambia su texto interno a la descripción de la
    * película.
-   */
+*/
   expandirSinopsis() {
     const descripcion = <HTMLElement>document.getElementById("description");
     descripcion.innerText = this.detallesPeli.description;
@@ -95,7 +109,7 @@ export class DetallesPelisComponent implements OnInit {
    * @param {Pelicula[]} listaPeliculas - Pelicula[] - La lista de películas
    * @param {number} id - número: la identificación de la película que desea encontrar.
    * @returns La posición del elemento en la matriz.
-   */
+*/
   buscarID(listaPeliculas: Pelicula[], id: number): number {
     let posicion: number = 0;
     listaPeliculas.forEach(element => {
@@ -105,5 +119,6 @@ export class DetallesPelisComponent implements OnInit {
     });
     return posicion;
   }
+
 }
 
