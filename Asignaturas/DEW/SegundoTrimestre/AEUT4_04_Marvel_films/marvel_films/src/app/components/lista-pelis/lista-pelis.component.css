@@ -36,19 +36,25 @@ a:hover {
   text-shadow: 0px 0px 6px 0px rgb(255, 0, 0);
 }
 
-img {
+img.poster {
   width: 150px;
   border: 2px solid white;
   border-radius: 0.6rem;
   box-shadow: 0px 0px 6px 0px white;
 }
 
-img:hover {
+img.poster:hover {
   border: 2px solid rgb(255, 0, 0);
   box-shadow: 0px 0px 6px 0px rgb(255, 0, 0);
 }
 
+.marvelLogo{
+  width: 300px;
+}
 
+.marvelLogo:hover{
+  filter: brightness(50); 
+}
 
 button {
   background-color: #00000000;

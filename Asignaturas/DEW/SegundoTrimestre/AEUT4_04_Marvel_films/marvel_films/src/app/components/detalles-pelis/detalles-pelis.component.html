@@ -3,8 +3,8 @@
 <img src="{{detallesPeli.poster}}">
 <div class="bodyDetalles">
 <h2>Fecha de estreno: {{detallesPeli.releaseDate | faseMarvel}}</h2>
-<p id="description">{{detallesPeli.description | sinopsis}} <a class="leermas" (click)="expandirSinopsis()">Leer más</a></p>
+<p id="description">{{detallesPeli.description | sinopsis}} <a class="leermas" id="leermas" (click)="expandirSinopsis()">Leer más</a></p>
 <a routerLink="">Volver al Inicio</a>
-<button routerLink="/modify/{{this.id}}">Modificar</button>
+<button routerLink="/modificar/{{this.id}}">Modificar</button>
 </div>
 </div>

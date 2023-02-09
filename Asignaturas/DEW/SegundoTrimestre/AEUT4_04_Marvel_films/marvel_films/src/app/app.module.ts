@@ -13,6 +13,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SinopsisPipe } from './pipes/sinopsis.pipe';
 import { AniadirpeliculaComponent } from './components/aniadirpelicula/aniadirpelicula.component';
 import { ModificarpeliculaComponent } from './components/modificarpelicula/modificarpelicula.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FaseMarvelDirective } from './directivas/fase-marvel.directive';
+import { MarvelinfoComponent } from './components/marvelinfo/marvelinfo.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,15 @@ import { ModificarpeliculaComponent } from './components/modificarpelicula/modif
     FooterComponent,
     SinopsisPipe,
     AniadirpeliculaComponent,
-    ModificarpeliculaComponent
+    ModificarpeliculaComponent,
+    FaseMarvelDirective,
+    MarvelinfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

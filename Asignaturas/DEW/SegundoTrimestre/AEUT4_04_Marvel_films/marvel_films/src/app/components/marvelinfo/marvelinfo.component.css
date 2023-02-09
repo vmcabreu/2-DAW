@@ -1,13 +1,6 @@
+
 *{
   color: snow;
-}
-.headerDetalles{
- border-left: 1px solid red;
- padding-left: 20px;
-}
-
-.invisible{
-  display: none;
 }
 button {
 
@@ -40,6 +33,7 @@ a{
 }
 
 p{
+  text-justify: auto;
   max-width: 85%;
 }
 
@@ -47,17 +41,3 @@ a:hover {
   color: red;
   box-shadow: 0px 0px 6px 0px rgb(255, 0, 0);
 }
-
-a.leermas{
-  border: none;
-  padding: 0;
-  text-decoration: underline;
-  color: white;
-}
-
-a.leermas:hover{
-  cursor: pointer;
-  box-shadow:none;
-  text-shadow: 0px 0px 6px 0px rgb(255, 0, 0);
-}
-

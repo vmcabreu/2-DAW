@@ -4,12 +4,14 @@ import { ListaPelisComponent } from './components/lista-pelis/lista-pelis.compon
 import { DetallesPelisComponent } from './components/detalles-pelis/detalles-pelis.component';
 import { AniadirpeliculaComponent } from './components/aniadirpelicula/aniadirpelicula.component';
 import { ModificarpeliculaComponent } from './components/modificarpelicula/modificarpelicula.component';
+import { MarvelinfoComponent } from './components/marvelinfo/marvelinfo.component';
 
 const routes: Routes = [
   { path: "", component: ListaPelisComponent },
   { path: "add", component: AniadirpeliculaComponent},
-  { path: "modify/:id", component: ModificarpeliculaComponent },
-  { path: ":id", component: DetallesPelisComponent }
+  { path: "marvelinfo", component: MarvelinfoComponent},
+  { path: "modificar/:id", component: ModificarpeliculaComponent },
+  { path: ":id", component: DetallesPelisComponent },
 ];
 
 @NgModule({

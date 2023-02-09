@@ -1,7 +1,10 @@
+<div class="d-flex justify-content-center m-3">
+  <img routerLink="/marvelinfo" class="marvelLogo" src="https://www.freepnglogos.com/uploads/marvel-logo-png/new-marvel-studios-logo-debuted-marvelstudios-3.png" alt="">
+</div>
 <div class="contenedor">
   <div *ngFor="let pelicula of peliculas" class="cartel filmposter">
     <a routerLink="/{{pelicula.id}}">
-      <img src="{{pelicula.poster}}">
+      <img class="poster" src="{{pelicula.poster}}">
       <p>{{pelicula.name | coreccionTitulo}}</p>
     </a>
     <button (click)="eliminarPelicula(pelicula)">Eliminar</button>
