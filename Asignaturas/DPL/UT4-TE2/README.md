@@ -399,18 +399,28 @@ Le damos permisos de ejecución y lo probamos
 ![](screenshots/rubyrails/4.png)
 ![](screenshots/rubyrails/5.png)
 ![](screenshots/rubyrails/6.png)
-
-
-
-
-/home/victor/.rvm/gems/ruby-3.0.0/gems/passenger-6.0.17
+![Alt text](screenshots/rubyrails/7.png)
+![Alt text](screenshots/rubyrails/8.png)
+![Alt text](screenshots/rubyrails/10.png)
+![Alt text](screenshots/rubyrails/11.png)
+![Alt text](screenshots/rubyrails/12.png)
+![Alt text](screenshots/rubyrails/13.png)
+![Alt text](screenshots/rubyrails/14.png)
+![Alt text](screenshots/rubyrails/15.png)
+![Alt text](screenshots/rubyrails/16.png)
+![Alt text](screenshots/rubyrails/17.png)
+![Alt text](screenshots/rubyrails/18.png)
+![Alt text](screenshots/rubyrails/19.png)
+![Alt text](screenshots/rubyrails/20.png)
+![Alt text](screenshots/rubyrails/21.png)
+![Alt text](screenshots/rubyrails/22.png)
 
 
 
 # Django
 
 
-
+                                            
 
 
 ---
