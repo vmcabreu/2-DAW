@@ -367,8 +367,8 @@ Y la tras comprobar la sintaxis y recargar el servicio Nginx probamos nuestra ap
 
 Ahora como último paso utilizamos Certbot para que nuestra aplicación este certificada.
 
-![Alt text](screenshots/spring/31certbot.png)
-![Alt text](screenshots/spring/32.png)
+![](screenshots/spring/31certbot.png)
+![](screenshots/spring/32.png)
 
 ## Spring - Despliegue
 
@@ -392,6 +392,24 @@ Le damos permisos de ejecución y lo probamos
 
 # Ruby on Rails
 
+## RoR - Indice
+
+- [Instalación](#ror---instalación)
+- [Creación Aplicación](#ror---creando-aplicación)
+- [Lógica de negocio](#ror---lógica-de-negocio)
+- [Configuración Nginx](#ror---configuración-nginx)
+- [Resultados](#ror---resultados)
+
+## RoR - Instalación
+
+## RoR - Creando Aplicación
+
+## RoR - Lógica de negocio
+
+## RoR - Configuración Nginx
+
+## RoR - Resultados
+
 ![](screenshots/rubyrails/0.png)
 ![](screenshots/rubyrails/1.png)
 ![](screenshots/rubyrails/2.png)
@@ -399,28 +417,85 @@ Le damos permisos de ejecución y lo probamos
 ![](screenshots/rubyrails/4.png)
 ![](screenshots/rubyrails/5.png)
 ![](screenshots/rubyrails/6.png)
-![Alt text](screenshots/rubyrails/7.png)
-![Alt text](screenshots/rubyrails/8.png)
-![Alt text](screenshots/rubyrails/10.png)
-![Alt text](screenshots/rubyrails/11.png)
-![Alt text](screenshots/rubyrails/12.png)
-![Alt text](screenshots/rubyrails/13.png)
-![Alt text](screenshots/rubyrails/14.png)
-![Alt text](screenshots/rubyrails/15.png)
-![Alt text](screenshots/rubyrails/16.png)
-![Alt text](screenshots/rubyrails/17.png)
-![Alt text](screenshots/rubyrails/18.png)
-![Alt text](screenshots/rubyrails/19.png)
-![Alt text](screenshots/rubyrails/20.png)
-![Alt text](screenshots/rubyrails/21.png)
-![Alt text](screenshots/rubyrails/22.png)
-
+![](screenshots/rubyrails/7.png)
+![](screenshots/rubyrails/8.png)
+![](screenshots/rubyrails/10.png)
+![](screenshots/rubyrails/11.png)
+![](screenshots/rubyrails/12.png)
+![](screenshots/rubyrails/13.png)
+![](screenshots/rubyrails/14.png)
+![](screenshots/rubyrails/15.png)
+![](screenshots/rubyrails/16.png)
+![](screenshots/rubyrails/17.png)
+![](screenshots/rubyrails/18.png)
+![](screenshots/rubyrails/19.png)
+![](screenshots/rubyrails/20.png)
+![](screenshots/rubyrails/21.png)
+![](screenshots/rubyrails/22.png)
+![](screenshots/rubyrails/23.png)
+![](screenshots/rubyrails/24.png)
+![](screenshots/rubyrails/25.png)
+![](screenshots/rubyrails/26.png)
+![](screenshots/rubyrails/27.png)
+![](screenshots/rubyrails/28.png)
+![](screenshots/rubyrails/29.png)
 
 
 # Django
 
+## Django - Índice
 
-                                            
+- [Instalación](#django---instalación---instalación)
+- [Creación del Proyecto](#django---creación-del-proyecto)
+- [Código de Aplicación](#django---código-de-aplicación)
+- [Entorno de Producción](#django---entorno-de-producción)
+- [Script Despliegue](#django---script-de-despliegue)
+- [Aplicación](#django---aplicacion)
+
+## Django - Instalación
+
+## Django - Creación del proyecto
+
+## Django - Código de aplicación
+
+## Django - Entorno de producción
+
+## Django - Script de despliegue
+
+## Django - Aplicacion
+
+![](screenshots/django/0.png)
+![](screenshots/django/1.png)               
+![](screenshots/django/2.png)
+![](screenshots/django/3.png)
+![](screenshots/django/4.png)
+![](screenshots/django/5.png)
+![](screenshots/django/6.png)
+![](screenshots/django/7.png)
+![](screenshots/django/8.png)
+![](screenshots/django/9.png)
+![](screenshots/django/10.png)
+![](screenshots/django/11.png)
+![](screenshots/django/12.png)
+![](screenshots/django/12visited.png)
+![](screenshots/django/12wished.png)
+![](screenshots/django/13.png)
+![](screenshots/django/14.png)
+![](screenshots/django/15.png)
+![](screenshots/django/15visited.png)
+![](screenshots/django/15wished.png)
+![](screenshots/django/16.png)
+![](screenshots/django/17.png)
+![](screenshots/django/18.png)
+![](screenshots/django/19.png)
+![](screenshots/django/20.png)
+![](screenshots/django/21.png)
+![](screenshots/django/22.png)
+![](screenshots/django/23.png)
+![](screenshots/django/24.png)
+![](screenshots/django/25.png)
+![](screenshots/django/26.png)
+![](screenshots/django/27.png)
 
 
 ---
