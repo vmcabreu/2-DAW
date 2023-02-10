@@ -23,6 +23,7 @@ export class DetallesPelisComponent implements OnInit {
   }
 
   // Mock
+  /**
   ngOnInit() {
     let peliculas = Mock;
     let pelicula = peliculas[this.buscarID(peliculas, this.id)]
@@ -33,14 +34,14 @@ export class DetallesPelisComponent implements OnInit {
     }
     this.leerMasFlag(this.detallesPeli.description)
   }
-
+ */
   // API
 
   /**
    * Si el almacenamiento local no está vacío, verificamos si la película tiene una fecha de
    * lanzamiento y una descripción. Si no es así, llamamos a la API para obtener los detalles. Si es
    * así, solo obtenemos los detalles del almacenamiento local.
-
+*/
   ngOnInit() {
     const storageLocal = localStorage.getItem('peliculas')
     if (storageLocal != null) {
@@ -55,7 +56,7 @@ export class DetallesPelisComponent implements OnInit {
     }
     this.leerMasFlag(this.detallesPeli.description)
   }
-*/
+
   // API
   /**
    * Toma una película y una identificación como parámetros, y luego establece la fecha de lanzamiento y

@@ -15,6 +15,7 @@ export class ModificarpeliculaComponent {
   constructor(private router: Router) {
   }
   //MOCK
+  /**
     conseguirDatos(id: number) {
         let listaPeliculas: Pelicula[] = Mock;
         let posicion = this.buscarID(listaPeliculas, this.id);
@@ -31,7 +32,9 @@ export class ModificarpeliculaComponent {
           Mock[posicion] = this.modificarPelicula(this.pelicula, titulo, poster, estreno, sinopsis);
           this.router.navigate(['/' + id]);
       }
+       */
   //
+
 
 
   // API
@@ -41,12 +44,12 @@ export class ModificarpeliculaComponent {
    * devuelve la película
    * @param {number} id - número: la identificación de la película que desea obtener.
    * @returns La película está siendo devuelta.
-
+*/
   conseguirDatos(id: number) {
     let storageLocal = localStorage.getItem('peliculas');
     if (storageLocal != null) {
       let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
-      let posicion = this.buscarID(listaPeliculas, this.id);
+      let posicion = this.buscarID(listaPeliculas, id);
       this.pelicula = listaPeliculas[posicion];
     }
     return this.pelicula;
@@ -58,7 +61,7 @@ export class ModificarpeliculaComponent {
    * películas de localStorage, busca la película a modificar, la modifica y guarda la lista de
    * películas en localStorage
    * @param {number} id - número: la identificación de la película que se va a modificar.
-
+*/
   modifyPelicula(id: number) {
     let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
     let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
@@ -73,7 +76,7 @@ export class ModificarpeliculaComponent {
       this.router.navigate(['/' + id]);
     }
   }
-  */
+
   //
 
   /**

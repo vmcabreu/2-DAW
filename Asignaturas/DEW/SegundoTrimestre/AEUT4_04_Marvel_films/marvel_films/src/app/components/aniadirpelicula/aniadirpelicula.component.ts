@@ -38,7 +38,7 @@ export class AniadirpeliculaComponent {
           let listaPeliculas: Pelicula[] = Mock;
           newId = listaPeliculas.length + 1
           for (let i = 1; i <= listaPeliculas.length; i++) {
-            if (listaPeliculas[i].id != i) {
+            if (listaPeliculas[i-1].id != i) {
               newId = i;
               break;
             }
@@ -75,13 +75,13 @@ export class AniadirpeliculaComponent {
  * @returns la identificación de la nueva película.
  */
   crearID(): number {
-    const storageLocal = localStorage.getItem('pelicula');
+    const storageLocal = localStorage.getItem('peliculas');
     let newId = 0;
     if (storageLocal != null) {
       let listaPeliculas: Pelicula[] = JSON.parse(storageLocal);
       newId = listaPeliculas.length + 1
       for (let i = 1; i <= listaPeliculas.length; i++) {
-        if (listaPeliculas[i].id != i) {
+        if (listaPeliculas[i-1].id != i) {
           newId = i;
           break;
         }
