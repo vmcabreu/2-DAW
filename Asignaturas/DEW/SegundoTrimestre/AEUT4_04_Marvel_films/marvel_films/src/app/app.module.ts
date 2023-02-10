@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ListaPelisComponent } from './components/lista-pelis/lista-pelis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreccionTituloPipe } from './pipes/coreccion-titulo.pipe';
-import { FaseMarvelPipe } from './pipes/fase-marvel.pipe';
 import { DetallesPelisComponent } from './components/detalles-pelis/detalles-pelis.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,7 +21,6 @@ import { MarvelinfoComponent } from './components/marvelinfo/marvelinfo.componen
     AppComponent,
     ListaPelisComponent,
     CoreccionTituloPipe,
-    FaseMarvelPipe,
     DetallesPelisComponent,
     HeaderComponent,
     FooterComponent,
@@ -30,7 +28,7 @@ import { MarvelinfoComponent } from './components/marvelinfo/marvelinfo.componen
     AniadirpeliculaComponent,
     ModificarpeliculaComponent,
     FaseMarvelDirective,
-    MarvelinfoComponent
+    MarvelinfoComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@
     <input type="text" name="poster" class="form-control m-2" id="poster" placeholder="Enlace de la imagen" value="{{pelicula.poster}}" required>
     <label for="estreno">Fecha de Estreno:</label>
     <input type="text" name="estreno" class="form-control m-2" id="estreno" placeholder="Fecha de Lanzamiento" value="{{pelicula.releaseDate}}" required>
+    <label for="estreno" id="errorFecha"></label>
     <label for="sinopsis">Sinopsis:</label>
     <textarea name="sinopsis" id="sinopsis" class="form-control m-2" cols="30" rows="10"
       placeholder="Sinopsis de la película" required>{{pelicula.description}}</textarea>

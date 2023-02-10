@@ -4,7 +4,6 @@ import { DetallesPeliService } from 'src/app/services/detalles-peli.service';
 import { FaseMarvelDirective } from 'src/app/directivas/fase-marvel.directive';
 import { CoreccionTituloPipe } from 'src/app/pipes/coreccion-titulo.pipe';
 import { SinopsisPipe } from 'src/app/pipes/sinopsis.pipe';
-import { FaseMarvelPipe } from 'src/app/pipes/fase-marvel.pipe';
 import { Mock } from 'src/app/mock/mock.mock';
 import { Route, Router } from '@angular/router';
 

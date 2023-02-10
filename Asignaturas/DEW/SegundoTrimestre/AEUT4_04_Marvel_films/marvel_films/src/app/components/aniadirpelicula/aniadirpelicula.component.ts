@@ -68,12 +68,13 @@ export class AniadirpeliculaComponent {
   //API
 
 
-  /**
- * Comprueba si hay elementos en el almacenamiento local, si los hay, los recorre y verifica si la
- * identificación de cada elemento es igual al índice del bucle, si no lo es, devuelve el índice del
- * bucle como la nueva identificación
- * @returns la identificación de la nueva película.
- */
+ /**
+  * Toma la lista actual de películas del almacenamiento local, verifica si la lista está vacía y, si
+  * no lo está, verifica si la identificación de la última película en la lista es igual a la longitud
+  * de la lista. Si no es así, devuelve el id de la última película de la lista. Si es así, devuelve la
+  * longitud de la lista.
+  * @returns la identificación de la nueva película.
+  */
   crearID(): number {
     const storageLocal = localStorage.getItem('peliculas');
     let newId = 0;

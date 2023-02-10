@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
 import { Mock } from 'src/app/mock/mock.mock';
