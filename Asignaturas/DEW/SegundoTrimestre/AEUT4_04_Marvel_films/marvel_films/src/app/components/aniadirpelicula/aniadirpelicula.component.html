@@ -6,12 +6,13 @@
     <label for="poster">Poster:</label>
     <input type="text" name="poster" class="form-control m-2" id="poster" placeholder="Enlace de la imagen" required>
     <label for="estreno">Fecha de Estreno:</label>
-    <input type="text" name="estreno" class="form-control m-2" id="estreno" placeholder="Fecha de Lanzamiento" required>
+    <input type="text" name="estreno" class="form-control m-2" id="estreno" placeholder="Fecha de Lanzamiento" (change)="validarFecha()" required>
+    <label for="estreno" id="errorFecha"></label><br>
     <label for="sinopsis">Sinopsis:</label>
     <textarea name="sinopsis" id="sinopsis" class="form-control m-2" cols="30" rows="10"
       placeholder="Sinopsis de la película" required></textarea>
     <div class=" d-flex justify-content-center">
-      <button type="submit" class="btn btn-danger m-2 boton_boots">Añadir</button>
+      <button type="submit" id="btneditar" class="btn btn-danger m-2 boton_boots">Añadir</button>
     </div>
   </form>
 </div>
