@@ -20,7 +20,7 @@ export class DetallesPelisComponent implements OnInit {
   constructor(private peliculasService: DetallesPeliService, private router: Router) {
     this.peliculaService = peliculasService;
   }
-
+  
   // Mock
   /**
   ngOnInit() {

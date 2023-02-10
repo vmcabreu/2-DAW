@@ -113,6 +113,25 @@ export class ModificarpeliculaComponent {
     return posicion;
   }
 
+/**
+ * Valida el formato de fecha y si no es correcto muestra un mensaje de error y deshabilita el botón
+ */
+  validarFecha(){
+    let fecha = <HTMLInputElement>document.getElementById("estreno");
+    let error = document.getElementById("errorFecha");
+    let btneditar = <HTMLButtonElement>document.getElementById("btneditar");
+    const regExp = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/2(\d{3})$/
+    if (!regExp.test(fecha.value)) {
+      fecha.classList.add("error");
+      error.innerText = "¡Error! Debe ser formato dd/mm/yyyy"
+      btneditar.disabled = true;
+    }else{
+      fecha.classList.remove("error");
+      error.innerText = ""
+      btneditar.disabled = false;
+    }
+  }
+
 
 }
 
