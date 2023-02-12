@@ -13,9 +13,6 @@ export class ApipeliculaService {
   public tamanio: number = 0;
   constructor(private http: HttpClient) {
   }
-
-
-
   /**
    * Obtiene la duración de la matriz de películas de la API, luego recorre la matriz e inserta cada
    * película en la matriz de películas en el servicio.

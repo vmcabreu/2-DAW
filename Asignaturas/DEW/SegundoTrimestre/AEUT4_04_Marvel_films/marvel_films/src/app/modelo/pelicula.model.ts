@@ -10,6 +10,6 @@ export class Pelicula {
     this.name = nombre;
     this.poster = poster;
     this.releaseDate = releaseDate;
-    this.description = description;
+    this.description = descaription;
   }
 }

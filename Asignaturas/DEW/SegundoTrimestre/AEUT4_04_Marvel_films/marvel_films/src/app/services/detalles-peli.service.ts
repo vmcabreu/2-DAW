@@ -15,8 +15,4 @@ export class DetallesPeliService {
   getDetalles(id: number): Observable<Pelicula> {
     return this.http.get<Pelicula>('https://www.qando.es/docs/films.php?id=' + id)
   }
-
-
-
-
 }

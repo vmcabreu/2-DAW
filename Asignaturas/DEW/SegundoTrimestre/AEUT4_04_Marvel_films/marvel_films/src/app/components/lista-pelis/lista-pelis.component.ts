@@ -56,7 +56,6 @@ export class ListaPelisComponent implements OnInit {
     let data = localStorage.getItem('peliculas')
     if (data == null || data == "null") {
       this.peliculasService.getPeliculas().subscribe((peliculasAPI: Pelicula[]) => this.inicializarPelis(peliculasAPI));
-      //window.location.reload()
     } else {
       this.peliculas = JSON.parse(data);
     }
@@ -89,7 +88,6 @@ export class ListaPelisComponent implements OnInit {
       localStorage.setItem('peliculas', JSON.stringify(peliculasNew))
       this.peliculas = peliculasNew;
     } else {
-      alert("Se ha borrado todas las peliculas, se reiniciará la lista a su estado inicial")
       localStorage.clear();
     }
   }

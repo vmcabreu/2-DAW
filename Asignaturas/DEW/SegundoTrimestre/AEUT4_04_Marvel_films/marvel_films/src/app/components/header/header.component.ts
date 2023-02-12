@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   headerImg: string = "https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg";
-  marvelIMgChulona: string = "https://www.citypng.com/public/uploads/small/11662677356hflyfbdzgjg1clzl2ywgdxok3m06tpialatusjhplxnayelxbnxe9uy1ah9dowegxllxc2lgpezl0qle9ny480m8n9dyiiqsegge.png;"
+  /**
+   * Mock
+  
+  reiniciarStorage(){
+    window.location.reload();
+}
+ */
 
-
+/**
+ * Borra el localStorage y recarga la página
+ */
   reiniciarStorage(){
       localStorage.clear();
       window.location.reload();

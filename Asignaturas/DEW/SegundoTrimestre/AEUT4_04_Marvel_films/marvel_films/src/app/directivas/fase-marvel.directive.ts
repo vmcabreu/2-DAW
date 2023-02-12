@@ -5,11 +5,8 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class FaseMarvelDirective {
   @Input('fecha') fecha: string;
-
   constructor(private el: ElementRef) {
-
   }
-
   /**
    * La función toma la fecha del componente y la divide en una matriz de cadenas, luego toma el año y el
    * mes de la matriz y los asigna a las variables, luego compara el año y el mes con los años y meses de

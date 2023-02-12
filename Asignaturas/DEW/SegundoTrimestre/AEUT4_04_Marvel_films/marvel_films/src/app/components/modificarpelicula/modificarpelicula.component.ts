@@ -62,7 +62,7 @@ export class ModificarpeliculaComponent {
    * películas en localStorage
    * @param {number} id - número: la identificación de la película que se va a modificar.
 */
-  modifyPelicula(id: number) {
+  modifyPeliculas(id: number) {
     let titulo: string = (<HTMLInputElement>document.getElementById("titulo")).value;
     let poster: string = (<HTMLInputElement>document.getElementById("poster")).value;
     let estreno: string = (<HTMLInputElement>document.getElementById("estreno")).value;
