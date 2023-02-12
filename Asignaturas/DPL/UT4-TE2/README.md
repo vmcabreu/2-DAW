@@ -384,8 +384,6 @@ ssh arkania "
 "
 ```
 
-Le damos permisos de ejecución y lo probamos
-
 ## Spring - Aplicación
 
 [Travel Road - Spring](https://spring.travelroad.alu6618.arkania.es/)
@@ -402,43 +400,121 @@ Le damos permisos de ejecución y lo probamos
 
 ## RoR - Instalación
 
-## RoR - Creando Aplicación
-
-## RoR - Lógica de negocio
-
-## RoR - Configuración Nginx
-
-## RoR - Resultados
+Para trabajar con **Ruby on Rails** primero necesitamos el Ruby Version Manager que nos permite gestionar, instalar y trabajar con múltiples entornos de **Ruby**. Nuestro primer paso será añadir las claves GPG y luego lanzar el script de instlación 
 
 ![](screenshots/rubyrails/0.png)
 ![](screenshots/rubyrails/1.png)
+
+Comprobamos que todo ha ido bien lanzando el comando `rvm --version` y si nos muestra la versión entonces ya podemos empezar a instalar **Ruby** usando **RVM**
+
 ![](screenshots/rubyrails/2.png)
-![](screenshots/rubyrails/3.png)
+
+Tras instalar *Ruby* establecemos la versión por defecto y comprobamos la version tanto de Ruby como de **Gem**, el gestor de paquetes
+
 ![](screenshots/rubyrails/4.png)
+
+Ahora mediante Gem, instalamos **Ruby on Rails** y comprobamos la versión para ver si lo hemos instalado con éxito.
+
 ![](screenshots/rubyrails/5.png)
 ![](screenshots/rubyrails/6.png)
+
+Para pasos posteriores tenemos que instalar un par de paquetes en el sistema, en este caso para acceso a base de datos **PostgreSQL**
+
 ![](screenshots/rubyrails/7.png)
+
+## RoR - Creando Aplicación
+
+Ya una vez todo configurado y descargado podemos empezar a crear nuestra aplicación en *RoR*, por lo tanto empezamos creando el andamieaje de nuestro proyecto indicando la base de datos que usaremos.
+
 ![](screenshots/rubyrails/8.png)
+
+Tras la creación debemos borrar *.git* dentro de la carpeta del proyecto ya que para luego subir los cambios a nuestro repositorio, nos daría conflicto. 
+
+Luego configuramos las credenciales para poder acceder a la base de datos.
+
 ![](screenshots/rubyrails/10.png)
+
+Luego probamos que todo funciona lanzando la aplicación con el siguiente comando y luego iremos a nuestro navegador y entraremos a *localhost:3000* ya que es donde nuestra aplicación esta funcionando.
+
 ![](screenshots/rubyrails/11.png)
 ![](screenshots/rubyrails/12.png)
+
+## RoR - Lógica de negocio
+
+Ahora empezaremos a crear la aplicación.
+
+Lo primero que editaremos serán las ruta, lo cual cargará la vista dependiendo en que ruta estemos.
+
 ![](screenshots/rubyrails/13.png)
+
+Luego creamos el modelo mediante la herramienta que nos proporciona *RoR*
+
 ![](screenshots/rubyrails/14.png)
+
+Ahora nuestro siguiente paso será el controlador, nuestro código base será creado, como hicimos anteriormente, mediante las herramientas que nos proporciona *RoR*
+
 ![](screenshots/rubyrails/15.png)
+
+Aquí definimos que consulta realizaremos
+
 ![](screenshots/rubyrails/16.png)
+
+Lo único que nos quedaría sería crear las vistas, tanto para *visited*,*wished* y *index*
+
+### Index
+
 ![](screenshots/rubyrails/17.png)
+
+### Wished
+
 ![](screenshots/rubyrails/18.png)
+
+### Visited
+
 ![](screenshots/rubyrails/19.png)
+
+Una vez creadas las vistas, modificamos el fichero *config/environments/development.rb* y deshabilitamos las migraciones ya que tenemos una base de datos y tabla ya creadas.
+
 ![](screenshots/rubyrails/20.png)
+
+Ahora solo queda probar la aplicación levantando el servidor en desarrollo (`bin/rails server`)
+
 ![](screenshots/rubyrails/21.png)
+
+## RoR - Configuración Nginx
+
+Para conectar Nginx con Ruby on Rails necesitamos el módulo **Passanger**
+
 ![](screenshots/rubyrails/22.png)
+
+Luego instalaremos las dependencias del módulo para el proceso de compilación de después.
+
 ![](screenshots/rubyrails/23.png)
 ![](screenshots/rubyrails/24.png)
+
+Para poder compilar el módulo, descargaremos la versión de Nginx que tengamos instalada en nuestro sistema y compilamos y creamos el módulo.
+
 ![](screenshots/rubyrails/25.png)
+
+Cuando termine nos creará un fichero llamado `ngx_http_passenger_module.so` lo cual copiamos y pegamos en la carpeta donde se cargan los módulos de Nginx y configuramos */etc/nginx/nginx.conf* para que cargue el módulo de **Passanger**
+
 ![](screenshots/rubyrails/26.png)
+
+El siguiente paso será conseguir la ruta raíz del **Passanger** y volvemos a editar el */etc/nginx/nginx.conf* en este caso añadiendo el *passenger_root* dentro del bloque *http{ }*
+
 ![](screenshots/rubyrails/27.png)
+
+Comprobamos la sintaxis de nuestras modificaciones con `sudo nginx -t`, si todo esta correcto procedemos a configurar nuestro host virtual en desarrollo.
+
 ![](screenshots/rubyrails/28.png)
+
+Y por último probar en local si todo ha ido bien
+
 ![](screenshots/rubyrails/29.png)
+
+## RoR - Resultados
+
+Lamentablemente no podremos desplegarla en producción ya que la máquina no tiene la suficiente la capacidad para realizar algunos de los pasos anterior y por lo tanto peta. 
 
 
 # Django
@@ -446,7 +522,6 @@ Le damos permisos de ejecución y lo probamos
 ## Django - Índice
 
 - [Instalación](#django---instalación---instalación)
-- [Creación del Proyecto](#django---creación-del-proyecto)
 - [Código de Aplicación](#django---código-de-aplicación)
 - [Entorno de Producción](#django---entorno-de-producción)
 - [Script Despliegue](#django---script-de-despliegue)
@@ -454,48 +529,152 @@ Le damos permisos de ejecución y lo probamos
 
 ## Django - Instalación
 
-## Django - Creación del proyecto
+Nuestro último framework será **Django**, escrito en **Python**.
+
+Si no tienen **Python** instalado, lo mejor será instalarlo primero para poder seguir, en caso contrario creamos y activamos un entorno virtual para aislar las dependencias de nuestro proyecto.
+
+Para crear el entorno virtual lanzamos el siguiente comando y luego lo activamos:
+
+`python -m venv --prompt travelroad .venv`
+
+![](screenshots/django/0.png)
+
+Una vez activado, instalamos Django mediante el gestor de paquetes **pip** y comprobamos la versión de Django para comprobar que todo se ha instalado con éxito
+
+![](screenshots/django/1.png)               
+![](screenshots/django/2.png)
+
+Creamos nuestro proyecto mediante la herramienta *django-admin* que nos proporciona la creación de la estructura de nuestro proyecto.
+
+![](screenshots/django/3.png)
+
+Como prueba iniciamos el servidor de desarrollo con la herramienta *manage.py* y accedemos al *localhost:8000*.
+
+![](screenshots/django/4.png)
 
 ## Django - Código de aplicación
 
-## Django - Entorno de producción
+Ya que un proyecto en Django esta formado por "aplicaciones", crearemos nuestra aplicación.
 
-## Django - Script de despliegue
-
-## Django - Aplicacion
-
-![](screenshots/django/0.png)
-![](screenshots/django/1.png)               
-![](screenshots/django/2.png)
-![](screenshots/django/3.png)
-![](screenshots/django/4.png)
 ![](screenshots/django/5.png)
+
+Para que Django sea consciente de nuestra aplicación, la añadimos a `main/settings.py`:
+
 ![](screenshots/django/6.png)
+
+Si queremos tener acceso a nuestra base de datos instalaremos un paquete llamado *psycopg* el cual permite conectar Python con PostgreSQL
+
 ![](screenshots/django/7.png)
+
+Añadimos las credenciales para conectar con nuestra base de datos.
+
 ![](screenshots/django/8.png)
+
+Comprobamos que la sintaxis de nuestros cambios fue correcta mediante:
+
 ![](screenshots/django/9.png)
+
+Ahora creamos el modelo de lugares:
+
 ![](screenshots/django/10.png)
+
+Creamos la vista que gestionará las peticiones:
+
 ![](screenshots/django/11.png)
+
+Y a continuación creamos las plantillas de nuestra aplicación:
+
 ![](screenshots/django/12.png)
 ![](screenshots/django/12visited.png)
 ![](screenshots/django/12wished.png)
+
+Para que se muestre estas plantillas, necesitamos vincular cada URL con la vista que la gestionará.
+
 ![](screenshots/django/13.png)
+
+Y ahora enlazamos las URLs desde el fichero principal:
+
 ![](screenshots/django/14.png)
+
+Ahora probamos nuestra aplicación en local para comprobar que todo funciona perfectamente.
+
 ![](screenshots/django/15.png)
 ![](screenshots/django/15visited.png)
 ![](screenshots/django/15wished.png)
+
+Como último paso queremos que las credenciales de la base de datos sea un elemento configurable dependiendo de en que entorno estemos trabajando, por lo tanto instalaremos el paquete *prettyconf*, mediante el comando `pip install prettyconf`, para cargar variables de entorno mediante un fichero de configuración.
+
+Para que el *prettyconf* funcione modificamos el fichero `main/settings.py` de tal manera:
+
+![Alt text](screenshots/django/15.1.png)
+![Alt text](screenshots/django/15.2.png)
+
+## Django - Entorno de producción
+
+En producción pasaremos nuestros cambios desde local mediante un `git pull` evitando que se envie el entorno virtual. Por lo tanto tenemos que crearlo en producción y activarlo. Una vez creado y activado realizamos un *pip install -r* de un archivo de texto que hemos llamado *requirements.txt* el cual debemos añadir todas las dependencias que hemos instalado anteriormente.
+
 ![](screenshots/django/16.png)
+
+Crearemos un archivo *.env* con las credenciales de la base de datos. Este archivo quedara fuera del control de versiones.
+
 ![](screenshots/django/17.png)
+
+Para poder desplegar la aplicación en Django instalamos *gunicorn*, como servidor **WSGI** *(Web Server Gateway Interface)*, y lanzamos un script de gestión que nos permite lanzar el servidor.
+
 ![](screenshots/django/18.png)
+
+Para poder gestionar el servidor WSGI y mantenerlo activo instalaremos un sistema cliente/servidor llamado  **Supervisor**, si todo fue bien buscaremos el servicio de Supervisor mediante *systemctl*
+
 ![](screenshots/django/19.png)
+
+Supervisor viene con la herramienta *supervisorctl*, pero no tendremos los permisos necesarios para usarla:
+
 ![](screenshots/django/20.png)
+
+Por lo tanto añadimos el grupo *supervisor* mediante `sudo groupadd supervisor` y editamos la configuración:
+
 ![](screenshots/django/21.png)
+
+Reiniciamos el servicio para que los cambios se apliquen y añadimos a nuestro usuario al grupo de *supervisor*
+
 ![](screenshots/django/22.png)
+
+Cerraremos sesión y volveremos a entrar para que los cambios surtan efecto y como podemos ver ya tenemos los permisos necesarios para usar la herramienta *supervisorctl*
+
 ![](screenshots/django/23.png)
+
+Luego creamos un script de servicio para levantar *gunicorn*
+
 ![](screenshots/django/24.png)
+
+y creamos la configuración de un proceso supervisor que lance el servicio WSGI para la aplicación Django.
+
 ![](screenshots/django/25.png)
+
+Añadimos este proceso:
+
 ![](screenshots/django/26.png)
+
+Y por último creamos el host virtual de Nginx y probamos la aplicación:
+
 ![](screenshots/django/27.png)
+
+Si todo funciona correctamente usaremos certbot para que nuestra aplicación tenga la certificación:
+
+![](screenshots/django/29.png)
+
+## Django - Script de despliegue
+
+Creamos el script de despliegue:
+
+![](screenshots/django/28.png)
+
+
+## Django - Aplicacion
+
+[Travel Road - Django](https://django.travelroad.alu6618.arkania.es)
+
+
 
 
 ---
