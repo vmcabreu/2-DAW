@@ -1,0 +1,15 @@
+<div class="contenedor">
+  <div *ngFor="let mago of listaMagos">
+    <a routerLink="detalles/{{mago.id}}">
+      <div class="linkHover">
+      <img class="imagen" src="{{mago.image}}">
+      <p>{{mago.name}}</p>
+
+    <ng-container>
+      <p [genero]="mago.gender" appColorGenero>{{mago.gender}}</p>
+    </ng-container>
+    <p>ID: {{mago.id}}</p>
+  </div>
+  </a>
+  </div>
+</div>
