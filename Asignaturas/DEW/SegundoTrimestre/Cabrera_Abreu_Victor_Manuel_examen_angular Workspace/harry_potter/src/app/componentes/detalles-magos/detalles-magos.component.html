@@ -1,0 +1,56 @@
+<div class="contenedor">
+  <div>
+    <h1>{{mago.name}}</h1>
+    <img src="{{mago.image}}">
+  </div>
+  <div>
+    <h2>Nombres alternativos:</h2>
+    <ul *ngFor="let nombres of mago.alternate_names">
+    <li>{{nombres}}</li>
+    </ul>
+    <h2>Especie:</h2>
+    <p>{{mago.species}}</p>
+    <h2>Género:</h2>
+    <ng-container>
+      <p [genero]="mago.gender" appColorGenero>{{mago.gender}}</p>
+    </ng-container>
+    <h2>Casa:</h2>
+    <p>{{mago.house}}</p>
+    <h2>Fecha de Nacimiento:</h2>
+    <p>{{mago.dateOfBirth}}</p>
+    <h2>Año de Nacimiento:</h2>
+    <p>{{mago.yearOfBirth}}</p>
+  </div>
+  <div>
+    <h2>¿Es mago?:</h2>
+    <p>{{mago.wizard}}</p>
+    <h2>Ancestro:</h2>
+    <p>{{mago.ancestry}}</p>
+    <h2>Color de ojos:</h2>
+    <p>{{mago.eyeColour}}</p>
+    <h2>Color del cabello:</h2>
+    <p>{{mago.hairColour}}</p>
+    <h2>Detalles de Varita:</h2>
+    <ul>
+      <li>Madera: {{mago.wand.wood}}</li>
+      <li>Núcleo: {{mago.wand.core}}</li>
+      <li>Longitud: {{mago.wand.length}}</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Patronus:</h2>
+    <p>{{mago.patronus}}</p>
+    <h2>¿Es estudiante de Hogwarts?</h2>
+    <p>{{mago.hogwartsStudent}}</p>
+    <h2>¿Ocupa algún cargo en Hogwarts?</h2>
+    <p>{{mago.hogwartsStaff}}</p>
+    <h2>Actor:</h2>
+    <p>{{mago.actor}}</p>
+    <h2>Otros Actores:</h2>
+    <ul *ngFor="let actores of mago.alternate_actors">
+    <li>{{actores}}</li>
+    </ul>
+    <h2>¿Sigue con vida?</h2>
+    <p>{{mago.alive}}</p>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.linkHover:hover{
+  margin: 0;
+  border: 1px solid rgb(234, 6, 255);
+  background-color: rgb(255, 240, 255);
+}
+
+img.imagen {
+  width: 150px;
+  border-radius: 0.6rem;
+}
