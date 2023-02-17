@@ -21,10 +21,7 @@
                     </div>
                 </div>
             </div>";
-        }
     }
+}
 
-    //$usuarios = DAOProducto::getPaginaProducto();
-
-    $smarty->display("../Vista/login.tpl");
-?>
+$smarty->display("../Vista/login.tpl");
