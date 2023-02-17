@@ -1,7 +1,7 @@
 <?php
 require_once("../Modelo/DAOProducto.php");
 require_once("../Modelo/Carro.php");
-require_once("../../../miSmarty.php");
+require_once("../../../../../../miSmarty.php");
 session_start();
 
 
