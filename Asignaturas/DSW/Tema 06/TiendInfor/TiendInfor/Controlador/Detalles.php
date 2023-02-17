@@ -23,7 +23,3 @@ if (isset($_SESSION['user'])) {
     header('Location: Login.php');
 }
 
-function volverAtras()
-{
-    header("Location: Productos.php");
-}

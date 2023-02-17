@@ -20,10 +20,7 @@ class Ordenador extends Producto
         string $otros = ''
     ) {
         if ($cod != null) {
-            // Le paso al constructor del padre los valores
             parent::__construct($cod, $nombre, $nombre_corto, $descripcion, $PVP, $familia);
-
-            // El resto los inicializo
             $this->procesador = $procesador;
             $this->RAM = (int)$RAM;
             $this->disco = $disco;

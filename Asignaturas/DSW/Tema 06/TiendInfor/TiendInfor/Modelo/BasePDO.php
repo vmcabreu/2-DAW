@@ -2,11 +2,6 @@
     declare(strict_types=1);
     class BasePDO {
         private static $lastAffectedRows;
-        /**
-         * Crea un nuevo objeto MySQLi, que es una clase de PHP que representa una conexión a una base de datos
-         * MySQL.
-         * @return PDO La conexión a la base de datos.
-         */
         public static function getConexion(string $dbname, string $driver, string $user=null, string $pass=null) : PDO {
             try {
                 if ($driver == "mysql") {
@@ -23,36 +18,22 @@
             return $conexion;
         }
 
-        /**
-         * Función que conecta a la base de datos y ejecuta la consulta.
-         * @param string sql La consulta SQL a ejecutar.
-         * @return int | PDOStatement El resultado de la consulta.
-         */
-        public static function consulta(string $sql, $dbname, $driver, $user=null, $pass=null) : PDOStatement | int {
-            // Para evitar el error de "duplicate entry", generamos un try-catch
-            try {                
-                //Comprobamos si la sql pasada por parametro contiene la palabra "SELECT"
-                $conexion = self::getConexion($dbname, $driver, $user, $pass); 
 
+        public static function consulta(string $sql, $dbname, $driver, $user=null, $pass=null) : PDOStatement | int {
+            try {                
+                $conexion = self::getConexion($dbname, $driver, $user, $pass); 
                 if (str_starts_with(strtolower(trim($sql)), "select")) {
-                    $resultado = $conexion->query($sql);    // pDOStatement  
+                    $resultado = $conexion->query($sql);
                 } else {
-                    // En caso contrario, ejecutamos un exec
-                    $resultado = $conexion->exec($sql); // nº filas afectadas
+                    $resultado = $conexion->exec($sql); 
                 }
-                // Cerramos la conexión y devolvemos
-                unset($conexion); // Cerrar la conexion
+                unset($conexion);
                 return $resultado;
             } catch (Exception $ex) {
-                // throw new Exception("Error en la consulta.");
                 die("Error en la consulta. ".$ex->getMessage());
             }
         }
 
-        /**
-         * Devuelve el número de filas afectadas por la última consulta
-         * @return int El número de filas afectadas por la última instrucción SQL.
-         */
         public static function getLastAffectedRows() : int {
             return self::$lastAffectedRows;
         }
