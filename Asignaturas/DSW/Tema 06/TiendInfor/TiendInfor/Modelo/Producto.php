@@ -24,11 +24,9 @@
             return $this->atributos[$atributo];
         }
 
-        // Metodos factory, por si llamamos a fetch_assoc o fetch
         public static function getProdFromAssoc(array $datosProd) : Producto {
             $p = new Producto();
             foreach ($datosProd as $atributo => $valor) {
-            // haciendo esto llamo al __set entonces asi puedo asignar
                 $p->$atributo = $valor;
             }
             return $p;

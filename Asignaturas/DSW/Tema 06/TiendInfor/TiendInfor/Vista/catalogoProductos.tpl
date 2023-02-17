@@ -119,7 +119,6 @@
                         </div>
                     </form>
                 {/foreach}
-                {* imprimimos el total del carrito *}
                 <hr>
                 <p class="h5 text-end"><strong>TOTAL</strong>: {$carro -> getCosteTotal()} €</p>
                 <hr>

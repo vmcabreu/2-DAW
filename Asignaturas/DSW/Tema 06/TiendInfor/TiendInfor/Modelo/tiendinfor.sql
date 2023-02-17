@@ -1,11 +1,9 @@
--- Creamos la base de datos
 DROP DATABASE IF EXISTS tiendinfor;
 CREATE DATABASE tiendinfor DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
 CREATE USER IF NOT EXISTS tiendinfor@localhost IDENTIFIED BY 'tiendinfor2023';
 GRANT ALL ON tiendinfor.* TO 'tiendinfor'@'localhost';
 use tiendinfor;
 
--- Creamos las tablas
 CREATE TABLE tienda (
 	cod INT NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(100) NOT NULL,
@@ -59,9 +57,6 @@ CREATE TABLE IF NOT EXISTS ordenador (
 	PRIMARY KEY (codProd)
 ) ENGINE=InnoDB;
 
-
--- Insertamos datos
-
 INSERT INTO `familia` (`cod`, `nombre`) VALUES
 ('CAMARA', 'Cámaras digitales'),
 ('CONSOL', 'Consolas'),
@@ -78,7 +73,7 @@ INSERT INTO `familia` (`cod`, `nombre`) VALUES
 ('SOFTWA', 'Software'),
 ('TV', 'Televisores'),
 ('VIDEOC', 'Videocámaras');
--- --------------------------------------------------------
+
 INSERT INTO `producto` (`cod`, `nombre`, `nombre_corto`, `descripcion`, `PVP`, `familia`) VALUES
 ('3DSNG', NULL, 'Nintendo 3DS negro', 'Consola portátil de Nintendo que permitirá disfrutar de efectos 3D sin necesidad de gafas especiales, e incluirá retrocompatibilidad con el software de DS y de DSi.', '270.00', 'CONSOL'),
 ('ACERAX3950', NULL, 'Acer AX3950 I5-650 4GB 1TB W7HP', 'Características:\r\n\r\nSistema Operativo : Windows® 7 Home Premium Original\r\n\r\nProcesador / Chipset\r\nNúmero de Ranuras PCI: 1\r\nFabricante de Procesador: Intel\r\nTipo de Procesador: Core i5\r\nModelo de Procesador: i5-650\r\nNúcleo de Procesador: Dual-core\r\nVelocidad de Procesador: 3,20 GHz\r\nCaché: 4 MB\r\nVelocidad de Bus: No aplicable\r\nVelocidad HyperTransport: No aplicable\r\nInterconexión QuickPathNo aplicable\r\nProcesamiento de 64 bits: Sí\r\nHyper-ThreadingSí\r\nFabricante de Chipset: Intel\r\nModelo de Chipset: H57 Express\r\n\r\nMemoria\r\nMemoria Estándar: 4 GB\r\nMemoria Máxima: 8 GB\r\nTecnología de la Memoria: DDR3 SDRAM\r\nEstándar de Memoria: DDR3-1333/PC3-10600\r\nNúmero de Ranuras de Memoria (Total): 4\r\nLector de tarjeta memoria: Sí\r\nSoporte de Tarjeta de Memoria: Tarjeta CompactFlash (CF)\r\nSoporte de Tarjeta de Memoria: MultiMediaCard (MMC)\r\nSoporte de Tarjeta de Memoria: Micro Drive\r\nSoporte de Tarjeta de Memoria: Memory Stick PRO\r\nSoporte de Tarjeta de Memoria: Memory Stick\r\nSoporte de Tarjeta de Memoria: CF+\r\nSoporte de Tarjeta de Memoria: Tarjeta Secure Digital (SD)\r\n\r\nStorage\r\nCapcidad Total del Disco Duro: 1 TB\r\nRPM de Disco Duro: 5400\r\nTipo de Unidad Óptica: Grabadora DVD\r\nCompatibilidad de Dispositivo Óptico: DVD-RAM/±R/±RW\r\nCompatibilidad de Medios de Doble Capa: Sí', '410.00', 'ORDENA'),
@@ -106,12 +101,12 @@ INSERT INTO `producto` (`cod`, `nombre`, `nombre_corto`, `descripcion`, `PVP`, `
 ('STYLUSSX515W', NULL, 'Epson Stylus SX515W', 'Características:\r\n\r\nResolución máxima5760 x 1440 DPI\r\nVelocidad de la impresión\r\nVelocidad de impresión (negro, calidad normal, A4)36 ppm\r\nVelocidad de impresión (color, calidad normal, A4)36 ppm\r\n\r\nTecnología de la impresión\r\nTecnología de impresión inyección de tinta\r\nNúmero de cartuchos de impresión4 piezas\r\nCabeza de impresoraMicro Piezo\r\n\r\nExploración\r\nResolución máxima de escaneado2400 x 2400 DPI\r\nEscaner color: si\r\nTipo de digitalización Escáner plano\r\nEscanaer integrado: si\r\nTecnología de exploración CIS\r\nWLAN, conexión: si', '77.50', 'MULTIF'),
 ('TSSD16GBC10J', NULL, 'Toshiba SD16GB Class10 Jewel Case', 'Características:\r\n\r\nDensidad: 16 GB\r\nPINs de conexión: 9 pins\r\nInterfaz: Tarjeta de memoria SD standard compatible\r\nVelocidad de Escritura: 20 MBytes/s* \r\nVelocidad de Lectura: 20 MBytes/s*\r\nDimensiones: 32.0 mm (L) × 24.0 mm (W) × 2.1 mm (H)\r\nPeso: 2g\r\nTemperatura: -25°C a +85°C (Recomendada)\r\nHumedad: 30% to 80% RH (sin condensación)', '32.60', 'MEMFLA'),
 ('ZENMP48GB300', NULL, 'Creative Zen MP4 8GB Style 300', 'Características:\r\n\r\n8 GB de capacidad\r\nAutonomía: 32 horas con archivos MP3 a 128 kbps\r\nPantalla TFT de 1,8 pulgadas y 64.000 colores\r\nFormatos de audio compatibles: MP3, WMA (DRM9), formato Audible 4\r\nFormatos de foto compatibles: JPEG (BMP, TIFF, GIF y PNG\r\nFormatos de vídeo compatibles: AVI transcodificado (Motion JPEG)\r\nEcualizador de 5 bandas con 8 preajustes\r\nMicrófono integrado para grabar voz\r\nAltavoz y radio FM incorporada', '58.90', 'MP3');
--- --------------------------------------
+
 INSERT INTO `tienda` (`cod`, `nombre`, `tlf`) VALUES
 (1, 'CENTRAL', '600100100'),
 (2, 'SUCURSAL1', '600100200'),
 (3, 'SUCURSAL2', NULL);
--- --------------------------------------------------------
+
 INSERT INTO `stock` (`producto`, `tienda`, `unidades`) VALUES
 ('3DSNG', 1, 1),
 ('3DSNG', 2, 1),
@@ -154,7 +149,7 @@ INSERT INTO `stock` (`producto`, `tienda`, `unidades`) VALUES
 ('ZENMP48GB300', 2, 2),
 ('ZENMP48GB300', 3, 2);
 
--- --------------------------------------------------------
+
 -- usuario: pepe, 123456; luisa, 123456
 INSERT INTO `usuarios` (`usuario`, `contrasena`) VALUES
 ('pepe', '$2y$10$OnQaCcA/jAcDIp2BpO.e3.GnEqBCgjWNmTVF8lMFBdlmAtLP3JVJG'),

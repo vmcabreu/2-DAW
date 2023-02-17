@@ -65,7 +65,7 @@
                 </tr>
             {/foreach}
                 <tr>
-                    <td colspan="2" class="text-center"><button class="btn btn-primary btn-sm" onclick="history.back();">Volver atrás</button></td>
+                    <td colspan="2" class="text-center"><button class="btn btn-primary btn-sm" onclick="volverAtras();">Volver atrás</button></td>
                 </tr>
             </table>
             </div>
