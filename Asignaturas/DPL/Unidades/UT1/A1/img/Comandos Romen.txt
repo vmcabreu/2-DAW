@@ -1,0 +1,19 @@
+  104  git branch custom-text
+  105  git status
+  106  git branch
+  107  git switch custom-text
+  108  git add index.html
+  109  git restore
+  110  git restore .
+  111  git add index.html
+  112  git commit -m "Cambios en el index.html"
+  113  git push
+  114  git push --set-upstream origin custom-text
+  115  git status
+  116  git switch cool-colors
+  117  git switch -c cool-colors
+  118  git add cover.css
+  119  git push
+  120  git push --set-upstream origin cool-colors
+  121  git commit -m "Cambios en cover.css"
+  122  git push
