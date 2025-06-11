@@ -1,0 +1,6 @@
+block content
+  h1= "Places I've Already Been To"
+  ul
+    each place in visited
+      li= place.name
+  a(href="/") ← Back home
